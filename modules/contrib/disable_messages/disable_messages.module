@@ -108,7 +108,7 @@ function disable_messages_apply_filters($messages) {
     $filter_paths = explode("\n", \Drupal::config('disable_messages.settings')->get('disable_messages_page_filter_paths'));
     $current_url = Url::fromRoute('<current>');
     $internal_path = disable_messages_remove_white_space($current_url->getInternalPath());
-    $path = \Drupal::service('path.alias_manager')->getPathByAlias(($internal_path));
+    $path = \Drupal::service('path_alias.manager')->getPathByAlias(($internal_path));
     $page_match = disable_messages_path_match($filter_paths, $path);
     if ($path != $internal_path) {
       $page_match = $page_match ||  disable_messages_path_match($filter_paths, $internal_path);

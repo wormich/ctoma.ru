@@ -36,7 +36,7 @@ class MoreFormatter extends EntityReferenceLabelFormatter {
       // link.
       if ($output_as_link && !$entity->isNew()) {
         try {
-          $uri = $entity->urlInfo();
+          $uri = $entity->toUrl();
         }
         catch (UndefinedLinkTemplateException $e) {
           // This exception is thrown by \Drupal\Core\Entity\Entity::urlInfo()
@@ -73,7 +73,7 @@ class MoreFormatter extends EntityReferenceLabelFormatter {
       array_splice($elements, 3);
 
       $nid = $items->getParent()->getValue()->nid->value;
-      $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+      $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
 
       $elements[4] = [
         '#type' => 'markup',

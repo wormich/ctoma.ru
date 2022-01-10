@@ -221,7 +221,7 @@ abstract class RulesIntegrationTestBase extends UnitTestCase {
     $container->set('entity_field.manager', $this->entityFieldManager->reveal());
     $container->set('entity_type.bundle.info', $this->entityTypeBundleInfo->reveal());
     $container->set('context.repository', new LazyContextRepository($container, []));
-    $container->set('path.alias_manager', $this->aliasManager->reveal());
+    $container->set('path_alias.manager', $this->aliasManager->reveal());
     $container->set('plugin.manager.rules_action', $this->actionManager);
     $container->set('plugin.manager.condition', $this->conditionManager);
     $container->set('plugin.manager.rules_expression', $this->rulesExpressionManager);

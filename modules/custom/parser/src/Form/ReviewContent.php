@@ -108,7 +108,7 @@ class ReviewContent extends FormBase {
       $url_doctor = substr($link->item(0)->nodeValue, 0, -1);
     }
     if($url_doctor){
-      $path = \Drupal::service('path.alias_manager')->getPathByAlias($url_doctor);
+      $path = \Drupal::service('path_alias.manager')->getPathByAlias($url_doctor);
       if(preg_match('/node\/(\d+)/', $path, $matches)) {
         $nid = $matches[1];
         $node->set('field_vrac', $nid);
