@@ -1,0 +1,31 @@
+<div class="menuNormPage">
+                <div class="photo-stomatolog-article">
+                  <a href="{{node.field_ssylka_na_stranicu_vraca.0.value}}"><img src="">123123</a>
+                </div>
+{% for item in items %}
+
+ 
+  {{ item.id }}  {{ item.content.field_dolznost.value  }}
+  
+    <div class="name-stomatolog-article"> {{ item.content['#title'] }}</div>
+                <div class="specialnost-article">{{ item.field_dolznost.0.value }}</div>
+  
+  
+  
+  
+{% endfor %}
+              
+              </div>
+              
+              
+              
+              
+              
+              
+                                 <div class="menuNormPage">
+	<div class="photo-stomatolog-article">
+		<a href="{{ content.field_vrac.0['#url'] }}"><img src="https://i.ibb.co/ZhHQ29R/krug.jpg" alt="{{ content.field_vrac.0['#title'] }}"></a>
+	</div>
+    <div class="name-stomatolog-article">{{ content.field_vrac.0['#title'] }}</div>
+    <div class="specialnost-article">{{ content.field_vrac.0.field_dolznost.value }}</div>
+    </div>

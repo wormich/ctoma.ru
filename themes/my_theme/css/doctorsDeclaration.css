@@ -1,0 +1,768 @@
+/* line 2, ../bem/blocks/doctors/_defaul.scss */
+.doctors__container {
+  background: url("/themes/my_theme/bem/blocks/doctors/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+/* line 7, ../bem/blocks/doctors/_defaul.scss */
+.doctors__title {
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 7, ../bem/blocks/doctors/_defaul.scss */
+  .doctors__title {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 7, ../bem/blocks/doctors/_defaul.scss */
+  .doctors__title {
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 7, ../bem/blocks/doctors/_defaul.scss */
+  .doctors__title {
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+}
+
+/* line 1, ../bem/blocks/viewDoctors/_default.scss */
+.viewDoctors {
+  padding: 25px 0;
+}
+/* line 3, ../bem/blocks/viewDoctors/_default.scss */
+.viewDoctors__title {
+  margin: 50px 0 30px;
+  font-size: 35px;
+  line-height: 1em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0;
+}
+/* line 11, ../bem/blocks/viewDoctors/_default.scss */
+.viewDoctors__content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+/* line 16, ../bem/blocks/viewDoctors/_default.scss */
+.viewDoctors__row {
+  margin-bottom: 20px;
+  display: -webkit-flex;
+  display: flex;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-flex-basis: 33.3333333%;
+  flex-basis: 33.3333333%;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 16, ../bem/blocks/viewDoctors/_default.scss */
+  .viewDoctors__row {
+    -webkit-flex-basis: 50%;
+    flex-basis: 50%;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 16, ../bem/blocks/viewDoctors/_default.scss */
+  .viewDoctors__row {
+    -webkit-flex-basis: 50%;
+    flex-basis: 50%;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 16, ../bem/blocks/viewDoctors/_default.scss */
+  .viewDoctors__row {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+  }
+}
+/* line 34, ../bem/blocks/viewDoctors/_default.scss */
+.viewDoctors__row article {
+  width: 100%;
+}
+
+/* line 1, ../bem/blocks/doctorShort/_default.scss */
+.doctorShort {
+  text-align: center;
+}
+/* line 5, ../bem/blocks/doctorShort/_default.scss */
+.doctorShort__photo img {
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #eee;
+}
+/* line 13, ../bem/blocks/doctorShort/_default.scss */
+.doctorShort__title {
+  margin: 20px 0 5px;
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+/* line 18, ../bem/blocks/doctorShort/_default.scss */
+.doctorShort__title a {
+  font-weight: bold;
+  color: #343434;
+  text-decoration: none;
+}
+/* line 22, ../bem/blocks/doctorShort/_default.scss */
+.doctorShort__title a:hover {
+  color: #0cab8d;
+}
+/* line 27, ../bem/blocks/doctorShort/_default.scss */
+.doctorShort__dolznost {
+  margin-bottom: 5px;
+}
+/* line 31, ../bem/blocks/doctorShort/_default.scss */
+.doctorShort__more a {
+  text-decoration: none;
+  color: #0cab8d;
+}
+/* line 34, ../bem/blocks/doctorShort/_default.scss */
+.doctorShort__more a:hover {
+  color: #343434;
+}
+/* line 44, ../bem/blocks/doctorShort/_default.scss */
+.doctorShort:hover__photo img {
+  box-shadow: 0 14px 45px rgba(12, 171, 141, 0.25);
+  -moz-box-shadow: 0 14px 45px rgba(12, 171, 141, 0.25);
+  -webkit-box-shadow: 0 14px 45px rgba(12, 171, 141, 0.25);
+}
+
+/* line 4, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter {
+  display: block;
+  display: -webkit-flex;
+  display: flex;
+  padding-bottom: 50px;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/* line 10, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__clinic {
+  display: block;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #727272;
+  font-weight: bold;
+  font-family: "ralewayregular", sans-serif;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* line 23, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__clinic:hover {
+  color: #ca1e3e;
+}
+/* line 26, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__clinic.active {
+  color: #d82043;
+}
+/* line 31, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__left {
+  display: block;
+  -webkit-flex-basis: 50%;
+  flex-basis: 50%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 31, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__left {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 31, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__left {
+    display: none;
+    -webkit-flex: auto;
+    flex: auto;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 31, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__left {
+    display: none;
+    -webkit-flex: auto;
+    flex: auto;
+  }
+}
+/* line 49, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__right {
+  display: block;
+  -webkit-flex-basis: 50%;
+  flex-basis: 50%;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 49, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__right {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: auto;
+    flex: auto;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 49, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__right {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: auto;
+    flex: auto;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 49, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__right {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: auto;
+    flex: auto;
+  }
+}
+/* line 67, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__baner {
+  display: block;
+  -webkit-flex-basis: 100%;
+  flex-basis: 100%;
+  -webkit-flex: auto;
+  flex: auto;
+  padding-top: 50px;
+}
+/* line 74, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__spec {
+  display: block;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #727272;
+  font-weight: bold;
+  font-family: "ralewayregular", sans-serif;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* line 87, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__spec:hover {
+  color: #ca1e3e;
+}
+/* line 90, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__spec.active {
+  color: #d82043;
+}
+/* line 94, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__selectClinik {
+  -webkit-flex-basis: 260px;
+  flex-basis: 260px;
+  -moz-box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  background: white;
+  padding-bottom: 15px;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 94, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__selectClinik {
+    -webkit-flex-basis: 210px;
+    flex-basis: 210px;
+  }
+}
+/* line 104, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__selectClinik label {
+  margin-bottom: 15px;
+  background: #d82043;
+  color: white;
+  font-weight: bold;
+  height: 50px;
+  padding-left: 20px;
+  display: block;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding-top: 17px;
+  font-family: "ralewayregular", sans-serif;
+  text-transform: uppercase;
+}
+/* line 121, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__photo {
+  padding-right: 10px;
+}
+/* line 123, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__photo img {
+  width: 165px;
+  height: 165px;
+  display: block;
+  -moz-box-shadow: 2px 3.464px 3.6px 0.4px rgba(0, 0, 0, 0.09);
+  -webkit-box-shadow: 2px 3.464px 3.6px 0.4px rgba(0, 0, 0, 0.09);
+  box-shadow: 2px 3.464px 3.6px 0.4px rgba(0, 0, 0, 0.09);
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 123, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__photo img {
+    width: 80px;
+    height: 80px;
+  }
+}
+/* line 136, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__mobileFilter {
+  display: none;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px 0;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 136, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__mobileFilter {
+    display: block;
+    display: -webkit-flex;
+    display: flex;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 136, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__mobileFilter {
+    display: block;
+    display: -webkit-flex;
+    display: flex;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 136, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__mobileFilter {
+    display: block;
+    display: -webkit-flex;
+    display: flex;
+  }
+}
+/* line 157, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__mobileFilter select {
+  margin-bottom: 10px;
+  -webkit-flex-basis: 49%;
+  flex-basis: 49%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  font-size: 12px;
+  font-weight: bold;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 10px 30px 10px 12px;
+  outline: none;
+  width: 100%;
+  background: #f6f6f6 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAflBMVEVHcEzYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEP80T9/AAAAKXRSTlMAE0A4/YoH1wX7fo1O+MwM0jU9nuaQ2OIssFWXoie86KUQW4VlG+xzYODF1uMAAAFiSURBVHhe7dHbjoIwEIBhrUBpASyAHAXB87z/C2526GxjqvVur5gb06Z/Pks3/zHrrLNl124I3WfCobuyLa1u52JsZeZswky2Y3G+Lauha+8iUbJxNGEjVSLubTfg8jGdAECkMvucZDIVAFBOD1yOJfxOksomeB8EjUwTPFSPuFEBUPPByaiAROFGWwnAEeTYBp1QR9w6+9zlBPmFDOCXbnmV/MCFaebXYmYXpQvBD7l+mf3OOKqPcZdmGxf8z/B3e9oPjQOnAhtTnMAY+HKWA/WEjS6mGmyDHEVOiY42SjIUGW+dEh00SstwOW6DnMqj5hjPc3ykwqu0YTks4uTU/fPZ12TwiGnDcjKfa0fUaVoLbXA/M4btUAP0Cx4ZnxzTmGIxHI56aTyFhmuCXYTfjYoq2gWbLxOw5RvQzRkVbgcbLCzD4ViGe0K8D96Dbv7dyX0OwP3cMhwN6znvrX+1zjo/Wlk/YhFeGAEAAAAASUVORK5CYII=');
+  background-position: 98% center;
+  background-size: 14px 14px;
+  background-repeat: no-repeat;
+  border: 1px solid #dedede;
+  color: #464646;
+  cursor: pointer;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 157, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__mobileFilter select {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: auto;
+    flex: auto;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 157, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__mobileFilter select {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: auto;
+    flex: auto;
+  }
+}
+/* line 183, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__mobileFilter select:hover {
+  background: #ececec url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAflBMVEVHcEzYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEP80T9/AAAAKXRSTlMAE0A4/YoH1wX7fo1O+MwM0jU9nuaQ2OIssFWXoie86KUQW4VlG+xzYODF1uMAAAFiSURBVHhe7dHbjoIwEIBhrUBpASyAHAXB87z/C2526GxjqvVur5gb06Z/Pks3/zHrrLNl124I3WfCobuyLa1u52JsZeZswky2Y3G+Lauha+8iUbJxNGEjVSLubTfg8jGdAECkMvucZDIVAFBOD1yOJfxOksomeB8EjUwTPFSPuFEBUPPByaiAROFGWwnAEeTYBp1QR9w6+9zlBPmFDOCXbnmV/MCFaebXYmYXpQvBD7l+mf3OOKqPcZdmGxf8z/B3e9oPjQOnAhtTnMAY+HKWA/WEjS6mGmyDHEVOiY42SjIUGW+dEh00SstwOW6DnMqj5hjPc3ykwqu0YTks4uTU/fPZ12TwiGnDcjKfa0fUaVoLbXA/M4btUAP0Cx4ZnxzTmGIxHI56aTyFhmuCXYTfjYoq2gWbLxOw5RvQzRkVbgcbLCzD4ViGe0K8D96Dbv7dyX0OwP3cMhwN6znvrX+1zjo/Wlk/YhFeGAEAAAAASUVORK5CYII=');
+  background-position: 98% center;
+  background-size: 14px 14px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+/* line 190, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__mobileFilter select:active {
+  background: #ececec url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAflBMVEVHcEzYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEP80T9/AAAAKXRSTlMAE0A4/YoH1wX7fo1O+MwM0jU9nuaQ2OIssFWXoie86KUQW4VlG+xzYODF1uMAAAFiSURBVHhe7dHbjoIwEIBhrUBpASyAHAXB87z/C2526GxjqvVur5gb06Z/Pks3/zHrrLNl124I3WfCobuyLa1u52JsZeZswky2Y3G+Lauha+8iUbJxNGEjVSLubTfg8jGdAECkMvucZDIVAFBOD1yOJfxOksomeB8EjUwTPFSPuFEBUPPByaiAROFGWwnAEeTYBp1QR9w6+9zlBPmFDOCXbnmV/MCFaebXYmYXpQvBD7l+mf3OOKqPcZdmGxf8z/B3e9oPjQOnAhtTnMAY+HKWA/WEjS6mGmyDHEVOiY42SjIUGW+dEh00SstwOW6DnMqj5hjPc3ykwqu0YTks4uTU/fPZ12TwiGnDcjKfa0fUaVoLbXA/M4btUAP0Cx4ZnxzTmGIxHI56aTyFhmuCXYTfjYoq2gWbLxOw5RvQzRkVbgcbLCzD4ViGe0K8D96Dbv7dyX0OwP3cMhwN6znvrX+1zjo/Wlk/YhFeGAEAAAAASUVORK5CYII=');
+  background-position: 98% center;
+  background-size: 14px 14px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 157, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__mobileFilter select {
+    font-size: 16px;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 157, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__mobileFilter select {
+    font-size: 16px;
+    width: 100%;
+  }
+}
+/* line 208, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__info {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+/* line 214, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__title a {
+  font-size: 14px;
+  text-decoration: none;
+  font-family: "ralewayregular", sans-serif;
+  color: #d82043;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 4px;
+}
+/* line 226, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__position {
+  color: #868686;
+  font-size: 13px;
+  display: block;
+  -webkit-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+/* line 233, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__work label {
+  font-size: 11px;
+  font-family: "ralewayregular", sans-serif;
+  color: #595959;
+  font-weight: bold;
+}
+/* line 239, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__work span {
+  font-size: 11px;
+  color: #868686;
+  font-family: "ralewayregular", sans-serif;
+}
+/* line 244, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__work a {
+  font-size: 11px;
+  color: #868686;
+  font-family: "ralewayregular", sans-serif;
+}
+/* line 249, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__work a:hover {
+  color: #209dc1;
+}
+/* line 254, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__action {
+  margin-top: 10px;
+  text-align: center;
+  display: block;
+  position: relative;
+}
+/* line 260, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__action .ajax-progress-throbber {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  padding: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+  background: #ffffff;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* line 271, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__action .ajax-progress-throbber .throbber {
+  opacity: 0.5;
+  background-image: url("../bem/blocks/doctorsFilter/img/preloader.gif");
+  background-repeat: no-repeat;
+  background-size: 32px 8.5px;
+  width: 32px;
+  height: 8.5px;
+  padding: 0;
+  margin: auto;
+  display: block;
+  height: 100%;
+}
+/* line 282, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__preloader {
+  margin: auto;
+  padding: 150px 0;
+  opacity: 0.3;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 282, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__preloader {
+    padding: 20px 0;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 282, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__preloader {
+    padding: 20px 0;
+  }
+}
+/* line 294, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__doctor {
+  display: -webkit-flex;
+  display: flex;
+  background: white;
+  padding: 15px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 294, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__doctor {
+    -webkit-flex-basis: 49%;
+    flex-basis: 49%;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 294, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__doctor {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: auto;
+    flex: auto;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 294, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__doctor {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: auto;
+    flex: auto;
+  }
+}
+/* line 315, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__selectSpec {
+  -webkit-flex-basis: 210px;
+  flex-basis: 210px;
+  border-left: none;
+  background: white;
+  -moz-box-shadow: inset 30px 3.464px 36px -24px rgba(0, 0, 0, 0.06), 8px 3.464px 36px 0px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: inset 30px 3.464px 36px -24px rgba(0, 0, 0, 0.06), 8px 3.464px 36px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: inset 30px 3.464px 36px -24px rgba(0, 0, 0, 0.06), 8px 3.464px 36px 0px rgba(0, 0, 0, 0.06);
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 315, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__selectSpec {
+    -webkit-flex-basis: 210px;
+    flex-basis: 210px;
+  }
+}
+/* line 325, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__selectSpec label {
+  background: #d82043;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 15px;
+  height: 50px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-top: 7px;
+  display: block;
+  font-size: 16px;
+  font-family: "ralewayregular", sans-serif;
+  text-transform: uppercase;
+}
+/* line 340, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__selectDoctor {
+  -webkit-flex: 1 0;
+  flex: 1 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 340, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__selectDoctor {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+}
+/* line 356, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__info {
+  -webkit-flex: 1 0;
+  flex: 1 0;
+}
+/* line 359, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__info span {
+  display: block;
+}
+/* line 363, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__pagination {
+  padding-top: 20px;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-flex-basis: 100%;
+  flex-basis: 100%;
+  -webkit-flex: auto;
+  flex: auto;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 363, ../bem/blocks/doctorsFilter/_default.scss */
+  .doctorsFilter__pagination {
+    -webkit-flex-basis: 49%;
+    flex-basis: 49%;
+  }
+}
+/* line 373, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__paginNext {
+  max-width: 160px;
+  border-top: 2px solid #d82043;
+  padding: 8px 0;
+  margin-bottom: 10px;
+  display: block;
+  cursor: pointer;
+  color: #d82043;
+}
+/* line 382, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__paginNext.no_active {
+  border-top: 2px solid #d82043;
+  color: #525252;
+  cursor: default;
+}
+/* line 386, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__paginNext.no_active:hover {
+  border-top: 2px solid #d82043;
+  color: #525252;
+}
+/* line 392, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__paginNext:hover {
+  border-top: 2px solid #d82043;
+  color: #c11d3c;
+}
+/* line 397, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__pagins {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* line 400, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__pagin {
+  cursor: pointer;
+  padding: 5px 20px 5px 0;
+  margin-right: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-family: "pantonregular", sans-serif;
+  color: #525252;
+  font-weight: bold;
+}
+/* line 410, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__pagin:hover {
+  color: #d82043;
+}
+/* line 414, ../bem/blocks/doctorsFilter/_default.scss */
+.doctorsFilter__pagin.active {
+  color: #c21d3c;
+}
+
+/* line 1, ../bem/blocks/makeImg/_default.scss */
+.makeImg {
+  width: 325px;
+  height: 325px;
+  background: url("../bem/blocks/makeImg/img/zapis_img.jpg") no-repeat center center;
+  -moz-box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+/* line 10, ../bem/blocks/makeImg/_default.scss */
+.makeImg__text {
+  -webkit-flex: 1 0 auto;
+  flex: 1 0 auto;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  padding: 80px 120px 20px 30px;
+}
+/* line 16, ../bem/blocks/makeImg/_default.scss */
+.makeImg__text1 {
+  display: block;
+  font-size: 15px;
+  font-family: "ralewayregular", sans-serif;
+  color: #d82043;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+/* line 26, ../bem/blocks/makeImg/_default.scss */
+.makeImg__text2 {
+  display: block;
+  font-size: 11px;
+  font-family: "ralewayregular", sans-serif;
+  color: #777777;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+/* line 35, ../bem/blocks/makeImg/_default.scss */
+.makeImg__actions {
+  text-align: center;
+  -webkit-flex-basis: 100px;
+  flex-basis: 100px;
+  display: -webkit-flex;
+  display: flex;
+}
+/* line 40, ../bem/blocks/makeImg/_default.scss */
+.makeImg__button {
+  margin: auto;
+}

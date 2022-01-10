@@ -1,0 +1,38 @@
+.notLocal {
+  //background: #fff;
+  padding: 25px 0;
+  &__content {
+    @include display-flex();
+    @include justify-content(space-between);
+    @include align-items(center);
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+  }
+  &__left,
+  &__right {
+    margin-bottom: 20px;
+    @include flex-basis(49%);
+    @include respond-to(tablet) {
+      @include flex-basis(100%);
+    }
+    @include respond-to(phone) {
+      @include flex-basis(100%);
+    }
+    @include respond-to(min-phone) {
+      @include flex-basis(100%);
+    }
+  }
+  ul {
+    list-style-position: inside;
+  }
+  &__title {
+    text-align: center;
+    margin-bottom: 0px;
+    font-weight: 400;
+    display: block;
+    font-size: 20px;
+  }
+  &__text {
+    padding: 20px;
+  }
+}

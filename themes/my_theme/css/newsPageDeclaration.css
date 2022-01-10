@@ -1,0 +1,28 @@
+/* line 2, ../bem/blocks/newsPage/_default.scss */
+.newsPage__container {
+  background: url("/themes/my_theme/bem/blocks/newsPage/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+/* line 1, ../bem/blocks/newsPageDefault/_default.scss */
+.newsPageDefault {
+  display: -webkit-flex;
+  display: flex;
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 1, ../bem/blocks/newsPageDefault/_default.scss */
+  .newsPageDefault {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+/* line 9, ../bem/blocks/newsPageDefault/_default.scss */
+.newsPageDefault__img {
+  max-width: 300px;
+}
+/* line 11, ../bem/blocks/newsPageDefault/_default.scss */
+.newsPageDefault__img img {
+  width: 100%;
+  height: auto;
+}

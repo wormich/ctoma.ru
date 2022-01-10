@@ -1,0 +1,50 @@
+.button {
+  &_red {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    background-color: rgb(216, 32, 67);
+    @include box-shadow(2px 3.464px 2.88px 0.12px rgba(0, 0, 0, 0.09));
+    padding: 10px 20px;
+    margin-right: 10px;
+    @include border-radius(30px);
+    text-transform: uppercase;
+    border: none;
+    @include user-select(none);
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(193, 29, 60);
+    }
+    &:active {
+      @include box-shadow(none);
+      background-color: rgb(176, 26, 55);
+    }
+  }
+
+  &_blue {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
+    @include border-radius(30px);
+    text-transform: uppercase;
+    border: none;
+    @include user-select(none);
+    outline: none;
+    cursor: pointer;
+
+    background: #57aace;
+    @include background-image(linear-gradient(#57aace, #509cc7));
+    &:hover {
+      @include background-image(linear-gradient(#4e98b8, #4688ad));
+    }
+    &:active {
+      @include background-image(linear-gradient(#3d7790, #366986));
+    }
+  }
+}

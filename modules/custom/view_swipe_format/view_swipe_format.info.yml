@@ -1,0 +1,6 @@
+name: 'Add format swipe for views'
+type: module
+package: Custom
+core: 8.x
+dependencies:
+  - views

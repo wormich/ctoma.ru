@@ -1,0 +1,63 @@
+.slider {
+  min-height: 350px;
+  &__slide {
+    min-height: 230px;
+
+    @include respond-to(desctop) {
+      min-height: 350px;
+    }
+    @include respond-to(desctop_wide) {
+      min-height: 350px;
+    }
+    @include respond-to(desctop_max) {
+      min-height: 350px;
+    }
+  }
+  &__link {}
+  &__imgD {
+    width: 100%;
+    height: auto;
+    @include respond-to(phone) {
+      display: none;
+    }
+    @include respond-to(min-phone) {
+      display: none;
+    }
+  }
+  &__imgP {
+    display: none;
+    width: 100%;
+    height: auto;
+    @include respond-to(phone) {
+      display: block;
+    }
+    @include respond-to(min-phone) {
+      display: block;
+    }
+  }
+  &__preloader {
+    display: block;
+    width: 32px;
+    height: 8.5px;
+    margin: 160px auto 160px;
+  }
+
+  .VueCarousel-pagination {
+    position: absolute;
+    bottom: 10px;
+  }
+  .VueCarousel-wrapper {
+    line-height: 0;
+    overflow: hidden;
+    @include border-radius(5px);
+    @include respond-to(tablet){
+      @include border-radius(0);
+    }
+    @include respond-to(phone){
+      @include border-radius(0);
+    }
+    @include respond-to(min-phone){
+      @include border-radius(0);
+    }
+  }
+}

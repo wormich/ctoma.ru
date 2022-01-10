@@ -1,0 +1,87 @@
+<style>
+.image-map-container {
+	position: relative;
+  display:inline-block;
+  margin-top: 20px;
+  box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+}
+.image-map-container img {
+  display:block;
+}
+.image-map-container .map-selector {
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  color:#546E7A00;
+}
+.image-map-container .map-selector.hover {
+  color:#546E7A80;
+}
+
+.map-selector:after {
+	content: '';
+	position: absolute;
+	top: inherit;
+	right: inherit;
+	bottom: inherit;
+	left: inherit;
+	display: none;
+	pointer-events: none;
+	border: 2px solid #AB5FFF;
+	border-radius:10px;
+}
+
+.map-selector.hover:after {
+	content: '';
+	position: absolute;
+	top: inherit;
+	right: inherit;
+	bottom: inherit;
+	left: inherit;
+	display:inherit;
+	pointer-events: none;
+	border: 2px solid #AB5FFF;
+	border-radius:10px;
+}
+</style>
+<div id="fancy-map" style="display:none">
+<div class="image-map-container">
+<img src="https://ctoma.ru/themes/my_theme/bem/blocks/ctomaMap/img/map.png" usemap="#image-map">
+<div class="map-selector">
+
+</div>
+</div>
+
+
+<map name="image-map" id="image-map">
+    <area target="_blank" alt="" title="" href="https://ctoma.ru/clinics/klinika-na-ul-savushkina" coords="42,148,102,173" shape="rect">
+    <area target="_blank" alt="" title="" href="https://ctoma.ru/clinics/klinika-na-korablestroitelej" coords="69,275,141,309" shape="rect">
+    <area target="_blank" alt="" title="" href="https://ctoma.ru/clinics/klinika-na-bolshoj-pr-petrogradskoj-storony" coords="162,262,239,287" shape="rect">
+    <area target="_blank" alt="" title="" href="https://ctoma.ru/clinics/klinika-na-sikejrosa" coords="270,80,352,104" shape="rect">
+    <area target="_blank" alt="" title="" href="https://ctoma.ru/clinics/klinika-na-kolomyazhskom-prospekte" coords="271,137,351,162" shape="rect">
+    <area target="_blank" alt="" title="" href="https://ctoma.ru/clinics/klinika-na-lenina" coords="269,208,366,236" shape="rect">
+    <area target="_blank" alt="" title="" href="https://ctoma.ru/clinics/klinika-na-prospekte-nauki" coords="379,101,482,128" shape="rect">
+    <area target="_blank" alt="" title="" href="https://ctoma.ru/clinics/klinika-na-nevskom-prospekte" coords="501,365,663,415" shape="rect">
+    <area target="_blank" alt="" title="" href="https://ctoma.ru/clinics/klinika-na-mosovskom-prospekte" coords="270,683,356,712" shape="rect">
+</map>
+</div>
+<script>
+$('#image-map area').hover(
+	function () { 
+		let coords = $(this).attr('coords').split(',');
+		var width = $('.image-map-container').width();
+		var height = $('.image-map-container').height();
+		$('.image-map-container .map-selector').addClass('hover').css({
+			'left': coords[0]+'px',
+			'top': coords[1] + 'px',
+			'right': width - coords[2],
+			'bottom': height - coords[3]
+		})
+	 },
+	 
+	function () { 
+		$('.image-map-container .map-selector').removeClass('hover').attr('style','');
+	}
+)
+</script>

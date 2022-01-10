@@ -1,0 +1,7 @@
+{% if is_front %}
+<img src="{{ base_path ~ directory }}/bem/blocks/logo/img/logo.jpg" class="logo__img" alt="Стоматология в СПб – зубные клиники «СТОМА»" title="«СТОМА» - Сеть стоматологических клиник Санкт-Петербурга">
+{% else %}
+<a class="logo" href="/">
+    <img src="{{ base_path ~ directory }}/bem/blocks/logo/img/logo.jpg" class="logo__img" alt="Стоматология в СПб – зубные клиники «СТОМА»" title="«СТОМА» - Сеть стоматологических клиник Санкт-Петербурга">
+</a>
+{% endif %}

@@ -1,0 +1,15 @@
+.quantityDiscounts {
+  &__label {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  &__price {
+    font-size: 30px;
+    font-weight: bold;
+    color: #6bc52c;
+    line-height: 30px;
+  }
+  &__unit {
+    font-size: 12px;
+  }
+}

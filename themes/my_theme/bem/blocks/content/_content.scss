@@ -1,0 +1,98 @@
+.content {
+  //overflow: hidden;
+  &__layout {
+    //padding: 15px;
+  }
+}
+
+.content_norm {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: "ralewayregular", sans-serif;
+  color: #636363;
+  p {
+    margin: 0 0 20px;
+  }
+  strong {
+    font-family: sans-serif;
+  }
+  table {
+    background: white;
+    border-radius: 5px;
+    margin: 10px 0;
+    border-bottom: 1px solid #a1a4a0;
+    th {
+      font-weight: 700;
+      text-align: center;
+      vertical-align: middle;
+      text-shadow: 0 1px 0 #d9ddd7;
+      color: #3b3d3b;
+      font-size: 10px;
+      text-transform: uppercase;
+      @include background-image(linear-gradient(#d9ddd7, #b8bab7));
+      @include box-shadow(inset 0 1px 0 rgba(255,255,255,0.3));
+      border: 1px solid #a9aba8;
+      p {
+        margin: 0;
+      }
+    }
+    td {
+      padding: 10px;
+      border-left: 1px solid #d9ddd7;
+    }
+    tbody {
+      tr:nth-child(odd) {
+        td {
+          background: #f6f7f5;
+        }
+      }
+    }
+  }
+  ul {
+    padding-left: 24px;
+    margin: 0 0 20px;
+    list-style-image: url('/themes/my_theme/bem/blocks/content/img/li.png');    
+  }
+  ol {
+    padding-left: 24px;
+    margin: 0 0 20px;
+  }
+  h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    font-family: "ralewayregular", sans-serif;
+    color: rgb(216, 32, 67);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 28px;
+
+    @include respond-to(tablet){
+      font-size: 22px;
+    }
+    @include respond-to(phone){
+      font-size: 20px;
+    }
+    @include respond-to(min-phone){
+      font-size: 20px;
+    }
+  }
+  h3 {
+    margin: 0 0 20px;
+    font-size: 15px;
+    font-family: "ralewayregular", sans-serif;
+    color: rgb(216, 32, 67);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  a {
+    color: #d82043;
+    text-decoration: none;
+    &:hover {
+      color: #c71d3e;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/home') }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "СТОМА",
+  "url": "https://ctoma.ru",
+  "logo": "https://ctoma.ru/themes/my_theme/bem/blocks/logo/img/logo.jpg",
+  "sameAs": [
+    "https://www.youtube.com/channel/UCrn6EzRAQQBhKACykwme69g",
+    "https://www.instagram.com/ctoma_group/"
+  ]
+}
+</script>
+
+<div class="home">
+
+    {{ drupal_view("slider") }}
+<div class="zHome width_norm width_paddingStandart"><h1>Стоматологическая клиника «СТОМА»</h1></div>
+    {#{% include base_path ~ directory ~ "/bem/blocks/stomaIs/stomaIs.html.twig" %}#}
+
+    {% include base_path ~ directory ~ "/bem/blocks/uslugi/uslugi.html.twig" %}
+
+    {% include base_path ~ directory ~ "/bem/blocks/actions/actions.html.twig" %}
+
+    {% include base_path ~ directory ~ "/bem/blocks/subscription/subscription.html.twig" %}
+
+    {% include base_path ~ directory ~ "/bem/blocks/stomatology/stomatology.html.twig" %}
+
+    {% include base_path ~ directory ~ "/bem/blocks/searchMap/searchMap.html.twig" %}
+
+    <div class="rev__home_block">{% include base_path ~ directory ~ "/bem/blocks/reviews/reviews.html.twig" %}</div>
+
+    {% include base_path ~ directory ~ "/bem/blocks/news/news.html.twig" %}
+
+    {% include base_path ~ directory ~ "/bem/blocks/ask/ask.html.twig" %}
+
+    {% if content.main %}
+        <div class="home__layout">
+            <div class="home__content width width_norm width_paddingStandart">
+                <div class="content">{{ content.main }}</div>
+            </div>
+        </div>
+    {% endif %}
+    
+    
+    <div class="content_norm width width_light">
+   
+    <p>
+    Возможности современной стоматологии сегодня очень широки: и при отсутствии
+    зубов, и при нарушениях прикуса, и при заболеваниях полости рта мы можем
+    предложить несколько оптимальных вариантов решения проблемы. Наши пациенты
+    получают возможность учесть бюджет и получить качественные услуги: мы не
+    экономим на оснащении клиник, материалах и инструментах. Над вашей
+    идеальной улыбкой будут работать квалифицированные и опытные стоматологи
+    различных специализаций. Продуманная ценовая политика, а также регулярные
+    специальные предложения и акции клиники позволят вам сделать правильный и,
+    что немаловажно, своевременный выбор, получить стоматологическую помощь в
+    полном объеме.
+</p>
+<h2>
+    Особенности обезболивания
+</h2>
+<p>
+    В нашей сети стоматологических клиник вы можете забыть о неприятном опыте
+    обращения в государственные поликлиники. Уверены, что такой опыт есть едва
+    ли не у каждого — и готовы опровергнуть миф о том, что визиты к стоматологу
+    сопровождаются болью.
+</p>
+<p>
+    Уважающая себя зубная клиника пользуется всеми возможностями современного
+    обезболивания. Чем она отличается от той, что использовалась пару десятков
+    лет назад?
+</p>
+<ul>
+<li>более тонкие иглы и аппликационные анестетики — позволяют сделать сам момент введения анестезии практически незаметным;
+</li>
+<li>более совершенные компоненты — обезболивают эффективнее даже воспаленные ткани (чего не скажешь о препаратах на основе новокаина);
+</li>
+<li>внимательный, тактичный подход — комфортное выполнение всех манипуляций позволяет расслабиться психологически.
+</li>
+</ul>
+<h2>
+    Комплекс стоматологических услуг
+</h2>
+<p>
+    Наша стоматология в СПб предлагает полный комплекс услуг по всем
+    направлениям:
+</p>
+<ul>
+<li>терапевтическая стоматология — главной задачей выступает сохранение зуба. Наши стоматологи-терапевты выполняют пломбирование с использованием современных композитных материалов;
+</li>
+<li>протезирование и имплантация — стоматологи-ортопеды и имплантологи порекомендуют оптимальный способ восстановления отсутствующих зубов, вернуть красоту улыбке;</li>
+<li>ортодонтия — исправление прикуса и неправильного положения зубов осуществляется с применением современных брекет-систем, капп и других конструкций, без возрастных ограничений;</li>
+<li>гигиена — регулярная профессиональная чистка зубов, а также рекомендации опытного стоматолога-гигиениста являются основой профилактики заболеваний полости рта;</li>
+<li>отбеливание — улучшим эстетичный внешний вид улыбке, отбелим зубы с применением современного аппарата Zoom 4;</li>
+<li>пародонтология — лечение пародонтита и пародонтоза передовыми методами;</li>
+<li>хирургическая стоматология — выполнение оперативных вмешательств и безболезненное удаление зубов, имплантация, костная пластика</li>
+</ul>
+<p>
+    Посещать стоматолога удобно: вы можете записаться в любую из клиник в
+    разных районах Санкт-Петербурга.
+</p>
+    </div>
+    
+    
+
+</div>

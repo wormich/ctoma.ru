@@ -1,0 +1,30 @@
+.fixedTop {
+  //params
+
+  $fixedTop_height: 50px;
+  $color_background: #f90201;
+
+  //end params
+
+  height: $fixedTop_height;
+
+  &__container {
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    right: 0;
+
+    @include respond-to(phone) {
+      position: inherit;
+    }
+    @include respond-to(min-phone) {
+      position: inherit;
+    }
+  }
+
+  &__content {
+    height: $fixedTop_height;
+    background: $color_background;
+    margin: auto;
+  }
+}

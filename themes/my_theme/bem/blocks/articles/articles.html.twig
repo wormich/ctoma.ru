@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/articles') }}
+
+<div class="articles">
+
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    {#{{ drupal_view('baner', 'up') }}#}
+
+    <div class="articles__container ">
+        <h1 class="articles__title title_grey width width_norm width_paddingStandart">
+            <span class="title__br"></span><span class="title__text">{{ content["#title"] }}</span><span class="title__br"></span>
+        </h1>
+        <div class="articles__center width width_norm width_paddingStandart">
+            <div class="articles__leftSidebar">
+                
+
+                {% include base_path ~ directory ~ "/bem/blocks/makeImg/makeImgButton.html.twig" %}
+            </div>
+
+            <div class="articles__content">
+
+                {{ drupal_view("articles") }}
+
+                {{ content.main }}
+            </div>
+
+        
+        </div>
+    </div>
+
+    {#{{ drupal_view('baner', 'down') }}#}
+
+</div>

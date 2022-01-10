@@ -1,0 +1,21 @@
+.menu_main {
+  background-color: #f90201;
+
+  .menu__list {
+    margin: 0;
+    padding: 0;
+  }
+  .menu__element {
+    display: inline-block;
+  }
+  .menu__linck {
+    color: #ffffff;
+    padding: 10px 20px;
+    line-height: 30px;
+    display: block;
+    text-decoration: none;
+    &:hover {
+      background: #c1352b;
+    }
+  }
+}

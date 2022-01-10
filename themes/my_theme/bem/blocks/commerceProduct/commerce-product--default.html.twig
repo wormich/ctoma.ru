@@ -1,0 +1,75 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<article{{ attributes.addClass("commerceProduct") }}>
+    {{ title_prefix }}
+    <h1 class="commerceProduct__title title width_paddingLeftRight">{{ product.variation_title }}</h1>
+    {{ title_suffix }}
+
+    <div class="commerceProduct__content">
+
+        <div class="commerceProduct__left">
+
+            <div class="commerceProduct__imagesWrap width_paddingStandart">
+                <div class="commerceProduct__images">{{ product.variation_field_images }}</div>
+            </div>
+            <div class="commerceProduct__center">
+                {{ product.variation_field_features }}
+                {{ product.field_brand }}
+                {{ product.variation_field_specs }}
+                {#<div class="commerceProduct__attributes width_paddingStandart">#}
+                    {#{{ product.attributes_product }}#}
+                {#</div>#}
+            </div>
+
+            {{ product.variation_field_description }}
+
+        </div>
+
+        <div class="commerceProduct__right width_paddingStandart">
+            <div class="commerceProduct__price">
+                <div class="commerceProduct__discount">{{ product.discount }}</div>
+
+                <label class="commerceProduct__label">Price</label>
+                {{ product.quantity_discounts }}
+                {{ product.variation_field_stock }}
+                {#{{ product.variation_price }}#}
+                {{ product.my_price }}
+            </div>
+            <div class="commerceProduct__sku">
+                <label class="commerceProduct__label">Item Number</label>
+                {{ product.variation_sku }}
+            </div>
+            <div class="commerceProduct__addCart">
+                {{ product.variations }}
+            </div>
+            <div class="commerceProduct__attributes">
+                {{ product.attributes_product }}
+            </div>
+            <div class="commerceProduct__video">
+                {{ product.variation_field_video }}
+            </div>
+        </div>
+
+    </div>
+
+</article>

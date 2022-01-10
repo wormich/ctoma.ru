@@ -1,0 +1,39 @@
+.viewDoctors {
+  padding: 25px 0;
+  &__title {
+    margin: 50px 0 30px;
+    font-size: 35px;
+    line-height: 1em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+  }
+  &__content {
+    @include display-flex();
+    @include flex-wrap(wrap);
+    @include justify-content(center);
+  }
+  &__row {
+    margin-bottom: 20px;
+    @include display-flex();
+    @include box-sizing(border-box);
+
+    position: relative;
+
+    @include flex-basis(33.3333333%);
+
+    @include respond-to(tablet) {
+      @include flex-basis(50%);
+    }
+    @include respond-to(phone) {
+      @include flex-basis(50%);
+    }
+    @include respond-to(min-phone) {
+      @include flex-basis(100%);
+    }
+    article {
+      width: 100%;
+    }
+  }
+}
+

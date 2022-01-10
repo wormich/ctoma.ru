@@ -1,0 +1,35 @@
+.listBlock {
+  &__label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  &__content {
+    padding: 15px 20px;
+    font-size: 12px;
+    border: 1px solid #E4E4E4;
+    text-align: justify;
+    background: white;
+    @include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.3));
+    @include border-radius(3px);
+    margin-bottom: 8px;
+  }
+  &__elem {
+    margin-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      @include rotate(-90deg);
+      @include image-2x("/listBlock/img/elem.png", 10px, 6px);
+      left: 0;
+      top: 8px;
+    }
+  }
+}

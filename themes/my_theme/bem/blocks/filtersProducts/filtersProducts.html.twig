@@ -1,0 +1,41 @@
+{% if content.products is defined and content.products|render|striptags|trim %}
+
+    <div class="filtersProducts">
+        <div class="filtersProducts__head">
+
+            {% if content.filters is defined and content.filters|render|striptags|trim %}
+                <div class="filtersProducts__headLeft">
+                    <span class="filtersProducts__filterText">Filters</span>
+                    <span class="filtersProducts__filterButton">View Filters</span>
+                </div>
+            {% endif %}
+
+            {% if(content.products) %}
+                <div class="filtersProducts__headRight">
+                    <span class="filtersProducts__sort">{{ content.head }}</span>
+                </div>
+            {% endif %}
+
+        </div>
+        <div class="filtersProducts__wrap">
+            {% if content.filters is defined and content.filters|render|striptags|trim %}
+                <div class="filtersProducts__left">
+                    <div class="filtersProducts__leftContent">
+                        <div class="filtersProducts__phoneHead">{{ content.head }}</div>
+                        {{ content.filters }}
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if(content.products) %}
+                <div class="filtersProducts__right">
+                    <div class="filtersProducts__rightContent">
+                        {{ content.products }}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endif %}
+

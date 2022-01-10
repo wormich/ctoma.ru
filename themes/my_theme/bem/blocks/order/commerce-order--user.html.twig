@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Template for orders in the 'user' view mode.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - order: The rendered order fields.
+ *   Use 'order' to print them all, or print a subset such as
+ *   'order.order_number'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ order|without('order_number') }}
+ *   @endcode
+ * - order_entity: The order entity.
+ *
+ * @ingroup themeable
+ */
+#}
+<h1 class="order__title width_paddingStandart">Order №{{ order.order_number|field_value }}</h1>
+
+<div class="order__information width_paddingStandart">
+    {% if order_entity.field_country.value %}
+        <div class="order__infField">
+            <label>Country:</label>
+            <span>{{ order_entity.field_country.value }}</span>
+        </div>
+    {% endif %}
+    {% if order_entity.field_full_name.value %}
+        <div class="order__infField">
+            <label>Full name:</label>
+            <span>{{ order_entity.field_full_name.value }}</span>
+        </div>
+    {% endif %}
+    {% if order_entity.field_phone.value %}
+        <div class="order__infField">
+            <label>Phone:</label>
+            <span>{{ order_entity.field_phone.value }}</span>
+        </div>
+    {% endif %}
+    {% if order_entity.field_address.value %}
+        <div class="order__infField">
+            <label>Address:</label>
+            <span>{{ order_entity.field_address.value }}</span>
+        </div>
+    {% endif %}
+
+</div>
+
+{{ drupal_view('order_page') }}

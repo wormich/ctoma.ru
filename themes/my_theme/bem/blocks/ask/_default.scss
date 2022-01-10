@@ -1,0 +1,50 @@
+.ask {
+  &__title {
+    padding-top: 50px;
+    padding-bottom: 30px;
+    @include respond-to(phone) {
+      padding-top: 35px;
+      padding-bottom: 15px;
+    }
+    @include respond-to(min-phone) {
+      padding-top: 35px;
+      padding-bottom: 15px;
+    }
+  }
+  &__content {
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+  &__bottom {
+    text-align: center;
+
+    display: block;
+    position: relative;
+
+    .ajax-progress-throbber {
+      display: none;
+      position: absolute;
+      @include border-radius(3px);
+      z-index: 5;
+      top: 0;
+      padding: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 0;
+      @include background-image(linear-gradient(#870f28, #870f28));
+
+      .throbber {
+        @include image-2x("/callback/img/throbber.gif", 40px, 5px);
+        padding: 0;
+        margin: auto;
+        display: block;
+        height: 35px;
+      }
+    }
+
+    a {
+      margin-bottom: 5px;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+uuid: 1b35cffb-c545-4d1e-8d90-2c1142a83802
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Слайд
+type: slide
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

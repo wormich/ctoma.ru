@@ -1,0 +1,64 @@
+.uslugiView {
+  &__content {
+    @include display-flex();
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    @include justify-content(space-between);
+    .view-grouping {
+      margin-bottom: 50px;
+      @include flex-basis(48%);
+      .more {
+        font-size: 14px;
+        font-weight: bold;
+        display: block;
+        margin: 10px 0 0 0;
+        color: $color_2;
+        text-decoration: none;
+        &:hover {
+          color: $color_1;
+        }
+      }
+      @include respond-to(phone) {
+        @include flex-basis(100%);
+      }
+      @include respond-to(min-phone) {
+        @include flex-basis(100%);
+      }
+    }
+    .view-grouping-header {
+      a {
+        text-decoration: none;
+        color: $color_1;
+        font-size: 35px;
+        margin: 0 0 35px 0;
+        display: block;
+        &:hover {
+          color: $color_2;
+        }
+      }
+    }
+    .view-grouping-content {
+      .views-row {
+        display: none;
+        &:nth-of-type(-n+2) {
+          display: block;
+        }
+      }
+    }
+    .views-row {
+      margin-bottom: 15px;
+      a {
+        color: $color_1;
+        &:hover {
+          color: $color_2;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  &.taxonomy {
+    .views-row {
+      @include flex-basis(100%);
+    }
+  }
+}

@@ -1,0 +1,51 @@
+.doctorShort {
+  text-align: center;
+
+  &__photo {
+    img {
+      border-radius: 50%;
+      overflow: hidden;
+      display: inline-block;
+      background: #fff;
+      border: 1px solid #eee;
+    }
+  }
+  &__title {
+    margin: 20px 0 5px;
+    display: block;
+    overflow: hidden;
+    clear: both;
+    a {
+      font-weight: bold;
+      color: $color_1;
+      text-decoration: none;
+      &:hover {
+        color: $color_2
+      }
+    }
+  }
+  &__dolznost {
+    margin-bottom: 5px;
+  }
+  &__more {
+    a {
+      text-decoration: none;
+      color: $color_2;
+      &:hover {
+        color: $color_1;
+      }
+    }
+  }
+  &__content {
+
+  }
+  &:hover {
+    &__photo {
+      img {
+        box-shadow: 0 14px 45px rgba(12,171,141,0.25);
+        -moz-box-shadow: 0 14px 45px rgba(12,171,141,0.25);
+        -webkit-box-shadow: 0 14px 45px rgba(12,171,141,0.25);
+      }
+    }
+  }
+}

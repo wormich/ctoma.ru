@@ -1,0 +1,168 @@
+.subscription {
+  background: #d82044;
+
+  @include respond-to(phone){
+    margin-bottom: 20px;
+  }
+  @include respond-to(min-phone){
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-family: "pantonregular", sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-align: center;
+
+    display: block;
+    box-sizing: border-box;
+    padding: 25px 15px 20px 15px;
+  }
+  &__content {
+    //margin: 20px auto;
+  }
+  form {
+    max-width: 410px;
+    margin: auto;
+    background: white;
+    border-radius: 30px;
+    position: relative;
+    margin-bottom: 40px;
+    height: 39px;
+
+    @include respond-to(phone) {
+      height: auto;
+      background: none;
+    }
+    @include respond-to(min-phone) {
+      height: auto;
+      background: none;
+    }
+  }
+
+  &__name {
+    position: absolute;
+    left: 20px;
+    top: 1px;
+    input {
+      display: block;
+      padding: 11px;
+      width: 210px;
+      border: none;
+      height: 37px;
+      @include user-select(none);
+      outline: none;
+      font-size: 14px;
+      font-family: "pantonregular", sans-serif;
+      box-sizing: border-box;
+      @include respond-to(phone) {
+        font-size: 16px;
+        width: 100%;
+        height: auto;
+        @include border-radius(30px);
+      }
+      @include respond-to(min-phone) {
+        font-size: 16px;
+        width: 100%;
+        height: auto;
+        @include border-radius(30px);
+      }
+    }
+    @include respond-to(phone) {
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+    @include respond-to(min-phone) {
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+  }
+  &__actions {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    display: block;
+    button {
+      text-decoration: none;
+      font-size: 14px;
+      color: white;
+      border: none;
+      height: 37px;
+      cursor: pointer;
+      background-color: #1996ba;
+      @include box-shadow(2px 3.464px 2.88px 0.12px rgba(0, 0, 0, 0.09));
+      padding: 10px 20px;
+      @include border-radius(30px);
+      text-transform: uppercase;
+      @include user-select(none);
+      outline: none;
+
+      &:hover {
+        background-color: #1787a8;
+      }
+      &:active {
+        background-color: #157d9b;
+        @include box-shadow(none);
+      }
+
+      @include respond-to(phone) {
+        width: 100%;
+      }
+      @include respond-to(min-phone) {
+        width: 100%;
+      }
+    }
+
+    @include respond-to(phone) {
+      position: relative;
+      margin: 5px auto;
+    }
+    @include respond-to(min-phone) {
+      position: relative;
+      margin: 5px auto;
+    }
+  }
+
+  &__agreement {
+    position: absolute;
+    font-size: 11px;
+    color: white;
+    bottom: -20px;
+    width: 100%;
+    text-align: center;
+    a {
+      color: white;
+    }
+    @include respond-to(phone) {
+      position: relative;
+    }
+    @include respond-to(min-phone) {
+      position: relative;
+    }
+  }
+
+  .ajax-progress-throbber {
+    position: absolute;
+    @include border-radius(5px);
+    z-index: 5;
+    top: 0;
+    padding: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 0;
+    background-color: #157d9b;
+    @include transition(all 0.3s ease);
+    @include border-radius(25px);
+    .throbber {
+      @include image-2x("/callback/img/throbber.gif", 40px, 5px);
+      padding: 0;
+      margin: auto;
+      display: block;
+      height: 100%;
+    }
+  }
+}

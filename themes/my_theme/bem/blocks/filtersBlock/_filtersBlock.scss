@@ -1,0 +1,55 @@
+.filtersBlock {
+  width: 215px;
+  box-sizing: border-box;
+
+  &__block {
+    padding: 10px 0;
+    border-bottom: 1px solid #dadbd9;
+    display: block;
+    position: relative;
+  }
+  &__title {
+    margin: 0 10px;
+    font-weight: 700;
+    font-size: 12px;
+    display: block;
+    color: #3b3d3b;
+    text-transform: uppercase;
+    font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  &__results {
+
+    a {
+      max-width: 100%;
+      display: block;
+      text-decoration: none;
+      color: #3b3d3b;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+      &.is-active,
+      &:hover {
+        @include background-image(linear-gradient(#00cc33, #00aa39));
+        color: white;
+      }
+      &:active {
+        @include background-image(linear-gradient(#00a72b, #009933));
+      }
+    }
+  }
+  &__result {
+    @include display-flex();
+    @include justify-content(space-between);
+  }
+  &__value {
+    display: block;
+  }
+  &__count {
+    text-align: right;
+  }
+  &__close {
+    text-align: right;
+  }
+
+}

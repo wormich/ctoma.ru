@@ -1,0 +1,339 @@
+#all-flavors {
+  overflow: hidden;
+  margin-top: -10px !important;
+}
+
+.simple-pagination ul {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.simple-pagination li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.simple-pagination li a,
+.simple-pagination li span {
+  color: #666;
+  padding: 5px 10px;
+  text-decoration: none;
+  border: 1px solid #EEE;
+  background-color: #FFF;
+  box-shadow: 0px 0px 10px 0px #EEE;
+}
+
+.simple-pagination .current {
+  color: #FFF;
+  background-color: #FF7182;
+  border-color: #FF7182;
+}
+
+.simple-pagination .prev.current,
+.simple-pagination .next.current {
+  background: #e04e60;
+}
+#flavor-nav ul {
+  list-style: none;
+}
+.doctorsFilter__work ul {
+  margin-left: 15px;
+}
+
+/* критерий фильтрации место работы begin*/
+.form-item-field-mesta-raboty-target-id {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+}
+.js-form-item-field-mesta-raboty-target-id-op, .js-form-item-field-specialization-target-id-op {
+  display: none;
+}
+.form-item-field-mesta-raboty-target-id select {
+  /*padding: 0 15px 4px 4px;
+  margin: 0 -20px -5px -5px;
+  border-top: 0;*/
+  border:0 ! important;
+  padding-right: 14px;
+}
+option[value="All"]{
+  padding-top: 13px !important;
+}
+.form-item-field-mesta-raboty-target-id select option {
+  display: block !important;
+  padding: 7px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #727272;
+  font-weight: bold;
+  font-family: "ralewayregular", sans-serif;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.doctorsFilter__left #edit-reset {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fff !important;
+  color: #d82043;
+  background: #57aace;
+  border: 0;
+  border-radius: 30px;
+  text-transform: uppercase;
+}
+.doctorsFilter__left #edit-submit-vrachi-glavnaya {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fff !important;
+  background: #d82043;
+  border: 0;
+  border-radius: 30px;
+  text-transform: uppercase;
+}
+#edit-actions {
+  padding-left: 20px;
+}
+.doctorsFilter__selectClinik {
+  box-shadow: inherit !important;
+}
+.doctorsFilter__doctor {
+  -webkit-box-shadow: 0px 1px 10px 2px rgba(34, 60, 80, 0.2) !important;
+  -moz-box-shadow: 0px 1px 10px 2px rgba(34, 60, 80, 0.2) !important;
+  box-shadow: 0px 1px 10px 2px rgba(34, 60, 80, 0.2) !important;
+  margin: 10px !important;
+}
+.doctors__title {
+  padding-top: 60px !important;
+}
+#pagination-container .current {
+  color: #c21d3c;
+  cursor: pointer;
+  padding: 5px 20px 5px 0;
+  margin-right: 3px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-family: "pantonregular", sans-serif;
+  font-weight: bold;
+}
+.doctorsFilter__left {
+  display: block !important;
+}
+.glavnoeMenu__ul.subMenuDoctor {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 30px;
+    align-items: start;
+    display: none;
+    z-index: 1;
+    background-color: #fff;
+    padding: 0 10px 10px 10px;
+}
+.menuMobileDortor {
+  height: 180px;
+  max-width: 240px;
+}
+.menuMobileDortorUl {
+  position: absolute !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: start !important;
+  z-index: 1 !important;
+  margin-top: 40px !important;
+  padding-left: 30px !important;
+  top: inherit !important;
+}
+.menuMobileDortorUl a {
+  color: #fff !important;
+}
+.subMenuDoctor .glavnoeMenu__a {
+  line-height: 2;
+}
+.plusDoctor {
+  color: #fff;
+  cursor: pointer;
+  font-size: 25px;
+  height: 29px;
+  padding-top: 3px;
+  padding-left: 17px;
+}
+/* all doctors begin */
+.doctorsFilter__left form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.form-item-field-mesta-raboty-target-id {
+  flex-basis: 62%;
+}
+.form-item-field-specialization-target-id {
+  flex-basis: 33%;
+  display: inline-block;
+  overflow: hidden;
+}
+.form-item-field-specialization-target-id label {
+  padding-top: 7px !important;
+  margin-bottom: 14px !important;
+}
+.form-item-field-specialization-target-id select {
+  /*padding: 0 56px 4px 4px;
+  margin: 0 -20px -5px -5px;
+  border-top: 0;*/
+  border:0 !important;
+  padding-right: 56px;
+}
+.form-item-field-specialization-target-id select option {
+  display: block !important;
+  padding: 7px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #727272;
+  font-weight: bold;
+  font-family: "ralewayregular", sans-serif;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.doctorsFilter__selectClinik label {
+  margin-bottom: 14px !important;
+}
+.doctorsFilter__left select:focus {
+  outline: none;
+}
+.doctorsFilter__left select option:checked {
+  background-color: inherit !important;
+  color: #d82043 !important;
+}
+.doctorsFilter__left select option:focus-visible {
+
+}
+.minLabel {
+  font-size: 11px !important;
+  font-style: normal !important;
+  display: inline-block !important;
+}
+/* all doctors end */
+@media(max-width:1110px)  {
+  .doctorsFilter__selectClinik label {
+    font-size: 14px;
+  }
+}
+@media(max-width:992px)  {
+  .doctorsFilter__baner {
+    display: none;
+  }
+  .form-item-field-mesta-raboty-target-id select, .form-item-field-specialization-target-id select {
+    margin-bottom: 10px;
+    -webkit-flex-basis: 49%;
+    flex-basis: 49%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    font-size: 12px;
+    font-weight: bold;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 10px 30px 10px 12px;
+    outline: none;
+    width: 100%;
+    background: #f6f6f6 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAflBMVEVHcEzYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEP80T9/AAAAKXRSTlMAE0A4/YoH1wX7fo1O+MwM0jU9nuaQ2OIssFWXoie86KUQW4VlG+xzYODF1uMAAAFiSURBVHhe7dHbjoIwEIBhrUBpASyAHAXB87z/C2526GxjqvVur5gb06Z/Pks3/zHrrLNl124I3WfCobuyLa1u52JsZeZswky2Y3G+Lauha+8iUbJxNGEjVSLubTfg8jGdAECkMvucZDIVAFBOD1yOJfxOksomeB8EjUwTPFSPuFEBUPPByaiAROFGWwnAEeTYBp1QR9w6+9zlBPmFDOCXbnmV/MCFaebXYmYXpQvBD7l+mf3OOKqPcZdmGxf8z/B3e9oPjQOnAhtTnMAY+HKWA/WEjS6mGmyDHEVOiY42SjIUGW+dEh00SstwOW6DnMqj5hjPc3ykwqu0YTks4uTU/fPZ12TwiGnDcjKfa0fUaVoLbXA/M4btUAP0Cx4ZnxzTmGIxHI56aTyFhmuCXYTfjYoq2gWbLxOw5RvQzRkVbgcbLCzD4ViGe0K8D96Dbv7dyX0OwP3cMhwN6znvrX+1zjo/Wlk/YhFeGAEAAAAASUVORK5CYII=');
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: 98% center;
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    border: 1px solid #dedede;
+    color: #464646;
+    cursor: pointer;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .form-item-field-mesta-raboty-target-id select {
+    width: 99%;
+  }
+  .form-item-field-specialization-target-id select {
+    width: 100%;
+  }
+  .form-item-field-specialization-target-id label {
+    padding-top: 17px !important;
+  }
+  .doctorsFilter__left {
+    flex-basis: 100%;
+  }
+  .views-row.flavor {
+    flex-basis: 100%;
+  }
+  #edit-actions {
+    padding-left: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  #flavor-nav select {
+    padding-left: 10px;
+  }
+  .form-item-field-specialization-target-id {
+    flex-basis: 38%;
+  }
+}
+@media(max-width:768px)  {
+  .menuHeader__a {
+    width: 215px !important;
+  }
+  .glavnoeMenu__ul.subMenuDoctor {
+    background-color: inherit !important;
+  }
+}
+@media(max-width:643px)  {
+  .form-item-field-specialization-target-id label {
+    padding-top: 7px !important;
+  }
+  .form-item-field-specialization-target-id, .form-item-field-mesta-raboty-target-id {
+    flex-basis: 100% !important;
+  }
+  .doctorsFilter__selectClinik label {
+    display: none;
+  }
+  .form-item-field-mesta-raboty-target-id select {
+    width: 100% !important;
+  }
+}
+@media(max-width:479px)  {
+  .header__menuTop {
+    width: 100%;
+  }
+  .plusDoctor {
+    padding-right: 25px;
+    width: 150px;
+    text-align: right;
+  }
+  .menuHeader__a {
+    width: inherit !important;
+  }
+  .menuMobileDortor {
+    max-width: inherit !important;
+  }
+}
+@media(max-width:440px)  {
+  /*.form-item-field-specialization-target-id label {
+    font-size: 12px;
+    padding-top: 11px !important;
+    padding-left: 10px;
+  }
+  .form-item-field-mesta-raboty-target-id label {
+    padding-top: 20px !important;
+    font-size: 12px;
+    padding-left: 10px;
+  }*/
+}

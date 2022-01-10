@@ -1,0 +1,49 @@
+.address {
+  //@include display-flex();
+  //@include align-items(center);
+
+  &__addres {
+    //color: #00738e;
+    //font-size: 13px;
+    //line-height: 25px;
+    text-decoration: none;
+    //text-transform: uppercase;
+    //font-weight: bold;
+    @include transition(all 0.3s ease);
+    &:hover {
+      //color: white;
+      //background: #76c9dc;
+    }
+
+  }
+  div {
+    margin: 5px 0;
+  }
+  &__center {
+    a {
+      margin: 10px 0 0 0;
+      display: block;
+      text-decoration: none;
+      color: $color_2;
+      &:hover {
+        color: $color_1
+      }
+    }
+  }
+  &__callback {
+    .callback {
+      margin: 0;
+    }
+  }
+  &_desctop {
+    @include respond-to(tablet){
+       display: none;
+    }
+    @include respond-to(phone){
+      display: none;
+    }
+    @include respond-to(min-phone){
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+/* line 1, ../bem/blocks/page403/_page403.scss */
+.page403 {
+  margin: auto;
+}
+/* line 3, ../bem/blocks/page403/_page403.scss */
+.page403__layout {
+  font-size: 24px;
+  color: #8c8c8c;
+  line-height: 34px;
+  text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 3, ../bem/blocks/page403/_page403.scss */
+  .page403__layout {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+/* line 16, ../bem/blocks/page403/_page403.scss */
+.page403__img {
+  height: auto;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 16, ../bem/blocks/page403/_page403.scss */
+  .page403__img {
+    max-width: 130px;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 16, ../bem/blocks/page403/_page403.scss */
+  .page403__img {
+    max-width: 130px;
+  }
+}
+/* line 25, ../bem/blocks/page403/_page403.scss */
+.page403__text {
+  font-size: 16px;
+  line-height: 18px;
+}

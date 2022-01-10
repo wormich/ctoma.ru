@@ -1,0 +1,52 @@
+.contacts {
+  @include respond-to(phone){
+    text-align: right;
+  }
+  &__title {
+    color: #ffffff;
+    display: block;
+    font-size: 24px;
+    font-weight: 100;
+    margin: 20px auto;
+    max-width: 230px;
+    font-family: 'Segoe UI','Myriad Pro',Myriad,Arial,Helvetica,sans-serif;
+    text-align: center;
+    @include respond-to(phone){
+      text-align: right;
+      max-width: none;
+      margin: 10px auto;
+    }
+    @include respond-to(min-phone){
+      margin: 10px auto;
+    }
+  }
+  &__tel {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 1px;
+    @include respond-to(phone){
+      text-align: right;
+      display: inline-block;
+      padding: 1px 0 5px 2px;
+    }
+    &:hover {
+      color: #e6e6e6;
+    }
+  }
+  &__email {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    @include respond-to(phone){
+      text-align: right;
+      padding: 5px 0;
+    }
+    &:hover {
+      color: #e6e6e6;
+    }
+  }
+}

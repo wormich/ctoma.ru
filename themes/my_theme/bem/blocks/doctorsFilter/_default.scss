@@ -1,0 +1,418 @@
+$color_border: #cccccc;
+$color_red: #d82043;
+
+.doctorsFilter {
+  display: block;
+  @include display-flex();
+  padding-bottom: 50px;
+  @include flex-wrap(wrap);
+
+  &__clinic {
+    display: block;
+    padding: 8px 20px;
+    cursor: pointer;
+
+    font-size: 14px;
+    color: rgb(114, 114, 114);
+    font-weight: bold;
+    //text-transform: uppercase;
+    font-family: "ralewayregular", sans-serif;
+
+    @include transition(all 0.3s ease);
+
+    &:hover {
+      color: rgb(202, 30, 62);
+    }
+    &.active {
+      color: rgb(216, 32, 67);
+    }
+  }
+
+  &__left {
+    display: block;
+    @include flex-basis(50%);
+    @include display-flex();
+    @include flex-wrap(wrap);
+
+    @include respond-to(tablet){
+      display: none;
+    }
+    @include respond-to(phone){
+      display: none;
+      @include flex(auto);
+    }
+    @include respond-to(min-phone){
+      display: none;
+      @include flex(auto);
+    }
+  }
+  &__right {
+    display: block;
+    @include flex-basis(50%);
+
+    @include respond-to(tablet){
+      @include flex-basis(100%);
+      @include flex(auto);
+    }
+    @include respond-to(phone){
+      @include flex-basis(100%);
+      @include flex(auto);
+    }
+    @include respond-to(min-phone){
+      @include flex-basis(100%);
+      @include flex(auto);
+    }
+  }
+
+  &__baner {
+    display: block;
+    @include flex-basis(100%);
+    @include flex(auto);
+    padding-top: 50px;
+  }
+
+  &__spec {
+    display: block;
+    padding: 8px 20px;
+    cursor: pointer;
+
+    font-size: 14px;
+    color: rgb(114, 114, 114);
+    font-weight: bold;
+    //text-transform: uppercase;
+    font-family: "ralewayregular", sans-serif;
+
+    @include transition(all 0.3s ease);
+
+    &:hover {
+      color: rgb(202, 30, 62);
+    }
+    &.active {
+      color: rgb(216, 32, 67);
+    }
+  }
+  &__selectClinik {
+    @include flex-basis(260px);
+    @include box-shadow(2px 3.464px 36px 4px rgba(0, 0, 0, 0.06));
+    background: white;
+    padding-bottom: 15px;
+
+    @include respond-to(desctop){
+      @include flex-basis(210px);
+    }
+
+    label {
+      margin-bottom: 15px;
+      background: $color_red;
+      color: white;
+      font-weight: bold;
+      height: 50px;
+      padding-left: 20px;
+      display: block;
+      @include box-sizing(border-box);
+      font-size: 16px;
+      padding-top: 17px;
+      font-family: "ralewayregular", sans-serif;
+      text-transform: uppercase;
+
+    }
+  }
+
+  &__photo {
+    padding-right: 10px;
+    img {
+      width: 165px;
+      height: 165px;
+      display: block;
+      @include box-shadow(2px 3.464px 3.6px 0.4px rgba(0, 0, 0, 0.09));
+
+      @include respond-to(min-phone){
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+
+  &__mobileFilter {
+    display: none;
+
+    @include flex-wrap(wrap);
+    @include justify-content(space-between);
+    width: 100%;
+    padding: 5px 0;
+
+    @include respond-to(tablet){
+      display: block;
+      @include display-flex();
+    }
+    @include respond-to(phone){
+      display: block;
+      @include display-flex();
+    }
+    @include respond-to(min-phone){
+      display: block;
+      @include display-flex();
+    }
+
+    select {
+      margin-bottom: 10px;
+      @include flex-basis(49%);
+      @include respond-to(phone){
+        @include flex-basis(100%);
+        @include flex(auto);
+      }
+      @include respond-to(min-phone){
+        @include flex-basis(100%);
+        @include flex(auto);
+      }
+      @include appearance(none);
+      font-size: 12px;
+      font-weight: bold;
+      @include border-radius(3px);
+      padding: 10px 30px 10px 12px;
+      outline: none;
+      width: 100%;
+      @include background(#f6f6f6 inline_image('/doctorsFilter/img/strl@2x.png'));
+      background-position: 98% center;
+      background-size: 14px 14px;
+      background-repeat: no-repeat;
+      border: 1px solid #dedede;
+      color: #464646;
+      cursor: pointer;
+      @include transition(all 0.3s ease);
+      &:hover {
+        @include background(#ececec inline_image('/doctorsFilter/img/strl@2x.png'));
+        background-position: 98% center;
+        background-size: 14px 14px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+      &:active {
+        @include background(#ececec inline_image('/doctorsFilter/img/strl@2x.png'));
+        background-position: 98% center;
+        background-size: 14px 14px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+      @include respond-to(phone) {
+        font-size: 16px;
+        width: 100%;
+      }
+      @include respond-to(min-phone) {
+        font-size: 16px;
+        width: 100%;
+      }
+    }
+  }
+
+  &__info {
+    @include display-flex();
+    @include flex-direction(column);
+
+  }
+  &__title {
+    a {
+      font-size: 14px;
+      text-decoration: none;
+      font-family: "ralewayregular", sans-serif;
+      color: rgb(216, 32, 67);
+      font-weight: bold;
+      text-transform: uppercase;
+      display: block;
+      padding-top: 8px;
+      padding-bottom: 4px;
+    }
+  }
+  &__position {
+    color: #868686;
+    font-size: 13px;
+    display: block;
+    @include flex(1 0 auto);
+  }
+  &__work {
+    label {
+      font-size: 11px;
+      font-family: "ralewayregular", sans-serif;
+      color: #595959;
+      font-weight: bold;
+    }
+    span {
+      font-size: 11px;
+      color: #868686;
+      font-family: "ralewayregular", sans-serif;
+    }
+    a {
+      font-size: 11px;
+      color: #868686;
+      font-family: "ralewayregular", sans-serif;
+
+      &:hover {
+        color: #209dc1;
+      }
+    }
+  }
+  &__action {
+    margin-top: 10px;
+    text-align: center;
+
+    display: block;
+    position: relative;
+    .ajax-progress-throbber {
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      padding: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 0;
+      background: #ffffff;
+      @include transition(all 0.3s ease);
+      .throbber {
+        opacity: 0.5;
+        @include image-2x("/doctorsFilter/img/preloader.gif", 32px, 8.5px);
+        padding: 0;
+        margin: auto;
+        display: block;
+        height: 100%;
+      }
+    }
+  }
+
+  &__preloader {
+    margin: auto;
+    padding: 150px 0;
+    opacity: 0.3;
+    @include respond-to(phone){
+      padding: 20px 0;
+    }
+    @include respond-to(min-phone){
+      padding: 20px 0;
+    }
+  }
+
+  &__doctor {
+    @include display-flex();
+    background: white;
+    padding: 15px;
+    @include box-sizing(border-box);
+    @include box-shadow(2px 3.464px 36px 4px rgba(0, 0, 0, 0.06));
+    margin-bottom: 10px;
+
+    @include respond-to(tablet){
+      @include flex-basis(49%);
+    }
+    @include respond-to(phone){
+      @include flex-basis(100%);
+      @include flex(auto);
+    }
+    @include respond-to(min-phone){
+      @include flex-basis(100%);
+      @include flex(auto);
+    }
+  }
+
+  &__selectSpec {
+    @include flex-basis(210px);
+    border-left: none;
+    background: white;
+    @include box-shadow(inset 30px 3.464px 36px -24px rgba(0, 0, 0, 0.06), 8px 3.464px 36px 0px rgba(0, 0, 0, 0.06));
+
+    @include respond-to(desctop){
+      @include flex-basis(210px);
+    }
+
+    label {
+      background: $color_red;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 15px;
+      height: 50px;
+      @include box-sizing(border-box);
+      padding-left: 20px;
+      padding-top: 7px;
+      display: block;
+      font-size: 16px;
+      font-family: "ralewayregular", sans-serif;
+      text-transform: uppercase;
+    }
+  }
+  &__selectDoctor {
+    @include flex(1 0);
+    @include display-flex();
+    @include flex-direction(column);
+    @include flex-wrap(wrap);
+
+    @include respond-to(tablet){
+      @include flex-direction(row);
+      @include justify-content(space-between);
+    }
+    @include respond-to(phone){
+    }
+    @include respond-to(min-phone){
+    }
+  }
+
+  &__info {
+    @include flex(1 0);
+
+    span {
+      display: block;
+    }
+  }
+  &__pagination {
+    padding-top: 20px;
+    @include user-select(none);
+    @include flex-basis(100%);
+    @include flex(auto);
+
+    @include respond-to(tablet){
+      @include flex-basis(49%);
+    }
+  }
+  &__paginNext {
+    max-width: 160px;
+    border-top: 2px solid $color_red;
+    padding: 8px 0;
+    margin-bottom: 10px;
+    display: block;
+    cursor: pointer;
+    color: $color_red;
+
+    &.no_active {
+      border-top: 2px solid $color_red;
+      color: #525252;
+      cursor: default;
+      &:hover {
+        border-top: 2px solid $color_red;
+        color: #525252;
+      }
+    }
+
+    &:hover {
+      border-top: 2px solid $color_red;
+      color: #c11d3c;
+    }
+  }
+  &__pagins {
+    @include user-select(none);
+  }
+  &__pagin {
+    cursor: pointer;
+    padding: 5px 20px 5px 0;
+    margin-right: 3px;
+    @include border-radius(3px);
+    font-size: 13px;
+    font-family: "pantonregular", sans-serif;
+    color: rgb(82, 82, 82);
+    font-weight: bold;
+
+    &:hover {
+      color: #d82043;
+    }
+
+    &.active {
+      color: #c21d3c;
+    }
+  }
+}

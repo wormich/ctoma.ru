@@ -1,0 +1,30 @@
+.login {
+  position: relative;
+  display: inline-flex;
+  padding: 3px 20px 3px 40px;
+
+  @include background-image(linear-gradient(#00cc33, #009933));
+  @include border-radius(6px);
+  @include user-select(none);
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    @include background-image(linear-gradient(#00cc33, #00aa39));
+  }
+  &:active {
+    @include background-image(linear-gradient(#00a72b, #009933));
+  }
+
+  &:before {
+    content: "";
+    @include image-2x("/login/img/login@x2.png", 18px, 18px);
+    position: absolute;
+    left: 12px;
+    top: 4px;
+  }
+}

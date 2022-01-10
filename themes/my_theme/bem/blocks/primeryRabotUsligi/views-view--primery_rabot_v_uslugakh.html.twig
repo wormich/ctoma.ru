@@ -1,0 +1,61 @@
+{% if rows|length > 0 %}
+<link type="text/css" rel="stylesheet" href="/themes/my_theme/bem/blocks/primeryRabotUsligi/assets/style.css"/>
+<h2 class="portfolioBlock__title">
+  <span class="title__br"></span>
+  <span class="title__text">Примеры работ</span>
+  <span class="title__br"></span>
+</h2>
+<div class="uslugi_all dopPortfBlocks">
+<div class="uslugi__content">
+<div class="views-element-container">
+<div class="viewServices portfolioBlocks">
+{{ rows }}
+        {{ empty }}
+        {{ pager }}
+</div>
+</div>
+<div class="all__work__examples_wr"><a class="actions__zapis" href="/portfolio">Все примеры</a></div>
+</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+jQuery(document).ready(function($){
+  $('.portfolioBlocks').slick({
+      infinite: true,
+      // arrows: false,
+      adaptiveHeight: true,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      nextArrow: '<img class="slickRight" src="/sites/default/files/btn_right_o.png" alt="">',
+      prevArrow: '<img class="slickLeft" src="/sites/default/files/btn_left_o.png" alt="">',
+      dots: false,
+      responsive: [
+                            {
+                              breakpoint: 1200,
+                              settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2,
+                                infinite: true,
+                              }
+                            },
+                            {
+                              breakpoint: 992,
+                              settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                              }
+                            }
+                          ]
+    });
+});
+</script>
+{% endif %}

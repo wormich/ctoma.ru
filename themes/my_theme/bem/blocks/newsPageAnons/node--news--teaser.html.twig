@@ -1,0 +1,14 @@
+<div class="newsPageAnons">
+    <div class="newsPageAnons__top">
+        <div class="newsPageAnons__img width_paddingStandart">
+            {{ content.field_izobrazenie_statei }}
+        </div>
+        <div class="newsPageAnons__info content_norm width_paddingStandart">
+            <span class="newsPageAnons__date">{{ node.createdtime|date('d/m/Y') }}</span>
+            <a href="{{ url }}" class="newsPageAnons__title">{{ label }}</a>
+            {{ content.body }}
+        </div>
+    </div>
+
+    <div class="newsPageAnons__more"><a href="{{ url }}" class="button_red">Подробнее</a></div>
+</div>

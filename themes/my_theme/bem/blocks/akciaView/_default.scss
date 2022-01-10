@@ -1,0 +1,52 @@
+.akciaView {
+  .views-row {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: $color_3;
+    border-radius: 15px;
+    overflow: hidden;
+    .views-field-field-izobrazenie-akcii {
+      float: left;
+      margin: 0 20px 0 0;
+    }
+    .views-field-title {
+      margin-bottom: 15px;
+      a {
+        color: $color_2;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        &:hover {
+          color: $color_1;
+        }
+      }
+    }
+    .views-field-field-anons-akcii {
+      margin: 0 0 15px 0;
+    }
+    .views-field-field-cena-novaa {
+      margin-bottom: 15px;
+      font-size: 20px;
+      .field_cena_novaa {
+        color: $color_2;
+        font-weight: bold;
+      }
+    }
+    .views-field-view-node {
+      a {
+        color: $color_1;
+        text-decoration: none;
+        //font-weight: bold;
+        &:hover {
+          color: $color_2;
+        }
+      }
+    }
+
+    .views-field-nothing {
+      a {
+        display: inline-block !important;
+      }
+    }
+  }
+}

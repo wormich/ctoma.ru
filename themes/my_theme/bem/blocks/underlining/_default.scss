@@ -1,0 +1,23 @@
+$color: rgb(127, 144, 165);
+$k_h_w: 13px;
+$p_h: 2px;
+
+.underlining {
+  @include display-flex();
+  @include align-items(center);
+  max-width: 580px;
+  margin: auto;
+  &__p {
+    height: $p_h;
+    width: 100%;
+    background: $color;
+  }
+  &__k {
+    @include flex(1 0 auto);
+    width: $k_h_w;
+    height: $k_h_w;
+    border-radius: 50%;
+    margin: 3px;
+    border: 1px solid $color;
+  }
+}

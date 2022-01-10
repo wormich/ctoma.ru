@@ -1,0 +1,492 @@
+/* line 10, ../bem/blocks/reviewPage/_default.scss */
+.reviewPage__content {
+  padding-bottom: 50px;
+  display: -webkit-flex;
+  display: flex;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 16, ../bem/blocks/reviewPage/_default.scss */
+  .reviewPage__img {
+    display: none;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 16, ../bem/blocks/reviewPage/_default.scss */
+  .reviewPage__img {
+    display: none;
+  }
+}
+/* line 27, ../bem/blocks/reviewPage/_default.scss */
+.reviewPage__header {
+  overflow: hidden;
+  clear: both;
+}
+/* line 31, ../bem/blocks/reviewPage/_default.scss */
+.reviewPage__photo {
+  float: left;
+  margin: 0 20px 0 0;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 31, ../bem/blocks/reviewPage/_default.scss */
+  .reviewPage__photo {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 31, ../bem/blocks/reviewPage/_default.scss */
+  .reviewPage__photo {
+    float: none;
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 31, ../bem/blocks/reviewPage/_default.scss */
+  .reviewPage__photo {
+    float: none;
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 31, ../bem/blocks/reviewPage/_default.scss */
+  .reviewPage__photo {
+    float: none;
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+}
+/* line 53, ../bem/blocks/reviewPage/_default.scss */
+.reviewPage__dolznost {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+/* line 58, ../bem/blocks/reviewPage/_default.scss */
+.reviewPage__informacia {
+  overflow: hidden;
+  margin: 20px 0;
+  font-size: 14px;
+}
+/* line 64, ../bem/blocks/reviewPage/_default.scss */
+.reviewPage .label {
+  font-size: 35px;
+  font-weight: bold;
+  margin: 40px 0 20px;
+}
+/* line 69, ../bem/blocks/reviewPage/_default.scss */
+.reviewPage .doctorWebform {
+  display: inline-block !important;
+}
+
+/* line 1, ../bem/blocks/makeImg/_default.scss */
+.makeImg {
+  width: 325px;
+  height: 325px;
+  background: url("../bem/blocks/makeImg/img/zapis_img.jpg") no-repeat center center;
+  -moz-box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+/* line 10, ../bem/blocks/makeImg/_default.scss */
+.makeImg__text {
+  -webkit-flex: 1 0 auto;
+  flex: 1 0 auto;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  padding: 80px 120px 20px 30px;
+}
+/* line 16, ../bem/blocks/makeImg/_default.scss */
+.makeImg__text1 {
+  display: block;
+  font-size: 15px;
+  font-family: "ralewayregular", sans-serif;
+  color: #d82043;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+/* line 26, ../bem/blocks/makeImg/_default.scss */
+.makeImg__text2 {
+  display: block;
+  font-size: 11px;
+  font-family: "ralewayregular", sans-serif;
+  color: #777777;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+/* line 35, ../bem/blocks/makeImg/_default.scss */
+.makeImg__actions {
+  text-align: center;
+  -webkit-flex-basis: 100px;
+  flex-basis: 100px;
+  display: -webkit-flex;
+  display: flex;
+}
+/* line 40, ../bem/blocks/makeImg/_default.scss */
+.makeImg__button {
+  margin: auto;
+}
+
+/* line 1, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform {
+  -moz-box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  background: #fbfbfb;
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/* line 8, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__clinic {
+  -webkit-flex-basis: 50%;
+  flex-basis: 50%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  padding: 15px 20px 5px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+}
+/* line 14, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__clinic label {
+  font-size: 12px;
+  margin-bottom: 5px;
+  display: block;
+  color: #777777;
+}
+/* line 23, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__clinic .ajax-progress-throbber {
+  position: absolute;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  z-index: 5;
+  top: 0;
+  padding: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+  background: #fbfbfb;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+}
+/* line 36, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__clinic .ajax-progress-throbber .throbber {
+  opacity: 0.2;
+  background-image: url("../bem/blocks/addreviewform/img/preloader.gif");
+  background-repeat: no-repeat;
+  background-size: 32px 8.5px;
+  width: 32px;
+  height: 8.5px;
+  padding: 0;
+  margin: auto;
+  display: block;
+  height: 100%;
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 8, ../bem/blocks/addreviewform/_default.scss */
+  .addreviewform__clinic {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+  }
+}
+/* line 51, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__doctor {
+  -webkit-flex-basis: 50%;
+  flex-basis: 50%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  padding: 15px 20px 5px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+}
+/* line 57, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__doctor label {
+  font-size: 12px;
+  margin-bottom: 5px;
+  display: block;
+  color: #777777;
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 51, ../bem/blocks/addreviewform/_default.scss */
+  .addreviewform__doctor {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    padding: 0 20px 5px;
+  }
+}
+/* line 73, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform .chosen-container {
+  width: 100%;
+  background: #f6f6f6 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAflBMVEVHcEzYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEP80T9/AAAAKXRSTlMAE0A4/YoH1wX7fo1O+MwM0jU9nuaQ2OIssFWXoie86KUQW4VlG+xzYODF1uMAAAFiSURBVHhe7dHbjoIwEIBhrUBpASyAHAXB87z/C2526GxjqvVur5gb06Z/Pks3/zHrrLNl124I3WfCobuyLa1u52JsZeZswky2Y3G+Lauha+8iUbJxNGEjVSLubTfg8jGdAECkMvucZDIVAFBOD1yOJfxOksomeB8EjUwTPFSPuFEBUPPByaiAROFGWwnAEeTYBp1QR9w6+9zlBPmFDOCXbnmV/MCFaebXYmYXpQvBD7l+mf3OOKqPcZdmGxf8z/B3e9oPjQOnAhtTnMAY+HKWA/WEjS6mGmyDHEVOiY42SjIUGW+dEh00SstwOW6DnMqj5hjPc3ykwqu0YTks4uTU/fPZ12TwiGnDcjKfa0fUaVoLbXA/M4btUAP0Cx4ZnxzTmGIxHI56aTyFhmuCXYTfjYoq2gWbLxOw5RvQzRkVbgcbLCzD4ViGe0K8D96Dbv7dyX0OwP3cMhwN6znvrX+1zjo/Wlk/YhFeGAEAAAAASUVORK5CYII=');
+}
+/* line 77, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  font-size: 12px;
+  font-weight: bold;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 10px 30px 10px 12px;
+  outline: none;
+  width: 100%;
+  background: #f6f6f6 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAflBMVEVHcEzYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEP80T9/AAAAKXRSTlMAE0A4/YoH1wX7fo1O+MwM0jU9nuaQ2OIssFWXoie86KUQW4VlG+xzYODF1uMAAAFiSURBVHhe7dHbjoIwEIBhrUBpASyAHAXB87z/C2526GxjqvVur5gb06Z/Pks3/zHrrLNl124I3WfCobuyLa1u52JsZeZswky2Y3G+Lauha+8iUbJxNGEjVSLubTfg8jGdAECkMvucZDIVAFBOD1yOJfxOksomeB8EjUwTPFSPuFEBUPPByaiAROFGWwnAEeTYBp1QR9w6+9zlBPmFDOCXbnmV/MCFaebXYmYXpQvBD7l+mf3OOKqPcZdmGxf8z/B3e9oPjQOnAhtTnMAY+HKWA/WEjS6mGmyDHEVOiY42SjIUGW+dEh00SstwOW6DnMqj5hjPc3ykwqu0YTks4uTU/fPZ12TwiGnDcjKfa0fUaVoLbXA/M4btUAP0Cx4ZnxzTmGIxHI56aTyFhmuCXYTfjYoq2gWbLxOw5RvQzRkVbgcbLCzD4ViGe0K8D96Dbv7dyX0OwP3cMhwN6znvrX+1zjo/Wlk/YhFeGAEAAAAASUVORK5CYII=');
+  background-position: 98% center;
+  background-size: 14px 14px;
+  background-repeat: no-repeat;
+  border: 1px solid #dedede;
+  color: #464646;
+  cursor: pointer;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* line 93, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform select:hover {
+  background: #ececec url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAflBMVEVHcEzYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEP80T9/AAAAKXRSTlMAE0A4/YoH1wX7fo1O+MwM0jU9nuaQ2OIssFWXoie86KUQW4VlG+xzYODF1uMAAAFiSURBVHhe7dHbjoIwEIBhrUBpASyAHAXB87z/C2526GxjqvVur5gb06Z/Pks3/zHrrLNl124I3WfCobuyLa1u52JsZeZswky2Y3G+Lauha+8iUbJxNGEjVSLubTfg8jGdAECkMvucZDIVAFBOD1yOJfxOksomeB8EjUwTPFSPuFEBUPPByaiAROFGWwnAEeTYBp1QR9w6+9zlBPmFDOCXbnmV/MCFaebXYmYXpQvBD7l+mf3OOKqPcZdmGxf8z/B3e9oPjQOnAhtTnMAY+HKWA/WEjS6mGmyDHEVOiY42SjIUGW+dEh00SstwOW6DnMqj5hjPc3ykwqu0YTks4uTU/fPZ12TwiGnDcjKfa0fUaVoLbXA/M4btUAP0Cx4ZnxzTmGIxHI56aTyFhmuCXYTfjYoq2gWbLxOw5RvQzRkVbgcbLCzD4ViGe0K8D96Dbv7dyX0OwP3cMhwN6znvrX+1zjo/Wlk/YhFeGAEAAAAASUVORK5CYII=');
+  background-position: 98% center;
+  background-size: 14px 14px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+/* line 100, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform select:active {
+  background: #ececec url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAflBMVEVHcEzYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEPYIEP80T9/AAAAKXRSTlMAE0A4/YoH1wX7fo1O+MwM0jU9nuaQ2OIssFWXoie86KUQW4VlG+xzYODF1uMAAAFiSURBVHhe7dHbjoIwEIBhrUBpASyAHAXB87z/C2526GxjqvVur5gb06Z/Pks3/zHrrLNl124I3WfCobuyLa1u52JsZeZswky2Y3G+Lauha+8iUbJxNGEjVSLubTfg8jGdAECkMvucZDIVAFBOD1yOJfxOksomeB8EjUwTPFSPuFEBUPPByaiAROFGWwnAEeTYBp1QR9w6+9zlBPmFDOCXbnmV/MCFaebXYmYXpQvBD7l+mf3OOKqPcZdmGxf8z/B3e9oPjQOnAhtTnMAY+HKWA/WEjS6mGmyDHEVOiY42SjIUGW+dEh00SstwOW6DnMqj5hjPc3ykwqu0YTks4uTU/fPZ12TwiGnDcjKfa0fUaVoLbXA/M4btUAP0Cx4ZnxzTmGIxHI56aTyFhmuCXYTfjYoq2gWbLxOw5RvQzRkVbgcbLCzD4ViGe0K8D96Dbv7dyX0OwP3cMhwN6znvrX+1zjo/Wlk/YhFeGAEAAAAASUVORK5CYII=');
+  background-position: 98% center;
+  background-size: 14px 14px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 77, ../bem/blocks/addreviewform/_default.scss */
+  .addreviewform select {
+    font-size: 16px;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 77, ../bem/blocks/addreviewform/_default.scss */
+  .addreviewform select {
+    font-size: 16px;
+    width: 100%;
+  }
+}
+/* line 116, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform textarea {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  display: block;
+  margin: 5px 0;
+  outline: none;
+  background: #f6f6f6;
+  border: 1px solid #dedede;
+  color: #464646;
+  resize: vertical;
+  height: 143px;
+}
+/* line 128, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform textarea:hover {
+  background: #ececec;
+}
+/* line 131, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform textarea:active {
+  background: #ececec;
+}
+/* line 138, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__name {
+  -webkit-flex-basis: 100%;
+  flex-basis: 100%;
+  padding: 0 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 142, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__name input {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  display: block;
+  margin: 5px 0;
+  outline: none;
+  background: #f6f6f6;
+  border: 1px solid #dedede;
+  color: #464646;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* line 155, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__name input:hover {
+  background: #ececec;
+}
+/* line 158, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__name input:active {
+  background: #ececec;
+}
+/* line 164, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__phone {
+  -webkit-flex-basis: 100%;
+  flex-basis: 100%;
+  padding: 0 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 168, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__phone input {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  display: block;
+  margin: 5px 0;
+  outline: none;
+  background: #f6f6f6;
+  border: 1px solid #dedede;
+  color: #464646;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* line 181, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__phone input:hover {
+  background: #ececec;
+}
+/* line 184, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__phone input:active {
+  background: #ececec;
+}
+/* line 189, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__message {
+  display: block;
+  -webkit-flex-basis: 100%;
+  flex-basis: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+/* line 199, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform .statusMessages {
+  display: none;
+}
+/* line 202, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform .error {
+  background-color: #fff0f0;
+}
+/* line 206, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__agreement {
+  -webkit-flex-basis: 100%;
+  flex-basis: 100%;
+  padding: 0 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 12px;
+  margin: 8px 0;
+  color: #777777;
+  text-align: center;
+}
+/* line 214, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__agreement .description {
+  display: inline;
+}
+/* line 217, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__agreement a {
+  color: #777777;
+}
+/* line 221, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__actions {
+  -webkit-flex-basis: 100%;
+  flex-basis: 100%;
+  text-align: center;
+  padding: 0 20px 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 226, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__actions button {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  color: white;
+  background-color: #d82043;
+  border: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+  -moz-box-shadow: 2px 3.464px 2.88px 0.12px rgba(0, 0, 0, 0.09);
+  -webkit-box-shadow: 2px 3.464px 2.88px 0.12px rgba(0, 0, 0, 0.09);
+  box-shadow: 2px 3.464px 2.88px 0.12px rgba(0, 0, 0, 0.09);
+  padding: 10px 20px;
+  margin-right: 10px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  text-transform: uppercase;
+}
+/* line 242, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__actions button:hover {
+  background-color: #c11d3c;
+}
+/* line 245, ../bem/blocks/addreviewform/_default.scss */
+.addreviewform__actions button:active {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #b01a37;
+}

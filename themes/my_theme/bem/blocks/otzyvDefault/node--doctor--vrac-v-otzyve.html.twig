@@ -1,0 +1,26 @@
+<div class="otzyvDefault__vrach width_paddingStandart">
+    
+
+
+    {% set surl = node.field_doc_photo.entity.fileuri%}
+    <div>  <a href="{{ url }}"><img src="{{file_url(surl)}}" width="320" height="320" alt="Отзыв о враче {{node.label}}" typeof="foaf:Image" /></a></div>
+    
+ 
+
+    <div class="otzyvDefault__name">
+        <a href="{{ url }}">{{ label }}</a>
+    </div>
+    {% if content.field_dolznost | field_value %}
+        <div class="otzyvDefault__dolznost">
+            {{ content.field_dolznost }}
+        </div>
+    {% endif %}
+
+    {% if content.field_mesta_raboty | field_value %}
+        <div class="otzyvDefault__mestaRaboty">
+            <label>Место работы:</label>
+            {{ content.field_mesta_raboty }}
+        </div>
+    {% endif %}
+
+</div>

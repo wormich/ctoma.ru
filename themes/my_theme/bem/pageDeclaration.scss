@@ -1,0 +1,33 @@
+//global
+@import "compass/css3";
+@import "lib/mixins";
+
+//header
+@import "blocks/header/header";
+@import "blocks/choosingClinic/default";
+
+
+@import "blocks/phones/default";
+
+@import "blocks/search/search";
+@import "blocks/headerInfo/default";
+@import "blocks/callbackform/default";
+@import "blocks/workingHours/default";
+@import "blocks/webform/default";
+//@import "blocks/callback/default";
+@import "blocks/appointment/default";
+@import "blocks/logo/logo";
+@import "blocks/menu/main";
+@import "blocks/glavnoeMenu/glavnoeMenu";
+
+@import "blocks/menuMobile/menuMobile";
+@import "blocks/menuHeader/menuHeader";
+@import "blocks/rezumeform/default";
+//content
+@import "blocks/content/content";
+
+//footer
+@import "blocks/footer/footer";
+
+//for webform page
+@import "blocks/page/page_form";

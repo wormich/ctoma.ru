@@ -1,0 +1,5 @@
+<?php
+// Load custom_token.tokens.inc from custom_token module
+module_load_include('inc', 'my_tokens', 'my_tokens .tokens');
+
+?>

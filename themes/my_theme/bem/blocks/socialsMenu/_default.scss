@@ -1,0 +1,96 @@
+.socialsMenu {
+  @include display-flex();
+  padding: 3px;
+  &__content {
+    margin: auto;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      @include display-flex();
+      @include flex-direction(row);
+      //@include flex-wrap(wrap);
+      //@include respond-to(phone){
+      //  @include justify-content(center);
+      //}
+      //@include respond-to(min-phone){
+      //  @include justify-content(center);
+      //}
+      li {
+        a {
+          color: #3d506f;
+          font-size: 22px;
+          padding: 0 10px;
+          &:hover {
+            //color: #d82044;
+            color: #209dc1;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.socialsMenu_footer {
+  @include display-flex();
+  @include flex-direction(column);
+
+  @include respond-to(tablet){
+    padding-top: 0;
+    flex-basis: 33%;
+    text-align: center;
+  }
+  @include respond-to(phone){
+    display: block;
+    padding-top: 0;
+    padding-bottom: 0;
+    flex-basis: 33%;
+  }
+  @include respond-to(min-phone){
+    display: block;
+    padding-top: 0;
+    padding-bottom: 0;
+    flex-basis: 33%;
+  }
+
+  .socialsMenu__content {
+    margin: 10px 0;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      @include display-flex();
+      @include flex-direction(row);
+      @include respond-to(tablet){
+        @include justify-content(center);
+      }
+      @include respond-to(phone){
+        @include justify-content(flex-start);
+      }
+      @include respond-to(min-phone){
+        @include justify-content(flex-start);
+      }
+      li {
+        a {
+          color: white;
+          font-size: 22px;
+          padding: 0 10px;
+          &:hover {
+            //color: #d82044;
+            color: #0096ff;
+          }
+          &:active {
+            color: #008bed;
+          }
+        }
+      }
+
+    }
+  }
+  .socialsMenu__label {
+    font-size: 14px;
+    display: block;
+    color: white;
+  }
+}

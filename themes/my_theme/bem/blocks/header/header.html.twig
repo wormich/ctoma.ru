@@ -1,0 +1,179 @@
+<header class="header" role="banner">
+    <div class="header__top">
+        <div class="header__fixedWrap">
+            <div class="header__fixed width width_norm">
+                <div class="header__choosingClinic width_paddingLeftRight">
+                    {% include base_path ~ directory ~ "/bem/blocks/choosingClinic/choosingClinic.html.twig" %}
+                </div>
+                <noindex>
+                    <div class="header__links width_paddingLeftRight">
+
+                    <span class="header__link">
+                        <a href="/form/zapros-dokumentov-dla-nalogovogo"
+                           class="use-ajax"
+                           data-dialog-options='{
+                                "width":"600px",
+                                "minHeight":"500px",
+                                "dialogClass":"popupDialog"
+                                }'
+                           data-dialog-type="modal">Налоговый вычет</a>
+                    </span>
+
+
+                    <span class="header__link">
+
+                    <!--
+                    <a onclick="window.Calltouch.Callback.onClickCallButton()" style="cursor:pointer">Заказать звонок</a>
+                                      <a href="/make-an-appointment" rel="nofollow">Заказать звонок</a>
+
+                  -->
+                    <a href="/form/callback" rel="nofollow"
+                       class="use-ajax"
+                       data-dialog-options='{
+                           "width":"450px",
+                           "minHeight":"500px",
+                           "dialogClass":"popupDialog"
+                           }'
+                       data-dialog-type="modal">Заказать звонок</a>
+
+
+                    </span>
+
+                        <span class="header__link">
+                        <a href="/form/zadat-vopros"
+                           class="use-ajax"
+                           data-dialog-options='{
+                                "width":"500px",
+                                "minHeight":"500px",
+                                "dialogClass":"popupDialog"
+                                }'
+                           data-dialog-type="modal">Задать вопрос</a>
+                    </span>
+                        <span class="header__link">
+                        <a href="/form/kontrol-kacestva"
+                           class="use-ajax"
+                           data-dialog-options='{
+                           "width":"500px",
+                           "minHeight":"500px",
+                           "dialogClass":"popupDialog"
+                           }'
+                           data-dialog-type="modal">Контроль качества</a>
+                    </span>
+                    </div>
+                </noindex>
+                <noindex>
+                    <div class="header__makeAppointmentWrap width_paddingLeftRight">
+                        <a class="header__makeAppointment" href="/make-an-appointment" >Запись на прием</a>
+                    </div>
+                </noindex>
+            </div>
+        </div>
+        <div class="header__topWrapper width_paddingStandart menuMobile">
+
+            <div class="header__menuMobile menuMobile__button">
+                <div class="menuMobile__line"></div>
+            </div>
+            <div class="header__menuAndButton menuMobile__content">
+                <nav class="header__menuTop menuHeader ">
+                    {{ drupal_menu("headermenu") }}
+                </nav>
+            </div>
+
+            <div class="header__logoMobile logo_mobile">
+                <a class="logo__linck" href="/">
+                    <img class="logo__img"
+                         src="{{ base_path ~ directory }}/bem/blocks/logo/img/logo.jpg"
+                         alt="Стоматология в СПб – зубные клиники «СТОМА»"
+                         title="«СТОМА» - Сеть стоматологических клиник Санкт-Петербурга">
+                </a>
+            </div>
+
+            <div class="header__searchMobileButton width_paddingStandart">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+
+        </div>
+        <noindex>
+            <div class="header__searchMobile width_paddingLeftRight">
+                {% include base_path ~ directory ~ "/bem/blocks/search/searchMobile.html.twig" %}
+            </div>
+        </noindex>
+        <noindex>
+            <div class="header__buttons width_paddingStandart">
+            <span class="header__link">
+                <a href="/form/callback"
+                   class="use-ajax"
+                   data-dialog-options='{
+                           "width":"450px",
+                           "minHeight":"500px",
+                           "dialogClass":"popupDialog"
+                           }'
+                   data-dialog-type="modal">Заказать звонок</a>
+            </span>
+                <span class="header__link">
+                <a href="/form/zadat-vopros"
+                   class="use-ajax"
+                   data-dialog-options='{
+                           "width":"500px",
+                           "minHeight":"500px",
+                           "dialogClass":"popupDialog"
+                           }'
+                   data-dialog-type="modal">Задать вопрос</a>
+            </span>
+                <span class="header__link">
+                <a href="/form/kontrol-kacestva"
+                   class="use-ajax"
+                   data-dialog-options='{
+                           "width":"500px",
+                           "minHeight":"500px",
+                           "dialogClass":"popupDialog"
+                           }'
+                   data-dialog-type="modal">Контроль качества</a>
+            </span>
+
+                <a class="header__make" href=/make-an-appointment>Запись на прием</a>
+                <span class="header__link" style="flex-basis: 100%">
+                        <a href="/form/zapros-dokumentov-dla-nalogovogo"
+                           class="use-ajax"
+                           data-dialog-options='{
+                                "width":"600px",
+                                "minHeight":"500px",
+                                "dialogClass":"popupDialog"
+                                }'
+                           data-dialog-type="modal">Налоговый вычет</a>
+                    </span>
+            </div>
+        </noindex>
+        <div class="header__center">
+            <div class="header__centerWrapper width width_norm width_paddingDisableMobileDevice">
+                <div class="header__logo width_paddingStandart">
+                    {% include base_path ~ directory ~ "/bem/blocks/logo/logo.html.twig" %}
+                </div>
+                <div class="header__menu">
+                    {% include base_path ~ directory ~ "/bem/blocks/glavnoeMenu/glavnoeMenu.html.twig" %}
+                </div>
+                <div class="header__search width_paddingStandart">
+                    {#% include base_path ~ directory ~ "/bem/blocks/socialsMenu/socialsMenu.html.twig" %#}
+                    <noindex>
+                        {% include base_path ~ directory ~ "/bem/blocks/search/search.html.twig" %}
+                    </noindex>
+                </div>
+                <div class="header__info width_paddingStandart">
+                    <div class="views-row">
+                        <div class="views-field views-field-field-phones">
+                            <div class="field field-content call_phone_top">
+                                <a href="tel:+78123250360">+7 (812) 325-03-60</a>
+                            </div>
+                            <div class="grafik">Часы работы call-центра: 09:00-21:00</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header__menuTablet">
+                {% include base_path ~ directory ~ "/bem/blocks/glavnoeMenu/glavnoeMenu.html.twig" %}
+            </div>
+        </div>
+    </div>
+</header>

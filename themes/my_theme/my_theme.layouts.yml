@@ -1,0 +1,370 @@
+home:
+  label: Home
+  category: 'My Layouts'
+  path: bem/blocks/home
+  template: home
+  regions:
+    main:
+      label: Main content
+
+about:
+  label: About
+  category: 'My Layouts'
+  path: bem/blocks/about
+  template: about
+  regions:
+    main:
+      label: Main content
+
+kontact:
+  label: Kontact
+  category: 'My Layouts'
+  path: bem/blocks/kontact
+  template: kontact
+  regions:
+    main:
+      label: Main content
+
+doctors:
+  label: Doctors
+  category: 'My Layouts'
+  path: bem/blocks/doctors
+  template: doctors
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+doctor:
+  label: Doctor
+  category: 'My Layouts'
+  path: bem/blocks/doctor
+  template: doctor
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+make_appointment:
+  label: Make appointment
+  category: 'My Layouts'
+  path: bem/blocks/make
+  template: make
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+
+reviewPage:
+  label: reviewPage
+  category: 'My Layouts'
+  path: bem/blocks/reviewPage
+  template: reviewPage
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+klinika:
+  label: Klinika
+  category: 'My Layouts'
+  path: bem/blocks/klinika
+  template: klinika
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+services:
+  label: Services
+  category: 'My Layouts'
+  path: bem/blocks/services
+  template: services
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+service:
+  label: Service
+  category: 'My Layouts'
+  path: bem/blocks/service
+  template: service
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+serviceChildren:
+  label: serviceChildren
+  category: 'My Layouts'
+  path: bem/blocks/serviceChildren
+  template: serviceChildren
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+pakety_lecenia:
+  label: pakety_lecenia
+  category: 'My Layouts'
+  path: bem/blocks/pakety_lecenia
+  template: pakety_lecenia
+  regions:
+    main:
+      label: Main content
+
+partnery:
+  label: Partnery
+  category: 'My Layouts'
+  path: bem/blocks/partnery
+  template: partnery
+  regions:
+    main:
+      label: Main content
+
+prices:
+  label: Prices
+  category: 'My Layouts'
+  path: bem/blocks/prices
+  template: prices
+  regions:
+    main:
+      label: Main content
+
+akcii:
+  label: Akcii
+  category: 'My Layouts'
+  path: bem/blocks/akcii
+  template: akcii
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+otzyvy:
+  label: Otzyvy
+  category: 'My Layouts'
+  path: bem/blocks/otzyvy
+  template: otzyvy
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+otzyv:
+  label: Otzyv
+  category: 'My Layouts'
+  path: bem/blocks/otzyv
+  template: otzyv
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+newsAll:
+  label: newsAll
+  category: 'My Layouts'
+  path: bem/blocks/newsAll
+  template: newsAll
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+newsPage:
+  label: newsPage
+  category: 'My Layouts'
+  path: bem/blocks/newsPage
+  template: newsPage
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+akcia:
+  label: Akcia
+  category: 'My Layouts'
+  path: bem/blocks/akcia
+  template: akcia
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+agreement:
+  label: Agreement
+  category: 'My Layouts'
+  path: bem/blocks/agreement
+  template: agreement
+  regions:
+    main:
+      label: Main content
+
+licenzii:
+  label: Licenzii
+  category: 'My Layouts'
+  path: bem/blocks/licenzii
+  template: licenzii
+  regions:
+    main:
+      label: Main content
+
+kliniki:
+  label: Kliniki
+  category: 'My Layouts'
+  path: bem/blocks/kliniki
+  template: kliniki
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+normPage:
+  label: Norm Page
+  category: 'My Layouts'
+  path: bem/blocks/normPage
+  template: normPage
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+articlesPage:
+  label: articles Page
+  category: 'My Layouts'
+  path: bem/blocks/articlesPage
+  template: articlesPage
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+articles:
+  label: Articles
+  category: 'My Layouts'
+  path: bem/blocks/articles
+  template: articles
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+praises:
+  label: Praises
+  category: 'My Layouts'
+  path: bem/blocks/praises
+  template: praises
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+praise:
+  label: praise
+  category: 'My Layouts'
+  path: bem/blocks/praise
+  template: praise
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+bolezni:
+  label: bolezni
+  category: 'My Layouts'
+  path: bem/blocks/bolezni
+  template: bolezni
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+
+bolezniPage:
+  label: bolezniPage
+  category: 'My Layouts'
+  path: bem/blocks/bolezniPage
+  template: bolezniPage
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+workAll:
+  label: workAll
+  category: 'My Layouts'
+  path: bem/blocks/workAll
+  template: workAll
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+workPage:
+  label: workPage
+  category: 'My Layouts'
+  path: bem/blocks/workPage
+  template: workPage
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+questions:
+  label: questions
+  category: 'My Layouts'
+  path: bem/blocks/questions
+  template: questions
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+questionPage:
+  label: questionPage
+  category: 'My Layouts'
+  path: bem/blocks/questionPage
+  template: questionPage
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content
+
+stranica_faqPage:
+  label: stranica_faqPage
+  category: 'My Layouts'
+  path: bem/blocks/stranica_faqPage
+  template: stranica_faqPage
+  regions:
+    breadcrumb:
+      label: Breadcrumb
+    main:
+      label: Main content

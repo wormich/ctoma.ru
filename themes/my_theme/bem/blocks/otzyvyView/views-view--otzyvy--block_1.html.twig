@@ -1,0 +1,37 @@
+{#
+
+#}
+<div class="otzyvyView">
+    <div class="otzyvyView__title title dot width_paddingStandart">Отзывы</div>
+
+    <div class="otzyvyView__content width width_paddingStandart">
+        {{ title_prefix }}
+        {{ title }}
+        {{ title_suffix }}
+
+        {% if header %}
+            <header>
+                {{ header }}
+            </header>
+        {% endif %}
+
+        {{ exposed }}
+        {{ attachment_before }}
+
+        {{ rows }}
+        {{ empty }}
+        {{ pager }}
+
+        {{ attachment_after }}
+        {{ more }}
+
+
+        {% if footer %}
+            <footer>
+                {{ footer }}
+            </footer>
+        {% endif %}
+
+        {{ feed_icons }}
+    </div>
+</div>

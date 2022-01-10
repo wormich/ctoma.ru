@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/doctors') }}
+
+<div class="doctors">
+
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    {#{{ drupal_view('baner', 'up') }}#}
+
+    <div class="doctors__container">
+        <h1 class="doctors__title title_grey width width_norm width_paddingStandart">
+            <span class="title__br"></span><span class="title__text">{{ content["#title"] }}</span><span class="title__br"></span>
+        </h1>
+        <div class="doctors__content width width_norm width_paddingStandart">
+
+            {% include base_path ~ directory ~ "/bem/blocks/doctorsFilter/doctorsFilter.html.twig" %}
+
+            {{ content.main }}
+        </div>
+    </div>
+
+    {#{{ drupal_view('baner', 'down') }}#}
+
+</div>

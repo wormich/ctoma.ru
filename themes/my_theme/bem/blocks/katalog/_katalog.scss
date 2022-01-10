@@ -1,0 +1,41 @@
+.katalog {
+  @include respond-to(phone){
+    display: none;
+  }
+  @include respond-to(min-phone){
+    display: none;
+  }
+  &__ul {
+    @include display-flex();
+    @include align-items(center);
+    @include flex-direction(row);
+
+    @include respond-to(min-phone){
+      @include flex-direction(column);
+    }
+  }
+  &__li {
+    @include flex(1 0 auto);
+    @include display-flex(inline-flex);
+  }
+  &__a {
+    margin-top: -6px;
+    margin-bottom: -6px;
+    border-bottom: 6px solid rgba(0, 0, 0, 0);
+    border-top: 6px solid rgba(0, 0, 0, 0);
+    width: 100%;
+    color: #666666;
+    padding: 22px 0;
+    text-decoration: none;
+    text-align: center;
+    border-left: 1px solid rgba(0,0,0,0);
+    border-right: 1px solid rgba(0,0,0,0);
+    &:hover {
+      border-left: 1px solid rgba(0,0,0,0.06);
+      border-right: 1px solid rgba(0,0,0,0.06);
+      border-bottom: 6px solid #00a038;
+      border-top: 6px solid #00a038;
+      color: #339933;
+    }
+  }
+}

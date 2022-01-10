@@ -1,0 +1,44 @@
+{#
+
+#}
+<div class="licenziiView">
+    {#{% if title %}#}
+        <div class="licenziiView__title title width_paddingStandart">
+            Лицензия и документы
+        </div>
+    {#{% endif %}#}
+    {#{{ title_prefix }}#}
+    {#{% if label %}#}
+        {#<span{{ title_attributes.addClass("block__title") }}>{{ label }}</span>#}
+    {#{% endif %}#}
+    {#{{ title_suffix }}#}
+
+    <div class="licenziiView__content width width_paddingStandart">
+
+
+        {% if header %}
+            <header>
+                {{ header }}
+            </header>
+        {% endif %}
+
+        {{ exposed }}
+        {{ attachment_before }}
+
+        {{ rows }}
+        {{ empty }}
+        {{ pager }}
+
+        {{ attachment_after }}
+        {{ more }}
+
+
+        {% if footer %}
+            <footer>
+                {{ footer }}
+            </footer>
+        {% endif %}
+
+        {{ feed_icons }}
+    </div>
+</div>

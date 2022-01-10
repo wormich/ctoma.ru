@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/doctor') }}
+
+<div class="doctor">
+
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    <div class="doctor__title">
+        <h1 class="doctor__titleText title_norm width width_norm width_paddingStandart">{{ content["#title"] }}</h1>
+    </div>
+
+    <div class="doctor__mainContent white">
+        <div class="doctor__content width width_norm width_paddingStandart">
+            {{ content.main }}
+        </div>
+    </div>
+
+    <div class="doctorWorks">
+                {{ drupal_view('raboty_vracha_portfolio') }}
+            </div>         
+
+    {{ drupal_view("diplomas","doctor") }}
+
+    <div class="doctor__akcii width width_norm width_paddingStandart ">
+        {{ drupal_view("akcii","doctor") }}
+    </div>
+    {% include base_path ~ directory ~ "/bem/blocks/works/worksDoctor.html.twig" %}
+
+    {{ drupal_view("articles","doctor") }}
+
+
+    <div>
+                {{ drupal_view('otzyvy_vracha') }}
+    </div>   
+    {% include base_path ~ directory ~ "/bem/blocks/reviews/reviewsVrach.html.twig" %}
+
+</div>
+

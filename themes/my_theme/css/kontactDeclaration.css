@@ -1,0 +1,46 @@
+/* line 2, ../bem/blocks/kontact/_default.scss */
+.kontact__title {
+  padding: 50px 0 0;
+}
+/* line 9, ../bem/blocks/kontact/_default.scss */
+.kontact__content {
+  padding-bottom: 50px;
+}
+/* line 12, ../bem/blocks/kontact/_default.scss */
+.kontact__map {
+  display: block;
+  margin-bottom: 50px;
+}
+/* line 16, ../bem/blocks/kontact/_default.scss */
+.kontact__info {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+/* line 21, ../bem/blocks/kontact/_default.scss */
+.kontact__info > div {
+  flex-basis: 30%;
+}
+/* line 23, ../bem/blocks/kontact/_default.scss */
+.kontact__info > div h3 {
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 21, ../bem/blocks/kontact/_default.scss */
+  .kontact__info > div {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 21, ../bem/blocks/kontact/_default.scss */
+  .kontact__info > div {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+  }
+}

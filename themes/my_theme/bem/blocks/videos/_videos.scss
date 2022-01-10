@@ -1,0 +1,17 @@
+.videos {
+  @include display-flex();
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+
+  &__video {
+    margin-top: 15px;
+    @include flex-basis(100%);
+
+    @include respond-to(phone) {
+      @include flex-basis(48%);
+    }
+    @include respond-to(min-phone) {
+      @include flex-basis(48%);
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.homeBanners {
+  text-align: center;
+  @include display-flex();
+  @include flex-direction(column);
+
+  @include respond-to(tablet){
+    @include flex-direction(row);
+    @include justify-content(space-between);
+  }
+  @include respond-to(phone){
+    @include flex-direction(row);
+    @include justify-content(space-between);
+  }
+  @include respond-to(min-phone){
+    @include flex-direction(row);
+    @include justify-content(space-between);
+  }
+  &__img {
+    margin: 0 auto 20px;
+
+    @include respond-to(tablet) {
+      margin: auto 0;
+      max-height: 200px;
+    }
+    @include respond-to(phone) {
+      margin: auto 0;
+      max-height: 200px;
+    }
+    @include respond-to(min-phone) {
+      margin: auto 0;
+      max-height: 120px;
+    }
+  }
+}

@@ -1,0 +1,4 @@
+name: Twig sortbyfield
+type: module
+core: 8.x
+package: Custom

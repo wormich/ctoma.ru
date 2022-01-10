@@ -1,0 +1,37 @@
+.footerMenu {
+  &__ul {
+    @include display-flex();
+    @include flex-direction(column);
+  }
+  &__li {
+    display: block;
+
+    &:first-child {
+      a {
+        display: block;
+        font-size: 13px;
+        font-weight: bold;
+        padding: 5px 0;
+      }
+    }
+  }
+  &__liBold {
+    a {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 5px 0;
+    }
+  }
+  &__a {
+    display: block;
+    font-size: 11px;
+    padding: 3px 0;
+    font-family: "pantonregular", sans-serif;
+    color: rgb(255, 255, 255);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

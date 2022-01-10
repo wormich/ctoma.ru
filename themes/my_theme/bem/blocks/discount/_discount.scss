@@ -1,0 +1,19 @@
+.discount {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: bold;
+  @include image-2x("/productViewMini/img/sale.png", 54px, 54px);
+  color: white;
+  text-align: center;
+  @include display-flex();
+  @include flex-direction(column);
+  @include justify-content(center);
+  &__label {
+
+  }
+  &__sale {
+
+  }
+}

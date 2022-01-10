@@ -1,0 +1,35 @@
+.pager {
+  width: 100%;
+  &__items {
+    text-align: center;
+  }
+  &__item {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    margin: 5px;
+
+    &.is-active {
+      a {
+        color: black;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      @include border-radius(3px);
+      display: block;
+      padding: 10px 12px;
+      line-height: 12px;
+      font-size: 12px;
+      @include background-image(linear-gradient(#e2e1e1, #d6d6d6));
+
+      &:hover {
+        @include background-image(linear-gradient(#e2e1e1, #c6c6c6));
+      }
+      &:active {
+        @include background-image(linear-gradient(#c5c4c4, #c6c6c6));
+      }
+    }
+  }
+}

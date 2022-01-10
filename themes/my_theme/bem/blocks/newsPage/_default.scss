@@ -1,0 +1,7 @@
+.newsPage {
+  &__container {
+    @include background(url('/themes/my_theme/bem/blocks/newsPage/img/bg.jpg'));
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+}

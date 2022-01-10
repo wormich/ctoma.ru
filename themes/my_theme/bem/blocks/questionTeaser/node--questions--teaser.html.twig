@@ -1,0 +1,22 @@
+<div class="questionTeaser">
+    <div class="questionTeaser__content width width_light">
+
+        <div class="questionTeaser__question content_norm">
+            <label>Вопрос:</label>
+            {{ content.field_question }}
+            <div class="questionTeaser__date">
+                {{ node.createdtime|date('d/m/Y') }}
+            </div>
+        </div>
+
+        <div class="questionTeaser__more">
+            <a class="button_red" href="{{ url }}">Посмотреть ответ</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

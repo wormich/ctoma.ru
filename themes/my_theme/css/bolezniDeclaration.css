@@ -1,0 +1,131 @@
+/* line 2, ../bem/blocks/bolezni/_default.scss */
+.bolezni__container {
+  padding-bottom: 20px;
+}
+/* line 9, ../bem/blocks/bolezni/_default.scss */
+.bolezni__title {
+  display: -webkit-flex;
+  display: flex;
+}
+/* line 13, ../bem/blocks/bolezni/_default.scss */
+.bolezni__center {
+  display: -webkit-flex;
+  display: flex;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 13, ../bem/blocks/bolezni/_default.scss */
+  .bolezni__center {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 13, ../bem/blocks/bolezni/_default.scss */
+  .bolezni__center {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+/* line 22, ../bem/blocks/bolezni/_default.scss */
+.bolezni__leftSidebar {
+  -webkit-flex-basis: 30%;
+  flex-basis: 30%;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 22, ../bem/blocks/bolezni/_default.scss */
+  .bolezni__leftSidebar {
+    display: none;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 22, ../bem/blocks/bolezni/_default.scss */
+  .bolezni__leftSidebar {
+    display: none;
+  }
+}
+/* line 32, ../bem/blocks/bolezni/_default.scss */
+.bolezni__content {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 20px 30px 20px;
+  -webkit-flex: auto;
+  flex: auto;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 32, ../bem/blocks/bolezni/_default.scss */
+  .bolezni__content {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 32, ../bem/blocks/bolezni/_default.scss */
+  .bolezni__content {
+    padding: 0;
+  }
+}
+/* line 45, ../bem/blocks/bolezni/_default.scss */
+.bolezni__nav {
+  list-style: none;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/* line 51, ../bem/blocks/bolezni/_default.scss */
+.bolezni__navItem a {
+  display: block;
+  padding: 5px 10px;
+  font-size: 20px;
+  color: #333;
+}
+/* line 58, ../bem/blocks/bolezni/_default.scss */
+.bolezni__navItem.active a {
+  background-color: #d82043;
+  color: #fff;
+}
+/* line 64, ../bem/blocks/bolezni/_default.scss */
+.bolezni__group {
+  list-style: none;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+/* line 70, ../bem/blocks/bolezni/_default.scss */
+.bolezni__list {
+  list-style: none;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/* line 75, ../bem/blocks/bolezni/_default.scss */
+.bolezni__listItem {
+  -webkit-flex-basis: 33%;
+  flex-basis: 33%;
+  margin-bottom: 15px;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 75, ../bem/blocks/bolezni/_default.scss */
+  .bolezni__listItem {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+  }
+}
+/* line 84, ../bem/blocks/bolezni/_default.scss */
+.bolezni__bottomMobile {
+  display: none;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 84, ../bem/blocks/bolezni/_default.scss */
+  .bolezni__bottomMobile {
+    display: block;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 84, ../bem/blocks/bolezni/_default.scss */
+  .bolezni__bottomMobile {
+    display: block;
+  }
+}

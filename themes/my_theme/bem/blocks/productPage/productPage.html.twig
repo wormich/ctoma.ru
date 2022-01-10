@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/productPage') }}
+
+<div class="productPage">
+  <div class="productPage__layout width width_norm">
+    <div class="productPage__content">
+      <div class="content">{{ content.main }}</div>
+    </div>
+    <div class="productPage__bottom width_paddingStandart">
+      <div class="content">{{ content.bottom }}</div>
+    </div>
+  </div>
+</div>

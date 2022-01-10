@@ -1,0 +1,38 @@
+.frontHeader {
+  background: url("../bem/blocks/frontHeader/img/doc.png") no-repeat  top right;
+  padding: 70px 0;
+  &__leftBlock {
+    width: 50%;
+    h1 {
+      margin-bottom: 30px;
+      @include respond-to(desctop) {
+        font-size: 20px;
+      }
+      @include respond-to(tablet) {
+        font-size: 20px;
+      }
+      @include respond-to(phone) {
+        font-size: 20px;
+        text-shadow: -2px 2px 1px #eee;
+      }
+      @include respond-to(min-phone) {
+        font-size: 20px;
+        text-shadow: -2px 2px 1px #eee;
+      }
+    }
+    .info {
+      line-height: 24px;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+    @include respond-to(tablet) {
+      width: 100%;
+    }
+    @include respond-to(phone) {
+      width: 100%;
+    }
+    @include respond-to(min-phone) {
+      width: 100%;
+    }
+  }
+}

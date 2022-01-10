@@ -1,0 +1,37 @@
+.menuNormPage {
+
+  background: white;
+  border: 1px solid #dde2e7;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  @include box-shadow(4px 6.928px 23.04px 0.96px rgba(0, 0, 0, 0.1));
+  width: 100%;
+  max-width: 325px;
+  @include box-sizing(border-box);
+
+  &__list {
+    padding-left: 10px;
+  }
+  &__element {
+    display: block;
+  }
+  &__linck {
+    display: block;
+    padding: 8px 25px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(114, 114, 114);
+    font-weight: bold;
+    font-family: "ralewayregular", sans-serif;
+
+    @include transition(all 0.3s ease);
+
+    &:hover {
+      color: rgb(202, 30, 62);
+    }
+    &.is-active {
+      color: rgb(216, 32, 67);
+    }
+  }
+}

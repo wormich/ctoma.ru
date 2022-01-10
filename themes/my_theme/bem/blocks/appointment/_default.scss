@@ -1,0 +1,44 @@
+.appointment {
+  margin: 10px 0;
+
+  @include respond-to(tablet){
+    margin: 0 15px 10px 5px;
+  }
+  @include respond-to(phone){
+    margin: 0 15px 10px 5px;
+  }
+  @include respond-to(min-phone){
+    margin: 0 15px 10px 5px;
+  }
+
+  &__link {
+    outline: none;
+    color: white;
+    background: #f4a55e;
+    padding: 0 25px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    line-height: 45px;
+    height: 45px;
+    @include transition(all 0.3s ease);
+    @include border-radius(5px);
+    &:hover {
+      @include background-image(linear-gradient(#eca05b, #e29957));
+    }
+    &:active {
+      @include background-image(linear-gradient(#db9454, #ca894e));
+    }
+
+    @include respond-to(phone){
+      line-height: 52px;
+      height: 52px;
+    }
+    @include respond-to(min-phone){
+      line-height: 16px;
+      height: 42px;
+      padding-top: 10px;
+      max-width: 100px;
+    }
+  }
+}

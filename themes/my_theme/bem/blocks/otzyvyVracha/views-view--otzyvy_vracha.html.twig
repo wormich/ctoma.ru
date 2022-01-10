@@ -1,0 +1,30 @@
+{% if rows|length > 0 %}
+<h2 class="title_homeRed width width_norm width_paddingStandart"><span class="title__br"></span><span class="title__text">Отзывы</span><span class="title__br"></span></h2>
+<div class="otzyvyVracha">
+        {{ rows }}
+        {{ empty }}
+   
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+jQuery(document).ready(function($){
+  $('.otzyvyVracha').slick({
+      infinite: true,
+      // arrows: false,
+      adaptiveHeight: true,
+      nextArrow: '<img class="slickRight" src="/sites/default/files/btn_right_o.png" alt="">',
+      prevArrow: '<img class="slickLeft" src="/sites/default/files/btn_left_o.png" alt="">',
+      dots: false
+    });
+});
+</script>
+{% endif %}

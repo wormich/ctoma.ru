@@ -1,0 +1,27 @@
+.socialLink {
+  @include display-flex();
+  @include flex-direction(row);
+  @include respond-to(min-phone){
+    @include justify-content(center);
+  }
+
+  &__item {
+    @include flex-basis(40px);
+    display: block;
+    width: 30px;
+    text-indent: 40px;
+    overflow: hidden;
+    &:hover {
+      opacity: 0.9;
+    }
+    &:active {
+      opacity: 0.8;
+    }
+  }
+  &__facebook {
+    @include image-2x("/socialLink/img/facebook.png", 30px, 30px);
+  }
+  &__youtube {
+    @include image-2x("/socialLink/img/youtube.png", 30px, 30px);
+  }
+}

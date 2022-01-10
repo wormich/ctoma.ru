@@ -1,0 +1,29 @@
+.pageUser {
+  @include display-flex();
+  @include flex-wrap(wrap);
+
+  &__controll {
+    max-width: 190px;
+
+    @include respond-to(phone){
+      max-width: 100%;
+      @include flex-basis(100%);
+    }
+    @include respond-to(min-phone){
+      max-width: 100%;
+      @include flex-basis(100%);
+    }
+  }
+  &__content {
+    @include flex(1);
+    @include respond-to(phone){
+      @include flex(auto);
+    }
+    @include respond-to(min-phone){
+      @include flex(auto);
+    }
+  }
+  &__editForm {
+    padding: 10px 0;
+  }
+}

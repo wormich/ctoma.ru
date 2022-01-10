@@ -1,0 +1,41 @@
+.width {
+  margin: auto;
+  width: 100%;
+  &_short {
+    max-width: 620px;
+  }
+  &_light {
+    max-width: 870px;
+  }
+  &_norm {
+    max-width: 1140px;
+  }
+  &_full {
+    max-width: 100%;
+  }
+
+  &_paddingStandart {
+    padding: 10px 15px;
+    box-sizing: border-box;
+  }
+
+  &_paddingDisableMobileDevice {
+    @include respond-to(tablet){
+      padding: 0;
+    }
+    @include respond-to(phone){
+      padding: 0;
+    }
+    @include respond-to(min-phone){
+      padding: 0;
+    }
+  }
+
+  &_paddingLeftRight {
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  &_topBottom {
+    padding: 10px 0;
+  }
+}

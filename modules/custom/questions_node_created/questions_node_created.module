@@ -1,0 +1,25 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
+
+function questions_node_created_form_alter(&$form,$form_state, $form_id) {
+  if ($form_id == 'webform_submission_zadat_vopros_add_form') {
+    $form['actions']['submit']['#validate'][] = 'questions_node_created_form_validate';
+  }
+}
+
+function questions_node_created_form_validate($form, FormStateInterface $form_state) {
+
+  //создать ноду вернуть id
+  //записать id в скрытое поле
+  $node = Node::create([
+    'type'        => 'questions',
+    'title'       => 'Вопрос-Ответ',
+    'status'      => 0,
+    'field_question' => $form_state->getValue("message"),
+  ]);
+  $node->save();
+
+  $form_state->setValue('node_id', $node->id());
+}

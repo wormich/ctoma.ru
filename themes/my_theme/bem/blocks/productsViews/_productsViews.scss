@@ -1,0 +1,107 @@
+.productsViews {
+  @include display-flex();
+  @include flex-wrap(wrap);
+  &__row {
+    @include display-flex();
+    @include box-sizing(border-box);
+
+    border-right: 1px solid #dadbd9;
+    border-bottom: 1px solid #dadbd9;
+
+    position: relative;
+
+    @include flex-basis(33.3333333%);
+
+    @include respond-to(desctop_max) {
+      &:nth-child(3n+3) {
+        border-right: none;
+      }
+    }
+
+    @include respond-to(desctop_wide) {
+      &:nth-child(3n+3) {
+        border-right: none;
+      }
+    }
+
+    @include respond-to(desctop) {
+      &:nth-child(3n+3) {
+        border-right: none;
+      }
+    }
+
+    @include respond-to(tablet) {
+      @include flex-basis(50%);
+
+      &:nth-child(2n+2) {
+        border-right: none;
+      }
+    }
+    @include respond-to(phone) {
+      @include flex-basis(50%);
+
+      &:nth-child(2n+2) {
+        border-right: none;
+      }
+    }
+    @include respond-to(min-phone) {
+      @include flex-basis(100%);
+      border-right: none;
+    }
+  }
+
+  &.contextual-region {
+    .productsViews__row {
+
+      @include respond-to(desctop_max) {
+        &:nth-child(3n+3) {
+          border-right: 1px solid #dadbd9;
+        }
+        &:nth-child(3n+4) {
+          border-right: none;
+        }
+      }
+
+      @include respond-to(desctop_wide) {
+        &:nth-child(3n+3) {
+          border-right: 1px solid #dadbd9;
+        }
+        &:nth-child(3n+4) {
+          border-right: none;
+        }
+      }
+
+      @include respond-to(desctop) {
+        &:nth-child(3n+3) {
+          border-right: 1px solid #dadbd9;
+        }
+        &:nth-child(3n+4) {
+          border-right: none;
+        }
+      }
+
+      @include respond-to(tablet) {
+        @include flex-basis(50%);
+        &:nth-child(2n+2) {
+          border-right: 1px solid #dadbd9;
+        }
+        &:nth-child(2n+1) {
+          border-right: none;
+        }
+      }
+      @include respond-to(phone) {
+        @include flex-basis(50%);
+        &:nth-child(2n+2) {
+          border-right: 1px solid #dadbd9;
+        }
+        &:nth-child(2n+1) {
+          border-right: none;
+        }
+      }
+      @include respond-to(min-phone) {
+        @include flex-basis(100%);
+        border-right: none;
+      }
+    }
+  }
+}

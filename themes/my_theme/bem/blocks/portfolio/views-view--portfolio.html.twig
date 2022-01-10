@@ -1,0 +1,73 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('my_theme/home') }}
+{{ attach_library('my_theme/articles') }}
+    <div class="breadcrumbContainer width width_full">
+    <div class="width width_norm">
+        <div class="block-region-breadcrumb">
+            <div class="block">
+                <style>
+                .breadcrumb {
+                    list-style: none;
+                }
+                .breadcrumb>li {
+                    display: inline-block;
+                }
+                .breadcrumb>li+li:before {
+                    padding: 0 5px;
+                    color: #ccc;
+                    content: "/\00a0";
+                }
+                .breadcrumb__text div {
+                  display: inline-block;
+                }
+            </style>
+            <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumb__link" href="/" itemprop="item"><span  itemprop="name">Главная</span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <span itemprop="item" content="https://ctoma.ru/portfolio">
+                        <span class="breadcrumb__text" itemprop="name">Примеры работ</span>
+                    </span>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+</div>
+<h1 class="faq__title title_grey width width_norm width_paddingStandart">
+  <span class="title__br"></span>
+  <span class="title__text">Примеры работ</span>
+  <span class="title__br"></span>
+</h1>
+<div class="uslugi_all width width_full width_paddingStandart">
+<div class="uslugi__content width width width_norm width_paddingStandart">
+<div class="views-element-container">
+<div class="viewServices">
+{{ rows }}
+        {{ empty }}
+        {{ pager }}
+</div>
+</div>
+</div>
+</div>

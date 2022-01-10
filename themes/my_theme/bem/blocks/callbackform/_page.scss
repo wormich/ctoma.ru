@@ -1,0 +1,73 @@
+.callbackform {
+  &__name {
+    input {
+      @include box-sizing(border-box);
+      @include border-radius(2px);
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      display: block;
+      margin: 5px 0;
+    }
+  }
+  &__phone {
+    background: grey;
+    input {
+      @include box-sizing(border-box);
+      @include border-radius(2px);
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      display: block;
+      margin: 5px 0;
+    }
+  }
+  &__actions {
+    padding: 5px;
+    text-align: center;
+    button {
+      outline: none;
+      cursor: pointer;
+      font-size: 18px;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      background: #30a7c5;
+      @include background-image(linear-gradient(#30a7c5, #2d9db9));
+      &:hover {
+        @include background-image(linear-gradient(#30a7c5, #2a8ea8));
+      }
+      &:active {
+        @include background-image(linear-gradient(#2ea1be, #2a91ab));
+      }
+    }
+    display: block;
+    position: relative;
+
+    .ajax-progress-throbber {
+      position: absolute;
+      @include border-radius(3px);
+      z-index: 5;
+      top: 0;
+      padding: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 0;
+      @include background-image(linear-gradient(#2ea1be, #2a91ab));
+
+      .throbber {
+        @include image-2x("/callback/img/throbber.gif", 40px, 5px);
+        padding: 0;
+        margin: auto;
+        display: block;
+        height: 35px;
+      }
+    }
+  }
+  .error {
+    background: #fff0f0;
+  }
+}

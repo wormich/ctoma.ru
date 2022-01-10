@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Implements hook_theme_suggestions_page() to set 40x template suggestions
+ */
+
+function page_error_theme_suggestions_page(array $variables) {
+  $path_args = explode('/', trim(\Drupal::service('path.current')->getPath(), '/'));
+  $suggestions = theme_get_suggestions($path_args, 'page');
+  $http_error_suggestions = [
+    'system.401' => 'page__401',
+    'system.403' => 'page__404',
+    'system.404' => 'page__404',
+  ];
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if (isset($http_error_suggestions[$route_name])) {
+    $suggestions[] = $http_error_suggestions[$route_name];
+  }
+  if ($route_name=='system.403'){
+  throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+
+
+  }
+
+  return $suggestions;
+}

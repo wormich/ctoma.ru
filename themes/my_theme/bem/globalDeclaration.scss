@@ -1,0 +1,55 @@
+//global
+@import "compass/css3";
+@import "lib/mixins";
+@import "lib/global";
+
+@import "blocks/statusMessages/statusMessages";
+@import "blocks/clearfix/clearfix";
+@import "blocks/width/width";
+@import "blocks/title/title";
+@import "blocks/title/grey";
+@import "blocks/title/home";
+@import "blocks/menuLocal/menuLocal";
+@import "blocks/blockContent/blockContent";
+@import "blocks/breadcrumb/breadcrumb";
+@import "blocks/popupDialog/red";
+@import "blocks/callbackform/default";
+@import "blocks/button/default";
+
+@import "blocks/title/home";
+@import "blocks/title/homeWhite";
+@import "blocks/title/homeRed";
+//system
+@import "blocks/html/html";
+@import "blocks/noscript/noscript";
+@import "blocks/linck/linck";
+//@import "blocks/buttons/default";
+@import "blocks/freeConsultation/default";
+@import "blocks/skypeConsultation/default";
+
+@import "blocks/doctorShort/default";
+@import "blocks/socialsMenu/default";
+@import "blocks/service/default";
+@import "blocks/startTherapy/default";
+
+@import "blocks/akcii/default";
+@import "blocks/akcia/default";
+
+@import "blocks/footerMenu/footerMenu";
+@import "blocks/footerMenuUslugi/default";
+@import "blocks/footerKlinic/default";
+@import "blocks/footerLicense/default";
+@import "blocks/footerLicenseView/default";
+
+@import "blocks/breadcrumbContainer/default";
+@import "blocks/baner/default";
+
+// views
+//@import "blocks/akciaView/default";
+//@import "blocks/licenziiView/default";
+//@import "blocks/pricesView/default";
+//@import "blocks/uslugiView/default";
+//@import "blocks/pakety_leceniaView/default";
+//@import "blocks/otzyvyView/default";
+//@import "blocks/viewDoctors/default";
+//@import "blocks/fotografii_klinikiView/default";

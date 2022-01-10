@@ -1,0 +1,103 @@
+{% set surl = node.field_doc_photo.entity.fileuri%}
+<script type='application/ld+json'>
+{
+"@context": "http://www.schema.org",
+"@type": "Dentist",
+"name": "{{node.label}}",
+"url": "{{url('<current>')}}",
+"telephone":"+7 (812) 321-02-01",
+"logo": "https://ctoma.ru/themes/my_theme_old/bem/blocks/logo/img/logo.jpg",
+"image": "https://ctoma.ru{{file_url(surl)}}",
+"description": "{{node.field_dolznost.value}}"
+}
+</script>
+
+<article class="doctor__article width width_norm">
+
+    <div class="doctor__topWrap">
+        <div class="doctor__img">
+
+            <div>
+                <img src="{{file_url(surl)}}" width="410" height="520" alt="{{node.field_dolznost.value|capitalize}} {{node.label}}" typeof="foaf:Image" />
+            </div>
+
+        </div>
+        <div class="doctor__info">
+
+            {% if content.field_dolznost | field_value  %}
+                <div class="doctor__field content_norm">
+                    <label>Должность:</label>
+                    {{content.field_dolznost}}
+                </div>
+            {% endif %}
+
+            {% if content.field_education | field_value  %}
+                <div class="doctor__field content_norm">
+                    <label>Образование:</label>
+                    {{content.field_education}}
+                </div>
+            {% endif %}
+
+            {% if content.field_specialnost | field_value  %}
+                <div class="doctor__field content_norm">
+                    <label>Специальность:</label>
+                    {{content.field_specialnost}}
+                </div>
+            {% endif %}
+
+            {% if content.field_specializacia | field_value  %}
+                <div class="doctor__field content_norm">
+                    <label>Специализация:</label>
+                    {{content.field_specializacia}}
+                </div>
+            {% endif %}
+
+            {% if content.field_opyt_i_dostizenia | field_value  %}
+                <div class="doctor__field content_norm">
+                    <label>Опыт и достижения:</label>
+                    {{content.field_opyt_i_dostizenia}}
+                </div>
+            {% endif %}
+
+
+            {% if content.field_informacia | field_value  %}
+                <div class="doctor__field content_norm" style="display:none">
+                    <label>Информация:</label>
+                    {{content.field_informacia}}
+                   
+                    
+                </div>
+            {% endif %}
+ {% if content.field_mesta_raboty | field_value  %}
+                <div class="doctor__field content_norm">
+                    <label>Врач принимает в следующих клиниках:</label><br /><br />
+                    {{content.field_mesta_raboty}}
+                   
+                    
+                </div>
+            {% endif %}
+
+            
+
+
+
+
+            {% if content.body | field_value  %}
+                <div class="doctor__field content_norm">
+                    {{ content.body }}
+                </div>
+            {% endif %}
+
+            <div class="doctor__zapisatsa">
+                <a href="/form/zapisatsa-k-vracu?doctor_nid={{ node.nid.value }}"
+                   class="use-ajax button_red"
+                   data-dialog-options='{
+                                       "width":"500px",
+                                       "minHeight":"800px",
+                                       "dialogClass":"popupDialog"
+                                       }'
+                   data-dialog-type="modal">Записаться к врачу</a>
+            </div>
+        </div>
+    </div>
+</article>

@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/kliniki') }}
+
+<style type="text/css">
+    .callWrap .views-field-field-phones {
+        padding: 0px;
+    }
+</style>    
+
+
+
+<div class="kliniki">
+
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    {#{{ drupal_view('baner', 'up') }}#}
+
+    <div class="kliniki__container">
+        <h1 class="kliniki__title title_grey width width_norm width_paddingStandart">
+            <span class="title__br"></span><span class="title__text">{{ content["#title"] }}Клиники</span><span class="title__br"></span>
+        </h1>
+
+        {% include base_path ~ directory ~ "/bem/blocks/searchMap/searchMap.html.twig" %}
+
+        <div class="kliniki__content width width_norm width_paddingStandart">
+
+
+<div class="rayon_buttons">
+<a href="/clinics/vasileostrovskij-rajon">Василеостровский район</a>
+<a href="/clinics/vyborgskij-rajon">Выборгский район</a>
+<a href="/clinics/kalininskij-rajon">Калининский район</a>
+<a href="/clinics/moskovskij-rajon">Московский район</a>
+<a href="/clinics/petrogradskij-rajon">Петроградский район</a>
+<a href="/clinics/primorskij-rajon">Приморский район</a>
+<a href="/clinics/centralnyj-rajon">Центральный район</a>
+</div>
+            {{ drupal_view('kliniki', 'all') }}
+            {{ content.main }}
+
+        </div>
+    </div>
+
+    {#{{ drupal_view('baner', 'down') }}#}
+
+</div>

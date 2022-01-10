@@ -1,0 +1,40 @@
+.attributesBlock {
+  @include box-shadow(0 0 8px 0 rgba(0,0,0,0.1));
+  width: 100%;
+
+  &__label {
+    @include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.3));
+    @include background-image(linear-gradient(#d9ddd7, #b8bab7));
+    @include text-shadow(0 1px 0 #d9ddd7);
+    @include border-top-right-radius(3px);
+    @include border-top-left-radius(3px);
+
+    color: #3b3d3b;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    border: 1px solid #a9aba8;
+    padding: 4px 10px;
+  }
+  &__row {
+    background: white;
+    @include display-flex();
+    border: 1px solid #a9aba8;
+    border-top: none;
+    &:nth-child(odd){
+      background: rgb(246, 247, 245);
+    }
+  }
+  &__name {
+    @include flex-basis(50%);
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  &__value {
+    @include flex-basis(50%);
+    padding: 5px 10px;
+    border-left: 1px solid #a9aba8;
+    font-size: 12px;
+  }
+}

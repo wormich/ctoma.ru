@@ -1,0 +1,35 @@
+.myPrice_mini {
+  &__oldPrice {
+    color: #666666;
+    font-size: 16px;
+    line-height: 30px;
+    margin: 0 5px;
+    position: relative;
+    @include align-self(flex-end);
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      bottom: 8px;
+      height: 2px;
+      left: 0;
+      background: #cf3700;
+    }
+  }
+  &__currentPrice {
+    color: #cf3700;
+    display: block;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    @include align-self(flex-end);
+  }
+  &__unit {
+    color: #666666;
+    font-size: 12px;
+    line-height: 0;
+    @include align-self(flex-end);
+  }
+}

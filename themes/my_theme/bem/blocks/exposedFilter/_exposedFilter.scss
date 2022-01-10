@@ -1,0 +1,121 @@
+.exposedFilter {
+  form {
+    @include display-flex();
+    @include justify-content(flex-end);
+    @include flex-wrap(wrap);
+
+    @include respond-to(phone){
+      @include justify-content(flex-start);
+    }
+    @include respond-to(min-phone){
+      @include justify-content(flex-start);
+    }
+  }
+  #edit-stock {
+    @include display-flex();
+    @include align-self(center);
+    @include flex-wrap(wrap);
+
+    .form-item-stock {
+      position: relative;
+      cursor: pointer;
+      padding-left: 25px;
+      display: block;
+
+      @include respond-to(phone){
+        width: 100%;
+        padding-left: 30px;
+      }
+      @include respond-to(min-phone){
+        width: 100%;
+        padding-left: 30px;
+      }
+
+      input {
+        outline:none;
+        @include user-select(none);
+        @include appearance(none);
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        background: white;
+        border-radius: 30px;
+        border: 1px solid #a9aba8;
+
+        cursor: pointer;
+        position: absolute;
+        left: 3px;
+        top: 50%;
+        margin-top: -8px;
+
+        @include respond-to(phone){
+          left: 10px;
+        }
+        @include respond-to(min-phone){
+          left: 10px;
+        }
+
+        &[checked="checked"] {
+          @include background-image(linear-gradient(#a9aba8, #cfd1cf));
+
+        }
+      }
+
+
+      label {
+        @include user-select(none);
+        cursor: pointer;
+        padding: 5px 15px 4px 0;
+        display: inline-block;
+
+        font-size: 12px;
+        line-height: 22px;
+        color: #3b3d3b;
+        text-shadow: 0 1px 0 #dadbd9;
+        @include respond-to(phone){
+          display: block;
+        }
+        @include respond-to(min-phone){
+          display: block;
+        }
+      }
+      &:hover {
+        input {
+          background: #f0f0f0;
+          &[checked="checked"] {
+            @include background-image(linear-gradient(#a9aba8, #cfd1cf));
+          }
+        }
+      }
+    }
+  }
+
+  .form-item-sort-bef-combine {
+    padding: 4px 10px;
+    label {
+      font-size: 12px;
+      font-weight: bold;
+      color: #3b3d3b;
+      line-height: 22px;
+      text-shadow: 0 1px 0 #dadbd9;
+    }
+  }
+  &__select {
+    font-size: 14px;
+    margin-left: 5px;
+
+    @include respond-to(phone){
+      font-size: 16px;
+      margin-left: 0;
+      width: 100%;
+    }
+    @include respond-to(min-phone){
+      font-size: 16px;
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+}
+
+
+

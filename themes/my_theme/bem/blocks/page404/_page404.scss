@@ -1,0 +1,32 @@
+.page404 {
+  margin: auto;
+  &__layout {
+    font-size: 24px;
+    color: #8c8c8c;
+    line-height: 34px;
+    text-align: center;
+    @include display-flex();
+    @include flex-direction(row);
+    @include align-items(center);
+    @include justify-content(center);
+    @include respond-to(min-phone){
+      @include flex-direction(column);
+    }
+  }
+  &__img {
+    height: auto;
+    @include respond-to(phone){
+      max-width: 130px;
+    }
+    @include respond-to(min-phone){
+      max-width: 130px;
+    }
+  }
+  &__text {
+    font-size: 16px;
+    line-height: 18px;
+  }
+  a {
+
+  }
+}

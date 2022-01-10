@@ -1,0 +1,23 @@
+<div class="otzyvDefault width width_light">
+    <span class="otzyvDefault__podlojka"></span>
+    <div class="otzyvDefault__content">
+
+        <div class="otzyvDefault__top">
+            {{ content.field_vrac }}
+
+            <div class="otzyvDefault__info width_paddingStandart">
+                <div class="otzyvDefault__ot">
+                    <label>ОТ:</label>
+                    <span class="otzyvDefault__otName">{{ node.label }}</span>
+                    <span class="otzyvDefault__otDate">{{ node.createdtime|date('d/m/Y') }}</span>
+                </div>
+                <div class="otzyvDefault__body">
+                    {{ content.body }}
+                </div>
+            </div>
+        </div>
+
+        <div class="otzyvDefault__more"><a class="button_red" href="{{ url }}">Подробнее</a></div>
+
+    </div>
+</div>

@@ -1,0 +1,14 @@
+/* line 2, ../bem/blocks/about/_about.scss */
+.about__title {
+  padding: 20px 0 0;
+  text-align: center;
+}
+/* line 9, ../bem/blocks/about/_about.scss */
+.about__content {
+  padding-bottom: 50px;
+}
+/* line 13, ../bem/blocks/about/_about.scss */
+.about__content .block-region-main > .contextual-region:first-child {
+  max-width: 700px;
+  margin: 0 auto;
+}

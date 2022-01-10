@@ -1,0 +1,33 @@
+.freeConsultation {
+  &__content {
+    .block {
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0px 0px 10px 5px rgba(12, 171, 141, 0.2);
+      padding: 20px;
+      border-radius: 20px;
+      &__title {
+        text-align: center;
+        margin-bottom: 15px;
+        font-weight: 400;
+        display: block;
+        font-size: 20px;
+      }
+      form {
+        text-align: center;
+        .form-item {
+          margin-bottom: 15px;
+          input {
+            width: 100%;
+            padding: 12px 0;
+            border: none;
+            border-bottom: 2px solid #343434;
+            font-size: 1.25rem;
+            font-weight: 100;
+            outline: none;
+            text-indent: 10px;
+          }
+        }
+      }
+    }
+  }
+}

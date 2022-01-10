@@ -1,0 +1,5 @@
+name: Custom Make
+description: My custom functions for form make
+type: module
+package: Custom
+core: '8.x'

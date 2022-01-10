@@ -1,0 +1,151 @@
+/* line 1, ../bem/blocks/catalogView/_catalogView.scss */
+.catalogView {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 1, ../bem/blocks/catalogView/_catalogView.scss */
+  .catalogView {
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+}
+/* line 10, ../bem/blocks/catalogView/_catalogView.scss */
+.catalogView__row {
+  margin-bottom: 20px;
+  margin-right: 20px;
+  max-width: 180px;
+  -webkit-flex-basis: 180px;
+  flex-basis: 180px;
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 10, ../bem/blocks/catalogView/_catalogView.scss */
+  .catalogView__row {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 10, ../bem/blocks/catalogView/_catalogView.scss */
+  .catalogView__row {
+    -webkit-flex-basis: 48%;
+    flex-basis: 48%;
+    margin-right: 0;
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+}
+/* line 29, ../bem/blocks/catalogView/_catalogView.scss */
+.catalogView__link {
+  max-width: 160px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -moz-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  text-decoration: none;
+  height: 100%;
+  background: white;
+}
+/* line 39, ../bem/blocks/catalogView/_catalogView.scss */
+.catalogView__link:hover {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwY2MzMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwYWEzOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #00cc33), color-stop(100%, #00aa39));
+  background-image: -moz-linear-gradient(#00cc33, #00aa39);
+  background-image: -webkit-linear-gradient(#00cc33, #00aa39);
+  background-image: linear-gradient(#00cc33, #00aa39);
+}
+/* line 41, ../bem/blocks/catalogView/_catalogView.scss */
+.catalogView__link:hover .catalogView__name {
+  color: #ffffff;
+}
+/* line 45, ../bem/blocks/catalogView/_catalogView.scss */
+.catalogView__link:active {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwYTcyYiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwOTkzMyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #00a72b), color-stop(100%, #009933));
+  background-image: -moz-linear-gradient(#00a72b, #009933);
+  background-image: -webkit-linear-gradient(#00a72b, #009933);
+  background-image: linear-gradient(#00a72b, #009933);
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 29, ../bem/blocks/catalogView/_catalogView.scss */
+  .catalogView__link {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    max-width: 100%;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 29, ../bem/blocks/catalogView/_catalogView.scss */
+  .catalogView__link {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    max-width: 100%;
+  }
+}
+/* line 58, ../bem/blocks/catalogView/_catalogView.scss */
+.catalogView__icon {
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid #dedede;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 58, ../bem/blocks/catalogView/_catalogView.scss */
+  .catalogView__icon {
+    border-bottom: 0;
+    border-right: 1px solid #dedede;
+    width: 80px;
+    height: 65px;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 58, ../bem/blocks/catalogView/_catalogView.scss */
+  .catalogView__icon {
+    border-bottom: 0;
+    border-right: 1px solid #dedede;
+    width: 80px;
+    height: 65px;
+  }
+}
+/* line 76, ../bem/blocks/catalogView/_catalogView.scss */
+.catalogView__name {
+  margin: auto;
+  color: #000000;
+  text-align: center;
+  padding: 5px;
+}
+
+/* line 1, ../bem/blocks/breadcrumb/_breadcrumb.scss */
+.breadcrumb {
+  margin-top: 15px;
+  line-height: 15px;
+}
+/* line 4, ../bem/blocks/breadcrumb/_breadcrumb.scss */
+.breadcrumb__link {
+  font-size: 12px;
+  color: #3b3d3b;
+}
+/* line 7, ../bem/blocks/breadcrumb/_breadcrumb.scss */
+.breadcrumb__link:hover {
+  text-decoration: none;
+}
+/* line 11, ../bem/blocks/breadcrumb/_breadcrumb.scss */
+.breadcrumb__text {
+  font-size: 12px;
+  color: #3b3d3b;
+}

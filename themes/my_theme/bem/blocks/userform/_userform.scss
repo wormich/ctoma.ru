@@ -1,0 +1,109 @@
+.userform {
+  max-width: 450px;
+
+  @include respond-to(phone){
+    max-width: 100%;
+  }
+  @include respond-to(min-phone){
+    max-width: 100%;
+  }
+
+  &__currentpass {
+    margin-bottom: 10px;
+    input {
+      padding: 10px;
+      width: 100%;
+      outline: none;
+      border: 0;
+      box-sizing: border-box;
+      border-radius: 3px;
+      margin: 5px 0;
+      color: #1a1a1a;
+      font-size: 16px;
+    }
+    .description {
+      font-size: 12px;
+      color: #868686;
+      text-align: justify;
+      a {
+        color: #00cc33;
+        display: inline-block;
+      }
+    }
+  }
+
+  &__mail {
+    margin-bottom: 10px;
+    input {
+      padding: 10px;
+      width: 100%;
+      outline: none;
+      border: 0;
+      box-sizing: border-box;
+      border-radius: 3px;
+      margin: 5px 0;
+      color: #1a1a1a;
+      font-size: 16px;
+    }
+    .description {
+      font-size: 12px;
+      color: #868686;
+      text-align: justify;
+    }
+  }
+  &__pass {
+    input {
+      padding: 10px;
+      width: 100%;
+      outline: none;
+      border: 0;
+      box-sizing: border-box;
+      border-radius: 3px;
+      margin: 5px 0;
+      color: #1a1a1a;
+      font-size: 16px;
+    }
+    .description {
+      font-size: 12px;
+      color: #868686;
+    }
+    label {
+      font-weight: bold;
+    }
+    .password-strength__title {
+      display: none;
+    }
+    .password-confirm {
+      span {
+        color: red;
+        &.ok {
+          color: #00cc33;
+        }
+      }
+    }
+  }
+
+  &__actions {
+    text-align: center;
+    padding: 5px 0;
+    button {
+      display: inline-block;
+      @include border-radius(3px);
+      border: 0;
+      cursor: pointer;
+      outline: none;
+      color: #ffffff;
+      text-transform: uppercase;
+      padding: 8px 21px;
+      font-size: 16px;
+
+      @include background-image(linear-gradient(#00cc33, #009933));
+      &:hover {
+        @include background-image(linear-gradient(#00cc33, #00aa39));
+      }
+      &:active {
+        @include background-image(linear-gradient(#00a72b, #009933));
+      }
+    }
+  }
+}

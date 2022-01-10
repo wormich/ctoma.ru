@@ -1,0 +1,57 @@
+.advantage {
+  @include border-radius(4px);
+  border: 1px solid #d9ddd7;
+  padding: 30px;
+  margin: 10px;
+  background: #FFF;
+
+  @include respond-to(phone){
+    padding: 15px;
+    margin: 10px 0;
+  }
+  @include respond-to(min-phone){
+    padding: 20px;
+    margin: 10px 0;
+  }
+
+  &__icon {
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+    height: 120px;
+    @include respond-to(phone){
+      float: right;
+      margin: 10px 10px 10px 25px;
+    }
+    @include respond-to(min-phone){
+      height: 100px;
+    }
+  }
+
+  &__iconMoney {
+    background-image: inline_image("/advantage/img/money.png");
+    width: 45px;
+  }
+  &__iconVersatility {
+    background-image: inline_image("/advantage/img/versatility.png");
+    width: 76px;
+  }
+  &__iconPartnership {
+    background-image: inline_image("/advantage/img/partnership.png");
+    width: 85px;
+  }
+
+  &__title {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0;
+    @include respond-to(phone) {
+      margin: 0 0 10px;
+    }
+  }
+  &__body {
+    font-size: 12px;
+    color: #3b3d3b;
+  }
+}

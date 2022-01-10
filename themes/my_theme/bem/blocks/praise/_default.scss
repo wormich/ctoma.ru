@@ -1,0 +1,58 @@
+.praise {
+  &__container {
+    @include background(url('/themes/my_theme/bem/blocks/praise/img/bg.jpg'));
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    padding-bottom: 20px;
+  }
+  &__title {
+    @include display-flex();
+  }
+
+  &__center {
+    @include display-flex();
+    @include respond-to(phone){
+      @include flex-direction(column);
+    }
+    @include respond-to(min-phone){
+      @include flex-direction(column);
+    }
+  }
+  &__leftSidebar {
+    @include flex-basis(30%);
+
+    @include respond-to(phone){
+      display: none;
+    }
+    @include respond-to(min-phone){
+      display: none;
+    }
+  }
+  &__content {
+    @include flex-basis(70%);
+    @include box-sizing(border-box);
+    padding: 0 20px 30px 20px;
+
+    @include respond-to(phone){
+      padding: 0;
+      @include flex-basis(100%);
+      @include flex(auto);
+    }
+    @include respond-to(min-phone){
+      padding: 0;
+      @include flex-basis(100%);
+      @include flex(auto);
+    }
+  }
+  &__bottomMobile {
+    display: none;
+
+    @include respond-to(phone){
+      display: block;
+    }
+    @include respond-to(min-phone){
+      display: block;
+    }
+  }
+}

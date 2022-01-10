@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/reviewPage') }}
+
+<div class="reviewPage">
+
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    <div class="reviewPage__title">
+        <h1 class="reviewPage__titleText title_norm width width_norm width_paddingStandart">{{ content["#title"] }}</h1>
+    </div>
+
+    <div class="reviewPage__mainContent width">
+        <div class="reviewPage__content width width_norm">
+            <div class="reviewPage__img width_paddingStandart">
+                {% include base_path ~ directory ~ "/bem/blocks/makeImg/makeImgButton.html.twig" %}
+            </div>
+            <div class="reviewPage__form width_paddingStandart width_paddingDisableMobileDevice">
+                {{ drupal_entity('webform', 'add_review') }}
+            </div>
+            {{ content.main }}
+        </div>
+    </div>
+
+</div>

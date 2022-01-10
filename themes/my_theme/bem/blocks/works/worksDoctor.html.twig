@@ -1,0 +1,50 @@
+{% raw %}
+    <div id="worksDoctor" class="works works_doctor width width_full" v-cloak="" xmlns:v-bind="http://www.w3.org/1999/xhtml" v-if="show">
+        <h2 class="works__title title_homeWhite width width_norm width_paddingStandart">
+            <span class="title__br"></span><span class="title__text">Работы врача</span><span class="title__br"></span>
+        </h2>
+        <div class="works__content width width_paddingStandart">
+            <div class="works__slider width width_full">
+                <div class="works__swiper swiper-container">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide" v-for="item in works">
+                            <div class="workTeaser">
+                                <div class="workTeaser__content width width_light">
+                                    <a class="workTeaser__title" v-bind:href="item.path" v-html="item.title"></a>
+                                    <div class="workTeaser__field content_norm" v-if="item.field_vrac">
+                                        <label>Врач:</label>
+                                        <div v-html="item.field_vrac"></div>
+                                    </div>
+                                    <div class="workTeaser__field content_norm" v-if="item.field_name_pacient">
+                                        <label>Имя пациента:</label>
+                                        <div v-html="item.field_name_pacient"></div>
+                                    </div>
+
+                                    <div class="workTeaser__photos">
+                                        <div class="workDefault__do" v-html="item.field_foto_do"></div>
+                                        <div class="workTeaser__posle" v-html="item.field_foto_posle"></div>
+                                    </div>
+
+                                    <div class="workTeaser__all">
+                                        <a v-bind:href="zapis_button"
+                                           class="use-ajax button_red"
+                                           data-dialog-options='{
+                                                                "width":"500px",
+                                                                "minHeight":"800px",
+                                                                "dialogClass":"popupDialog"
+                                                                }'
+                                           data-dialog-type="modal">Записаться</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="works__swiperButtonNext swiper-button-next swiper-button-white"></div>
+                    <div class="works__swiperButtonPrev swiper-button-prev swiper-button-white"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endraw %}

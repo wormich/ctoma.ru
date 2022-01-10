@@ -1,0 +1,114 @@
+.stomaIs {
+  @include respond-to(phone){
+    display: none;
+  }
+  @include respond-to(min-phone){
+    display: none;
+  }
+  &__content {
+    text-align: center;
+    margin: 10px auto;
+    max-width: 580px;
+    font-size: 15px;
+    font-family: "ralewayregular", sans-serif;;
+    color: rgb(127, 144, 165);
+
+    @include respond-to(phone) {
+      text-align: left;
+    }
+    @include respond-to(min-phone) {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin: 30px auto 15px auto;
+    max-width: 100%;
+    height: auto;
+  }
+  &__info {
+    @include display-flex();
+    @include respond-to(phone) {
+      @include flex-direction(column);
+    }
+    @include respond-to(min-phone) {
+      @include flex-direction(column);
+    }
+  }
+
+  &__infoBlock {
+    @include flex-basis(25%);
+    @include display-flex();
+    @include flex-direction(column);
+    text-align: center;
+    padding-bottom: 45px;
+
+    @include respond-to(phone) {
+      @include flex-basis(50%);
+      @include flex-direction(row);
+      @include align-items(center);
+      @include justify-content(space-between);
+      padding-bottom: 0;
+    }
+    @include respond-to(min-phone) {
+      @include flex-basis(50%);
+      @include flex-direction(row);
+      @include align-items(center);
+      @include justify-content(space-between);
+      padding-bottom: 0;
+    }
+
+    img {
+      display: block;
+      width: 90px;
+      height: 90px;
+      @include border-radius(50%);
+      margin: 15px auto;
+      @include respond-to(phone) {
+        width: 45px;
+        height: 45px;
+        margin: 5px 0;
+      }
+      @include respond-to(min-phone) {
+        width: 45px;
+        height: 45px;
+        margin: 5px 0;
+      }
+    }
+  }
+
+  &__int {
+    font-size: 32px;
+    font-family: "intro_regular", sans-serif;
+    color: rgb(61, 80, 111);
+    text-transform: uppercase;
+
+    @include respond-to(phone) {
+      font-size: 16px;
+      padding: 0 10px;
+      min-width: 60px;
+    }
+    @include respond-to(min-phone) {
+      font-size: 16px;
+      padding: 0 10px;
+      min-width: 60px;
+    }
+  }
+  &__podpis {
+    font-size: 18px;
+    font-family: "ralewayregular", sans-serif;;
+    color: rgb(127, 144, 165);
+    font-weight: bold;
+    @include respond-to(phone) {
+      font-size: 16px;
+      @include flex(1 0 auto);
+      text-align: left;
+    }
+    @include respond-to(min-phone) {
+      font-size: 16px;
+      @include flex(1 0 auto);
+      text-align: left;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+.swipe {
+  height: 590px;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  @include respond-to(phone) {
+    height: 360px;
+    box-sizing: border-box;
+  }
+  @include respond-to(min-phone) {
+    box-sizing: border-box;
+    height: 390px;
+  }
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    @include display-flex();
+    @include flex-direction(column);
+  }
+  .swiper-button-prev {
+    left: 110px;
+    @include background-image(inline_image("/swipe/img/prev.png"));
+    opacity: 0.7;
+    width: 40px;
+    height: 42px;
+    margin-top: -21px;
+    background-position: top;
+    @include background-size(cover);
+    &:hover {
+      opacity: 0.9;
+    }
+    @include respond-to(desctop) {
+      left: 10px;
+    }
+    @include respond-to(tablet) {
+      left: 10px;
+    }
+    @include respond-to(phone) {
+      left: 10px;
+    }
+    @include respond-to(min-phone) {
+      left: 10px;
+      display: none;
+    }
+
+  }
+  .swiper-button-next {
+    right: 110px;
+    width: 40px;
+    height: 42px;
+    margin-top: -21px;
+    background-position: top;
+    @include background-size(cover);
+    @include background-image(inline_image("/swipe/img/next.png"));
+    opacity: 0.7;
+    &:hover {
+      opacity: 0.9;
+    }
+    @include respond-to(desctop) {
+      right: 10px;
+    }
+    @include respond-to(tablet) {
+      right: 10px;
+    }
+    @include respond-to(phone) {
+      right: 10px;
+    }
+    @include respond-to(min-phone) {
+      right: 10px;
+      display: none;
+    }
+  }
+  .swiper-pagination-bullet-active {
+    background: white;
+  }
+}

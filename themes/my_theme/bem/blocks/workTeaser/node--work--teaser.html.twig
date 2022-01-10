@@ -1,0 +1,35 @@
+<div class="workTeaser">
+    <div class="workTeaser__content width width_light">
+
+        <a class="workTeaser__title" href="{{ url }}">
+            {{ label }}
+        </a>
+
+        {% if content.field_vrac | field_value  %}
+            <div class="workTeaser__field content_norm">
+                <label>Врач:</label>
+                {{ content.field_vrac }}
+            </div>
+        {% endif %}
+
+        {% if content.field_name_pacient | field_value  %}
+            <div class="workTeaser__field content_norm">
+                <label>Имя пациента:</label>
+                {{ content.field_name_pacient }}
+            </div>
+        {% endif %}
+
+        <div class="workTeaser__photos">
+            <div class="workDefault__do">
+                {{ content.field_foto_do }}
+            </div>
+            <div class="workTeaser__posle">{{ content.field_foto_posle }}</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

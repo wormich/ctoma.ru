@@ -1,0 +1,32 @@
+.resetPage {
+  max-width: 600px;
+  margin: auto;
+  @include display-flex();
+  @include flex-direction(column);
+  text-align: center;
+
+  @include respond-to(phone){
+    margin: 0 auto;
+  }
+  @include respond-to(min-phone){
+    margin: 0 auto;
+  }
+
+  &__layout {
+    @include flex(1 0 auto);
+    padding: 40px 20px;
+    border: 1px solid rgba(169, 169, 165, 0.31);
+    @include border-radius(30px);
+
+    @include respond-to(phone){
+      padding: 20px 0;
+      border: none;
+      border-radius: 0;
+    }
+    @include respond-to(min-phone){
+      padding: 20px 0;
+      border: none;
+      border-radius: 0;
+    }
+  }
+}

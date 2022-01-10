@@ -1,0 +1,123 @@
+	{#
+/**
+ * @file
+ * Default theme implementation to webform confirmation.
+ *
+ * Available variables:
+ * - progress: Progress bar.
+ * - message: Confirmation message.
+ * - back_url: URL to the previous webform submission.
+ *
+ * @see template_preprocess_webform_confirmation()
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('webform/webform.confirmation') }}
+
+{% if progress %}
+    {{ progress }}
+{% endif %}
+
+<div{{ attributes.addClass('webform-confirmation white') }}>
+
+    {% if message %}
+        <div class="webform-confirmation__message width width_norm width_paddingStandart">{{ message }}</div>
+    {% endif %}
+
+    {% if back %}
+        <div class="webform-confirmation__back">
+            <a href="{{ back_url }}" rel="back" title="{{ back_label }}"{{ back_attributes }}>{{ back_label }}</a>
+        </div>
+    {% endif %}
+
+</div>
+
+
+
+<script type="text/javascript">
+    //localStorage.clear();
+var limit = 180000; //3 минуты
+var ok=0;
+
+var ids = new Object();
+ids['/form/makeform/confirmation'] = "make_appointment";
+ids['/form/callback/confirmation'] = "request_call";
+ids['/form/zadat-vopros/confirmation']="ask_question";
+ids['/form/kontrol-kacestva/confirmation']="quality_control";
+ids['/form/add-review/confirmation'] = "give_feedback";
+ids['/form/zapisatsa-k-vracu/confirmation']="appointment_doctor";
+ids['/form/zapisatsa-po-akcii//confirmation']="sign_up_promotion";
+var string_form = window.localStorage.getItem('form');
+var path = window.location.pathname; 
+var current_label=ids[path];
+var ctime = Date.now();
+
+
+
+if (string_form !=null){  
+  var obj_form = JSON.parse(string_form);
+  var form_id = obj_form.form_id;  
+  var localStorageInitTime=obj_form.cur_time;
+
+}else{
+    
+  var form_id = '';
+  var localStorageInitTime='';
+}
+
+
+if (form_id!=current_label){    
+  ok=1;
+}else{
+  
+if (localStorageInitTime!=''){    
+    
+
+var delta=localStorageInitTime-ctime;
+
+    
+if (delta > 0){
+  
+ok=0;
+
+}else{
+    
+ok=1;
+}
+
+
+
+}
+}
+if (ok==1){
+    localStorage.clear();
+    var new_form = new Object();
+
+    console.log('Цель отправлена: '+current_label);
+    	dataLayer.push({
+		'event' : 'GAEvent',
+		'eventCategory' : 'form',
+		'eventAction' : 'success',
+		'eventLabel' : current_label
+	});
+    
+    
+    new_form.form_id = current_label;
+    new_form.cur_time = ctime + limit;
+    
+    var data=JSON.stringify(new_form);
+    
+    localStorage.setItem('form', data);
+    
+ 
+    
+}else{
+    var tf=Math.round(delta/60000);
+     console.log('Цель не отправлена: '+current_label);
+     console.log('Цель на эту форму сработает через: '+tf+' мин.');
+}
+
+
+
+</script>

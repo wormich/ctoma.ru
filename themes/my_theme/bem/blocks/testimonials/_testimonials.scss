@@ -1,0 +1,28 @@
+.testimonials {
+  &__layout {
+    @include display-flex();
+    @include flex-wrap(wrap);
+    @include justify-content(space-between);
+
+  }
+  &__view {
+    @include flex-basis(48%);
+
+    @include respond-to(phone){
+      @include flex-basis(100%);
+    }
+    @include respond-to(min-phone){
+      @include flex-basis(100%);
+    }
+  }
+  &__add {
+    @include flex-basis(48%);
+
+    @include respond-to(phone){
+      @include flex-basis(100%);
+    }
+    @include respond-to(min-phone){
+      @include flex-basis(100%);
+    }
+  }
+}

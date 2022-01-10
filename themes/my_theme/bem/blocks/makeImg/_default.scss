@@ -1,0 +1,43 @@
+.makeImg {
+  width: 325px;
+  height: 325px;
+  background: url('../bem/blocks/makeImg/img/zapis_img.jpg') no-repeat center center;
+  @include box-shadow(2px 3.464px 36px 4px rgba(0, 0, 0, 0.06));
+
+  @include display-flex();
+  @include flex-direction(column);
+
+  &__text {
+    @include flex(1 0 auto);
+    @include display-flex();
+    @include flex-direction(column);
+    padding: 80px 120px 20px 30px;
+  }
+  &__text1 {
+    display: block;
+    font-size: 15px;
+    font-family: "ralewayregular", sans-serif;
+    color: rgb(216, 32, 67);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  &__text2 {
+    display: block;
+    font-size: 11px;
+    font-family: "ralewayregular", sans-serif;
+    color: rgb(119, 119, 119);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+  &__actions {
+    text-align: center;
+    @include flex-basis(100px);
+    @include display-flex();
+  }
+  &__button {
+    margin: auto;
+  }
+}

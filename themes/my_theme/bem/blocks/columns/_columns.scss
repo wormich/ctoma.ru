@@ -1,0 +1,36 @@
+.columns {
+  &_two {
+    @include respond-to(phone) {
+      @include column-count(2);
+    }
+    @include respond-to(tablet) {
+      @include column-count(2);
+    }
+    @include respond-to(desctop) {
+      @include column-count(2);
+    }
+    @include respond-to(desctop_wide) {
+      @include column-count(2);
+    }
+    @include respond-to(desctop_max) {
+      @include column-count(2);
+    }
+  }
+  &_three {
+    @include respond-to(phone) {
+      @include column-count(2);
+    }
+    @include respond-to(tablet) {
+      @include column-count(3);
+    }
+    @include respond-to(desctop) {
+      @include column-count(3);
+    }
+    @include respond-to(desctop_wide) {
+      @include column-count(3);
+    }
+    @include respond-to(desctop_max) {
+      @include column-count(3);
+    }
+  }
+}

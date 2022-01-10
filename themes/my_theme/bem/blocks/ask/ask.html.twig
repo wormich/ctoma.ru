@@ -1,0 +1,24 @@
+<div class="ask width width_full" v-if="show">
+    <div class="ask__title title_homeRed width width_norm width_paddingStandart">
+        <span class="title__br"></span><h2 class="title__text">Задайте вопрос</h2><span class="title__br"></span>
+    </div>
+    <div class="ask__content width width_light width_paddingStandart">
+        <div class="ask__col1">
+            {{ drupal_view("questions", "front") }}
+        </div>
+
+        <div class="ask__bottom">
+            <a href="/questions" class="button_red">Все вопросы</a>
+
+            <a href="/form/zadat-vopros"
+               class="use-ajax button_blue"
+               data-dialog-options='{
+                                "width":"500px",
+                                "minHeight":"500px",
+                                "dialogClass":"popupDialog"
+                                }'
+               data-dialog-type="modal">Задать вопрос</a>
+
+        </div>
+    </div>
+</div>

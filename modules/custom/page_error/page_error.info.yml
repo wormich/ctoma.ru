@@ -1,0 +1,5 @@
+name: 'Page Error'
+type: module
+description: 'Add custom suggestions for 401 403 404 page'
+core: 8.x
+package: Custom

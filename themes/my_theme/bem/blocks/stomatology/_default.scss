@@ -1,0 +1,415 @@
+.stomatology {
+  background: #fafafc;
+
+  @include background-image(inline_image("/stomatology/img/doctors_bg.jpg"));
+  background-size: cover;
+  background-position: center;
+
+  @include respond-to(phone){
+    display: none;
+  }
+  @include respond-to(min-phone){
+    display: none;
+  }
+
+  &__title {
+    padding-top: 50px;
+    padding-bottom: 30px;
+    @include respond-to(phone) {
+      padding-top: 35px;
+      padding-bottom: 15px;
+    }
+    @include respond-to(min-phone) {
+      padding-top: 35px;
+      padding-bottom: 15px;
+    }
+  }
+  &__slider {
+    min-height: 340px;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    @include respond-to(phone) {
+      min-height: 0;
+      box-sizing: border-box;
+    }
+    @include respond-to(min-phone) {
+      box-sizing: border-box;
+      min-height: 0;
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      padding-bottom: 40px;
+      @include respond-to(phone) {
+        padding-bottom: 0;
+      }
+      @include respond-to(min-phone) {
+        padding-bottom: 0;
+      }
+    }
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      @include display-flex();
+      @include flex-direction(column);
+      opacity: 0 !important;
+      &.swiper-slide-active {
+        opacity: 1 !important;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+    .swiper-button-prev {
+      left: 110px;
+      @include background-image(inline_image("/sliderText/img/prev.png"));
+      opacity: 0.7;
+      width: 40px;
+      height: 42px;
+      margin-top: -21px;
+      background-position: top;
+      @include background-size(cover);
+      &:hover {
+        opacity: 0.9;
+      }
+      @include respond-to(desctop) {
+        left: 10px;
+      }
+      @include respond-to(tablet) {
+        left: 10px;
+      }
+      @include respond-to(phone) {
+        left: 10px;
+      }
+      @include respond-to(min-phone) {
+        left: 10px;
+        display: none;
+      }
+
+    }
+    .swiper-button-next {
+      right: 110px;
+      width: 40px;
+      height: 42px;
+      margin-top: -21px;
+      background-position: top;
+      @include background-size(cover);
+      @include background-image(inline_image("/sliderText/img/next.png"));
+      opacity: 0.7;
+      &:hover {
+        opacity: 0.9;
+      }
+      @include respond-to(desctop) {
+        right: 10px;
+      }
+      @include respond-to(tablet) {
+        right: 10px;
+      }
+      @include respond-to(phone) {
+        right: 10px;
+      }
+      @include respond-to(min-phone) {
+        right: 10px;
+        display: none;
+      }
+    }
+  }
+  &__swiperThumbsWrap {
+    max-width: 850px;
+    display: block;
+    margin: auto;
+    overflow: hidden;
+
+    padding: 0 50px;
+    //box-sizing: border-box;
+
+    @include respond-to(phone) {
+      display: none;
+    }
+    @include respond-to(min-phone) {
+      display: none;
+    }
+  }
+  &__Thumbimg {
+    a {
+      display: block;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__sliderThumb {
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      @include display-flex();
+      @include justify-content(center);
+      @include align-items(center);
+      @include flex-direction(column);
+    }
+
+    .swiper-button-prev {
+      left: 110px;
+      @include background-image(inline_image("/sliderText/img/prev.png"));
+      opacity: 0.7;
+      width: 40px;
+      height: 42px;
+      margin-top: -21px;
+      background-position: top;
+      @include background-size(cover);
+      &:hover {
+        opacity: 0.9;
+      }
+      @include respond-to(desctop) {
+        left: 10px;
+      }
+      @include respond-to(tablet) {
+        left: 10px;
+      }
+      @include respond-to(phone) {
+        left: 10px;
+      }
+      @include respond-to(min-phone) {
+        left: 10px;
+        display: none;
+      }
+
+    }
+    .swiper-button-next {
+      right: 110px;
+      width: 40px;
+      height: 42px;
+      margin-top: -21px;
+      background-position: top;
+      @include background-size(cover);
+      @include background-image(inline_image("/sliderText/img/next.png"));
+      opacity: 0.7;
+      &:hover {
+        opacity: 0.9;
+      }
+      @include respond-to(desctop) {
+        right: 10px;
+      }
+      @include respond-to(tablet) {
+        right: 10px;
+      }
+      @include respond-to(phone) {
+        right: 10px;
+      }
+      @include respond-to(min-phone) {
+        right: 10px;
+        display: none;
+      }
+    }
+  }
+  &__wrap {
+    @include display-flex();
+    @include flex-direction(row);
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 50px;
+    box-sizing: border-box;
+
+    @include respond-to(tablet) {
+      @include flex-direction(column);
+      max-width: 400px;
+      padding: 0 30px;
+    }
+    @include respond-to(phone) {
+      @include flex-direction(row);
+      padding: 0;
+    }
+    @include respond-to(min-phone) {
+      @include flex-direction(column);
+      max-width: 400px;
+      padding: 0;
+    }
+  }
+
+  &__img {
+    @include box-shadow(4px 6.928px 23.04px 0.96px rgba(0, 0, 0, 0.1));
+    background: white;
+
+    @include flex(1 0 auto);
+    a {
+      display: block;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      @include respond-to(phone) {
+        max-width: 180px;
+      }
+      @include respond-to(min-phone) {
+        max-width: 180px;
+        margin: 30px auto;
+      }
+    }
+  }
+  &__thumlink {
+    text-decoration: none;
+  }
+  &__thumname {
+    font-size: 15px;
+    font-family: "ralewayregular", sans-serif;
+    color: rgb(90, 90, 90);
+    text-align: center;
+    margin: 15px 5px 5px 5px;
+  }
+  &__thumdolznost  {
+    font-size: 15px;
+    font-family: "ralewayregular", sans-serif;
+    color: #a1a1a1;
+    text-align: center;
+    margin: 5px;
+  }
+  &__info {
+    background: white;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    @include display-flex();
+    @include flex-direction(column);
+    @include box-shadow(4px 6.928px 23.04px 0.96px rgba(0, 0, 0, 0.1));
+
+    position: relative;
+    &:before {
+      content: '';
+      background: white;
+      position: absolute;
+      z-index: -1;
+      left: 15px;
+      top: 15px;
+      width: 100%;
+      height: 100%;
+      @include box-shadow(4px 6.928px 23.04px 0.96px rgba(0, 0, 0, 0.1));
+      @include respond-to(tablet) {
+        display: none;
+      }
+      @include respond-to(phone) {
+        display: none;
+      }
+      @include respond-to(min-phone) {
+        display: none;
+      }
+    }
+  }
+  &__infoTop {
+    @include flex(1 0 auto);
+    max-height:420px;
+    overflow:hidden;
+    margin-bottom: 20px;
+    position: relative;
+
+    &:before {
+      content:"";
+      display:block;
+      height:20px;
+      width: 100%;
+      position:absolute;
+      bottom: 0;
+      background-image:linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 75%);
+    }
+  }
+  &__field {
+    label {
+      color: #d63a40;
+    }
+  }
+  &__infoTitle {
+    a {
+      font-family: "pantonregular", sans-serif;
+      font-size: 30px;
+      line-height: 32px;
+      text-transform: uppercase;
+      color: rgb(213, 30, 63);
+      font-weight: bold;
+      text-decoration: none;
+      margin-bottom: 10px;
+
+      &:hover {
+        color: rgb(185, 28, 59);
+      }
+      &:active {
+        color: rgb(185, 28, 59);
+      }
+
+      @include respond-to(phone) {
+        font-size: 18px;
+        line-height: 20px;
+      }
+      @include respond-to(min-phone) {
+        font-size: 18px;
+        line-height: 20px;
+      }
+    }
+
+  }
+  &__anons {
+    @include flex(1 0 auto);
+    font-size: 15px;
+    font-family: "Myriad Pro", sans-serif;
+    color: rgb(87, 87, 87);
+    margin-bottom: 15px;
+  }
+  &__actions {
+  }
+  &__more {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    background-color: rgb(216, 32, 67);
+    @include box-shadow(2px 3.464px 2.88px 0.12px rgba(0, 0, 0, 0.09));
+    padding: 10px 20px;
+    margin-right: 10px;
+    @include border-radius(30px);
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: rgb(193, 29, 60);
+    }
+    &:active {
+      @include box-shadow(none);
+      background-color: rgb(176, 26, 55);
+
+    }
+  }
+  &__zapis {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    background-color: #1996ba;
+    @include box-shadow(2px 3.464px 2.88px 0.12px rgba(0, 0, 0, 0.09));
+    padding: 10px 20px;
+    @include border-radius(30px);
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: #1787a8;
+    }
+    &:active {
+      background-color: #157d9b;
+      @include box-shadow(none);
+    }
+  }
+  &__actionsBottom {
+    text-align: center;
+    display: block;
+    padding-top: 40px;
+    padding-bottom: 70px;
+  }
+}

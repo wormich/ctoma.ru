@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/praise') }}
+
+<div class="praise">
+
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    {#{{ drupal_view('baner', 'up') }}#}
+
+    <div class="praise__container ">
+        <div class="praise__title">
+            <h1 class="praise__titleText title_norm width width_norm width_paddingStandart">{{ content["#title"] }}</h1>
+        </div>
+        <div class="praise__center width width_norm width_paddingStandart">
+            <div class="praise__leftSidebar">
+                {#{{ drupal_menu('uslugi') }}#}
+
+                {% include base_path ~ directory ~ "/bem/blocks/makeImg/makeImgButton.html.twig" %}
+            </div>
+
+            <div class="praise__content">
+                {{ content.main }}
+            </div>
+
+            <div class="praise__bottomMobile">
+                {#{{ drupal_menu('obycnye-stranicy') }}#}
+            </div>
+        </div>
+    </div>
+
+    {#{{ drupal_view('baner', 'down') }}#}
+
+</div>

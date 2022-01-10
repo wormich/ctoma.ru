@@ -1,0 +1,38 @@
+uuid: 4b200a53-814b-42d5-a92f-0f398ecea91c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phone
+    - node.type.slide
+  module:
+    - image
+id: node.slide.field_phone
+field_name: field_phone
+entity_type: node
+bundle: slide
+label: Phone
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'slides/phone/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: 600x600
+  min_resolution: 600x600
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

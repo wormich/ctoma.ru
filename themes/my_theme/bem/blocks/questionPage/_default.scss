@@ -1,0 +1,9 @@
+.questionPage {
+  &__container {
+    @include background(url('/themes/my_theme/bem/blocks/questionPage/img/bg.jpg'));
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  &__title {
+  }
+}

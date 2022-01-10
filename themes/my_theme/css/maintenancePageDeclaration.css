@@ -1,0 +1,22 @@
+/* line 1, ../bem/blocks/maintenancePage/_maintenancePage.scss */
+.maintenancePage {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 1, ../bem/blocks/maintenancePage/_maintenancePage.scss */
+  .maintenancePage {
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 1, ../bem/blocks/maintenancePage/_maintenancePage.scss */
+  .maintenancePage {
+    margin: 0 auto;
+  }
+}

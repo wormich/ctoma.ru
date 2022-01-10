@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/kontact') }}
+
+<div class="kontact">
+    <div class="kontact__title">
+        <h1 class="kontact__titleText width width_norm width_paddingStandart">{{ content["#title"] }}</h1>
+    </div>
+
+    <div class="kontact__mainContent white">
+        <div class="kontact__content content_norm width width_norm width_paddingStandart">
+            {#{{ content.main }}#}
+            <div class="kontact__map">
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A797cc6f706f6cb2b9023b11f8cc5c6ad68d3a9163ce470407ad2480bc032048e&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+            </div>
+            <div class="kontact__info">
+                <div class="kontact__adress">
+                    <h3>Адрес и график работы</h3>
+                    <p>г. Саратов, ул. Рахова В.Г., 53</p>
+                    <p>Пн-Пт – с 09.00 до 20.00</p>
+                    <p>Сб – с 09.00 до 16.00</p>
+                    <p>Вс – выходной</p>
+                </div>
+                <div class="kontact__ph_em">
+                    <h3>Приёмная</h3>
+                    <p>Телефон 8 (8452) 34-71-04</p>
+                    <p>E-mail seleznevclinic@mail.ru</p>
+                </div>
+                <div class="kontact__doc">
+                    <h3>Руководитель</h3>
+                    <p>Селезнёв Дмитрий Владимирович</p>
+                    <p>Телефон 8 (909) 333-03-11</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

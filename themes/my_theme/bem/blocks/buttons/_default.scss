@@ -1,0 +1,53 @@
+.button {
+  outline: none;
+  &__light {
+    padding: 7px 25px;
+    text-decoration: none !important;
+    display: block;
+    text-align: center;
+    border: 2px solid $color_2;
+    background: none;
+    color: $color_1 !important;
+    font-size: 1.1rem;
+    @include transition(all 0.3s ease);
+    @include border-radius(25px);
+    font-weight: 100;
+    i {
+      color: $color_1;
+    }
+    &:hover {
+      background: $color_2;
+      color: #fff !important;
+      i {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.button--primary {
+  cursor: pointer;
+  outline: none;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid $color_2;
+  background: none;
+  color: $color_1;
+  font-size: 1.1rem;
+  display: inline-block;
+  @include transition(all 0.3s ease);
+  @include border-radius(25px);
+  font-weight: 100;
+  i {
+    color: $color_1;
+  }
+  &:hover {
+    background: $color_2;
+    color: #fff;
+    i {
+      color: #fff;
+    }
+  }
+
+}

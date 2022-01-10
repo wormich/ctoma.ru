@@ -1,0 +1,85 @@
+.otzyvyView {
+  //background: #fff;
+  padding: 15px 0 25px 0;
+  &__title {
+    margin: 50px 0 30px;
+    font-size: 35px;
+    line-height: 1em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+  }
+  &__content {
+    @include display-flex();
+    @include justify-content(center);
+    @include flex-wrap(wrap);
+    //@include align-items(center);
+    .views-row {
+      @include flex-basis(24%);
+      padding: 30px;
+      background-color: $color_3;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -webkit-transition: all .1s ease;
+      -moz-transition: all .1s ease;
+      -ms-transition: all .1s ease;
+      -o-transition: all .1s ease;
+      transition: all .1s ease;
+      cursor: pointer;
+      margin: 1%;
+
+      .views-field-title {
+        margin-bottom: 20px;
+        font-size: 18px;
+        display: block;
+        font-weight: bold;
+      }
+      .views-field-body {
+        font-weight: 100;
+        height: 20px;
+        overflow: hidden;
+        margin-bottom: 15px;
+      }
+      .views-field-created {
+        color: $color_2;
+        font-size: 13px;
+        font-weight: 100;
+        float: left;
+      }
+      .more {
+        float: right;
+        color: $color_2;
+        font-size: 13px;
+        font-weight: bold;
+      }
+      &:hover {
+        background-color: #fff;
+        box-shadow: 0 14px 45px rgba(12,171,141,0.25);
+        -moz-box-shadow: 0 14px 45px rgba(12,171,141,0.25);
+        -webkit-box-shadow: 0 14px 45px rgba(12,171,141,0.25);
+        .more {
+          color: $color_4;
+        }
+      }
+      &.active {
+        box-shadow: 0 14px 45px rgba(12,171,141,0.25);
+        -moz-box-shadow: 0 14px 45px rgba(12,171,141,0.25);
+        -webkit-box-shadow: 0 14px 45px rgba(12,171,141,0.25);
+        .views-field-body {
+          height: auto;
+        }
+      }
+
+      @include respond-to(tablet) {
+        @include flex-basis(39%);
+      }
+      @include respond-to(phone) {
+        @include flex-basis(100%);
+      }
+      @include respond-to(min-phone) {
+        @include flex-basis(100%);
+      }
+    }
+  }
+}

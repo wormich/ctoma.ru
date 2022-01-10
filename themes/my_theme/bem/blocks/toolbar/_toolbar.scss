@@ -1,0 +1,11 @@
+.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
+  .toolbar__element {
+    margin-left: 15rem;
+    @include respond-to(phone){
+      margin-left: 0;
+    }
+    @include respond-to(min-phone){
+      margin-left: 0;
+    }
+  }
+}

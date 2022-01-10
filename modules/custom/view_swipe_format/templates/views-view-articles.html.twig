@@ -1,0 +1,19 @@
+{% if rows | length %}
+    <div class="articlesSlide width width_full">
+
+        <div class="articlesSlide__container width width_norm width_paddingStandart">
+            <h2 class="articlesSlide__title">Дипломы</h2>
+
+            <div class="articlesSlide__slider swiper-container">
+                <div class="swiper-wrapper">
+                    {% for row in rows %}
+                        <div class="swiper-slide">{{ row }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="articlesSlide__ButtonNext swiper-button-next swiper-button-white"></div>
+                <div class="articlesSlide__ButtonPrev swiper-button-prev swiper-button-white"></div>
+            </div>
+        </div>
+    </div>
+{% endif %}

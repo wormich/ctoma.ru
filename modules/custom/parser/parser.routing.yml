@@ -1,0 +1,71 @@
+parser.review:
+  path: '/admin/structure/parser/review'
+  defaults:
+    _form: '\Drupal\parser\Form\Review'
+    _title: 'Rewiew parse'
+  requirements:
+    _permission: 'administer site configuration'
+
+parser.review_sourse:
+  path: '/admin/structure/parser/reviewsourse'
+  defaults:
+    _form: '\Drupal\parser\Form\ReviewSourse'
+    _title: 'ReviewSoure parse'
+  requirements:
+    _permission: 'administer site configuration'
+
+parser.review_content:
+  path: '/admin/structure/parser/reviewcontent'
+  defaults:
+    _form: '\Drupal\parser\Form\ReviewContent'
+    _title: 'ReviewSoure parse'
+  requirements:
+    _permission: 'administer site configuration'
+
+parser.news:
+  path: '/admin/structure/parser/news'
+  defaults:
+    _form: '\Drupal\parser\Form\News'
+    _title: 'News parse'
+  requirements:
+    _permission: 'administer site configuration'
+
+parser.news_sourse:
+  path: '/admin/structure/parser/newssourse'
+  defaults:
+    _form: '\Drupal\parser\Form\NewsSourse'
+    _title: 'NewsSourse parse'
+  requirements:
+    _permission: 'administer site configuration'
+
+parser.news_content:
+  path: '/admin/structure/parser/newscontent'
+  defaults:
+    _form: '\Drupal\parser\Form\NewsContent'
+    _title: 'news parse'
+  requirements:
+    _permission: 'administer site configuration'
+
+parser.questions:
+  path: '/admin/structure/parser/questions'
+  defaults:
+    _form: '\Drupal\parser\Form\Questions'
+    _title: 'Questions parse'
+  requirements:
+    _permission: 'administer site configuration'
+
+parser.questions_sourse:
+  path: '/admin/structure/parser/questionsssourse'
+  defaults:
+    _form: '\Drupal\parser\Form\QuestionsSourse'
+    _title: 'QuestionsSourse parse'
+  requirements:
+    _permission: 'administer site configuration'
+
+parser.question_content:
+  path: '/admin/structure/parser/questioncontent'
+  defaults:
+    _form: '\Drupal\parser\Form\QuestionsContent'
+    _title: 'qc parse'
+  requirements:
+    _permission: 'administer site configuration'

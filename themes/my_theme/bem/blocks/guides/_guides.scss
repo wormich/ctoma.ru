@@ -1,0 +1,36 @@
+.guides {
+  &__title {
+    background-image: inline_image("/guides/img/bg.jpg");
+    @include background-size(cover);
+    text-align: center;
+    color: white;
+    min-height: 350px;
+    @include display-flex();
+    border-top: 1px solid #dedede;
+
+    @include respond-to(tablet){
+      min-height: 250px;
+    }
+    @include respond-to(phone){
+      min-height: 100px;
+    }
+    @include respond-to(min-phone){
+      min-height: 100px;
+    }
+  }
+  &__titleText {
+    font-size: 80px;
+    text-shadow: 0 2px 3px rgba(0,0,0,0.5);
+    font-family: Arial,sans-serif;
+    font-weight: bold;
+    @include respond-to(tablet){
+      font-size: 50px;
+    }
+    @include respond-to(phone){
+      font-size: 30px;
+    }
+    @include respond-to(min-phone){
+      font-size: 24px;
+    }
+  }
+}

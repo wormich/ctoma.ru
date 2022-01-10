@@ -1,0 +1,154 @@
+.filtersProducts {
+  overflow: hidden;
+  margin: 10px 0;
+
+  // Head
+
+  &__head {
+    @include background-image(linear-gradient(#e4e5e4, #cfd1cf));
+    @include box-shadow(inset 0 1px 0 rgba(255,255,255,.3));
+    @include border-top-radius(3px);
+    border: 1px solid #a9aba8;
+    min-height: 30px;
+    @include display-flex();
+  }
+  &__headLeft {
+    @include flex-basis(215px);
+    @include respond-to(phone) {
+      @include flex-basis(100px);
+      min-width: 100px;
+    }
+    @include respond-to(min-phone) {
+      @include flex-basis(100px);
+      min-width: 100px;
+    }
+  }
+  &__headRight {
+    @include flex(1 0 auto);
+  }
+  &__sort {
+    @include respond-to(phone){
+      display: none;
+    }
+    @include respond-to(min-phone){
+      display: none;
+    }
+  }
+  &__phoneHead {
+    display: none;
+    @include respond-to(phone){
+      display: block;
+    }
+    @include respond-to(min-phone){
+      display: block;
+    }
+  }
+  &__filterText {
+    font-size: 12px;
+    line-height: 22px;
+    color: #3b3d3b;
+    text-shadow: 0 1px 0 #dadbd9;
+    padding: 4px 10px;
+    display: block;
+    @include respond-to(phone) {
+      display: none;
+    }
+    @include respond-to(min-phone) {
+      display: none;
+    }
+  }
+  &__filterButton {
+    display: none;
+    font-size: 12px;
+    line-height: 22px;
+    color: #3b3d3b;
+    text-align: center;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,.25);
+    @include background-image(linear-gradient(#e7e7e6, #b8bab7));
+    @include border-radius(3px);
+    @include user-select(none);
+
+    &:hover {
+      color: #3b3d3b;
+      @include background-image(linear-gradient(#d5d5d4, #aaaca9));
+    }
+
+    @include respond-to(phone) {
+      display: block;
+    }
+    @include respond-to(min-phone) {
+      display: block;
+    }
+  }
+  &__headRight {
+
+  }
+
+
+  &__wrap {
+    @include display-flex();
+  }
+
+  // Left
+
+  &__left {
+    @include respond-to(phone){
+      display: none;
+    }
+    @include respond-to(min-phone){
+      display: none;
+    }
+  }
+  &__leftContent {
+    background: white;
+    border: 1px solid #dadbd9;
+    border-right: none;
+    border-bottom: none;
+    width: 215px;
+    overflow: hidden;
+  }
+
+  // Right
+
+  &__right {
+    position: relative;
+    width: 100%;
+  }
+  &__rightContent {
+    background: white;
+    border: 1px solid #dadbd9;
+  }
+
+  // Active
+
+  &_filtersActive {
+    .filtersProducts__filterButton {
+      @include box-shadow(inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05));
+    }
+    .filtersProducts__left {
+      @include respond-to(phone){
+        display: block;
+      }
+      @include respond-to(min-phone){
+        display: block;
+      }
+    }
+    .filtersProducts__right {
+      &:before {
+        position: absolute;
+        left: 1px;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background: #646464;
+        z-index: 5;
+      }
+    }
+    .filtersProducts__rightContent {
+      display: none;
+    }
+  }
+}

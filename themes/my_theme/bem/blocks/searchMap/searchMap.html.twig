@@ -1,0 +1,68 @@
+{% raw %}
+    <div id="searchMap" class="searchMap" v-cloak="" xmlns:v-on="http://www.w3.org/1999/xhtml"
+         xmlns:v-bind="http://www.w3.org/1999/xhtml">
+        <div class="searchMap__top">
+            <div class="searchMap__search">
+                <input class="searchMap__input" ref="question" v-model="question" placeholder="поиск ближайшей клиники, введите адрес"
+                       v-on:keyup.enter="search"/>
+                <span class="searchMap__inputSend" v-on:click="search"></span>
+                <div class="searchMap__inputSend button__search_map" v-on:click="search">Найти</div>
+            </div>
+            <div class="searchMap__routesMobile width width_norm width_paddingStandart">
+                <span v-on:click="r_bibi">Построить маршрут на автомобиле</span>
+                <span v-on:click="r_ot">Общественном транспорте</span>
+                <span v-on:click="r_toptop">Пешком</span>
+            </div>
+        </div>
+
+        <div class="searchMap__mapWrap width width_norm">
+            <span class="searchMap__podR"></span>
+            <span class="searchMap__podL"></span>
+            <div class="searchMap__infoMap">
+                <div class="searchMap__info">
+                    <div class="searchMap__name">
+                        Колл-центр
+                    </div>
+                    
+                    <div class="searchMap__rezim_raboty">
+                        <label>Режим работы:</label>
+                        <span >Пн.-Вс. 09.00-21.00</span>
+                    </div>
+                    <div class="searchMap__phones">
+                        <label>Звоните:</label>
+                        <span class="call_phone_clinic"><a href="tel:88123250360" style="color: #d82043;text-decoration:none">8 (812) 325-03-60</a></span>
+                    </div>
+                    <div class="searchMap__email" v-if="current_clinic.field_email">
+                        <label>Пишите:</label>
+                        <span v-html="current_clinic.field_email"></span>
+                    </div>
+
+                    <div class="searchMap__active">
+                        <a href="/make-an-appointment" class="makeImg__button button_red">Записаться</a>
+                    </div>
+                    <div class="searchMap__callback">
+                        <a href="/form/callback"
+                           class="use-ajax"
+                           data-dialog-options='{
+                           "width":"450px",
+                           "minHeight":"500px",
+                           "dialogClass":"popupDialog"
+                           }'
+                           data-dialog-type="modal">Заказать обратный звонок</a>
+                    </div>
+                </div>
+                <div class="searchMap__map">
+                    <div class="searchMap__mapYandex" id="searchMap__mapYandex"
+                         style="width: 100%; height: 450px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="searchMap__routes width width_norm width_paddingStandart">
+            <span v-on:click="r_bibi">Построить маршрут на автомобиле</span>
+            <span v-on:click="r_ot">Общественном транспорте</span>
+            <span v-on:click="r_toptop">Пешком</span>
+        </div>
+
+    </div>
+{% endraw %}

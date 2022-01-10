@@ -1,0 +1,131 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\node\Entity\Node;
+
+function otzyvy_node_created_form_alter(&$form, $form_state, $form_id) {
+  if (isset($form['#webform_id']) && $form['#webform_id'] == 'add_review') {
+
+    /**
+     * @var \Drupal\taxonomy\TermStorage $storage
+     * @var \Drupal\taxonomy\Entity\Term $term
+     * @var \Drupal\node\Entity\Node $node
+     */
+    $storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+    $terms = $storage->loadTree('clinics');
+
+    foreach ($terms as $term) {
+      $form['elements']['clinic']['#options'][$term->tid] = $term->name;
+    }
+
+    //Get select clinic in form
+    $select_clinik = $form['elements']['clinic']['#default_value'];
+
+    //Load all doctors for current clinic
+    $query = \Drupal::database()->select('node__field_mesta_raboty', 'us');
+    $query->addField('us', 'entity_id');
+    $query->condition('us.field_mesta_raboty_target_id', $select_clinik);
+    $result = $query->execute()->fetchCol();
+
+    $nodes = Node::loadMultiple($result);
+
+    foreach ($nodes as $nid => $node) {
+      $form['elements']['doctor']['#options'][$nid] = $node->getTitle();
+    }
+
+    //дефолтный врач
+    //получаем nid
+    $nid = \Drupal::request()->query->get('doctor_nid');
+    //загружаем ноду
+    if ($nid) {
+      $node = Node::load($nid);
+      if ($node and $node->bundle() == "doctor") {
+        //тянем все клиники
+        $mesta_raboty = $node->get('field_mesta_raboty');
+        $mesta_raboty = $mesta_raboty->getValue();
+        $mesto_flag = FALSE;
+        foreach ($mesta_raboty as $mesto) {
+          if ($mesto['target_id'] == $select_clinik) {
+            $mesto_flag = TRUE;
+          }
+        }
+
+        if ($mesto_flag) {
+          //если выбранная клиника == клинике врача то выбираем врача с этим нид
+          $form['elements']['clinic']['#default_value'] = $select_clinik;
+          $form['elements']['doctor']['#default_value'] = $nid;
+        }
+        else {
+          //если нет то выбираем первую клинику перезагружаем варианты и ставим дефолтный nid
+          $form['elements']['clinic']['#default_value'] = $mesta_raboty[0]['target_id'];
+          $form['elements']['doctor']['#default_value'] = $nid;
+
+          $query = \Drupal::database()
+            ->select('node__field_mesta_raboty', 'us');
+          $query->addField('us', 'entity_id');
+          $query->condition('us.field_mesta_raboty_target_id', $mesta_raboty[0]['target_id']);
+          $result = $query->execute()->fetchCol();
+
+          $nodes = Node::loadMultiple($result);
+          $form['elements']['doctor']['#options'] = [];
+
+          foreach ($nodes as $nid => $node) {
+            $form['elements']['doctor']['#options'][$nid] = $node->getTitle();
+          }
+        }
+      }
+    }
+
+    $form['actions']['submit']['#validate'][] = 'otzyvy_node_created_form_validate';
+  }
+}
+
+function otzyvy_node_created_form_validate($form, FormStateInterface $form_state) {
+
+  //создать ноду вернуть id
+  //записать id в скрытое поле
+  if($form_state->getValue("name")){
+    $node = Node::create([
+      'type' => 'otzyvy',
+      'title' => $form_state->getValue("name"),
+      'body' => $form_state->getValue("message"),
+      'field_vrac' => $form_state->getValue("doctor"),
+      'status' => 0
+    ]);
+    $node->save();
+
+    $form_state->setValue('node_id', $node->id());
+  }
+
+  //получить выбранную клинику
+  $form_state->setValue('select_clinik_name', "");
+  if (isset($form['elements']['clinic']['#value'])) {
+    $select_clinik = $form['elements']['clinic']['#value'];
+    if ($select_clinik) {
+      /**
+       * @var \Drupal\taxonomy\Entity\Term $term
+       */
+      $term = Term::load($select_clinik);
+      $title = $term->get("name")->getValue();
+      $form['elements']['select_clinik_name']['#value'] = $title[0]['value'];
+      $form_state->setValue('select_clinik_name', $title[0]['value']);
+    }
+  }
+  $form_state->setValue('select_doctor_name', "");
+  if (isset($form['elements']['doctor']['#value'])) {
+    $select_doctor = $form['elements']['doctor']['#value'];
+    if ($select_doctor) {
+      /**
+       * @var \Drupal\node\Entity\Node $node
+       */
+      $node = Node::load($select_doctor);
+      if ($node) {
+        $title = $node->getTitle();
+        $form['elements']['select_doctor_name']['#value'] = $title;
+        $form_state->setValue('select_doctor_name', $title);
+      }
+    }
+  }
+}
+

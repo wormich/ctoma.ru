@@ -1,0 +1,47 @@
+.contactsFooter {
+  @include display-flex();
+  @include flex-direction(column);
+  @include respond-to(min-phone){
+    text-align: center;
+    width: 100%;
+  }
+
+  &__item {
+    padding: 7px 0;
+    font-size: 16px;
+    line-height: 17px;
+    @include respond-to(phone){
+      font-size: 12px;
+      line-height: 12px;
+    }
+    @include respond-to(min-phone){
+      font-size: 14px;
+    }
+  }
+  &__adress {
+    color: white;
+  }
+  &__telWrap {
+    color: white;
+    @include respond-to(min-phone){
+      line-height: 30px;
+    }
+  }
+  &__tel {
+    color: white;
+    white-space: nowrap;
+  }
+
+  &__emailWrap {
+    color: white;
+  }
+  &__email {
+    color: white;
+  }
+  &__tel {
+    text-decoration: none;
+  }
+  &__email {
+    text-decoration: none;
+  }
+}

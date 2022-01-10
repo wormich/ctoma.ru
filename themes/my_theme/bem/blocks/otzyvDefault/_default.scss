@@ -1,0 +1,201 @@
+.otzyvDefault {
+  position: relative;
+  margin-bottom: 40px;
+  margin-top: 25px;
+
+  &__podlojka {
+    background: white;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    width: 100%;
+    height: 100%;
+    @include box-shadow(4px 6.928px 23.04px 0.96px rgba(0, 0, 0, 0.1));
+    @include respond-to(tablet) {
+      display: none;
+    }
+    @include respond-to(phone) {
+      display: none;
+    }
+    @include respond-to(min-phone) {
+      display: none;
+    }
+  }
+
+  &__content {
+    @include box-shadow(4px 6.928px 23.04px 0.96px rgba(0, 0, 0, 0.1));
+    background: white;
+    position: relative;
+    padding: 30px 25px;
+    min-height: 445px;
+    @include display-flex();
+    @include flex-direction(column);
+
+    @include respond-to(phone) {
+      margin-bottom: 15px;
+      padding: 20px 10px;
+      min-height: 0;
+    }
+    @include respond-to(min-phone) {
+      margin-bottom: 15px;
+      padding: 20px 10px;
+      min-height: 0;
+    }
+  }
+  &__top {
+    @include display-flex();
+    position: relative;
+    @include flex(1 0 auto);
+    @include respond-to(phone) {
+      @include flex-direction(column);
+    }
+    @include respond-to(min-phone) {
+      @include flex-direction(column);
+    }
+  }
+  &__more {
+    margin: 5px;
+    text-align: center;
+  }
+
+  &__vrach {
+    width: 260px;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      @include box-shadow(4px 6.928px 23.04px 0.96px rgba(0, 0, 0, 0.1));
+      margin-bottom: 10px;
+    }
+
+    @include respond-to(phone) {
+      max-width: 100%;
+    }
+    @include respond-to(min-phone) {
+      width: 100%;
+    }
+  }
+  &__info {
+    @include respond-to(phone) {
+      @include order(-1);
+    }
+    @include respond-to(min-phone) {
+      @include order(-1);
+    }
+  }
+  &__ot {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-family: "ralewayregular", sans-serif;
+    color: rgb(49, 49, 49);
+    line-height: 1.2;
+
+    label {
+      display: block;
+    }
+  }
+  &__otName {
+    display: block;
+  }
+  &__otDate {
+    display: block;
+    color: #9d9d9d;
+  }
+  &__body {
+    font-size: 22px;
+    color: #313131;
+    font-family: "ralewayregular", sans-serif;
+
+    @include respond-to(phone) {
+      font-size: 16px;
+    }
+    @include respond-to(min-phone) {
+      font-size: 16px;
+    }
+  }
+  &__name {
+    a {
+      color: #d82043;
+      font-size: 15px;
+      font-family: "ralewayregular", sans-serif;
+      line-height: 1.2;
+      text-align: left;
+
+      @include transition(all 0.3s ease);
+      &:hover {
+        color: #209dc1;
+      }
+      &:active {
+        color: #1a7f9c;
+      }
+    }
+  }
+  &__dolznost {
+    font-size: 15px;
+    font-family: "ralewayregular", sans-serif;
+    line-height: 1.2;
+    text-align: left;
+    color: #3f3f3f;
+  }
+  &__mestaRaboty {
+    label {
+      font-size: 15px;
+      font-family: "ralewayregular", sans-serif;
+      line-height: 1.2;
+      text-align: left;
+      color: #9d9d9d;
+
+    }
+    a {
+      color: #d82043;
+      font-size: 15px;
+      font-family: "ralewayregular", sans-serif;
+      line-height: 1.2;
+      text-align: left;
+
+      @include transition(all 0.3s ease);
+      &:hover {
+        color: #209dc1;
+      }
+      &:active {
+        color: #1a7f9c;
+      }
+    }
+  }
+
+  &_short {
+    margin-bottom: 0;
+
+    .otzyvDefault__vrach {
+      @include respond-to(phone) {
+        max-width: 100%;
+        display: none;
+      }
+      @include respond-to(min-phone) {
+        width: 100%;
+        display: none;
+      }
+    }
+    .otzyvDefault__body {
+      height: 160px;
+      position: relative;
+      overflow: hidden;
+
+      @include respond-to(phone) {
+        height: auto;
+      }
+      @include respond-to(min-phone) {
+        height: auto;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 20px;
+        width: 100%;
+        bottom: 0;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff 75%);
+      }
+    }
+  }
+}

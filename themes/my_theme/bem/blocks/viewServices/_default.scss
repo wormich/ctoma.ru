@@ -1,0 +1,17 @@
+.viewServices {
+  @include display-flex();
+  @include flex-wrap(wrap);
+
+  &__row {
+    @include flex-basis(25%);
+    @include box-sizing(border-box);
+    //padding: 15px;
+
+    @include respond-to(phone){
+      @include flex-basis(100%);
+    }
+    @include respond-to(min-phone){
+      @include flex-basis(100%);
+    }
+  }
+}

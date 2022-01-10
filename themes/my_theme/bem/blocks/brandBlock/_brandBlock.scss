@@ -1,0 +1,42 @@
+.brandBlock {
+  &__label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  &__content {
+  }
+  &__link {
+    @include display-flex();
+    background: white;
+    text-decoration: none;
+    text-align: center;
+    @include border-radius(3px);
+    overflow: hidden;
+    @include box-shadow(0 0 8px 0 rgba(0,0,0,0.1));
+
+    &:hover {
+      @include background-image(linear-gradient(#00cc33, #00aa39));
+      .brandBlock__name {
+        color: #ffffff;
+      }
+    }
+    &:active {
+      @include background-image(linear-gradient(#00a72b, #009933));
+    }
+  }
+  &__logo {
+    img {
+      display: block;
+      width: 100px;
+      height: 50px;
+      border-right: 1px solid #dedede;
+    }
+  }
+  &__name {
+    margin: auto;
+    color: #000000;
+    padding: 5px;
+  }
+}

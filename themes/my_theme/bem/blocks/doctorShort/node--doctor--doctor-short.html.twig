@@ -1,0 +1,38 @@
+{%
+set classes = [
+'doctorShort',
+'node',
+'node--type-' ~ node.bundle|clean_class,
+node.isPromoted() ? 'node--promoted',
+node.isSticky() ? 'node--sticky',
+not node.isPublished() ? 'node--unpublished',
+view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+    <div class="doctorShort__photo">
+        {{content.field_doc_photo}}
+    </div>
+
+
+    {{ title_prefix }}
+    {% if not page %}
+        <span{{ title_attributes.addClass("doctorShort__title") }}>
+            <a href="{{ url }}">{{ label }}</a>
+        </span>
+    {% endif %}
+    {{ title_suffix }}
+    <div class="doctorShort__dolznost">
+        {{content.field_dolznost}}
+    </div>
+    <div class="doctorShort__more">
+        <a href="{{ url }}">Подробнее <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+    </div>
+
+
+    {#<div{{ content_attributes.addClass('doctorShort__content') }}>#}
+        {#{{ content }}#}
+    {#</div>#}
+
+</article>

@@ -1,0 +1,10 @@
+<div class="filtersBlock">
+    <div class="filtersBlock__block">
+        {% if label %}
+            <span{{ title_attributes.addClass("filtersBlock__title") }}>{{ label }}</span>
+        {% endif %}
+        {% block content %}
+            {{ content }}
+        {% endblock %}
+    </div>
+</div>

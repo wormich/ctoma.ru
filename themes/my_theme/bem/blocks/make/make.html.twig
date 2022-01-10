@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/make') }}
+
+<div class="make">
+
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    <div class="make__title">
+        <h1 class="make__titleText title_norm width width_norm width_paddingStandart">{{ content["#title"] }}</h1>
+    </div>
+
+    <div class="make__mainContent width">
+        <div class="make__content width width_norm">
+            <div class="make__img width_paddingStandart">
+                {% include base_path ~ directory ~ "/bem/blocks/makeImg/makeImg.html.twig" %}
+            </div>
+            <div class="make__form width_paddingStandart width_paddingDisableMobileDevice">
+                {{ drupal_entity('webform', 'makeform') }}
+            </div>
+            {{ content.main }}
+        </div>
+    </div>
+    {% if path('<current>') == '/make-an-appointment' %}
+            <div class="make__mainContent width">
+                <div class="make__content width width_norm">
+                    <div class="serviceDefault content_norm">
+                        <h2>Как записаться на прием к стоматологу</h2>
+                        <p>Записаться на прием к стоматологу можно следующими способами:</p>
+                        <ul>
+                            <li>Заполнив форму выше</li>
+                            <li>Позвонив по телефону: <span class="call_phone_bottom">+7 (812) 325-03-60</span></li>
+                            <li>Написав нам в онлайн-чат</li>
+                        </ul>
+                        <p>Наши стоматологические клиники работают ежедневно с 09:00 до 21:00</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+</div>

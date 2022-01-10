@@ -1,0 +1,11 @@
+<div{{ attributes.addClass(["stock"]) }}>
+    {% for item in items %}
+        {% if(item.content['#markup'] > 1) %}
+            <span class="stock__in">{{ item.content }} pcs in Stock</span>
+        {% elseif(item.content['#markup'] == 1) %}
+            <span class="stock__in">{{ item.content }} pc in Stock</span>
+        {% elseif(item.content['#markup'] == 0) %}
+            <span class="stock__empty">By Special Order</span>
+        {% endif %}
+    {% endfor %}
+</div>

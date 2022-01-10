@@ -1,0 +1,99 @@
+.feedback {
+  &__name {
+    padding: 5px 0;
+    color: #666666;
+    input {
+      padding: 10px;
+      width: 100%;
+      outline: none;
+      border: 0;
+      box-sizing: border-box;
+      border-radius: 3px;
+      background: #1a1a1a;
+      @include box-shadow(inset 4px 4px 8px 0 rgba(0,0,0,0.27), 1px 1px 0 0 #333333);
+      color: #666666;
+      font-size: 14px;
+      @include respond-to(phone){
+        font-size: 16px;
+      }
+      @include respond-to(min-phone){
+        font-size: 16px;
+      }
+    }
+  }
+  &__email {
+    padding: 5px 0;
+    color: #666666;
+
+    input {
+      padding: 10px;
+      width: 100%;
+      outline: none;
+      border: 0;
+      box-sizing: border-box;
+      border-radius: 3px;
+      background: #1a1a1a;
+      @include box-shadow(inset 4px 4px 8px 0 rgba(0,0,0,0.27), 1px 1px 0 0 #333333);
+      color: #666666;
+      font-size: 14px;
+      @include respond-to(phone){
+        font-size: 16px;
+      }
+      @include respond-to(min-phone){
+        font-size: 16px;
+      }
+    }
+  }
+  &__message {
+    padding: 5px 0;
+
+    textarea {
+      padding: 10px;
+      width: 100%;
+      outline: none;
+      border: 0;
+      box-sizing: border-box;
+      border-radius: 3px;
+      margin: 5px 0;
+      background: #1a1a1a;
+      @include box-shadow(inset 4px 4px 8px 0 rgba(0,0,0,0.27), 1px 1px 0 0 #333333);
+      color: #666666;
+      font-size: 14px;
+      resize: vertical;
+      @include respond-to(phone){
+        font-size: 16px;
+      }
+      @include respond-to(min-phone){
+        font-size: 16px;
+      }
+    }
+  }
+  &__actions {
+    padding: 5px 0;
+    text-align: right;
+
+    @include respond-to(min-phone){
+      text-align: center;
+    }
+
+    button {
+      display: inline-block;
+      @include border-radius(3px);
+      border: 0;
+      cursor: pointer;
+      outline: none;
+      color: #ffffff;
+      text-transform: uppercase;
+      padding: 8px 21px;
+      font-size: 14px;
+
+      @include background-image(linear-gradient(#00cc33, #009933));
+      &:hover {
+        @include background-image(linear-gradient(#00cc33, #00aa39));
+      }
+      &:active {
+        @include background-image(linear-gradient(#00a72b, #009933));
+      }
+    }
+  }
+}

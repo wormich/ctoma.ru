@@ -1,0 +1,29 @@
+.menuLocal {
+  text-align: center;
+
+  &__task {
+    display: inline-block;
+    margin: 5px 10px 5px 0;
+    a {
+      display: inline-flex;
+      padding: 3px 20px 3px 20px;
+      background: #f2f2f2;
+      @include background-image(linear-gradient(#dd425f, #b7233e));
+      @include border-radius(6px);
+      @include user-select(none);
+      font-family: Arial,sans-serif;
+      font-size: 14px;
+
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        @include background-image(linear-gradient(#cd3d58, #a62039));
+      }
+      &:active {
+        @include background-image(linear-gradient(#af354c, #741627));
+      }
+    }
+  }
+}

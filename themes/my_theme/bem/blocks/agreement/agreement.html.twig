@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/agreement') }}
+
+<div class="agreement">
+    <div class="agreement__title">
+        <h1 class="agreement__titleText width width_norm width_paddingStandart">{{ content["#title"] }}</h1>
+    </div>
+
+    <div class="agreement__mainContent white">
+        <div class="agreement__content content_norm width width_norm width_paddingStandart">
+            {{ content.main }}
+        </div>
+    </div>
+
+</div>

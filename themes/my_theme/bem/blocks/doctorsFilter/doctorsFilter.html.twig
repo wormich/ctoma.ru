@@ -1,0 +1,108 @@
+{% raw %}
+<div id="doctorsFilter" class="doctorsFilter" v-cloak="" xmlns:v-on="http://www.w3.org/1999/xhtml"
+     xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+    <img src="themes/my_theme/bem/blocks/doctorsFilter/img/preloader.gif" v-if="preloader" class="doctorsFilter__preloader"/>
+
+    <div class="doctorsFilter__mobileFilter" v-if="!preloader">
+        <select v-model="select_clinik" v-on:change="select_clinic(select_clinik)">
+            <option v-bind:value="false">Все клиники</option>
+            <option v-for="option in all_clinics" v-bind:value="option.tid" v-html="option.name"></option>
+        </select>
+
+        <select v-model="select_spek" v-on:change="select_spec(select_spek)">
+            <option v-bind:value="false">Все специализации</option>
+            <option v-for="option in spec" v-bind:value="option.tid" v-html="option.name"></option>
+        </select>
+    </div>
+
+    <div class="doctorsFilter__left" v-if="!preloader">
+        <div v-if="all_clinics" class="doctorsFilter__selectClinik">
+            <label>Выберите клинику</label>
+            <div class="doctorsFilter__clinic" v-bind:class="{ active: isActiveClinic(false) }"
+                 v-on:click="select_clinic()">
+                <span>Все клиники</span>
+            </div>
+            <div class="doctorsFilter__clinic" v-bind:class="{ active: isActiveClinic(item.tid) }"
+                 v-on:click="select_clinic(item.tid)" v-for="item in all_clinics">
+                <span v-html="item.name"></span>
+            </div>
+        </div>
+        <div class="doctorsFilter__selectSpec">
+            <label>Выберите специализацию</label>
+            <div class="doctorsFilter__spec" v-bind:class="{ active: isActiveSpec(false) }" v-on:click="select_spec()">
+                <span>Все специализации</span>
+            </div>
+            <div class="doctorsFilter__spec" v-bind:class="{ active: isActiveSpec(item.tid) }"
+                 v-on:click="select_spec(item.tid)" v-for="item in spec">
+                <span v-html="item.name"></span>
+            </div>
+
+        </div>
+        <div class="doctorsFilter__baner">
+            {% endraw %}
+            {% include base_path ~ directory ~ "/bem/blocks/makeImg/makeImgButton.html.twig" %}
+            {% raw %}
+        </div>
+    </div>
+    <div class="doctorsFilter__right" v-if="!preloader">
+        <div class="doctorsFilter__selectDoctor" v-if="doctors">
+            <div class="doctorsFilter__doctor" v-for="item in doctors">
+
+                <div class="doctorsFilter__photo">
+                    <a v-bind:href="item.path">
+                        <img v-bind:src="item.field_doc_photo"/>
+                    </a>
+                </div>
+
+                <div class="doctorsFilter__info">
+                    <span class="doctorsFilter__title" v-html="item.title"></span>
+                    <span class="doctorsFilter__position" v-html="item.field_dolznost"></span>
+                        <span class="doctorsFilter__work" v-if="item.field_mesta_raboty">
+                            <label>Места работы:</label>
+                            <span v-html="item.field_mesta_raboty"></span>
+                        </span>
+
+                    <div class="doctorsFilter__action">
+                  <!--
+                        <a href="javascript:window.Calltouch.Callback.onClickCallButton();"
+                           class="use-ajax button_red"
+                           data-dialog-options='{
+                                            "width":"500px",
+                                            "minHeight":"800px",
+                                            "dialogClass":"popupDialog"
+                                           }'
+                           data-dialog-type="modal">Записаться</a>
+                      -->     
+                           
+                                 <a v-bind:href="get_url_webform(item.nid)"
+                   class="use-ajax button_red"
+                   data-dialog-options='{
+                                       "width":"500px",
+                                       "minHeight":"800px",
+                                       "dialogClass":"popupDialog"
+                                       }'
+                   data-dialog-type="modal">Записаться</a>
+                           
+                           
+                           
+                    </div>
+                </div>
+            </div>
+
+            <div class="doctorsFilter__pagination" v-if="last_page">
+                <span class="doctorsFilter__paginNext" v-bind:class="{ no_active: isLastPagin() }"
+                      v-on:click="pagination_next()">Следующая ></span>
+                <div class="doctorsFilter__pagins">
+                    <span class="doctorsFilter__pagin" v-on:click="pagination_first()"
+                          v-if="!isFirstPagin()">Первые</span>
+                    <span class="doctorsFilter__pagin" v-for="pagin in pagination_render"
+                          v-bind:class="{ active: isActivePagin(pagin) }" v-on:click="pagination_select(pagin)">{{ pagin }}</span>
+                    <span class="doctorsFilter__pagin" v-on:click="pagination_last()">Последние</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endraw %}

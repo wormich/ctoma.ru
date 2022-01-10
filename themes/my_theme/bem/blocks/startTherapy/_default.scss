@@ -1,0 +1,70 @@
+.startTherapy {
+  background: #fff;
+  padding: 25px 0;
+  &__title {
+    margin: 50px 0 30px;
+    font-size: 35px;
+    line-height: 1em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+  }
+  &__content {
+    @include display-flex();
+    @include justify-content(center);
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    .item {
+      @include flex-basis(25%);
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      &__num {
+        font-size: 50px;
+        font-weight: bold;
+        background: $color_3;
+        color: $color_2;
+        display: inline-block;
+        padding: 15px 25px;
+        border-radius: 50%;
+        overflow: hidden;
+        line-height: 50px;
+        margin: 0 0 15px 0;
+      }
+      &__content {
+        a {
+          text-decoration: none;
+          color: $color_2;
+          &:hover {
+            color: $color_1;
+          }
+        }
+      }
+      @include respond-to(tablet) {
+        @include flex-basis(33%);
+      }
+      @include respond-to(phone) {
+        @include flex-basis(100%);
+      }
+      @include respond-to(min-phone) {
+        @include flex-basis(100%);
+      }
+    }
+
+  }
+  &__footer {
+    text-align: center;
+    font-weight: bold;
+    padding: 30px 0;
+    font-size: 40px;
+    @include respond-to(tablet) {
+      font-size: 20px;
+    }
+    @include respond-to(phone) {
+      font-size: 17px;
+    }
+    @include respond-to(min-phone) {
+      font-size: 16px;
+    }
+  }
+}

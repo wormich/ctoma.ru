@@ -1,0 +1,39 @@
+<article class="akciaFull">
+
+    <div class="akciaFull__img">
+        {{ content.field_izobrazenie_akcii }}
+    </div>
+    <div class="akciaFull__info">
+        {% if content.field_srok_deistvia_akcii_tekst | field_value  %}
+            <div class="akciaFull__srokText content_norm">
+                {{ content.field_srok_deistvia_akcii_tekst }}
+            </div>
+        {% endif %}
+        <div class="akciaFull__anons content_norm">
+            {{ content.field_anons_akcii }}
+        </div>
+        {% if path('<current>') == '/akcia/professionalnaa-cistka-zubov-za-1450-rublei-1' %}
+        <div class="akciaFull__kliniks">
+          <label>Стоматологии:</label>
+        </div>  
+          {#<!-- {literal} -->#}
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A083dec5434c32e652797e2683d054ad7b4ae0889c0ab893eaea116b3e7818e4f&amp;width=100%&amp;height=450&amp;lang=ru_RU&amp;scroll=true"></script>
+          {#<!-- {/literal} -->#}
+
+          {% else %}
+
+          <div class="akciaFull__kliniks">
+            <label>Стоматологии:</label>
+            {{ content.field_v_klinike }}
+          </div>   
+
+          {% endif %}
+          {% if node.field_end_button.value != '1' %}
+        <div class="akciaFull__zapisatsa">
+			{#<!-- <a href="/form/zapisatsa-po-akcii?action_nid={{ node.nid.value }}" class="use-ajax button_red" data-dialog-options='{ "width":"500px", "minHeight":"800px", "dialogClass":"popupDialog" }' data-dialog-type="modal">Записаться</a> -->#}
+            <a href="/make-an-appointment" class="button_red" >Записаться</a>
+        </div>
+            {% endif %}
+    </div>
+
+</article>

@@ -1,0 +1,38 @@
+/* line 3, ../bem/blocks/partneryView/_default.scss */
+.partneryView__content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+/* line 9, ../bem/blocks/partneryView/_default.scss */
+.partneryView .views-row {
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  -webkit-flex-basis: 20%;
+  flex-basis: 20%;
+  text-align: center;
+}
+/* line 17, ../bem/blocks/partneryView/_default.scss */
+.partneryView .views-row .views-field-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* line 23, ../bem/blocks/partneryView/_default.scss */
+.partneryView .views-row a {
+  text-decoration: none;
+  color: #0cab8d;
+}
+/* line 28, ../bem/blocks/partneryView/_default.scss */
+.partneryView .views-row:hover {
+  box-shadow: 0px 0px 10px 5px rgba(12, 171, 141, 0.2);
+}
+/* line 31, ../bem/blocks/partneryView/_default.scss */
+.partneryView .views-row:hover a {
+  color: #343434;
+}

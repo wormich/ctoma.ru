@@ -1,0 +1,5 @@
+<div{{ attributes.addClass("videos") }}>
+    {% for item in items %}
+        <div{{ item.attributes.addClass(["videos__video"]) }}>{{ item.content }}</div>
+    {% endfor %}
+</div>

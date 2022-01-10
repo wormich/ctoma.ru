@@ -1,0 +1,79 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/klinika') }}
+
+
+<style type="text/css">
+    .actions__swiperButtonPrev.swiper-button-prev.swiper-button-white {
+        background-image: url('/themes/my_theme/bem/blocks/clinic/img/arrow_prev_movistarstore.png') !important;
+        width: 74px !important;
+        height: 73px !important;
+    }
+    .actions__swiperButtonNext.swiper-button-next.swiper-button-white {
+        background-image: url('/themes/my_theme/bem/blocks/clinic/img/arrow_next_movistarstore.png') !important;
+        width: 74px !important;
+        height: 73px !important;
+    }
+    @media only screen and (min-width: 1750px) { 
+        .actions__swiperButtonPrev.swiper-button-prev.swiper-button-white {
+            left: 350px !important;
+        } 
+        .actions__swiperButtonNext.swiper-button-next.swiper-button-white {
+            right: 350px !important;
+        }       
+    }
+</style>
+
+
+<div class="klinika">
+
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    <div class="klinika__title">
+        {% if path('<current>') == '/clinics/klinika-na-prospekte-prosveshcheniya' %}
+        <h1 class="klinika__titleText title_norm width width_norm width_paddingStandart">Стоматология на Гражданском проспекте</h1>
+        {% elseif path('<current>') == '/clinics/klinika-na-mosovskom-prospekte' %}
+        <h1 class="klinika__titleText title_norm width width_norm width_paddingStandart">Стоматология на Московской</h1>
+        {% elseif path('<current>') == '/clinics/klinika-na-nevskom-prospekte' %}
+        <h1 class="klinika__titleText title_norm width width_norm width_paddingStandart">Стоматология на Площади Александра Невского</h1>
+        {% elseif path('<current>') == '/clinics/klinika-na-lenina' %}
+        <h1 class="klinika__titleText title_norm width width_norm width_paddingStandart">Стоматология на Петроградской</h1>
+        {% elseif path('<current>') == '/clinics/klinika-na-korablestroitelej' %}
+        <h1 class="klinika__titleText title_norm width width_norm width_paddingStandart">Стоматология на Приморской</h1>
+        {% else %}
+        <h1 class="klinika__titleText title_norm width width_norm width_paddingStandart">{{ content["#title"] }}</h1>
+        {% endif %}
+    </div>
+
+    <div class="klinika__mainContent width">
+        <div class="klinika__content width width_norm">
+            {{ content.main }}
+        </div>
+
+        {% include base_path ~ directory ~ "/bem/blocks/searchMap/searchMapk.html.twig" %}
+
+        {% include base_path ~ directory ~ "/bem/blocks/stomatology/stomatologyClinik.html.twig" %}
+
+        {% include base_path ~ directory ~ "/bem/blocks/actions/actionsClinik.html.twig" %}
+
+        {% include base_path ~ directory ~ "/bem/blocks/reviews/reviewsCkinic.html.twig" %}
+
+        {% include base_path ~ directory ~ "/bem/blocks/uslugi/uslugiClinik.html.twig" %}
+
+
+    </div>
+
+</div>

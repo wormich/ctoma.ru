@@ -1,0 +1,75 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/service') }}
+
+<div class="service test">
+
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    {{ drupal_view('baner', 'services') }}
+
+
+    <div class="service__container ">
+
+        
+        <div class="service__center width width_norm width_paddingStandart">
+            <div class="service__leftSidebar">
+                {{ drupal_menu('uslugi') }}
+
+                {% include base_path ~ directory ~ "/bem/blocks/makeImg/makeImgButton.html.twig" %}
+				{% include base_path ~ directory ~ "/bem/blocks/ctomaMap/mapButton.html.twig" %}
+				{% include base_path ~ directory ~ "/bem/blocks/ctomaMap/map.html.twig" %}
+            </div>
+
+            <div class="service__bottomMobile">
+                <p class="toggleH2"><a class="content_toggle" href="#">Услуги</a></p>
+                <div class="content_block_service" style="display: none;">{{ drupal_menu('uslugi') }}</div>
+            </div>
+
+            <div class="service__content">
+                {{ content.main }}
+
+<div class="faq-blk content_norm ">
+{{ drupal_view("faqservice","block_1") }}
+</div>
+
+
+       
+
+
+
+            </div>
+
+            
+
+
+        </div>
+
+        {% include base_path ~ directory ~ "/bem/blocks/stomatology/stomatologyService.html.twig" %}
+        <div class="actions__title title_home width width_norm width_paddingStandart"><span class="title__br"></span><span class="title__text map__caption">Клиники на карте</span><span class="title__br"></span></div>
+        {% include base_path ~ directory ~ "/bem/blocks/searchMap/searchMap.html.twig" %}
+        {% include base_path ~ directory ~ "/bem/blocks/subscription/subscription.html.twig" %}
+        {% include base_path ~ directory ~ "/bem/blocks/actions/actions.html.twig" %}
+        {% include base_path ~ directory ~ "/bem/blocks/reviews/reviews.html.twig" %}
+        {% include base_path ~ directory ~ "/bem/blocks/ask/ask.html.twig" %}
+
+    </div>
+
+    {#{{ drupal_view('baner', 'down') }}#}
+
+</div>
+
+

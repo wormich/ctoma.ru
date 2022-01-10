@@ -1,0 +1,84 @@
+{% raw %}
+    <div id="stomatologyClinik" class="stomatology stomatology_clinik width width_full" v-cloak=""
+         xmlns:v-bind="http://www.w3.org/1999/xhtml" v-if="show">
+        <div class="stomatology__title title_homeRed width width_norm width_paddingStandart">
+            <span class="title__br"></span><span class="title__text">Врачи</span><span class="title__br"></span>
+        </div>
+        <div class="stomatology__content width width_paddingStandart">
+
+            <div class="stomatology__slider width width_full">
+                <div class="stomatology__swiper swiper-container">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide" v-for="item in doctors">
+                            <div class="stomatology__wrap">
+                                <div class="stomatology__img" v-html="item.img"></div>
+                                <div class="stomatology__info">
+                                    <div class="stomatology__infoTop">
+                                        <span class="stomatology__infoTitle" v-html="item.name"></span>
+                                        <div class="stomatology__field content_norm" v-if="item.field_dolznost">
+                                            <label>Должность:</label>
+                                            <div v-html="item.field_dolznost"></div>
+                                        </div>
+                                        <div class="stomatology__field content_norm"
+                                             v-if="item.field_opyt_i_dostizenia">
+                                            <label>Опыт:</label>
+                                            <div v-html="item.field_opyt_i_dostizenia"></div>
+                                        </div>
+                                        <div class="stomatology__field content_norm" v-if="item.field_education">
+                                            <label>Образование:</label>
+                                            <div v-html="item.field_education"></div>
+                                        </div>
+                                    </div>
+
+                                    <span class="stomatology__actions">
+                                        <a class="stomatology__more" v-bind:href="item.url">Подробности</a>
+                                        <a v-bind:href="zapis_url(item.nid)"
+                                           class="stomatology__zapis use-ajax"
+                                           data-dialog-options='{"width":"500px","minHeight":"800px","dialogClass":"popupDialog"}'
+                                           data-dialog-type="modal">Записаться</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="stomatology__swiperButtonNext swiper-button-next swiper-button-white"></div>
+                    <div class="stomatology__swiperButtonPrev swiper-button-prev swiper-button-white"></div>
+                </div>
+            </div>
+
+            <div class="stomatology__sliderThumb width width_full">
+                <div class="stomatology__swiperThumbs swiper-container">
+                    <div class="stomatology__swiperThumbsWrap">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide" v-for="item in doctors">
+                                <a class="stomatology__thumlink" v-bind:href="item.url">
+                                    <div class="stomatology__Thumbimg" v-html="item.thumImg"></div>
+                                    <div class="stomatology__thumname" v-html="item.thumName"></div>
+                                    <div class="stomatology__thumdolznost" v-html="item.field_dolznost"></div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="stomatology__swiperThumbButtonNext swiper-button-next swiper-button-white"></div>
+                    <div class="stomatology__swiperThumbButtonPrev swiper-button-prev swiper-button-white"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="stomatology__actionsBottom width width_paddingStandart width_norm">
+            <a class="stomatology__more" href="/personal">Все врачи</a>
+            <a class="stomatology__more" href="/jobs">Вакансии</a>
+        </div>
+    </div>
+{% endraw %}
+<div id="act_anchor"></div>
+<script>
+
+</script>

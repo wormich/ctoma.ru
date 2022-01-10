@@ -1,0 +1,5 @@
+name: Parser
+description: My custom parser
+type: module
+package: Custom
+core: '8.x'

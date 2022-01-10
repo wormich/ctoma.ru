@@ -1,0 +1,5 @@
+name: 'Login form'
+type: module
+description: 'Override login form'
+core: 8.x
+package: Custom

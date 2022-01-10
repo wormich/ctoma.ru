@@ -1,0 +1,17 @@
+{% raw %}
+    <div id="reviewsDoctor" class="reviews_doctor width width_full" v-cloak="" xmlns:v-bind="http://www.w3.org/1999/xhtml" v-if="show">
+
+        <div class="reviews__bottom">
+            <a class="button_red" v-bind:href="reviews_button">Оставить отзыв</a>
+            <a v-bind:href="zapis_button"
+               class="use-ajax button_red"
+               data-dialog-options='{
+                                                                "width":"500px",
+                                                                "minHeight":"800px",
+                                                                "dialogClass":"popupDialog"
+                                                                }'
+               data-dialog-type="modal">Записаться к врачу</a>
+        </div>
+      </div>
+
+{% endraw %}

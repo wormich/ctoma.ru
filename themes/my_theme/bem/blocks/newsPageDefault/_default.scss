@@ -1,0 +1,19 @@
+.newsPageDefault {
+
+  @include display-flex();
+
+  @include respond-to(min-phone){
+    @include flex-direction(column);
+  }
+
+  &__img {
+    max-width: 300px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__info {
+
+  }
+}

@@ -1,0 +1,39 @@
+.logo {
+  line-height: 0;
+  &__img {
+    width: 100%;
+    height: auto;
+    @include respond-to(phone) {
+      max-width: 80px;
+    }
+    @include respond-to(min-phone) {
+      max-width: 120px;
+    }
+  }
+  @include respond-to(phone){
+    display: none;
+  }
+  @include respond-to(min-phone){
+    //display: none;
+  }
+  &_mobile {
+    .logo__linck {
+      display: block;
+    }
+    .logo__img {
+      display: block;
+    }
+    @include respond-to(tablet) {
+      display: none;
+    }
+    @include respond-to(desctop) {
+      display: none;
+    }
+    @include respond-to(desctop_wide) {
+      display: none;
+    }
+    @include respond-to(desctop_max) {
+      display: none;
+    }
+  }
+}

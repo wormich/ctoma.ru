@@ -1,0 +1,109 @@
+{{ attach_library('my_theme/articlesPage') }}
+<div class="articlesPage">
+   <div class="breadcrumbContainer width width_full">
+    <div class="width width_norm">
+        <div class="block-region-breadcrumb">
+            <div class="block">
+
+                <style>
+                .breadcrumb {
+
+                    list-style: none;
+
+                }
+                .breadcrumb>li {
+                    display: inline-block;
+                }
+                .breadcrumb>li+li:before {
+                    padding: 0 5px;
+                    color: #ccc;
+                    content: "/\00a0";
+                }
+            </style>
+            <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+
+
+
+
+
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumb__link" href="/" itemprop="item"><span  itemprop="name">Главная</span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                
+
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumb__link" href="https://ctoma.ru/bolezni" itemprop="item"><span  itemprop="name">Болезни</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <span itemprop="item" content="https://ctoma.ru/bolezni">
+                        <span class="breadcrumb__text" itemprop="name">{{ label }}</span>
+                    </span>
+                    <meta itemprop="position" content="3" />
+                </li>
+            </ol>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<div class="articlesPage__title">
+    <h1 class="articlesPage__titleText title_norm width width_norm width_paddingStandart">{{ label }}</h1>
+</div>
+<div class="articlesPage__container">
+
+    <div class="articlesPage__center width width_norm" itemscope itemtype="https://schema.org/Article">
+
+        <div class="articlesPage__leftSidebar width_paddingStandart">
+
+            {% include base_path ~ directory ~ "/bem/blocks/makeImg/makeImgButton.html.twig" %}
+
+            <p class="articlesHeaderH3">Другие болезни</p>
+            
+            <div class="menuNormPage rekArticle">
+              {{ content.field_drugie_bolezni_ }}
+          </div>
+            <p class="articlesHeaderH3"><a href="/bolezni">Смотреть все</a></p>
+        </div>
+<div class="articleDefault__img width_paddingStandart" itemprop="image" itemscope itemtype="https://schema.org/ImageObject" style="display:none">
+        {{ content.field_izobrazenie_statei }}
+        <meta itemprop="image" content="{% if file_url(content.field_izobrazenie_statei['#items'].entity.uri.value)|length > 5 %}{{ file_url(content.field_izobrazenie_statei['#items'].entity.uri.value) }}{% else %}/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg{% endif %}">
+      </div>
+        <div class="articlesPage__content articleDefault__body width_paddingStandart" itemprop="articleBody">
+            {{ contenth2|raw }}
+            <div class="forContentH2"> {{ content.body }} </div>
+
+            <div class="anotherArticle-bottom">
+
+                {# {{ drupal_block('views_block__uslugi_v_boleznah_block_1') }} #}
+
+            </div>
+            
+            <div id="toTops"><div class="toTops">Оглавление</div></div>
+        </div>
+        <div class="articlesPage__bottomMobile">
+            
+            <div class="menuNormPage rekArticle">
+              {{ content.field_drugie_bolezni_ }}
+          </div>
+          <h3 class="articlesHeaderH3"><a href="/bolezni">Смотреть все</a></h3>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+
+<div>
+    <!--noindex-->
+  {% include base_path ~ directory ~ "/bem/blocks/actions/actions.html.twig" %}
+  <!--/noindex-->
+</div>

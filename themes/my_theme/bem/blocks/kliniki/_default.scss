@@ -1,0 +1,20 @@
+.about {
+  &__title {
+    padding: 20px 0 0;
+    text-align: center;
+  }
+  &__titleText {
+
+  }
+  &__content {
+    padding-bottom: 50px;
+    .block-region-main {
+      >.contextual-region {
+        &:first-child {
+          max-width: 700px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

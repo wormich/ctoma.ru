@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a facet result item.
+ *
+ * Available variables:
+ * - value: The item value.
+ * - show_count: If this facet provides count.
+ * - count: The amount of results.
+ * - is_active: The item is active.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% if is_active %}
+    <div class="filtersBlock__result filtersBlock__active js-facet-deactivate">
+        <span class="filtersBlock__value">{{ value }}</span>
+        <span class="filtersBlock__close">x</span>
+    </div>
+{% else %}
+    <div class="filtersBlock__result">
+        <span class="filtersBlock__value">{{ value }}</span>
+        {% if show_count %}
+            <span class="filtersBlock__count">{{ count }}</span>
+        {% endif %}
+    </div>
+{% endif %}

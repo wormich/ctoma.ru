@@ -1,0 +1,140 @@
+<footer role="contentinfo" class="html__footer footer  width_full pace-def">
+    <div class="footer__content width width_norm">
+        <div class="footer__col1">
+            <div class="footer__menus ">
+                <div class="footer__menu width_paddingLeftRight">
+                    {{ drupal_menu('footer-1') }}
+                </div>
+                <div class="footer__menu width_paddingLeftRight">
+                    {% if path('<current>') == '/stomatology' %}
+                        <span class="footer__linkBold footSpan1">Услуги</span>
+                    {% else %}
+                        <a class="footer__linkBold" href="/stomatology">Услуги</a>
+                    {% endif %}
+                    {{ drupal_view('uslugi', 'footer_menu') }}
+                </div>
+                <div class="footer__menu width_paddingLeftRight">
+                    {{ drupal_menu('footer-3') }}
+                </div>
+                <div class="footer__menu width_paddingLeftRight">
+                    {{ drupal_menu('footer-4') }}
+                </div>
+                <div class="footer__menu width_paddingLeftRight">
+
+                    {% if path('<current>') == '/make-an-appointment' %}
+                        <span class="footer__linkBold footSpan1">Записаться</span>
+                    {% else %}
+                        <a class="footer__linkBold" href="/make-an-appointment">Записаться</a>
+                    {% endif %}
+
+                    <a href="/form/callback"
+                       class="use-ajax footer__link"
+                       data-dialog-options='{
+                           "width":"450px",
+                           "minHeight":"500px",
+                           "dialogClass":"popupDialog"
+                           }'
+                       data-dialog-type="modal">Заказать звонок
+                    </a>
+
+                    <a href="/form/zadat-vopros"
+                       class="use-ajax footer__link"
+                       data-dialog-options='{
+                                "width":"500px",
+                                "minHeight":"500px",
+                                "dialogClass":"popupDialog"
+                                }'
+                       data-dialog-type="modal">Задать вопрос
+                    </a>
+
+                    <a href="/form/kontrol-kacestva"
+                       class="use-ajax footer__link"
+                       data-dialog-options='{
+                           "width":"500px",
+                           "minHeight":"500px",
+                           "dialogClass":"popupDialog"
+                           }'
+                       data-dialog-type="modal">Контроль качества
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="footer__agreement width_paddingLeftRight">
+                <a href="/agreement">Политика конфиденциальности</a>
+            </div>
+
+            <div class="footer__c width_paddingLeftRight">
+                <p>© {{ "now"|date('Y') }}, Группа компаний СТОМА™ - Стоматология в Санкт-Петербурге для детей и взрослых</p>
+                <p>Свидетельство на товарный знак (знак обслуживания) №250906 действует до 30.07.2022г.</p>
+                <p>Все права защищены. При перепечатке материалов ссылка на сайт обязательна.</p>
+                <p>Информация на сайте не является публичной офертой</p>
+            </div>
+
+            <div class="footer__payment width_paddingStandart">
+                <img src="/themes/my_theme/bem/blocks/footer/img/payment.png"/>
+            </div>
+
+        </div>
+        <div class="footer__col2">
+            <div class="footerKlinic width_paddingLeftRight">
+                <div class="views-row">
+                    <div class="views-field views-field-field-phones">
+                        <div class="field field-content call_phone_bottom">
+                            <a href="tel:+78123250360">+7 (812) 325-03-60</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="views-row">
+                    <div class="views-field views-field-field-phones">
+                        <div class="field field-content">
+                            <a href="mailto:office@stoma-spb.ru">office@stoma-spb.ru</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% include base_path ~ directory ~ "/bem/blocks/socialsMenu/socialsMenu_footer.html.twig" %}
+            {% include base_path ~ directory ~ "/bem/blocks/footerLicense/footerLicense.html.twig" %}
+
+
+        </div>
+
+        <span class="footer__copy width_paddingStandart">18+, ИМЕЮТСЯ ПРОТИВОПОКАЗАНИЯ, НЕОБХОДИМА КОНСУЛЬТАЦИЯ СПЕЦИАЛИСТА</span>
+    </div>
+</footer>
+
+{#<div class="footer__insideRow">#}
+                {#<div class="footer__menu">#}
+                    {#<nav class="footer__menuTop ">#}
+                        {#{% include base_path ~ directory ~ "/bem/blocks/glavnoeMenu/glavnoeMenu.html.twig" %}#}
+                    {#</nav>#}
+                {#</div>#}
+            {#</div>#}
+            
+            
+            
+            
+<a onclick="topFunction()" id="myBtn" title="Наверх страницы"><img src="/up.png" ></a>
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+

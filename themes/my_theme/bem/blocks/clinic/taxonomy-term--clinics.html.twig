@@ -1,0 +1,135 @@
+<article class="clinic width width_norm width_paddingStandart 111">
+
+    <div class="clinic__topWrap" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="ООО 'Дентал Менджемент'">
+        <div class="clinic__img">
+            {{ content.field_foto }}
+        </div>
+        <div class="clinic__info">
+            <div class="clinic__adres">
+                <label>Адрес:</label>
+                {{ content.field_adres }}
+            </div>
+            <div class="clinic__rezim">
+                <label>Режим работы:</label>
+                {{ content.field_rezim_raboty }}
+            </div>
+            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                {% set addr %}
+                    {{ content.field_adres }}
+                {% endset %}
+                <meta itemprop="streetAddress" content="{{ addr|striptags|trim }}">
+                <meta itemprop="postalCode" content="190000">
+                <meta itemprop="addressLocality" content="Санкт-Петербург">
+            </div>
+            
+            <div class="clinic__metro">
+        
+                    {{ content. field_stancia_metro }}
+    
+            </div> 
+            
+            
+            
+           
+            
+            <div class="clinic__phone">
+                {% set phone %}
+                    {{ content.field_phones }}
+                {% endset %}
+                <meta itemprop="telephone" content="{{ phone|striptags|trim }}">
+                <label>Телефон:</label>
+                {% for k, v in content.field_phones %}
+                    {% if k matches '/^\\d+$/' %}
+                        <div>
+                         <a class="{{ content.field_calltouch[0]['#context']['value'] }}" href="tel:{{ v['#context']['value'] }}">{{ v['#context']['value'] }}</a>
+                            
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% if content.field_email | field_value %}
+                {% set email %}
+                    {{ content.field_email }}
+                {% endset %}
+                <meta itemprop="email" content="{{ email|striptags|trim }}">
+            {% else %}
+                <meta itemprop="email" content="info@ctoma.ru">
+            {% endif %}
+            {% if content.field_email | field_value %}
+                <div class="clinic__email">
+                    <label>Email:</label>
+                    {{ content.field_email }}
+                </div>
+            {% endif %}
+       {% if content.field_email | field_value %}
+                <div class="clinic__email">
+                    <label>Email:</label>
+                    {{ content.field_email }}
+                </div>
+            {% endif %}
+
+
+            <div class="clinic__zapisatsa">
+
+                {% set fh1 %}
+                    {{ content.field_h1 }}
+                {% endset %}
+
+
+                <a href="/make-an-appointment?title={{ fh1|striptags|trim }}" class=" button_red">Записаться</a>
+            </div>
+        </div>
+    </div>
+    <div class="clinic__bottom">
+       
+        <div class="clinic__bottomRight" style="padding: 20px 0;">
+            <div class="clinic__informacia content_norm">
+                {{ content.field_informacia_o_klinike }}
+            </div>
+            <div class="kliniksGallery content_norm">
+                <h2>Фотографии клиники</h2>
+                {{ content.field_galerea }}
+            </div>
+            <div class="clinic__description content_norm">
+                {{ content.description }}
+            </div>
+        </div>
+    </div>
+
+</article>
+{% set fh2 %}
+    {{ name }}
+{% endset %}
+{% set fh3 %}
+    {{ content.field_informacia_o_klinike }}
+
+{% endset %}
+{% set replace_value_var= '\n' %}
+{% set replace_with_value_var = ' ' %}
+<script type='application/ld+json'>
+{
+"@context": "http://www.schema.org",
+"@type": "MedicalClinic",
+"name": "{{ fh2|striptags|trim }}",
+"url": "{{ url('<current>') }}",
+"logo": "https://ctoma.ru/themes/my_theme_old/bem/blocks/logo/img/logo.jpg",
+"image": "https://ctoma.ru{{ file_url(content.field_foto|field_target_entity.uri.value) }}",
+"description": "{{ fh3|striptags|trim|replace({ (replace_value_var): replace_with_value_var }) }}",
+"address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ addr|striptags|trim }}",
+    "addressLocality": "Санкт-Петербург",
+    "addressCountry": "Россия"
+  },
+"openingHours": "Mo, Tu, We, Th, Fr, Sa, Su 09:00-21:00",
+"telephone":"{{ phone|striptags|trim }}",
+"contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "{{ phone|striptags|trim }}",
+ 
+"contactType": "customer service"
+  }
+}
+
+</script>

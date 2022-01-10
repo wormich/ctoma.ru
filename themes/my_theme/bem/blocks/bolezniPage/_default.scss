@@ -1,0 +1,27 @@
+.bolezniPage {
+  &__container {
+    @include background(url('/themes/my_theme/bem/blocks/bolezniPage/img/bg.jpg'));
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+}
+
+.bolezniPageDefault {
+
+  @include display-flex();
+
+  @include respond-to(min-phone){
+    @include flex-direction(column);
+  }
+
+  &__img {
+    max-width: 300px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__info {
+
+  }
+}

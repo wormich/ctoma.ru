@@ -1,0 +1,30 @@
+<div class="questionPage">
+    <div class="questionPage__container">
+        <div class="questionPage__title">
+            <h1 class="questionPage__titleText title_norm width width_light width_paddingStandart">ВОПРОС-ОТВЕТ #{{ node.id }}</h1>
+        </div>
+    </div>
+</div
+<div class="questionDefault">
+    <div class="questionDefault__content width width_light">
+
+        <div class="questionDefault__question content_norm">
+            <label>Вопрос:</label>
+            {{ content.field_question }}
+            <div class="questionDefault__date">
+                {{ node.createdtime|date('d/m/Y') }}
+            </div>
+        </div>
+
+        <div class="questionDefault__answer content_norm">
+            <label>Ответ:</label>
+            {{ content.field_answer }}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

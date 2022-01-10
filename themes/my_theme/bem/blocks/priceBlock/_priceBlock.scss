@@ -1,0 +1,10 @@
+.priceBlock {
+  margin-bottom: 10px;
+  &__content {
+    color: #cf3700;
+    font-size: 30px;
+    margin: 8px;
+    font-weight: 700;
+    text-align: right;
+  }
+}

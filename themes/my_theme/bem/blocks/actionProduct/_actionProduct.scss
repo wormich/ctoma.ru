@@ -1,0 +1,31 @@
+.actionProduct {
+  &__title {
+    font-size: 18px;
+    span {
+      font-size: 14px;
+      display: inline-block;
+      margin-bottom: 10px;
+
+      a {
+        color: green;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    @include respond-to(tablet) {
+      @include border-radius(0);
+    }
+    @include respond-to(phone) {
+      @include border-radius(0);
+    }
+    @include respond-to(min-phone) {
+      @include border-radius(0);
+    }
+  }
+}

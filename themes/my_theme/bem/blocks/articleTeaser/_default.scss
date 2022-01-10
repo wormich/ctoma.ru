@@ -1,0 +1,15 @@
+.articleTeaser {
+  &__title {
+    font-weight: bold;
+    position: relative;
+    font-size: 15px;
+    text-transform: uppercase;
+    line-height: 20px;
+    color: #d82043;
+    text-decoration: none;
+
+    &:hover {
+      color: #c71d3e;
+    }
+  }
+}

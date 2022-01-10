@@ -1,0 +1,19 @@
+.noscript {
+  &__text {
+    padding: 18px;
+    text-align: center;
+
+    font-size: 24px;
+    color: #8c8c8c;
+    line-height: 34px;
+
+    @include respond-to(phone){
+      font-size: 16px;
+      line-height: 24px;
+    }
+    @include respond-to(min-phone){
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}

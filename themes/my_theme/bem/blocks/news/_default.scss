@@ -1,0 +1,137 @@
+.news {
+  min-height: 580px;
+
+  @include respond-to(phone) {
+    min-height: 240px;
+    display: none;
+  }
+  @include respond-to(min-phone) {
+    min-height: 300px;
+    display: none;
+  }
+
+  &__content {
+    margin: 0 auto;
+    @include display-flex();
+  }
+
+  &__title {
+    padding-top: 50px;
+    padding-bottom: 30px;
+    @include respond-to(phone) {
+      padding-top: 35px;
+      padding-bottom: 15px;
+    }
+    @include respond-to(min-phone) {
+      padding-top: 35px;
+      padding-bottom: 15px;
+    }
+  }
+
+  &__left {
+    width: 300px;
+    @include flex(1 0 auto);
+    @include box-shadow(4px 6.928px 23.04px 0.96px rgba(0, 0, 0, 0.1));
+    padding: 40px 0;
+    @include justify-content(space-between);
+    @include display-flex();
+    @include flex-direction(column);
+
+    @include respond-to(phone){
+      display: none;
+    }
+    @include respond-to(min-phone){
+      display: none;
+    }
+  }
+  &__elem {
+    padding: 15px 30px;
+    cursor: pointer;
+    &:hover {
+      .news__mTitle {
+        color: #464646;
+      }
+    }
+    &.active {
+      .news__mTitle {
+        color: rgb(216, 32, 67);
+      }
+    }
+  }
+  &__mTitle {
+    display: block;
+    font-size: 15px;
+    font-family: "ralewayregular", sans-serif;
+    color: #585858;
+    line-height: 1.2;
+  }
+  &__mCreated {
+    display: block;
+    color: #a1a1a1;
+    font-size: 15px;
+    font-family: "ralewayregular", sans-serif;
+    line-height: 1.2;
+  }
+  &__all {
+    text-align: center;
+    margin: 20px 0 0;
+  }
+  &__right {
+    @include box-shadow(4px 6.928px 23.04px 0.96px rgba(0, 0, 0, 0.1));
+    padding: 40px;
+    margin-left: 20px;
+
+    @include respond-to(phone){
+      margin-left: 0;
+      padding: 15px;
+    }
+    @include respond-to(min-phone){
+      margin-left: 0;
+      padding: 15px;
+    }
+  }
+
+  &__activElem {
+    @include display-flex();
+    @include flex-direction(column);
+    height: 100%;
+  }
+  &__wrap {
+    @include flex(1 0 auto);
+  }
+  &__created {
+    display: block;
+    font-size: 15px;
+    color: #a1a1a1;
+    font-family: "ralewayregular", sans-serif;
+    line-height: 1.2;
+  }
+  &__titl {
+    font-size: 22px;
+    font-family: "ralewayregular", sans-serif;
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 20px 0;
+  }
+
+  &__body {
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 20px;
+      width: 100%;
+      bottom: 0;
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff 75%);
+    }
+  }
+  &__more {
+    margin: 5px;
+    text-align: center;
+  }
+}

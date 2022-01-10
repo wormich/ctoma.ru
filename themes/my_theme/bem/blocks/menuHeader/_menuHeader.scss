@@ -1,0 +1,87 @@
+$bg_color: #d93c43;
+$bg_color_h: #c3383f;
+
+.menuHeader {
+  &__ul {
+    @include display-flex();
+
+    @include respond-to(phone){
+      @include flex-wrap(wrap);
+      background: $bg_color;
+    }
+    @include respond-to(min-phone){
+      @include flex-wrap(wrap);
+      background: $bg_color;
+    }
+  }
+  &__li {
+    @include flex(1 0 auto);
+    @include display-flex(inline-flex);
+
+    @include respond-to(phone){
+      width: 100%;
+      border-bottom: 1px solid $color_3;
+    }
+    @include respond-to(min-phone){
+      width: 100%;
+      border-bottom: 1px solid $color_3;
+    }
+  }
+  &__a {
+    width: 100%;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    @include respond-to(tablet){
+      padding: 10px 0;
+      text-align: left;
+      text-indent: 20px;
+      max-width: 300px;
+    }
+    @include respond-to(phone){
+      padding: 10px 0;
+      text-align: left;
+      text-indent: 20px;
+      max-width: 300px;
+    }
+    @include respond-to(min-phone){
+      padding: 10px 0;
+      text-align: left;
+      text-indent: 20px;
+    }
+    &:hover {
+      @include respond-to(phone){
+        color: #ffffff;
+        background: $bg_color_h;
+      }
+      @include respond-to(min-phone){
+        color: #ffffff;
+        background: $bg_color_h;
+      }
+    }
+    &:active {
+      @include respond-to(phone){
+        color: #ffffff;
+        background: $bg_color_h;
+      }
+      @include respond-to(min-phone){
+        color: #ffffff;
+        background: $bg_color_h;
+      }
+    }
+  }
+  &__mobile {
+
+    @include respond-to(desctop){
+      display: none;
+    }
+    @include respond-to(desctop_wide){
+      display: none;
+    }
+    @include respond-to(desctop_max){
+      display: none;
+    }
+  }
+}

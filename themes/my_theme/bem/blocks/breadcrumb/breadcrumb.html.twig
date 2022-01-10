@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ */
+#}
+
+{% if breadcrumb %}
+    <style>
+        .breadcrumb {
+
+            list-style: none;
+
+        }
+        .breadcrumb>li {
+            display: inline-block;
+        }
+        .breadcrumb>li+li:before {
+            padding: 0 5px;
+            color: #ccc;
+            content: "/\00a0";
+        }
+    </style>
+    <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+        {% for item in breadcrumb %}
+
+
+
+            {% if item.url %}
+
+
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumb__link" href="{{ item.url }}" itemprop="item"><span  itemprop="name">{{ item.text }}</span></a>
+                    <meta itemprop="position" content="{{ loop.index }}" />
+                </li>
+            {% else %}
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <span itemprop="item" content="https://ctoma.ru{{ path('<current>') }}">
+                <span class="breadcrumb__text" itemprop="name">{{ item.text }}</span>
+        </span>
+                <meta itemprop="position" content="{{ loop.index }}" />
+        </li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+{% endif %}

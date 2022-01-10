@@ -1,0 +1,233 @@
+{#
+  /**
+  * @file
+  * Default theme implementation to display a taxonomy term.
+  *
+  * Available variables:
+  * - url: URL of the current term.
+  * - name: Name of the current term.
+  * - content: Items for the content of the term (fields and description).
+  *   Use 'content' to print them all, or print a subset such as
+  *   'content.description'. Use the following code to exclude the
+  *   printing of a given child element:
+  *   @code
+  *   {{ content|without('description') }}
+  *   @endcode
+  * - attributes: HTML attributes for the wrapper.
+  * - page: Flag for the full page state.
+  * - term: The taxonomy term entity, including:
+  *   - id: The ID of the taxonomy term.
+  *   - bundle: Machine name of the current vocabulary.
+  * - view_mode: View mode, e.g. 'full', 'teaser', etc.
+  *
+  * @see template_preprocess_taxonomy_term()
+  *
+  * @ingroup themeable
+  */
+  #}
+
+
+  {{ attach_library('my_theme/articlesPage') }}
+  <style>
+  .foto_vraca{
+    width: 200px;
+    height: 200px;
+    display: block;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 100px;
+  }
+</style>
+<div class="articlesPage__center width width_norm">
+  <div class="articlesPage__leftSidebar width_paddingStandart">
+
+
+
+
+
+<div class="swiper-container mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><a href="/stomatology/hirurgiya/udalenie-zuba"><img src="/themes/my_theme/bem/blocks/articleDefault/img/udalenie-zubov.jpg"></a></div>
+        <div class="swiper-slide"><a href="/stomatology/protezirovanie"><img src="/themes/my_theme/bem/blocks/articleDefault/img/protezirovanie.jpg"></a></div>
+        <div class="swiper-slide"><a href="/stomatology/profilaktika/professionalnaa-gigiena"><img src="/themes/my_theme/bem/blocks/articleDefault/img/prof-chistka.jpg"></a></div>
+        <div class="swiper-slide"><a href="/stomatology/terapiya"><img src="/themes/my_theme/bem/blocks/articleDefault/img/lechenie-zubov.jpg"></a></div>
+        <div class="swiper-slide"><a href="/stomatology/hirurgiya/implantacia"><img src="/themes/my_theme/bem/blocks/articleDefault/img/implantaciya-zubov.jpg"></a></div>
+      </div>
+    </div>
+
+
+
+
+
+
+    {% include base_path ~ directory ~ "/bem/blocks/makeImg/makeImgButton.html.twig" %}
+
+    <h3 class="articlesHeaderH3">Рекомендуемые статьи</h3>
+
+    <div class="menuNormPage rekArticle">
+      {{ content.field_rekomenduemye_stati }}
+    </div>
+
+    <div class="menuNormPage">
+     <div class="photo-stomatolog-article">
+      <a class="foto_vraca" href="{{ content.field_vrac.0['#url'] }}"><img src="{{ file_url(node.field_vrac.0.entity.field_doc_photo.0.entity.uri.value) }}" alt="{{ content.field_vrac.0['#title'] }}"></a>
+    </div>
+    <div class="name-stomatolog-article">{{ content.field_vrac.0['#title'] }}</div>
+    <div class="specialnost-article">{{ node.field_vrac.0.entity.field_dolznost.0.value }}</div>
+  </div>
+
+  
+
+
+
+
+</div>
+
+
+<div class="articlesPage__content">
+
+
+
+
+  <div class="articleDefault content_norm" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="headline" content="{{ label.0['#context']['value'] }}" />
+    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization" style="display: none">
+      <meta itemprop="name" content="«СТОМА»">
+      <meta itemprop="telephone" content="+78123210201">
+      <meta itemprop="address" content="Санкт-Петербург">
+      <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+        <img class="itemprops" itemprop="url image" width="245" height="65" src="/{{ base_path ~ directory }}/bem/blocks/logo/img/logo.jpg" alt="Стоматология в СПб – зубные клиники «СТОМА»" title="«СТОМА» - Сеть стоматологических клиник Санкт-Петербурга">
+      </span>
+    </div>
+
+    <meta itemprop="name" content="{{ label.0['#context']['value'] }}">
+    <meta itemprop="description" content="{{ content.field_description.0['#context']['value'] }}">
+    <meta itemprop="author" content="{% if content.field_vrac.0['#title']|length > 5 %}{{ content.field_vrac.0['#title'] }}{% else %}admin{% endif %}">
+    <meta itemprop="datePublished" content="{{ node.createdtime|date('Y-m-d') }}">
+    <meta itemprop="dateModified" content="{{ node.changedtime|date('Y-m-d') }}">
+
+    <div class="articleDefault__top">
+      <div class="articleDefault__img width_paddingStandart" itemprop="image" itemscope itemtype="https://schema.org/ImageObject" style="display:none">
+        {{ content.field_izobrazenie_statei }}
+        <meta itemprop="image" content="{% if file_url(content.field_izobrazenie_statei['#items'].entity.uri.value)|length > 5 %}{{ file_url(content.field_izobrazenie_statei['#items'].entity.uri.value) }}{% else %}/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg{% endif %}">
+      </div>
+      <div class="articleDefault__info width_paddingStandart" style="width:100%">
+        {{ node.createdtime|date('Y/m/d') }}
+         
+        <div class="timeto">Время прочтения - <span id="p1"></span> минут.</div>
+
+        {{ content.field_stomatologia }}
+
+      </div>
+      
+
+    </div>
+           <div class="articleDefault__info width_paddingStandart" style="width:100%">
+        {{ content.field_reyting }}
+            </div>
+    <div class="articleDefault__body width_paddingStandart" itemprop="articleBody" id="main_text">
+      {{ contenth2|raw }}
+      {{ content.body }}
+      <style>
+      .pluso-more{display:none !important;}
+      .timeto{float:right}
+    </style>
+
+    <script>
+      var elem = document.getElementById("main_text").textContent;
+
+      var words = elem.replace(/(^\s*)|(\s*$)/gi, '')
+      .replace(/[ ]{2,}/gi, ' ').replace(/\n /, '\n')
+      .split(' ').length;
+      var imgs = document.querySelectorAll("img"), suball = imgs.length;
+      suball = suball -4
+      var time = (words / 200) * 60;
+
+
+      time = Math.round(time / 60);
+
+      document.getElementById("p1").innerHTML = time;
+
+    </script>
+    <script >(function() {
+      if (window.pluso)if (typeof window.pluso.start == "function") return;
+      if (window.ifpluso==undefined) { window.ifpluso = 1;
+        var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+        s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+        s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+        var h=d[g]('body')[0];
+        h.appendChild(s);
+      }})();</script>
+      <div class="pluso" data-background="none;" data-options="medium,square,line,horizontal,nocounter,sepcounter=1,theme=14" data-services="vkontakte,facebook,odnoklassniki"></div>
+
+      
+
+      {{ drupal_block('views_block__uslugi_v_statah_block_1') }}
+      <div id="toTop"><div class="toTop">Оглавление</div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="articlesPage__bottomMobile">
+
+<div class="swiper-container mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><a href="/stomatology/hirurgiya/udalenie-zuba"><img src="/themes/my_theme/bem/blocks/articleDefault/img/udalenie-zubov.jpg"></a></div>
+        <div class="swiper-slide"><a href="/stomatology/protezirovanie"><img src="/themes/my_theme/bem/blocks/articleDefault/img/protezirovanie.jpg"></a></div>
+        <div class="swiper-slide"><a href="/stomatology/profilaktika/professionalnaa-gigiena"><img src="/themes/my_theme/bem/blocks/articleDefault/img/prof-chistka.jpg"></a></div>
+        <div class="swiper-slide"><a href="/stomatology/terapiya"><img src="/themes/my_theme/bem/blocks/articleDefault/img/lechenie-zubov.jpg"></a></div>
+        <div class="swiper-slide"><a href="/stomatology/hirurgiya/implantacia"><img src="/themes/my_theme/bem/blocks/articleDefault/img/implantaciya-zubov.jpg"></a></div>
+      </div>
+    </div>
+
+
+  <div class="menuNormPage rekArticle">
+
+      <h3 class="articlesHeaderH3" style="text-align:left;padding:15px 25px">Рекомендуемые статьи</h3>
+      {{ content.field_rekomenduemye_stati }}
+    </div>
+</div>
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+<style>
+.name-stomatolog-article {
+  text-align: center;
+  padding: 7px 0 2px 0;
+}
+.specialnost-article {
+  text-align: center;
+  font-size: 12px;
+}
+.photo-stomatolog-article img {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  transition: 1s;
+}
+.photo-stomatolog-article:hover {
+  transform: scale(1.03);
+  transition: 1s;
+}
+
+.swiper-container {
+  width: 320px;
+  margin-left: 0px;
+  margin-bottom: 20px;
+  z-index: 0;
+}
+
+</style>
+
+
+
+
+

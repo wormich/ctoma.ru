@@ -1,0 +1,14 @@
+.maintenancePage {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  @include display-flex();
+  @include flex-direction(column);
+
+  @include respond-to(phone){
+    margin: 0 auto;
+  }
+  @include respond-to(min-phone){
+    margin: 0 auto;
+  }
+}

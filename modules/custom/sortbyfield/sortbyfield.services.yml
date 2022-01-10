@@ -1,0 +1,5 @@
+services:
+  sortbyfield.twig.extension:
+    class: Drupal\sortbyfield\Twig\Extension\SortByFieldExtension
+    tags:
+      - { name: twig.extension }

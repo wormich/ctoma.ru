@@ -1,0 +1,91 @@
+.baner {
+  @include background(url('/themes/my_theme/bem/blocks/baner/img/baner.jpg'));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 280px;
+  display: block;
+  @include display-flex();
+
+  @include respond-to(tablet){
+    display: none;
+  }
+  @include respond-to(phone){
+    display: none;
+  }
+  @include respond-to(min-phone){
+    display: none;
+  }
+
+  &__title {
+    font-size: 44px;
+    font-family: "ralewayregular", sans-serif;
+    color: rgb(216, 32, 67);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  &__content {
+    margin: auto;
+    padding-right: 480px;
+    padding-left: 7%;
+  }
+  &__description {
+    font-size: 18px;
+    font-family: "ralewayregular", sans-serif;
+    color: rgb(155, 155, 155);
+    font-weight: bold;
+    text-transform: uppercase;
+
+    a {
+      font-size: 12px;
+      color: #d82044;
+    }
+  }
+
+
+  &_3 {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 440px;
+    display: block;
+    @include display-flex();
+    @include flex-direction(column);
+
+    @include respond-to(tablet){
+      display: none;
+    }
+    @include respond-to(phone){
+      display: none;
+    }
+    @include respond-to(min-phone){
+      display: none;
+    }
+
+    .baner__title {
+      font-size: 44px;
+      font-family: "ralewayregular", sans-serif;
+      color: rgb(216, 32, 67);
+      font-weight: bold;
+      margin: 5px 0;
+      display: block;
+      text-transform: uppercase;
+    }
+    .baner__content {
+      margin: auto;
+      padding-right: 480px;
+      padding-left: 7%;
+    }
+    .baner__text {
+      font-size: 18px;
+      font-family: "ralewayregular", sans-serif;
+      color: rgb(255, 255, 255);
+      line-height: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .baner__bottom {
+      text-align: center;
+    }
+  }
+}

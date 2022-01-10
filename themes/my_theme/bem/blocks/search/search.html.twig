@@ -1,0 +1,43 @@
+{% raw %}
+    <div id="search" v-cloak="" class="search" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+         xmlns:v-on="http://www.w3.org/1999/xhtml">
+        <input class="search__input" v-model="question" placeholder="Поиск"/>
+
+        <div class="search__rezults" v-if="show">
+
+            <span class="search__q">Поиск по запросу: {{ question }}</span>
+
+            <label v-if="rez_uslugi">Услуги</label>
+            <a v-bind:href="item.url" class="search__rezult" v-for="item in rez_uslugi">
+                {{ item.title }}
+            </a>
+
+            <label v-if="rez_clinics">Клиники</label>
+            <a v-bind:href="item.url" class="search__rezult" v-for="item in rez_clinics">
+                {{ item.title }}
+            </a>
+
+            <label v-if="rez_doctors">Врачи</label>
+            <a v-bind:href="item.url" class="search__rezultDoctor" v-for="item in rez_doctors">
+                {{ item.title }}
+            </a>
+
+            <label v-if="rez_news">Новости</label>
+            <a v-bind:href="item.url" class="search__rezult" v-for="item in rez_news">
+                {{ item.title }}
+            </a>
+            
+            <label v-if="rez_akcia">Акции</label>
+            <a v-bind:href="item.url" class="search__rezult" v-for="item in rez_akcia">
+                {{ item.title }}
+            </a>
+
+            <span v-if="!rez_uslugi, !rez_uslugi, !rez_doctors, !rez_news, !rez_akcia" class="search__not">Поиск не дал результатов</span>
+            <span v-on:click="close" class="search__close">Скрыть</span>
+
+        </div>
+    </div>
+{% endraw %}
+
+
+

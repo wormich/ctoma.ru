@@ -1,0 +1,41 @@
+{% raw %}
+    <div id="choosingClinic" class="choosingClinic" xmlns:v-on="http://www.w3.org/1999/xhtml" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave">
+        <span class="choosingClinic__select" v-on:click="list_toogle()">
+            <div v-cloak="" class="choosingClinic__info" v-if="current_clinic">
+                <span v-cloak="" class="choosingClinic__name" v-if="current_clinic" v-html="current_clinic.name"></span>
+                <span v-cloak="" class="choosingClinic__adress" v-if="current_clinic" v-html="current_clinic.field_adres"></span>
+            </div>
+            <img v-else class="choosingClinic__preloader" src="/themes/my_theme/bem/blocks/choosingClinic/img/preloader.gif"/>
+            <span class="choosingClinic__strl"></span>
+        </span>
+
+        <span v-cloak class="choosingClinic__list" v-if="show_list">
+            <div class="choosingClinic__clinic" v-on:click="select_clinic(item.tid)" v-for="item in all_clinics">
+              <a :href="item.field_url">
+                <span class="choosingClinic__listName" v-html="item.name"></span>
+                <span class="choosingClinic__minAdress" v-html="item.field_adres"></span>
+                <span :class="'choosingClinic__phone ' + item.field_calltouch" v-html="item.field_phones"></span>
+              </a>
+            </div>
+        </span>
+
+
+    </div>
+{% endraw %}
+<style>
+  .choosingClinic__clinic a {
+      color: inherit;
+      text-decoration: none;
+  }
+</style>
+{#<div class="choosingClinic__popup">#}
+    {#<modal#}
+            {#v-if="checkViewModal"#}
+            {#@close="showModal = false"#}
+            {#@clinik-select="select_clinic"#}
+            {#@current-select="current_select"#}
+            {#:all_clinics="all_clinics"#}
+            {#:current_clinic="current_clinic"#}
+            {#v-cloak>#}
+    {#</modal>#}
+{#</div>#}

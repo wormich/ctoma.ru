@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * Hooks for Custom Tokens module.
+ */
+
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\token_custom\Entity\TokenCustom;
+use Drupal\token_custom\Entity\TokenCustomType;
+
+/**
+ * Implements hook_token_info().
+ */
+function token_custom_token_info() {
+  $types = [];
+  foreach (TokenCustomType::loadMultiple() as $token_type) {
+    $types[$token_type->id()] = [
+      'name' => $token_type->name,
+      'description' => $token_type->description,
+    ];
+  }
+
+  $tokens = [];
+  foreach (TokenCustom::loadMultiple() as $token){
+    $tokens[$token->bundle()][$token->id()] = [
+      'name' => $token->label(),
+      'description' => $token->getDescription(),
+    ];
+  }
+
+  return [
+    'types' => $types,
+    'tokens' => $tokens,
+  ];
+
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function token_custom_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+  $token_customs = TokenCustom::loadMultiple(array_keys($tokens));
+  foreach ($token_customs as $machine_name => $token_custom) {
+    if (($type == $token_custom->bundle()) && array_key_exists($machine_name, $tokens)) {
+      $replacements[$tokens[$machine_name]] = $token_custom->getFormattedContent();
+    }
+  }
+  return $replacements;
+}
+
+
+

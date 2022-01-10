@@ -1,0 +1,16 @@
+.vepVip {
+  text-align: right;
+  padding: 10px 0;
+  @include respond-to(phone){
+    @include order(0);
+    text-align: center;
+  }
+  @include respond-to(min-phone){
+    @include order(0);
+    text-align: center;
+  }
+
+  &__label {
+    font-weight: bold;
+  }
+}

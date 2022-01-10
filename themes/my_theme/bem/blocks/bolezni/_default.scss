@@ -1,0 +1,93 @@
+.bolezni {
+  &__container {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    padding-bottom: 20px;
+  }
+  &__title {
+    @include display-flex();
+  }
+
+  &__center {
+    @include display-flex();
+    @include respond-to(phone){
+      @include flex-direction(column);
+    }
+    @include respond-to(min-phone){
+      @include flex-direction(column);
+    }
+  }
+  &__leftSidebar {
+    @include flex-basis(30%);
+
+    @include respond-to(phone){
+      display: none;
+    }
+    @include respond-to(min-phone){
+      display: none;
+    }
+  }
+  &__content {
+    @include box-sizing(border-box);
+    padding: 0 20px 30px 20px;
+    @include flex(auto);
+
+    @include respond-to(phone){
+      padding: 0;
+    }
+    @include respond-to(min-phone){
+      padding: 0;
+    }
+  }
+
+  &__nav {
+    list-style: none;
+    @include display-flex();
+    @include flex-wrap(wrap);
+  }
+  &__navItem {
+    a {
+      display: block;
+      padding: 5px 10px;
+      font-size: 20px;
+      color: #333;
+
+    }
+    &.active a {
+      background-color: #d82043;
+      color: #fff;
+    }
+  }
+
+  &__group {
+    list-style: none;
+    @include display-flex();
+    @include flex-direction(column);
+  }
+
+  &__list {
+    list-style: none;
+    @include display-flex();
+    @include flex-wrap(wrap);
+  }
+  &__listItem {
+    @include flex-basis(33%);
+    margin-bottom: 15px;
+
+    @include respond-to(phone){
+      @include flex-basis(100%);
+    }
+  }
+
+  &__bottomMobile {
+    display: none;
+
+    @include respond-to(phone){
+      display: block;
+    }
+    @include respond-to(min-phone){
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/brandPage') }}
+
+<div class="brandPage">
+
+  {{ drupal_block("tabs") }}
+
+  <div class="width width_norm">
+    {{ drupal_block("breadcrumbs") }}
+  </div>
+  <div class="brandPage__layout width width_norm width_paddingStandart">
+    <div class="brandPage__content">
+      <div class="content">{{ content.main }}</div>
+    </div>
+
+    {% include base_path ~ directory ~ "/bem/blocks/filtersProducts/filtersProducts.html.twig" %}
+
+  </div>
+</div>

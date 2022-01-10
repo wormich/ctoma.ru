@@ -1,0 +1,24 @@
+.html {
+  height: 100%;
+  //background: url("../bem/blocks/html/img/background.png") #f1f8f7 no-repeat left top;
+
+  &__body {
+    @include display-flex();
+    @include flex-direction(column);
+
+    height: 100%;
+    font: 1rem 'Roboto', Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  &__wrapper {
+    @include flex(1 0 auto);
+    border-bottom: 20px solid #ededed;
+  }
+  &__footer {
+    @include flex(0 0 auto);
+  }
+
+  &__noscript {
+    margin: auto;
+  }
+}

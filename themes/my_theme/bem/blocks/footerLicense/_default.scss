@@ -1,0 +1,9 @@
+.footerLicense {
+  @include flex-basis(33%);
+
+  &__label {
+    font-size: 14px;
+    display: block;
+    color: white;
+  }
+}

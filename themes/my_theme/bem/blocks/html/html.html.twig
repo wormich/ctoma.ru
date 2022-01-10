@@ -1,0 +1,512 @@
+﻿{#
+/**
+ * @file
+ * Theme override for the basic structure of a single Drupal page.
+ *
+ * Variables:
+ * - logged_in: A flag indicating if user is logged in.
+ * - root_path: The root path of the current page (e.g., node, admin, user).
+ * - node_type: The content type for the current node, if the page is a node.
+ * - head_title: List of text elements that make up the head_title variable.
+ *   May contain one or more of the following:
+ *   - title: The title of the page.
+ *   - name: The name of the site.
+ *   - slogan: The slogan of the site.
+ * - page_top: Initial rendered markup. This should be printed before 'page'.
+ * - page: The rendered page markup.
+ * - page_bottom: Closing rendered markup. This variable should be printed after
+ *   'page'.
+ * - db_offline: A flag indicating if the database is offline.
+ * - placeholder_token: The token for generating head, css, js and js-bottom
+ *   placeholders.
+ *
+ * @see template_preprocess_html()
+ */
+#}
+{% set body_classes = [
+  "html__body",
+  logged_in ? 'user-logged-in',
+  not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+  node_type ? 'page-node-type-' ~ node_type|clean_class,
+  db_offline ? 'db-offline',
+] %}
+<!DOCTYPE html>
+<html{{ html_attributes.addClass("html") }}>
+<head>
+  {% if path('<current>') == '/clinics' %}
+    <title>Стоматологические клиники СПБ: адреса, телефоны, время работы | «СТОМА»</title>
+  {% elseif path('<current>') == '/stomatology' %}
+    <title>Услуги стоматологии | Группа клиник «СТОМА»</title>
+  {% elseif path('<current>') == '/make-an-appointment' %}
+    <title>Запись на прием к стоматологу – стоматология «СТОМА»</title>
+  {% elseif path('<current>') == '/portfolio' %}
+    <title>Работы специалистов клиник СТОМА{% if head_title_array.pagination %} - страница {{ head_title_array.pagination }}{% endif %}</title>
+  {% else %}
+    <title>{{ head_title|safe_join(' | ') }}{% if head_title_array.pagination %} - страница {{ head_title_array.pagination }}{% endif %}</title>
+  {% endif %}
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MXWLCSM');</script>
+<!-- End Google Tag Manager -->
+
+  {#<!-- Preloader -->
+  <script data-pace-options='{ "ajax": false }' src="/themes/my_theme/bem/blocks/pace/pace.min.js"></script>
+  <link href="/themes/my_theme/css/paceDeclaration.css" rel="stylesheet"/>
+  <!-- Preloader -->#}
+  
+  <head-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+      <css-placeholder token="{{ placeholder_token }}">
+        <meta name="yandex-verification" content="7929080a98e3d054"/>
+        <meta name="google-site-verification" content="eos6lj2coWkLfyHgUjL7kW21HVQzsusZZ_So8NDhmlE"/>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+        <script>
+          var __cs = __cs || [];
+          __cs.push(["setCsAccount", "lHRqPga_ocfnPkScYctyFIoTq01rCWbX"]);
+          __cs.push(["setDynamicalReplacement", true]);
+        </script>
+        <script>!function () {
+            var t = document.createElement("script");
+            t.async = !0, t.src = "https://vk.com/js/api/openapi.js?159", t.onload = function () {
+              VK.Retargeting.Init("VK-RTRG-283627-9crvz"), VK.Retargeting.Hit()
+            }, document.head.appendChild(t)
+          }();</script>
+        <!-- calltouch -->
+        <script type="text/javascript">
+          (function (w, d, n, c) {
+            w.CalltouchDataObject = n;
+            w[n] = function () {
+              w[n]["callbacks"].push(arguments)
+            };
+            if (!w[n]["callbacks"]) {
+              w[n]["callbacks"] = []
+            }
+            w[n]["loaded"] = false;
+            if (typeof c !== "object") {
+              c = [c]
+            }
+            w[n]["counters"] = c;
+            for (var i = 0; i < c.length; i += 1) {
+              p(c[i])
+            }
+
+            function p(cId) {
+              var a = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"), i = function () {
+                  a.parentNode.insertBefore(s, a)
+                };
+              s.type = "text/javascript";
+              s.async = true;
+              s.src = "https://mod.calltouch.ru/init.js?id=" + cId;
+              if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", i, false)
+              } else {
+                i()
+              }
+            }
+          })(window, document, "ct", "19f70637");
+        </script>
+        <!--calltouch -->
+
+        <!-- Facebook Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '145917804130466');
+        fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=145917804130466&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- End Facebook Pixel Code -->
+
+        <meta name="facebook-domain-verification" content="1x5i1hdpfxs6ish3pexvu15ab2jh9z" />
+
+        </head>
+
+<body{{ attributes.addClass(body_classes) }} ontouchstart="">
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+ <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MXWLCSM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Facebook Pixel Code -->
+<script>
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function () {
+      n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    t = b.createElement(e);
+    t.async = !0;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s)
+  }(window, document, 'script',
+    'https://connect.facebook.net/en_US/fbe...ts.js');
+  fbq('init', '829866791094173');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+               src="https://www.facebook.com/tr?id=8298667...noscript=1"
+  /></noscript>
+<!-- End Facebook Pixel Code -->
+{{ page_top }}
+{{ page }}
+{{ page_bottom }}
+
+<noscript class="html__noscript noscript">
+  <div class="noscript__text">
+    <p>{{ 'Your browser does not support scripts!'|t }} <br> {{ 'Please enable your browser js'|t }}</p>
+    <a class="linck" target="_blank"
+       href="https://yandex.ru/support/common/browsers-settings/browsers-java-js-settings.html">{{ 'How to enable js'|t }}</a>
+  </div>
+  <img src="https://vk.com/rtrg?p=VK-RTRG-283627-9crvz" style="position:fixed; left:-999px;" alt=""/>
+</noscript>
+<js-bottom-placeholder token="{{ placeholder_token }}">
+
+  {#<!-- LiveReload -->
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+  <!-- LiveReload -->#}
+
+  {#<!-- Yandex.Metrika counter -->#}
+  <div style="display:none;">
+    <script>
+      (function (d, w, c) {
+        (w[c] = w[c] || []).push(function () {
+          try {
+            w.yaCounter10785961 = new Ya.Metrika2({
+              id: 10785961,
+              clickmap: true,
+              trackLinks: true,
+              accurateTrackBounce: true,
+              webvisor: true
+            });
+          } catch (e) {
+          }
+        });
+        var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () {
+            n.parentNode.insertBefore(s, n);
+          };
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/tag.js";
+        if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+          f();
+        }
+      })(document, window, "yandex_metrika_callbacks2");
+    </script>
+    <noscript>
+      <div><img src="https://mc.yandex.ru/watch/10785961" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+  </div>
+  {#<!-- /Yandex.Metrika counter -->
+  <!-- {literal} -->#}
+  <script>
+    window['li' + 'v' + 'eTe' + 'x'] = true,
+      window['liv' + 'eTex' + 'ID'] = 126325,
+      window['li' + 've' + 'Te' + 'x_' + 'object'] = true;
+    (function () {
+      var t = document['c' + 're' + 'ateEl' + 'ement']('script');
+      t.async = true;
+      t.src = '//c' + 's15.li' + 'vetex.' + 'ru/' + 'js/client' + '.js';
+      var c = document['getElement' + 'sByTagN' + 'a' + 'me']('script')[0];
+      if (c) c['par' + 'ent' + 'N' + 'ode']['insert' + 'Be' + 'fore'](t, c);
+      else document['docum' + 'entEle' + 'ment']['firs' + 't' + 'Chil' + 'd']['a' + 'ppen' + 'dChil' + 'd'](t);
+    })();
+  </script>
+  {#<!-- {/literal} -->#}
+
+
+
+
+  {#<!-- top button -->
+      <!-- {literal} -->#}
+  <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+      $(window).scroll(function () {
+
+
+        if ($(this).scrollTop() != 0) {
+          $('#toTop').fadeIn();
+        } else {
+          $('#toTop').fadeOut();
+        }
+      });
+
+      $('.views-field-field-vopros-faq').click(function (e) {
+        $(this).toggleClass('opened_faq')
+        $(this).next().slideToggle()
+      })
+
+
+      $('#toTop').click(function () {
+        var top = $('.articleDefault__top').offset().top;
+        $('body,html').animate({scrollTop: top}, 800);
+      });
+
+      $(window).scroll(function () {
+        if ($(this).scrollTop() != 0) {
+          $('#toTops').fadeIn();
+        } else {
+          $('#toTops').fadeOut();
+        }
+      });
+      $('#toTops').click(function () {
+        var top = $('.articleDefault__body').offset().top;
+        $('body,html').animate({scrollTop: top}, 800);
+      });
+
+    });
+  </script>
+  {#<!-- {/literal} -->
+  <!-- /top button -->#}
+
+
+  {#<!-- actions -->
+      <!-- {literal} -->#}
+  <script type="text/javascript">
+    function anChor() {
+      jQuery(document).ready(function ($) {
+       // var scrollTops = $('.fullCommonWrapAnchor').offset().top;
+       // $(document).scrollTop(scrollTops);
+      });
+    }
+
+    jQuery(document).ready(function ($) {
+      setTimeout(anChor, 2000);
+    });
+  </script>
+  {#<!-- {/literal} -->
+  <!-- /actions -->#}
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      jQuery(document).on("submit", 'form[action*="make-an-appointment"]', function () {
+        var m = jQuery(this).closest('form');
+        var fio = m.find('input[name="name"]').val();
+        var phone = m.find('input[name="phone"]').val();
+        var clinic = m.find('select[name="clinic"] option:selected').text();
+        var ct_key = 'my_form_general';
+        if (/Коломяжском/gi.test(clinic)) {
+          ct_key = 'my_form_kolom_26';
+        }
+        if (/Сикейроса/gi.test(clinic)) {
+          ct_key = 'my_form_sikey_27';
+        }
+        if (/Куйбышева/gi.test(clinic)) {
+          ct_key = 'my_form_kub_18';
+        }
+        if (/Богатырском/gi.test(clinic)) {
+          ct_key = 'my_form_bogat_25';
+        }
+        if (/Большом пр/gi.test(clinic)) {
+          ct_key = 'my_form_bloh_33';
+        }
+        if (/Кораблестроителей/gi.test(clinic)) {
+          ct_key = 'my_form_korabl_32';
+        }
+        if (/Ленина/gi.test(clinic)) {
+          ct_key = 'my_form_lenina_22';
+        }
+        if (/Московском/gi.test(clinic)) {
+          ct_key = 'my_form_moskov_195';
+        }
+        if (/Науки/gi.test(clinic)) {
+          ct_key = 'my_form_nauki_17';
+        }
+        if (/Невском/gi.test(clinic)) {
+          ct_key = 'my_form_nevsk_163';
+        }
+        if (/Просвещения/gi.test(clinic)) {
+          ct_key = 'my_form_prosvet_99';
+        }
+        if (/Савушкина/gi.test(clinic)) {
+          ct_key = 'my_form_savush_135';
+        }
+        var ct_site_id = '22012';
+        var sub = 'Заявка с ' + location.hostname;
+        var ct_data = {
+          fio: fio,
+          phoneNumber: phone,
+          subject: sub,
+          sessionId: window.call_value
+        };
+        if (!!phone && !!fio) {
+          /* var phone_ct = phone.replace(/[^0-9]/gim, '');
+          if (phone_ct!=''){
+            if (phone_ct[0] == '8') {phone_ct=phone_ct.substring(1);}
+            if (phone_ct[0] == '7') {phone_ct=phone_ct.substring(1);}
+            phone_ct= '7' +phone_ct;
+            window.ctw.createRequest(ct_key, phone_ct, [], function(success, data){ console.log(success, data); } );
+          } */
+          jQuery.ajax({
+            url: 'https://api-node7.calltouch.ru/calls-service/RestAPI/requests/' + ct_site_id + '/register/',
+            dataType: 'json', type: 'POST', data: ct_data, async: false
+          });
+        }
+      });
+    });
+  </script>
+
+  <!-- WEBICA code -->
+  <script type="text/javascript">
+    (function (a, b, c) {
+      try {
+        function f() {
+          var g = document.createElement('script'), h = document.getElementsByTagName('script')[0];
+          g.type = 'text/javascript', g.async = !0, g.src = '//widget.webica.pro/code/loader.js?id=' + c, h.parentNode.insertBefore(g, h)
+        }
+
+        '[object Opera]' == b.opera ? a.addEventListener('DOMContentLoaded', f, !1) : f()
+      } catch (f) {
+      }
+    })(document, window, 'N6OyAcLPHxUKYYlo');
+  </script>
+  <!-- /WEBICA code -->
+
+
+
+  {#<!-- services menu -->
+      <!-- {literal} -->#}
+      <script>
+      
+   
+        jQuery(document).ready(function($){
+          $('.content_toggle').click(function(){
+            $('.content_block_service').slideToggle(300);      
+            return false;
+          });
+        });
+      </script>
+  {#<!-- {/literal} -->
+  <!-- /services menu -->#}
+
+
+  {#<!-- anchor links -->
+      <!-- {literal} -->#}
+      <script>
+        jQuery(document).ready(function($){
+          $('.fastlink a[href^="#"]').click(function(){
+            let anchor = $(this).attr('href');
+            if ($(window).width() > 768){
+            $('html, body').animate({
+              scrollTop:  $(anchor).offset().top - 50
+            }, 600);
+          } else {
+            $('html, body').animate({
+              scrollTop:  $(anchor).offset().top
+            }, 600);
+          }
+
+          });
+  
+          
+         setTimeout(sayHi, 2000); 
+        });
+
+
+
+    function sayHi() {
+            var elem = jQuery('#' + window.location.hash.replace('#', ''));
+    if(elem) {
+   jQuery('html, body').animate({
+              scrollTop:  elem.offset().top
+            }, 600);
+    }
+}
+
+
+      </script>
+  {#<!-- {/literal} -->
+  <!-- /anchor links -->#}
+
+{#<!-- top sub menu -->
+      <!-- {literal} -->#}
+      <script>
+        jQuery(document).ready(function($){
+          $('.glavnoeMenu__a:contains("Врачи")').after('<ul role="menu" class="glavnoeMenu__ul subMenuDoctor"><li class="glavnoeMenu__li"><a href="/personal/stomatologi-terapevty" class="glavnoeMenu__a">Терапевты</a></li><li class="glavnoeMenu__li"><a href="/personal/parodontologi" class="glavnoeMenu__a">Пародонтологи</a></li><li class="glavnoeMenu__li"><a href="/personal/stomatologi-ortopedy" class="glavnoeMenu__a">Ортопеды</a></li><li class="glavnoeMenu__li"><a href="/personal/ortodonty" class="glavnoeMenu__a">Ортодонты</a></li><li class="glavnoeMenu__li"><a href="/personal/stomatologi-hirurgi" class="glavnoeMenu__a">Хирурги</a></li></ul>');
+
+          $('.glavnoeMenu__ul li:contains("Врачи")').hover(function () {
+           clearTimeout($.data(this,'timer'));
+           $('ul',this).stop(true,true).slideDown(200);
+         }, function () {
+          $.data(this,'timer', setTimeout($.proxy(function() {
+            $('ul',this).stop(true,true).slideUp(200);
+          }, this), 100));
+        });
+
+          if ($(window).width() < 768){
+            $('.menuHeader__a:contains("Врачи")').after('<ul role="menu" class="glavnoeMenu__ul subMenuDoctor"><li class="glavnoeMenu__li"><a href="/personal/stomatologi-terapevty" class="glavnoeMenu__a">Терапевты</a></li><li class="glavnoeMenu__li"><a href="/personal/parodontologi" class="glavnoeMenu__a">Пародонтологи</a></li><li class="glavnoeMenu__li"><a href="/personal/stomatologi-ortopedy" class="glavnoeMenu__a">Ортопеды</a></li><li class="glavnoeMenu__li"><a href="/personal/ortodonty" class="glavnoeMenu__a">Ортодонты</a></li><li class="glavnoeMenu__li"><a href="/personal/stomatologi-hirurgi" class="glavnoeMenu__a">Хирурги</a></li></ul>');
+            
+            $('.menuHeader__a:contains("Врачи")').after('<span class="plusDoctor">+</span>');
+
+            $('.plusDoctor').click(function(){
+              $('.menuHeader__a:contains("Врачи")').toggleClass('menuMobileDortor');
+              $('.subMenuDoctor').toggleClass('menuMobileDortorUl');
+              
+            });
+            
+          }
+
+
+          $('.glavnoeMenu__a:contains("О компании")').after('<ul role="menu" class="glavnoeMenu__ul subMenuDoctorN"><li class="glavnoeMenu__li"><a href="/news" class="glavnoeMenu__a">Новости</a></li></ul>');
+
+          $('.glavnoeMenu__ul li:contains("О компании")').hover(function () {
+           clearTimeout($.data(this,'timer'));
+           $('ul',this).stop(true,true).slideDown(200);
+         }, function () {
+          $.data(this,'timer', setTimeout($.proxy(function() {
+            $('ul',this).stop(true,true).slideUp(200);
+          }, this), 100));
+        });
+
+          if ($(window).width() < 768){
+            $('.menuHeader__a:contains("О компании")').after('<ul role="menu" class="glavnoeMenu__ul subMenuDoctorN"><li class="glavnoeMenu__li"><a href="/news" class="glavnoeMenu__a">Новости</a></li></ul>');
+            
+            $('.menuHeader__a:contains("О компании")').after('<span class="plusDoctorN">+</span>');
+
+            $('.plusDoctorN').click(function(){
+              $('.menuHeader__a:contains("О компании")').toggleClass('menuMobileDortorN');
+              $('.subMenuDoctorN').toggleClass('menuMobileDortorUlN');
+              
+            });
+            
+          }
+
+
+
+
+
+
+
+
+
+        });
+      </script>
+  {#<!-- {/literal} -->
+  <!-- /top sub menu -->#}
+
+
+</body>
+</html>

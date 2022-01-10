@@ -1,0 +1,7 @@
+my_tokens.settings:
+  path: '/admin/structure/my_tokens/settings'
+  defaults:
+    _form: '\Drupal\my_tokens\Form\MyTokensSettingsForm'
+    _title: 'My Tokens Settings'
+  requirements:
+    _permission: 'administer site configuration'

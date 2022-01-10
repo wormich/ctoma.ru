@@ -1,0 +1,32 @@
+.pager {
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+
+  &__items {
+    text-align: center;
+  }
+  &__item {
+    display: inline-block;
+    &.is-active {
+      a {
+        color: #c21d3c;
+      }
+    }
+    a {
+      cursor: pointer;
+      padding: 5px 20px 5px 0;
+      margin-right: 3px;
+      @include border-radius(3px);
+      font-size: 13px;
+      font-family: "pantonregular", sans-serif;
+      color: rgb(82, 82, 82);
+      font-weight: bold;
+      text-decoration: none;
+
+      &:hover {
+        color: #d82043;
+      }
+    }
+  }
+}

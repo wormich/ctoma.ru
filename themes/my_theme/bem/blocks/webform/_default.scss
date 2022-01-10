@@ -1,0 +1,14 @@
+.webform-confirmation {
+  &__message {
+    color: white;
+    padding: 40px 15px;
+    text-align: center;
+    @include respond-to(phone){
+      text-align: left;
+    }
+    @include respond-to(min-phone){
+      text-align: left;
+    }
+  }
+}
+

@@ -1,0 +1,48 @@
+{% raw %}
+    <div id="newsHome" class="news width width_full" v-cloak="" xmlns:v-bind="http://www.w3.org/1999/xhtml" v-if="show"
+         xmlns:v-on="http://www.w3.org/1999/xhtml">
+        <h2 class="news__title title_homeRed width width_norm width_paddingStandart">
+            <span class="title__br"></span><span class="title__text">Новости</span><span class="title__br"></span>
+        </h2>
+        <div class="news__content width width_light">
+            <div class="news__left width_paddingStandart">
+                <div class="news__elem"  v-bind:class="{ active: isActiveNews(item.nid) }" v-for="(item, index) in news" v-on:click="select(index)">
+                    <div class="news__wrap">
+                        <span class="news__mTitle" v-html="item.title"></span>
+                        <span class="news__mCreated" v-html="item.created"></span>
+                    </div>
+                </div>
+                <div class="news__all">
+                    <a class="button_red" href="/news">Все новости</a>
+                </div>
+            </div>
+            <div class="news__right width_paddingStandart">
+                <div class="news__activElem">
+                    <div class="news__wrap">
+                        <div class="news__created" v-html="active_news.created"></div>
+                        <div class="news__titl" v-html="active_news.title"></div>
+                        <div class="news__body content_norm" v-html="active_news.body"></div>
+                    </div>
+                    <div class="news__more"><a class="button_red" v-bind:href="active_news.url">Подробнее</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endraw %}
+
+{#<div class="news__swiperButtonNext swiper-button-next swiper-button-white"></div>#}
+{#<div class="news__swiperButtonPrev swiper-button-prev swiper-button-white"></div>#}
+
+
+{#<div class="news__slider width width_full">#}
+    {#<div class="news__swiper swiper-container">#}
+        {#<div class="swiper-wrapper">#}
+            {#<div class="swiper-slide" v-for="item in news">#}
+                {#<div class="news__wrap">#}
+                    {#<span v-html="item.title"></span>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+
+    {#</div>#}
+{#</div>#}

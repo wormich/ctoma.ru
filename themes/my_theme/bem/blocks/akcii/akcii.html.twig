@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/akcii') }}
+
+<div class="akcii">
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    {#{{ drupal_view('baner', 'up') }}#}
+
+    <div class="akcii__container">
+        <h1 class="akcii__title title_grey width width_norm width_paddingStandart">
+            <span class="title__br"></span><span class="title__text">{{ content["#title"] }}</span><span class="title__br"></span>
+        </h1>
+        <div class="akcii__content width width_norm width_paddingStandart">
+
+            {{ drupal_view('akcii', 'all') }}
+
+            {{ content.main }}
+        </div>
+    </div>
+
+    {#{{ drupal_view('baner', 'down') }}#}
+
+</div>

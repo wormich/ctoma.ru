@@ -1,0 +1,42 @@
+<div class="doctorsFilter__doctor">
+    <div class="doctorsFilter__photo">
+        <img src="{{ fields.field_doc_photo.content }}">
+    </div> 
+    <div class="doctorsFilter__info">
+        <span class="doctorsFilter__title">
+            {{ fields.title.content }}
+        </span> 
+        <span class="doctorsFilter__position">{{ fields.field_dolznost.content }}</span>
+
+        {% if fields.field_mesta_raboty.content|length > 0 %}
+        <span class="doctorsFilter__work"><label>Места работы:</label> 
+           {{ fields.field_mesta_raboty.content }}
+        </span> 
+        {% endif %}
+
+        {% if fields.field_stazh_raboty.content|length > 0 %}
+        <span class="doctorsFilter__work"><label>Стаж работы с:</label> 
+           <span class="minLabel">{{ fields.field_stazh_raboty.content }} года</span>
+        </span> 
+        {% endif %}
+
+        {% if fields.field_otz_count.content|striptags|trim|length > 0 %}
+        <span class="doctorsFilter__work"><label>Отзывов:</label> 
+           <span class="minLabel">{{ fields.field_otz_count.content|striptags|trim }}</span>
+        </span> 
+        {% endif %}       
+          
+        <div class="doctorsFilter__action">
+            <a href="/form/zapisatsa-k-vracu?doctor_nid={{ fields.nid.content }}"
+            class="use-ajax button_red"
+            data-dialog-options='{
+            "width":"500px",
+            "minHeight":"800px",
+            "dialogClass":"popupDialog"
+        }'
+        data-dialog-type="modal">Записаться</a>
+    </div>
+
+</div>
+</div>
+<br><br>

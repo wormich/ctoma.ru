@@ -1,0 +1,56 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass("productView") }}>
+
+    <a class="productView__linck" href="{{ product_url }}">
+        <div class="productView__img">
+            <img src="{{ file_path(product.variation_field_images[0]["#item"].target_id) | image_style('400x400') }}"
+                 alt=""
+                 width="200"
+                 height="200">
+        </div>
+        <div class="productView__title">
+            {{ product.variation_title[0] }}
+        </div>
+    </a>
+
+    <div class="productView__sku">
+        {{ product.variation_sku[0] }}
+    </div>
+    <div class="productView__brand">
+        {{ product.field_brand[0] }}
+    </div>
+    <div class="productView__stock">
+        {{ product.variation_field_stock }}
+    </div>
+    <div class="productView__myPrice">
+        {{ product.my_price_mini }}
+    </div>
+    <div class="productView__addCart">
+        {{ product.variations }}
+    </div>
+    <div class="productView__discount">
+        {% if product.discount %}
+            {{ product.discount }}
+        {% endif %}
+    </div>
+</div>

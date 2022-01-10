@@ -1,0 +1,140 @@
+<?php
+
+use Drupal\Core\Url;
+
+/**
+ * @file
+ * Contains login.module..
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter()
+ */
+function login_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  $form["#attributes"]['class'] = ["loginform", "width_paddingStandart"];
+
+  //add class for BEM
+  $form['name']['#class'] = "loginform__name";
+  $form['pass']['#class'] = "loginform__pass";
+  $form['actions']['#attributes']['class'] = ["loginform__actions"];
+
+  $form['name']['#attributes'] = array("placeholder" => array('Логин *'));
+  $form['pass']['#attributes'] = array("placeholder" => array('Пароль *'));
+
+  //label off
+  $form['name']['#title_display'] = "none";
+  $form['name']['#description'] = NULL;
+  $form['pass']['#title_display'] = "none";
+  $form['pass']['#description'] = NULL;
+
+  //ksm($form);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter()
+ */
+function login_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  $form["#attributes"]['class'] = ["registerform", "width_paddingStandart"];
+
+  //add class for BEM
+  $form['account']['mail']['#class'] = "registerform__mail";
+  $form['account']['name']['#class'] = "registerform__name";
+  $form['account']['pass']['#class'] = "registerform__pass";
+  $form['field_full_name']['#attributes']['class'][] = "registerform__full_name";
+  $form['field_phone']['#attributes']['class'][]     = "registerform__phone";
+  $form['actions']['#attributes']['class']           = ["registerform__actions"];
+
+  $form['account']['mail']['#attributes'] = array("placeholder" => array('Email *'));
+  $form['account']['name']['#attributes'] = array("placeholder" => array('Логин *'));
+  $form['field_full_name']['#attributes'] = array("placeholder" => array('Имя *'));
+  $form['field_phone']['#attributes']     = array("placeholder" => array('Телефон *'));
+  $form['account']['pass']['#process'][]  = 'login_form_user_register_form_process_pass';
+
+  //label off
+  $form['account']['mail']['#title_display'] = "none";
+  $form['account']['mail']['#description']   = NULL;
+  $form['account']['name']['#title_display'] = "none";
+  $form['account']['name']['#description']   = NULL;
+
+  $form['actions']['submit']['#submit'][] = 'login_submit';
+
+  //ksm($form);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter()
+ */
+function login_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form["#attributes"]['class'] = ["userform", "width_paddingStandart"];
+  $form['actions']['#attributes']['class'] = ["userform__actions"];
+
+  unset($form['account']['current_pass']['#title']);
+  unset($form['account']['mail']['#title']);
+
+  $form['account']['current_pass']['#attributes'] = array("placeholder" => array('Текущий пароль *'));
+  $form['account']['current_pass']['#class'] = "userform__currentPass";
+  $form['account']['mail']['#class'] = "userform__mail";
+  $form['account']['mail']['#attributes'] = array("placeholder" => array('Email'));
+
+  $form['account']['pass']['#class'] = "userform__pass";
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter()
+ */
+function login_form_user_pass_reset_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  $form["#attributes"]['class'] = ["resetform", "width", "width_norm", "width_paddingStandart"];
+  $form['actions']['#attributes']['class'] = ["resetform__actions"];
+
+}
+
+/**
+ * Register form submit handler
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function login_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $url = Url::fromUri('internal:/user/login');
+  $form_state->setRedirectUrl($url);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter()
+ */
+function login_form_user_pass_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  $form["#attributes"]['class'] = ["passform", "width_paddingStandart"];
+
+  //add class for BEM
+  $form['name']['#class'] = "passform__name";
+  $form['actions']['#attributes']['class'] = ["passform__actions"];
+
+  $form['name']['#attributes'] = array("placeholder" => array('Логин или адрес электронной почты *'));
+
+  //label off
+  $form['name']['#title_display'] = "none";
+
+  unset($form['mail']);
+
+  $form['actions']['submit']['#value'] = t('Restore');
+  //ksm($form);
+}
+
+function login_form_user_register_form_process_pass(&$element, \Drupal\Core\Form\FormStateInterface $form_state, &$complete_form) {
+
+  $element = \Drupal\Core\Render\Element\PasswordConfirm::processPasswordConfirm($element, $form_state, $complete_form);
+  $element['pass1']['#class'] = "registerform__pass1";
+  $element['pass2']['#class'] = "registerform__pass2";
+  $element['pass1']['#placeholder'] = t('Пароль *');
+  $element['pass2']['#placeholder'] = t('Подтвердите Пароль *');
+  $element['pass1']['#title_display'] = "none";
+  $element['pass2']['#title_display'] = "none";
+  $element['pass1']['#description'] = NULL;
+  $element['pass2']['#description'] = NULL;
+  $element['#description'] = NULL;
+
+  return $element;
+}

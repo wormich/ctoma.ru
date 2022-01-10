@@ -1,0 +1,59 @@
+{% raw %}
+    <div id="reviewsDoctor" class="reviews reviews_doctor width width_full" v-cloak="" xmlns:v-bind="http://www.w3.org/1999/xhtml" v-if="show">
+        <h2 class="reviews__title title_homeRed width width_norm width_paddingStandart">
+            <span class="title__br"></span><span class="title__text">Отзывы о враче</span><span class="title__br"></span>
+        </h2>
+        <div class="reviews__content width width_paddingStandart">
+            <div class="reviews__slider width width_full">
+
+                <div class="reviews__swiper swiper-container">
+                    <div class="swiper-wrapper">
+
+                        <div   class="swiper-slide" v-for="item in reviews">
+
+                            <div class="otzyvDefault otzyvDefault_short width width_light">
+                                <span class="otzyvDefault__podlojka"></span>
+                                <div class="otzyvDefault__content">
+
+                                    <div class="otzyvDefault__top">
+                                        <div v-html="item.field_vrac"></div>
+
+                                        <div class="otzyvDefault__info width_paddingStandart">
+                                            <div class="otzyvDefault__ot">
+                                                <label>ОТ:</label>
+                                                <span class="otzyvDefault__otName" v-html="item.name"></span>
+                                                <span class="otzyvDefault__otDate" v-html="item.created"></span>
+                                            </div>
+                                            <div class="otzyvDefault__body" v-html="item.body"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="otzyvDefault__more"><a class="button_red" v-bind:href="item.url">Подробнее</a></div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="reviews__swiperButtonNext swiper-button-next swiper-button-white"></div>
+                    <div class="reviews__swiperButtonPrev swiper-button-prev swiper-button-white"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="reviews__bottom">
+            <a class="button_red" v-bind:href="reviews_button">Оставить отзыв</a>
+            <a v-bind:href="zapis_button"
+               class="use-ajax button_red"
+               data-dialog-options='{
+                                                                "width":"500px",
+                                                                "minHeight":"800px",
+                                                                "dialogClass":"popupDialog"
+                                                                }'
+               data-dialog-type="modal">Записаться к врачу</a>
+        </div>
+    </div>
+{% endraw %}

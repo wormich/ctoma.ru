@@ -1,0 +1,10 @@
+.page_form {
+  main {
+    max-width: 500px;
+    background: #c74b5d;
+    @include background-image(linear-gradient(#c74b5d, #c74b5d));
+    @include box-shadow(0px 4px 4px 0px rgba(0, 0, 0, 0.2));
+    @include border-radius(8px);
+    color: white;
+  }
+}

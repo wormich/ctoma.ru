@@ -1,0 +1,76 @@
+.imagesGallery {
+  &__view {
+    position: relative;
+    z-index: 15;
+  }
+  &__select {
+    @include display-flex();
+    @include flex-wrap(wrap);
+    border-top: 1px solid #dadbd9;
+    padding: 5px 0;
+  }
+  &__selectElement {
+    display: inherit;
+    @include box-sizing(border-box);
+    border: 1px solid #dadbd9;
+    padding: 3px;
+    margin: 3px 5px;
+    cursor: pointer;
+
+    &:hover,
+    &.active {
+      border: 1px solid rgba(0, 180, 50, 0.5);
+    }
+  }
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+  &__controlPrev {
+    z-index: 12;
+    position: absolute;
+    margin-top: -20px;
+    background-color: rgba(0, 180, 50, 0.3);
+    opacity: 0.6;
+    @include rotate(90deg);
+    @include image-2x("/imagesGallery/img/prevNext.png", 15px, 9px);
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 0;
+    @include transition(background-color 0.8s 0.1s ease);
+    cursor: pointer;
+    &:hover {
+      opacity: 0.95;
+    }
+    &:active {
+      background-color: rgba(0, 180, 50, 0.5);
+      opacity: 0.8;
+    }
+  }
+  &__controlNext {
+    z-index: 12;
+    position: absolute;
+    margin-top: -20px;
+    background-color: rgba(0, 180, 50, 0.3);
+    opacity: 0.6;
+    @include rotate(-90deg);
+    @include image-2x("/imagesGallery/img/prevNext.png", 15px, 9px);
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    right: 0;
+    @include transition(background-color 0.8s 0.1s ease);
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.95;
+    }
+    &:active {
+      background-color: rgba(0, 180, 50, 0.5);
+      opacity: 0.8;
+    }
+  }
+}

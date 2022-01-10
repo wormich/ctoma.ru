@@ -1,0 +1,10 @@
+.user {
+  &__title {
+    padding: 10px 0;
+  }
+  &__info {
+    label {
+      font-weight: bold;
+    }
+  }
+}

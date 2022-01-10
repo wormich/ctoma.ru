@@ -1,0 +1,92 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/home') }}
+
+<div class="home">
+
+    {{ drupal_view("slider") }}
+
+    {#{% include base_path ~ directory ~ "/bem/blocks/stomaIs/stomaIs.html.twig" %}#}
+
+    {% include base_path ~ directory ~ "/bem/blocks/uslugi/uslugi.html.twig" %}
+
+    {% include base_path ~ directory ~ "/bem/blocks/actions/actions.html.twig" %}
+
+    {% include base_path ~ directory ~ "/bem/blocks/subscription/subscription.html.twig" %}
+
+    <div class="block-region-main width width_norm width_paddingStandart">
+        <div class="newsPageDefault__info content_norm width_paddingStandart">
+            <p>Группа компаний «Стома» - сеть стоматологических клиник в Санкт-Петербурге. Наш опыт работы — более 25 лет.</p>
+
+            <h2>Услуги в стоматологической клинике «Стома»</h2>
+            <ul>
+                <li>Диагностика</li>
+                <li>Консультация стоматолога</li>
+                <li>Терапия</li>
+                <li>Ортодонтия</li>
+                <li>Ортопедия</li>
+                <li>Пародонтология</li>
+                <li>Хирургия / имплантация</li>
+                <li>Детская стоматология</li>
+            </ul>
+            <h2>ПРЕИМУЩЕСТВА СТОМАТОЛОГИЙ ГРУППЫ КОМПАНИЙ «СТОМА»</h2>
+            <ul>
+                <li>К вашим услугам <b>15 стоматологических клиник</b> в разных районах города.<br>
+                    Удобный график работы — наши клиники открыты с 9:00 до 21:00, большинство из них работают ежедневно. </li>
+                <li>Индивидуальный подход к каждому пациенту. Мы простым и доступным языком говорим о заболевании — так, чтобы было понятно человеку, не имеющему медицинского образования. При подборе обезболивающих препаратов учитываем особенности вашего организма (наличие аллергии и др.).</li>
+                <li>Стоимость «Всё включено»</li>
+                <li>Очень трепетно мы относимся к нашим маленьким пациентам, знаем, как сделать так, чтобы процесс лечения был комфортным и как можно более безболезненным. Также у нас есть специализированная детская стоматологическая клиника.  <br>
+                    Прозрачная и понятная стоимость лечения — цены можно найти на нашем сайте. Для этого необходимо зайти в раздел «<a href="/price">Цены</a>» и выбрать необходимую клинику.<br>
+                    Регулярные специальные предложения на лечение, протезирование, профессиональную чистку зубов и другие услуги. Актуальные акции можно найти в разделе «<a href="/akcii">Акции</a>», а также в нашей группе «ВКонтакте» — <a href="https://vk.com/ctoma">https://vk.com/ctoma</a>. </li>
+                <li>Квалифицированные врачи. Мы гордимся своими специалистами, всю информацию об их образовании, профессиональном опыте и достижениях вы можете найти в разделе «<a href="/personal">Врачи</a>».</li>
+                <li>Возможность записаться на приём как по телефону, так и с помощью системы онлайн-записи.</li>
+                <li>Оказываем услуги по полису ДМС (добровольного медицинского страхования). </li>
+                <li>Мы знаем, как важны для вас отзывы о работе специалистов. Именно поэтому на нашем сайте есть раздел «<a href="/reviews">Отзывы</a>», а в группе «<a href="https://vk.com/topic-6891674_32041768">ВКонтакте</a>» — специальная рубрика «Устами наших пациентов».
+                </li>
+            </ul>
+            <p>Чтобы записаться на приём или узнать дополнительную информацию, пожалуйста, свяжитесь с нами любым из этих способов:</p>
+            <ul>
+                <li>По телефону +7 ( 812 ) 321-02-01. Также на сайте вы можете заказать звонок, и мы сами перезвоним вам.</li>
+                <li>С помощью системы <a href="/make-an-appointment">онлайн-записи</a>. </li>
+                <li>Воспользуйтесь формой «Задать вопрос» на сайте.</li>
+                <li>Напишите нам в социальных сетях «<a href="https://vk.com/ctoma">ВКонтакте</a>» или <a href="https://www.instagram.com/ctoma_group/">Instagram</a>.</li>
+            </ul>
+
+
+        </div>
+    </div>
+
+    {% include base_path ~ directory ~ "/bem/blocks/stomatology/stomatology.html.twig" %}
+
+    {% include base_path ~ directory ~ "/bem/blocks/searchMap/searchMap.html.twig" %}
+
+    {% include base_path ~ directory ~ "/bem/blocks/reviews/reviews.html.twig" %}
+
+    {% include base_path ~ directory ~ "/bem/blocks/news/news.html.twig" %}
+
+    {% include base_path ~ directory ~ "/bem/blocks/works/works.html.twig" %}
+
+    {% include base_path ~ directory ~ "/bem/blocks/ask/ask.html.twig" %}
+
+    {% if content.main %}
+        <div class="home__layout">
+            <div class="home__content width width_norm width_paddingStandart">
+                <div class="content">{{ content.main }}</div>
+            </div>
+        </div>
+    {% endif %}
+
+</div>

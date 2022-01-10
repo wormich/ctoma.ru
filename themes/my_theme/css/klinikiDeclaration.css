@@ -1,0 +1,740 @@
+/* line 2, ../bem/blocks/kliniki/_default.scss */
+.about__title {
+  padding: 20px 0 0;
+  text-align: center;
+}
+/* line 9, ../bem/blocks/kliniki/_default.scss */
+.about__content {
+  padding-bottom: 50px;
+}
+/* line 13, ../bem/blocks/kliniki/_default.scss */
+.about__content .block-region-main > .contextual-region:first-child {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* line 1, ../bem/blocks/klinikiView/_default.scss */
+.klinikiView {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+/* line 7, ../bem/blocks/klinikiView/_default.scss */
+.klinikiView__row {
+  -webkit-flex-basis: 30%;
+  flex-basis: 30%;
+  -moz-box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: 2px 3.464px 36px 4px rgba(0, 0, 0, 0.06);
+  background: white;
+  max-width: 250px;
+  margin: 50px;
+  padding-bottom: 25px;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 7, ../bem/blocks/klinikiView/_default.scss */
+  .klinikiView__row {
+    margin: 20px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 7, ../bem/blocks/klinikiView/_default.scss */
+  .klinikiView__row {
+    margin: 10px;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 7, ../bem/blocks/klinikiView/_default.scss */
+  .klinikiView__row {
+    -webkit-flex-basis: 50%;
+    flex-basis: 50%;
+    margin: 10px;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 7, ../bem/blocks/klinikiView/_default.scss */
+  .klinikiView__row {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    margin: 10px;
+  }
+}
+/* line 31, ../bem/blocks/klinikiView/_default.scss */
+.klinikiView .views-field-field-foto {
+  border-bottom: 8px solid #d82043;
+}
+/* line 32, ../bem/blocks/klinikiView/_default.scss */
+.klinikiView .views-field-field-foto img {
+  display: block;
+}
+/* line 37, ../bem/blocks/klinikiView/_default.scss */
+.klinikiView .views-field-name {
+  padding: 25px;
+  color: #d82043;
+  position: relative;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 20px;
+}
+/* line 46, ../bem/blocks/klinikiView/_default.scss */
+.klinikiView .views-field-name a {
+  color: #d82043;
+  text-decoration: none;
+}
+/* line 49, ../bem/blocks/klinikiView/_default.scss */
+.klinikiView .views-field-name a:hover {
+  color: #c71d3e;
+}
+/* line 54, ../bem/blocks/klinikiView/_default.scss */
+.klinikiView .views-field-name:before {
+  content: '';
+  position: absolute;
+  left: 25px;
+  bottom: 15px;
+  width: 23px;
+  height: 4px;
+  background: #d82043;
+}
+/* line 64, ../bem/blocks/klinikiView/_default.scss */
+.klinikiView .views-field-field-adres {
+  padding: 0 25px;
+  font-family: "ralewayregular", sans-serif;
+  font-size: 11px;
+  color: #666666;
+  line-height: 16px;
+}
+/* line 71, ../bem/blocks/klinikiView/_default.scss */
+.klinikiView .views-field-field-rezim-raboty {
+  padding: 0 25px;
+  font-family: "ralewayregular", sans-serif;
+  font-size: 11px;
+  color: #666666;
+  line-height: 16px;
+}
+/* line 78, ../bem/blocks/klinikiView/_default.scss */
+.klinikiView .views-field-field-phones {
+  padding: 0 25px;
+  font-family: sans-serif;
+  font-size: 11px;
+  color: #666666;
+  line-height: 16px;
+}
+/* line 84, ../bem/blocks/klinikiView/_default.scss */
+.klinikiView .views-field-field-phones a {
+  color: #666666;
+  text-decoration: none;
+}
+
+/* line 2, ../bem/blocks/searchMap/_default.scss */
+.searchMap__top {
+  background: #d82043;
+  padding: 15px;
+  display: -webkit-flex;
+  display: flex;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 2, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__top {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 2, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__top {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 2, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__top {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+/* line 17, ../bem/blocks/searchMap/_default.scss */
+.searchMap__input {
+  margin: auto;
+  height: 30px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #a2a2a2;
+  border-radius: 30px;
+  padding: 3px 10px 3px 60px;
+  font-size: 14px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 17, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__input {
+    padding: 3px 10px 3px 30px;
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 17, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__input {
+    padding: 3px 10px 3px 30px;
+    font-size: 16px;
+  }
+}
+/* line 36, ../bem/blocks/searchMap/_default.scss */
+.searchMap__search {
+  width: 470px;
+  margin: auto;
+  max-width: 100%;
+  position: relative;
+}
+/* line 42, ../bem/blocks/searchMap/_default.scss */
+.searchMap__inputSend {
+  width: 40px;
+  height: 100%;
+  position: absolute;
+  display: -webkit-flex;
+  display: flex;
+  top: 0;
+  cursor: pointer;
+}
+/* line 50, ../bem/blocks/searchMap/_default.scss */
+.searchMap__inputSend:before {
+  content: '';
+  width: 16px;
+  margin: auto;
+  display: block;
+  height: 14px;
+  background: url("/themes/my_theme/bem/blocks/searchMap/img/icons.png") no-repeat 0 0;
+}
+/* line 59, ../bem/blocks/searchMap/_default.scss */
+.searchMap__podR {
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  width: 38%;
+  left: -20px;
+  background: white;
+  top: 20px;
+  -moz-box-shadow: 0 0 70px 38px rgba(0, 0, 0, 0.025);
+  -webkit-box-shadow: 0 0 70px 38px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 0 70px 38px rgba(0, 0, 0, 0.025);
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 59, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__podR {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 59, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__podR {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 59, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__podR {
+    display: none;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 59, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__podR {
+    display: none;
+  }
+}
+/* line 82, ../bem/blocks/searchMap/_default.scss */
+.searchMap__podL {
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  width: 62%;
+  right: -20px;
+  background: white;
+  top: 20px;
+  -moz-box-shadow: 0 0 70px 38px rgba(0, 0, 0, 0.025);
+  -webkit-box-shadow: 0 0 70px 38px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 0 70px 38px rgba(0, 0, 0, 0.025);
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 82, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__podL {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 82, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__podL {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 82, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__podL {
+    display: none;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 82, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__podL {
+    display: none;
+  }
+}
+/* line 104, ../bem/blocks/searchMap/_default.scss */
+.searchMap__infoMap {
+  z-index: 1;
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 70px;
+  margin-bottom: 10px;
+  background: white;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 104, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__infoMap {
+    margin-top: 10px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 104, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__infoMap {
+    margin-top: 0;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 104, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__infoMap {
+    margin-top: 0;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 104, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__infoMap {
+    margin-top: 0;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+/* line 126, ../bem/blocks/searchMap/_default.scss */
+.searchMap__mapWrap {
+  position: relative;
+}
+/* line 129, ../bem/blocks/searchMap/_default.scss */
+.searchMap__info {
+  z-index: 1;
+  -webkit-flex-basis: 38%;
+  flex-basis: 38%;
+  background: white;
+  -moz-box-shadow: 0 0 70px 38px rgba(0, 0, 0, 0.025);
+  -webkit-box-shadow: 0 0 70px 38px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 0 70px 38px rgba(0, 0, 0, 0.025);
+  padding: 30px 30px 0 30px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 129, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__info {
+    -webkit-flex-basis: 45%;
+    flex-basis: 45%;
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 129, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__info {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
+    order: 2;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 129, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__info {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: auto;
+    flex: auto;
+    order: 2;
+    padding: 15px;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 129, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__info {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: auto;
+    flex: auto;
+    order: 2;
+    padding: 15px;
+  }
+}
+/* line 163, ../bem/blocks/searchMap/_default.scss */
+.searchMap__map {
+  -webkit-flex-basis: 62%;
+  flex-basis: 62%;
+  -moz-box-shadow: 0 0 70px 38px rgba(0, 0, 0, 0.025);
+  -webkit-box-shadow: 0 0 70px 38px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 0 70px 38px rgba(0, 0, 0, 0.025);
+  position: relative;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 163, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__map {
+    -webkit-flex-basis: 55%;
+    flex-basis: 55%;
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 163, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__map {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
+    order: 1;
+    height: 300px;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 163, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__map {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: auto;
+    flex: auto;
+    order: 1;
+    height: 200px;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 163, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__map {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-flex: auto;
+    flex: auto;
+    order: 1;
+    height: 220px;
+  }
+}
+/* line 192, ../bem/blocks/searchMap/_default.scss */
+.searchMap__mapYandex {
+  width: 100%;
+  height: 450px;
+  background: white;
+  max-height: 100%;
+}
+/* line 199, ../bem/blocks/searchMap/_default.scss */
+.searchMap__name {
+  font-size: 22px;
+  font-family: "ralewayregular", sans-serif;
+  color: #d82043;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+/* line 208, ../bem/blocks/searchMap/_default.scss */
+.searchMap__adres {
+  padding: 8px 35px;
+  font-size: 15px;
+  font-family: "ralewayregular", sans-serif;
+  text-transform: uppercase;
+  line-height: 20px;
+  font-weight: bold;
+  position: relative;
+}
+/* line 216, ../bem/blocks/searchMap/_default.scss */
+.searchMap__adres label {
+  color: #a1a1a1;
+  display: block;
+}
+/* line 220, ../bem/blocks/searchMap/_default.scss */
+.searchMap__adres a {
+  color: #d82043;
+  text-decoration: underline;
+}
+/* line 223, ../bem/blocks/searchMap/_default.scss */
+.searchMap__adres a:hover {
+  color: #209dc1;
+}
+/* line 230, ../bem/blocks/searchMap/_default.scss */
+.searchMap__adres:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 16px;
+  left: 0;
+  top: 10px;
+  height: 14px;
+  background: green;
+  background: url("/themes/my_theme/bem/blocks/searchMap/img/icons.png") no-repeat 0 -14px;
+}
+/* line 242, ../bem/blocks/searchMap/_default.scss */
+.searchMap__rezim_raboty {
+  padding: 8px 35px;
+  font-size: 15px;
+  font-family: "ralewayregular", sans-serif;
+  text-transform: uppercase;
+  line-height: 20px;
+  font-weight: bold;
+  position: relative;
+}
+/* line 250, ../bem/blocks/searchMap/_default.scss */
+.searchMap__rezim_raboty label {
+  color: #a1a1a1;
+  display: block;
+}
+/* line 254, ../bem/blocks/searchMap/_default.scss */
+.searchMap__rezim_raboty span {
+  color: #494949;
+}
+/* line 260, ../bem/blocks/searchMap/_default.scss */
+.searchMap__rezim_raboty:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 16px;
+  left: 0;
+  top: 10px;
+  height: 17px;
+  background: green;
+  background: url("/themes/my_theme/bem/blocks/searchMap/img/icons.png") no-repeat 0 -30px;
+}
+/* line 272, ../bem/blocks/searchMap/_default.scss */
+.searchMap__phones {
+  padding: 8px 35px;
+  font-size: 15px;
+  font-family: "ralewayregular", sans-serif;
+  text-transform: uppercase;
+  line-height: 20px;
+  font-weight: bold;
+  position: relative;
+}
+/* line 280, ../bem/blocks/searchMap/_default.scss */
+.searchMap__phones label {
+  color: #a1a1a1;
+  display: block;
+}
+/* line 284, ../bem/blocks/searchMap/_default.scss */
+.searchMap__phones span {
+  color: #d82043;
+  font-size: 24px;
+}
+/* line 291, ../bem/blocks/searchMap/_default.scss */
+.searchMap__phones:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 16px;
+  left: 0;
+  top: 10px;
+  height: 17px;
+  background: green;
+  background: url("/themes/my_theme/bem/blocks/searchMap/img/icons.png") no-repeat 0 -48px;
+}
+/* line 303, ../bem/blocks/searchMap/_default.scss */
+.searchMap__email {
+  padding: 8px 35px;
+  font-size: 15px;
+  font-family: "ralewayregular", sans-serif;
+  text-transform: uppercase;
+  line-height: 20px;
+  font-weight: bold;
+  position: relative;
+}
+/* line 311, ../bem/blocks/searchMap/_default.scss */
+.searchMap__email label {
+  color: #a1a1a1;
+  display: block;
+}
+/* line 315, ../bem/blocks/searchMap/_default.scss */
+.searchMap__email span {
+  color: #494949;
+}
+/* line 321, ../bem/blocks/searchMap/_default.scss */
+.searchMap__email:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 16px;
+  left: 0;
+  top: 10px;
+  height: 17px;
+  background: green;
+  background: url("/themes/my_theme/bem/blocks/searchMap/img/icons.png") no-repeat 0 -64px;
+}
+/* line 333, ../bem/blocks/searchMap/_default.scss */
+.searchMap__active {
+  text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+/* line 337, ../bem/blocks/searchMap/_default.scss */
+.searchMap__active a {
+  margin: auto;
+}
+/* line 341, ../bem/blocks/searchMap/_default.scss */
+.searchMap__callback {
+  text-align: center;
+  position: relative;
+}
+/* line 345, ../bem/blocks/searchMap/_default.scss */
+.searchMap__callback a {
+  font-size: 13px;
+  font-family: "pantonregular", sans-serif;
+  color: #a1a1a1;
+  text-decoration: underline;
+  display: block;
+  overflow: hidden;
+  clear: both;
+  padding: 10px 15px;
+  position: relative;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+}
+/* line 359, ../bem/blocks/searchMap/_default.scss */
+.searchMap__callback a:hover {
+  color: #343434;
+  text-decoration: none;
+}
+/* line 365, ../bem/blocks/searchMap/_default.scss */
+.searchMap__callback .ajax-progress-throbber {
+  position: absolute;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  z-index: 5;
+  top: 0;
+  padding: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+  background: #ffffff;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+}
+/* line 378, ../bem/blocks/searchMap/_default.scss */
+.searchMap__callback .ajax-progress-throbber .throbber {
+  opacity: 0.2;
+  background-image: url("../bem/blocks/header/img/preloader.gif");
+  background-repeat: no-repeat;
+  background-size: 32px 8.5px;
+  width: 32px;
+  height: 8.5px;
+  padding: 0;
+  margin: auto;
+  display: block;
+  height: 100%;
+}
+/* line 388, ../bem/blocks/searchMap/_default.scss */
+.searchMap__routes {
+  text-align: right;
+}
+/* line 390, ../bem/blocks/searchMap/_default.scss */
+.searchMap__routes span {
+  display: inline-block;
+  padding: 20px;
+  font-size: 15px;
+  font-family: "ralewayregular", sans-serif;
+  color: #d82043;
+  text-decoration: underline;
+  line-height: 1.2;
+  cursor: pointer;
+}
+/* line 399, ../bem/blocks/searchMap/_default.scss */
+.searchMap__routes span:hover {
+  color: #209dc1;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 388, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__routes {
+    text-align: center;
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 388, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__routes {
+    text-align: center;
+    display: none;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 388, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__routes {
+    text-align: center;
+    display: none;
+  }
+}
+/* line 417, ../bem/blocks/searchMap/_default.scss */
+.searchMap__routesMobile {
+  display: none;
+  text-align: center;
+}
+/* line 420, ../bem/blocks/searchMap/_default.scss */
+.searchMap__routesMobile span {
+  display: inline-block;
+  font-size: 12px;
+  font-family: "ralewayregular", sans-serif;
+  color: white;
+  margin-right: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+/* line 428, ../bem/blocks/searchMap/_default.scss */
+.searchMap__routesMobile span:hover {
+  color: #209dc1;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 417, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__routesMobile {
+    display: block;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  /* line 417, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__routesMobile {
+    display: block;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 0px) {
+  /* line 417, ../bem/blocks/searchMap/_default.scss */
+  .searchMap__routesMobile {
+    display: block;
+  }
+}

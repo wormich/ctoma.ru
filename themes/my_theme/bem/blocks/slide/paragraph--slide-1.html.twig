@@ -1,0 +1,10 @@
+<div class="slide__1" style="cursor:pointer;background-image: url('{{ content.field_fon | field_value }}')" onclick="window.location.href='{{ content.field_link | field_value }}'">
+    <div class="slide__wrap">
+        <div class="slide__wrapList">
+            <span class="slide__text" style="{% if content.field_cvet_teksta | field_value %}color: {{ content.field_cvet_teksta | field_value }}; {% endif %}{% if content.field_razmer_zagolovka_slaida | field_value %}font-size: {{ content.field_razmer_zagolovka_slaida | field_value }}px;{% endif %}">{{ content.field_title | field_value }}</span>
+            <span class="osnovnoi_tekst_slaida" style="{% if content.field_cvet_osnovnogo_teksta | field_value %}color: {{ content.field_cvet_osnovnogo_teksta | field_value }};{% endif %}{% if content.field_razmer_teksta_slaida | field_value %}font-size: {{ content.field_razmer_teksta_slaida | field_value }}px;{% endif %}">{{ content.field_osnovnoi_tekst_slaida | field_value }}</span>
+        </div>
+        <div class="slide__link"><a href="{{ content.field_link | field_value }}">{{ content.field_name_button | field_value }}</a></div>
+    </div>
+</div>
+

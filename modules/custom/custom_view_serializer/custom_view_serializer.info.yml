@@ -1,0 +1,5 @@
+name: 'Custom view serializer count'
+type: module
+description: 'Custom view serializer count'
+package: Custom
+core: 8.x

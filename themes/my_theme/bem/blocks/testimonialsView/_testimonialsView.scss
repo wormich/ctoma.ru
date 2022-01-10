@@ -1,0 +1,16 @@
+.testimonialsView {
+  margin-bottom: 30px;
+
+  &__row {
+    margin-bottom: 20px;
+  }
+  &__title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  &__feedback {
+    @include border-radius(6px);
+    border: 1px solid #a9a9a5;
+    padding: 10px 15px;
+  }
+}

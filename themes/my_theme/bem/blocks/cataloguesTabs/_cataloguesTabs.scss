@@ -1,0 +1,126 @@
+.cataloguesTabs {
+  background: #56B953;
+
+  &__controllWrap {
+    background-color: #3b4d56;
+  }
+  &__controll {
+    @include display-flex();
+    @include flex-wrap(wrap);
+    @include align-items(center);
+  }
+  &__controllTab {
+    @include flex(1 0 auto);
+    font-size: 13px;
+    color: #85939a;
+    text-align: center;
+    @include user-select(none);
+
+    &:hover {
+      cursor: pointer;
+
+      .cataloguesTabs__controllTabName {
+        background: #33424a;
+      }
+    }
+    &.active {
+      color: white;
+
+      .cataloguesTabs__controllTabName {
+        @include background-image(linear-gradient(#00cc33, #009933));
+      }
+    }
+  }
+  &__controllTabName {
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 10px 2px;
+    max-width: 130px;
+
+    @include border-radius(20px);
+  }
+
+  &__content {
+
+  }
+
+  &__contentTab {
+    display: none;
+
+    &.active {
+      @include display-flex();
+      @include flex-wrap(wrap);
+    }
+  }
+  &__contentTabElement {
+    @include flex-basis(33%);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+
+    @include respond-to(phone){
+      @include flex-basis(50%);
+    }
+    @include respond-to(min-phone){
+      @include flex-basis(100%);
+    }
+    img {
+      //max-width: 200px;
+      //height: auto;
+    }
+  }
+  &__title {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 35px;
+    background-color: #48a345;
+
+    &:hover {
+      background-color: #449a41;
+    }
+  }
+  &__logo {
+    display: block;
+    margin-bottom: 10px;
+    img {
+      @include border-radius(3px);
+      width: 240px;
+      height: auto;
+      max-width: 100%;
+      opacity: 0.96;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  &__files {
+    display: block;
+    color: #fff;
+    padding: 8px 15px;
+    position: relative;
+    margin: auto;
+    font-size: 12px;
+    width: 180px;
+
+    &:hover {
+      text-decoration: none;
+      &:before {
+        opacity: 1;
+      }
+    }
+
+    &:before {
+      @include image-2x("/cataloguesTabs/img/download.png", 22px, 19px);
+      position: absolute;
+      left: 15px;
+      top: 12px;
+      content: "";
+      opacity: 0.9;
+    }
+  }
+}

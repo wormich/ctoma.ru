@@ -1,0 +1,52 @@
+.brand {
+  @include display-flex();
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+
+  &__title {
+    @include flex-basis(100%);
+    line-height: 28px;
+  }
+  &__description {
+    margin: 15px 0;
+    @include flex-basis(70%);
+
+    @include respond-to(phone) {
+      @include flex-basis(74%);
+      text-align: justify;
+    }
+    @include respond-to(min-phone) {
+      margin: 15px 0 0;
+      @include flex-basis(100%);
+      text-align: justify;
+    }
+  }
+  &__logo {
+    margin: 15px 0;
+    text-align: right;
+    @include flex-basis(25%);
+    @include respond-to(phone) {
+      @include flex-basis(24%);
+    }
+    @include respond-to(min-phone) {
+      @include flex-basis(100%);
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  &__url {
+    color: #6d6d6d;
+    font-size: 14px;
+    &:hover {
+      text-decoration: none;
+      color: #464646;
+    }
+    @include respond-to(min-phone) {
+      text-align: center;
+      padding: 5px;
+    }
+  }
+}

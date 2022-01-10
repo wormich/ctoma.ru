@@ -1,0 +1,47 @@
+.uslugi {
+  min-height: 920px;
+  //overflow: hidden;
+  width: 100%;
+  @include background-image(inline_image("/uslugi/img/uslugi_bg-min.jpg"));
+  background-repeat: no-repeat;
+  background-position: top;
+
+  @include respond-to(tablet){
+    min-height: 0;
+  }
+  @include respond-to(phone){
+    min-height: 0;
+  }
+  @include respond-to(min-phone){
+    min-height: 0;
+  }
+
+  &__title {
+    padding-top: 50px;
+    padding-bottom: 30px;
+    @include respond-to(phone) {
+      padding-top: 20px;
+      padding-bottom: 15px;
+    }
+    @include respond-to(min-phone) {
+      padding-top: 20px;
+      padding-bottom: 15px;
+    }
+  }
+
+  &__content {
+    padding: 30px 25px;
+    margin: 30px auto;
+    @include box-sizing(border-box);
+    background: white;
+    @include box-shadow(0px -15px 25px 0px rgba(0, 0, 0, 0.1));
+    @include respond-to(phone){
+      padding: 0;
+      margin: 10px auto;
+    }
+    @include respond-to(min-phone){
+      padding: 0;
+      margin: 10px auto;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Two column template for the checkout form.
+ *
+ * Available variables:
+ * - form: The form.
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('my_theme/checkoutSummary') }}
+
+<div class="checkoutFormSummary width width_norm">
+  <div class="checkoutFormSummary__main width_paddingStandart">
+    {{ form|without('order_summary', 'actions') }}
+  </div>
+  <div class="checkoutFormSummary__secondary width_paddingStandart">
+    <h3>{% trans %} Order Summary {% endtrans %}</h3>
+    {{ form.order_summary }}
+  </div>
+  <div class="checkoutFormSummary__footer width_paddingStandart">
+    {{ form.actions }}
+  </div>
+</div>

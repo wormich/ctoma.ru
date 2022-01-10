@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass("productViewSearchAjax") }}>
+
+    <a class="productViewSearchAjax__linck" href="{{ product_url }}">
+        <div class="productViewSearchAjax__img">
+            <img src="{{ file_path(product.variation_field_images[0]["#item"].target_id) | image_style('160x160') }}"
+                 alt=""
+                 width="80"
+                 height="80">
+        </div>
+        <div class="productViewSearchAjax__right">
+            <div class="productViewSearchAjax__title">
+                {{ product.variation_title[0] }}
+            </div>
+            <div class="productViewSearchAjax__sku">
+                <label>Item Number: </label>{{ product.variation_sku[0] }}
+            </div>
+        </div>
+    </a>
+</div>

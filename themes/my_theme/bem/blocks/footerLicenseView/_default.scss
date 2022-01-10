@@ -1,0 +1,18 @@
+.footerLicenseView {
+  padding: 5px 0 0;
+  max-width: 265px;
+  @include display-flex();
+  @include justify-content(space-between);
+
+  &__item {
+    @include flex-basis(30%);
+
+    a {
+      outline: none;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

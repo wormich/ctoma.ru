@@ -1,0 +1,348 @@
+global:
+  version: 1.4
+  css:
+    theme:
+      css/globalDeclaration.css: {}
+      style.css: {}
+  js:
+    bem/blocks/statusMessages/statusMessages.js: {}
+    bem/lib/js/vue.min.js: {}
+    bem/lib/js/js.cookie.js: {}
+    bem/lib/js/vue-js-cookie.min.js: {}
+    bem/lib/js/vue-resource.min.js: {}
+    bem/lib/js/lodash.min.js: {}
+    bem/lib/js/hammer.js: {}
+    bem/lib/js/simple.js: {}
+    bem/blocks/header/header.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/ajax
+    - core/jquery.once
+
+page:
+  version: 1.5
+  css:
+    theme:
+      css/pageDeclaration.css: {}
+  js:
+    bem/blocks/menuMobile/menuMobile.js: {}
+    bem/blocks/choosingClinic/build.js: {}
+    bem/blocks/search/build.js: {}
+  dependencies:
+    - core/drupal.dialog.ajax
+
+home:
+  version: 1.7
+  css:
+    theme:
+      bem/lib/swiper/css/swiper.min.css: {}
+      css/homeDeclaration.css: {}
+  js:
+    bem/lib/js/vue-yandex-maps.js: {}
+    bem/lib/js/jquery.touchwipe.min.js: { }
+    bem/lib/js/jquery.jcarousel.min.js: {}
+    bem/lib/swiper/js/swiper.min.js: { header: true }
+    bem/blocks/swipe/swipe.js: { header: true }
+    bem/blocks/sliderText/slider_alcohol.js: {}
+    bem/blocks/actions/build.js: {}
+    bem/blocks/stomatology/build.js: {}
+    bem/blocks/reviews/build.js: {}
+    bem/blocks/news/build.js: {}
+    bem/blocks/works/build.js: {}
+    https://api-maps.yandex.ru/2.1/?apikey=2950fc82-fd32-4f18-961c-f1cfc9a6cf1f&load=package.standard&lang=ru-RU: { type: external, minified: true }
+    bem/blocks/searchMap/build.js: {}
+
+about:
+  version: 1.3
+  css:
+    theme:
+      css/aboutDeclaration.css: {}
+
+kontact:
+  version: 1.3
+  css:
+    theme:
+      css/kontactDeclaration.css: {}
+
+login:
+  version: 1.3
+  css:
+    theme:
+      css/loginDeclaration.css: {}
+
+register:
+  version: 1.3
+  css:
+    theme:
+      css/registerDeclaration.css: {}
+
+password:
+  version: 1.3
+  css:
+    theme:
+      css/passwordDeclaration.css: {}
+
+reset:
+  version: 1.3
+  css:
+    theme:
+      css/resetDeclaration.css: {}
+
+page403:
+  version: 1.3
+  css:
+    theme:
+      css/page403Declaration.css: {}
+
+page404:
+  version: 1.3
+  css:
+    theme:
+      css/page404Declaration.css: {}
+
+user:
+  version: 1.3
+  css:
+    theme:
+      css/userDeclaration.css: {}
+
+doctors:
+  version: 1.3
+  css:
+    theme:
+      css/doctorsDeclaration.css: {}
+  js:
+    bem/blocks/doctorsFilter/build.js: {}
+
+akcii:
+  version: 1.3
+  css:
+    theme:
+      css/akciiDeclaration.css: {}
+
+akcia:
+  version: 1.3
+  css:
+    theme:
+      css/akciaDeclaration.css: {}
+
+otzyvy:
+  version: 1.3
+  css:
+    theme:
+      css/otzyvyDeclaration.css: {}
+
+otzyv:
+  version: 1.3
+  css:
+    theme:
+      css/otzyvDeclaration.css: {}
+
+doctor:
+  version: 1.4
+  css:
+    theme:
+      bem/lib/swiper/css/swiper.min.css: {}
+      css/doctorDeclaration.css: {}
+  js:
+    bem/lib/swiper/js/swiper.min.js: { header: true }
+    bem/blocks/diplomas/diplomas.js: {}
+    bem/blocks/articlesSlide/articlesSlide.js: {}
+    bem/blocks/reviews/build.js: {}
+    bem/blocks/works/build.js: {}
+
+licenzii:
+  version: 1.3
+  css:
+    theme:
+      css/licenziiDeclaration.css: {}
+
+partnery:
+  version: 1.3
+  css:
+    theme:
+      css/partneryDeclaration.css: {}
+
+pakety_lecenia:
+  version: 1.3
+  css:
+    theme:
+      css/paketyleceniaDeclaration.css: {}
+
+kliniki:
+  version: 1.1
+  css:
+    theme:
+      css/klinikiDeclaration.css: {}
+  js:
+    https://api-maps.yandex.ru/2.1/?apikey=2950fc82-fd32-4f18-961c-f1cfc9a6cf1f&load=package.standard&lang=ru-RU: { type: external, minified: true }
+    bem/blocks/searchMap/build.js: {}
+
+make:
+  version: 1.3
+  css:
+    theme:
+      css/makeDeclaration.css: {}
+
+reviewPage:
+  version: 1.3
+  css:
+    theme:
+      css/reviewPageDeclaration.css: {}
+
+klinika:
+  version: 1.3
+  css:
+    theme:
+      bem/lib/swiper/css/swiper.min.css: {}
+      css/klinikaDeclaration.css: {}
+  js:
+    bem/lib/swiper/js/swiper.min.js: { header: true }
+    https://api-maps.yandex.ru/2.1/?apikey=2950fc82-fd32-4f18-961c-f1cfc9a6cf1f&load=package.standard&lang=ru-RU: { type: external, minified: true }
+    bem/blocks/searchMap/build.js: {}
+    bem/blocks/actions/build.js: {}
+    bem/blocks/stomatology/build.js: {}
+    bem/blocks/reviews/build.js: {}
+
+services:
+  version: 1.3
+  css:
+    theme:
+      css/servicesDeclaration.css: {}
+
+service:
+  version: 1.3
+  css:
+    theme:
+      bem/lib/swiper/css/swiper.min.css: {}
+      css/serviceDeclaration.css: {}
+  js:
+    bem/lib/js/vue-yandex-maps.js: {}
+    bem/lib/js/jquery.touchwipe.min.js: { }
+    bem/lib/js/jquery.jcarousel.min.js: {}
+    bem/lib/swiper/js/swiper.min.js: { header: true }
+    bem/blocks/sliderText/slider_alcohol.js: {}
+    bem/blocks/actions/build.js: {}
+    bem/blocks/stomatology/build.js: {}
+    bem/blocks/reviews/build.js: {}
+    https://api-maps.yandex.ru/2.1/?apikey=2950fc82-fd32-4f18-961c-f1cfc9a6cf1f&load=package.standard&lang=ru-RU: { type: external, minified: true }
+    bem/blocks/searchMap/build.js: {}
+
+serviceChildren:
+  version: 1.2
+  css:
+    theme:
+      bem/lib/swiper/css/swiper.min.css: {}
+      css/serviceChildrenDeclaration.css: {}
+  js:
+    bem/lib/js/vue-yandex-maps.js: {}
+    bem/lib/js/jquery.touchwipe.min.js: { }
+    bem/lib/js/jquery.jcarousel.min.js: {}
+    bem/lib/swiper/js/swiper.min.js: { header: true }
+    bem/blocks/sliderText/slider_alcohol.js: {}
+    bem/blocks/actions/build.js: {}
+    bem/blocks/stomatology/build.js: {}
+    bem/blocks/reviews/build.js: {}
+    https://api-maps.yandex.ru/2.1/?apikey=2950fc82-fd32-4f18-961c-f1cfc9a6cf1f&load=package.standard&lang=ru-RU: { type: external, minified: true }
+    bem/blocks/searchMap/build.js: {}
+
+praises:
+  version: 1.3
+  css:
+    theme:
+      css/praisesDeclaration.css: {}
+
+bolezni:
+  version: 1.3
+  css:
+    theme:
+      css/bolezniDeclaration.css: {}
+  js:
+    bem/blocks/bolezni/bolezni.js: {}
+
+bolezniPage:
+  version: 1.3
+  css:
+    theme:
+      bem/lib/swiper/css/swiper.min.css: {}
+      css/bolezniPageDeclaration.css: {}
+      bem/blocks/articlesPage/allActions.css: {}
+  js:
+    bem/lib/swiper/js/swiper.min.js: { header: true }
+    bem/blocks/actions/build.js: {}    
+
+praise:
+  version: 1.3
+  css:
+    theme:
+      css/praiseDeclaration.css: {}
+
+normPage:
+  version: 1.3
+  css:
+    theme:
+      css/normPageDeclaration.css: {}
+
+articlesPage:
+  version: 1.3
+  css:
+    theme:
+      bem/lib/swiper/css/swiper.min.css: {}
+      css/articlesPageDeclaration.css: {}
+      bem/blocks/articlesPage/allActions.css: {}
+  js:
+    bem/lib/swiper/js/swiper.min.js: { header: true }
+    bem/blocks/actions/build.js: {}
+    bem/blocks/articleDefault/build.js: {}
+
+articles:
+  version: 1.3
+  css:
+    theme:
+      css/articlesDeclaration.css: {}
+
+newsAll:
+  version: 1.3
+  css:
+    theme:
+      css/newsAllDeclaration.css: {}
+
+newsPage:
+  version: 1.3
+  css:
+    theme:
+      css/newsPageDeclaration.css: {}
+
+workAll:
+  version: 1.3
+  css:
+    theme:
+      css/workAllDeclaration.css: {}
+
+workPage:
+  version: 1.3
+  css:
+    theme:
+      css/workPageDeclaration.css: {}
+
+questions:
+  version: 1.3
+  css:
+    theme:
+      css/questionsDeclaration.css: {}
+
+questionPage:
+  version: 1.3
+  css:
+    theme:
+      css/questionPageDeclaration.css: {}
+
+portfolio:
+  version: 1.3
+  css:
+    theme:
+      bem/blocks/portfolio/twentytwenty/twentytwenty.css: {}
+  js:
+    bem/blocks/portfolio/twentytwenty/jquery.event.move.js: {}
+    bem/blocks/portfolio/twentytwenty/jquery.twentytwenty.js: {}

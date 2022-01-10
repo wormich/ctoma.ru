@@ -1,0 +1,61 @@
+{% raw %}
+<div id="actionsHome" class="actions width width_full" v-cloak="" xmlns:v-bind="http://www.w3.org/1999/xhtml" v-if="show">
+    <div class="actions__title title_home width width_norm width_paddingStandart">
+        <span class="title__br"></span><span class="title__text">Акции</span><span class="title__br"></span>
+    </div>
+    <div class="actions__content width width_paddingStandart">
+        <div class="actions__slider width width_full">
+
+            <div class="actions__swiper swiper-container">
+                <div class="swiper-wrapper">
+
+                        <div   class="swiper-slide" v-for="item in actions">
+                            <div class="actions__wrap">
+                                <div class="actions__img" v-html="item.img"></div>
+                                <div class="actions__info">
+                                    <span class="actions__infoTitle" v-html="item.title"></span>
+
+                                    <span class="actions__srok" v-if="item.srok">
+                                        <label>Срок действия акции:</label>
+                                        <span v-html="item.srok"></span>
+                                    </span>
+                                    <span class="actions__srokText" v-if="item.srok_text">
+                                    <noindex>
+                                        <span v-html="item.srok_text"></span>
+                                    </noindex>
+                                    </span>
+                                    <span class="actions__short">
+                                    <noindex>
+                                        <span v-html="item.short"></span>
+                                    </noindex>
+                                    </span>
+                                    <span class="actions__actions">
+                                        <a class="actions__more" v-bind:href="item.url">Подробности</a>
+                                        <!-- <a href="javascript:window.Calltouch.Callback.onClickCallButton();"
+                                           class="actions__zapis use-ajax"
+                                           data-dialog-options='{"width":"500px","minHeight":"800px","dialogClass":"popupDialog"}'
+                                           data-dialog-type="modal">Записаться</a> -->
+                                           <a v-bind:href="zapis_url(item.nid)"
+                                           class="actions__zapis use-ajax"
+                                           data-dialog-options='{"width":"500px","minHeight":"800px","dialogClass":"popupDialog"}'
+                                           data-dialog-type="modal">Записаться</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+
+                <div class="actions__swiperButtonNext swiper-button-next swiper-button-white"></div>
+                <div class="actions__swiperButtonPrev swiper-button-prev swiper-button-white"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endraw %}
+<style>
+.actions__swiper.swiper-container{
+max-height: 100%
+}
+</style>

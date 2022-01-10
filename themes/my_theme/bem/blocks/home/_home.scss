@@ -1,0 +1,64 @@
+.home {
+  &__slider {
+    width: 100%;
+  }
+  &__layout {
+    background: #fff;
+    @include display-flex();
+    @include flex-direction(row);
+    @include respond-to(tablet) {
+      @include flex-direction(column);
+    }
+    @include respond-to(phone) {
+      @include flex-direction(column);
+    }
+    @include respond-to(min-phone) {
+      @include flex-direction(column);
+    }
+  }
+  &__content {
+    @include flex(0 1 auto);
+    //margin-right: 20px;
+    display: block;
+    //max-width: 900px;
+    @include respond-to(tablet) {
+      margin-right: 0;
+    }
+    @include respond-to(phone) {
+      margin-right: 0;
+    }
+    @include respond-to(min-phone) {
+      margin-right: 0;
+    }
+  }
+  &__fullContent {}
+
+  &__bottom {
+    @include display-flex();
+    @include flex-wrap(wrap);
+  }
+
+  &__testimonialsTitle {
+    font-size: 25px;
+    margin: 10px 0;
+    display: block;
+    span {
+      font-size: 14px;
+      display: inline-block;
+      margin-bottom: 10px;
+
+      a {
+        color: green;
+      }
+    }
+  }
+
+  &__slider {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color:#000;
+    margin: 0;
+    padding: 0;
+  }
+}

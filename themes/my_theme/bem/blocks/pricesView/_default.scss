@@ -1,0 +1,89 @@
+.pricesView {
+
+  @include display-flex();
+  @include flex-wrap(wrap);
+  @include justify-content(center);
+
+  &__row {
+    @include flex-basis(30%);
+    @include box-shadow(2px 3.464px 36px 4px rgba(0, 0, 0, 0.06));
+    background: white;
+    max-width: 250px;
+    margin: 50px;
+    padding-bottom: 25px;
+
+    @include respond-to(desctop){
+      margin: 20px;
+    }
+    @include respond-to(tablet){
+      margin: 10px;
+    }
+    @include respond-to(phone){
+      @include flex-basis(50%);
+      margin: 10px;
+    }
+    @include respond-to(min-phone){
+      @include flex-basis(100%);
+      margin: 10px;
+    }
+  }
+
+  .views-field-field-foto {
+    img {
+      display: block;
+    }
+    border-bottom: 8px solid #d82043;
+  }
+  .views-field-name {
+    padding: 25px;
+    color: #d82043;
+    position: relative;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 20px;
+
+    a {
+      color: #d82043;
+      text-decoration: none;
+      &:hover {
+        color: #c71d3e;
+      }
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 25px;
+      bottom: 15px;
+      width: 23px;
+      height: 4px;
+      background: #d82043;
+    }
+  }
+  .views-field-field-adres {
+    padding: 0 25px;
+    font-family: "ralewayregular", sans-serif;
+    font-size: 11px;
+    color: rgb(102, 102, 102);
+    line-height: 16px;
+  }
+  .views-field-field-rezim-raboty {
+    padding: 0 25px;
+    font-family: "ralewayregular", sans-serif;
+    font-size: 11px;
+    color: rgb(102, 102, 102);
+    line-height: 16px;
+  }
+  .views-field-field-phones {
+    padding: 0 25px;
+    font-family: sans-serif;
+    font-size: 11px;
+    color: rgb(102, 102, 102);
+    line-height: 16px;
+    a {
+      color: rgb(102, 102, 102);
+      text-decoration: none;
+    }
+  }
+}

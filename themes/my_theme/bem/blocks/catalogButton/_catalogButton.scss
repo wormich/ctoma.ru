@@ -1,0 +1,67 @@
+.catalogButton {
+  position: relative;
+  padding: 10px 20px;
+  text-align: left;
+  @include user-select(none);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #666666;
+  cursor: pointer;
+  margin: 1px 0;
+  @include box-shadow(0 0 2px #4E443C);
+  @include background-image(linear-gradient(#eef0ed, #FFF));
+
+  &:hover {
+    @include background-image(none);
+  }
+  &:active {
+    @include background-image(linear-gradient(#dbddda, #FFF));
+  }
+
+  &:after {
+    position: absolute;
+    content: "";
+    right: 20px;
+    top: 16px;
+    @include image-2x("/catalogButton/img/catalog.png", 15px, 9px);
+    @include transition(0.4s ease-in-out);
+  }
+  &_active {
+    &:after {
+      @include rotate(-180deg);
+      @include image-2x("/catalogButton/img/catalog_active.png", 15px, 9px);
+      @include transition(0.4s ease-in-out);
+    }
+  }
+
+  &__text {}
+  &__menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    border-top: 1px solid #f2f3f1;
+    width: 100%;
+    z-index: 16;
+    background: white;
+    @include box-shadow(0 2px 2px #848484);
+  }
+  &__list {
+
+  }
+  &__element {
+
+  }
+  &__linck {
+    padding: 10px 20px;
+    border-bottom: 1px solid #f2f3f1;
+    color: #00ba40;
+    display: block;
+    text-decoration: none;
+  }
+  &_active {
+    .catalogButton__menu {
+      display: block;
+    }
+  }
+}

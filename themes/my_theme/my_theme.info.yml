@@ -1,0 +1,13 @@
+name: my_theme
+type: theme
+description: My first Drupal 8 theme.
+core: 8.x
+
+dependencies:
+  - twig_tweak
+
+libraries:
+  - my_theme/global
+regions:
+  content: Content
+  none: None

@@ -1,0 +1,21 @@
+.footerMenuUslugi {
+  &__ul {
+    @include display-flex();
+    @include flex-direction(column);
+  }
+  &__li {
+    display: block;
+
+    a {
+      display: block;
+      font-size: 11px;
+      font-family: "pantonregular", sans-serif;
+      color: rgb(255, 255, 255);
+      padding: 3px 0;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

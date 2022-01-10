@@ -1,0 +1,139 @@
+.addCartform {
+  @include display-flex();
+  @include flex-wrap(wrap);
+  &__links {
+    @include flex-basis(100%);
+  }
+  &__link {
+    display: block;
+    font-size: 12px;
+    padding: 10px;
+    margin-top: 6px;
+    text-align: center;
+    @include border-radius(3px);
+    color: #666666;
+    font-weight: bold;
+    line-height: 14px;
+    text-decoration: none;
+    border: 2px solid #cccccc;
+
+    &:hover {
+      border: 2px solid #00b533;
+      background: #e3e5e2;
+    }
+    &:active {
+      border: 2px solid #00b533;
+      background: #d1d3d0;
+    }
+  }
+  &__linkCurrent {
+    display: block;
+    font-size: 12px;
+    padding: 10px;
+    margin-top: 6px;
+    @include border-radius(3px);
+    text-align: center;
+    color: #666666;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 14px;
+    border: 2px solid #00b533;
+  }
+  form {
+    @include display-flex();
+    @include flex-wrap(wrap);
+    @include flex-basis(100%);
+  }
+  &__quantity {
+    @include flex-basis(25%);
+    margin: 10px 0;
+    input {
+      @include appearance(none);
+      @include border-radius(0);
+      @include box-sizing(border-box);
+      border: 1px solid #cccccc;
+      outline: none;
+      width: 100%;
+      height: 45px;
+      text-align: center;
+      font-size: 16px;
+      @include border-radius(3px);
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        @include appearance(none);
+        margin: 0;
+      }
+    }
+  }
+  &__actions {
+    width: 75%;
+    margin: 10px 0;
+    button {
+      @include appearance(none);
+      @include box-sizing(border-box);
+      outline: none;
+      display: block;
+      width: 100%;
+      height: 45px;
+      background-color: #d43800;
+      @include background-image(linear-gradient(#e83e00, #b53000));
+      text-transform: uppercase;
+      color: white;
+      font-size: 16px;
+      border: 1px solid #cccccc;
+      @include border-radius(3px);
+      cursor: pointer;
+      &:hover {
+        background-color: #b53000;
+        @include background-image(linear-gradient(#d73900, #8c2500));
+      }
+      &:active {
+        background-color: #8c2500;
+        @include background-image(linear-gradient(#8c2500, #8c2500));
+      }
+    }
+  }
+  &__result {
+    @include flex-basis(100%);
+    text-align: center;
+    font-size: 12px;
+    span {
+      font-weight: bold;
+    }
+    a {
+      @include border-radius(3px);
+      @include background-image(linear-gradient(#00cc33, #009933));
+      text-transform: uppercase;
+      max-width: 90px;
+      padding: 3px;
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 5px auto;
+      border-radius: 5px;
+      &:hover {
+        @include background-image(linear-gradient(#00cc33, #00aa39));
+      }
+      &:active {
+        @include background-image(linear-gradient(#00a72b, #009933));
+      }
+    }
+  }
+  .ajax-progress-throbber {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    height: 100%;
+    background: white;
+    .throbber {
+      @include image-2x("/addCartform/img/throbber.gif", 33px, 33px);
+      padding: 0;
+      margin: auto;
+      display: block;
+      height: 100%;
+    }
+  }
+}

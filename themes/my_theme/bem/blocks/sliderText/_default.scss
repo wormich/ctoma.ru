@@ -1,0 +1,78 @@
+.sliderText {
+
+  //margin-top: 10px;
+  height: 430px;
+  overflow: hidden;
+  width: 100%;
+  @include background-image(inline_image("/sliderText/img/slider-bg-3.jpg"));
+
+  background-size: cover;
+  background-position: center;
+
+  @include respond-to(phone){
+    height: 220px;
+    padding-left: 50px;
+    padding-right: 50px;
+    box-sizing: border-box;
+  }
+  @include respond-to(min-phone){
+    padding-left: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
+    height: 220px;
+  }
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  .swiper-slide {
+    @include display-flex();
+    @include justify-content(center);
+    @include align-items(center);
+
+    font-size: 58px;
+    line-height: 60px;
+    font-family: "Raleway ExtraBold", sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-align: center;
+
+    height: 430px;
+
+    @include respond-to(phone){
+      font-size: 22px;
+      line-height: 24px;
+      height: 220px;
+    }
+    @include respond-to(min-phone){
+      font-size: 16px;
+      line-height: 18px;
+      height: 220px;
+    }
+  }
+  .swiper-pagination {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 15px;
+    width: 40px;
+    left: 50%;
+    margin-left: -20px;
+    @include display-flex();
+    @include flex-direction(column);
+
+    .swiper-pagination-bullet {
+      margin: 1px auto;
+      height: 12px;
+      width: 12px;
+      background: rgba(255, 255, 255, 0.5);
+      display: block;
+      @include border-radius(20px);
+    }
+    .swiper-pagination-bullet-active {
+      background: rgba(255, 255, 255, 1);
+    }
+  }
+}

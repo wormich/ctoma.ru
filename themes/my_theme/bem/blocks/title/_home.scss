@@ -1,0 +1,46 @@
+.title_home {
+  text-transform: uppercase;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  font-size: 55px;
+  font-family: "ralewayregular", sans-serif;
+  color: rgb(199, 207, 216);
+  font-weight: bold;
+  line-height: 0.711;
+  text-align: center;
+
+  @include display-flex();
+  @include flex-direction(row);
+  @include align-items(center);
+  @include justify-content(center);
+
+  @include respond-to(tablet) {
+    font-size: 36px;
+  }
+  @include respond-to(phone) {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  @include respond-to(min-phone) {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .title__br {
+    max-width: 230px;
+    height: 1px;
+    width: 100%;
+    background: #dee2e7;
+  }
+  .title__text {
+    margin: 0 20px;
+    @include respond-to(phone){
+      width: 100%;
+    }
+    @include respond-to(min-phone){
+      width: 100%;
+    }
+  }
+}

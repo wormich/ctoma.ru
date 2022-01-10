@@ -1,0 +1,19 @@
+{%
+set classes = [
+'simpleBlock',
+attributes.id|clean_id,
+'content_norm',
+]
+%}
+<div{{ attributes.addClass(classes) }}>
+
+    {{ title_prefix }}
+    {% if label %}
+        <span{{ title_attributes.addClass("block__title") }}>{{ label }}</span>
+    {% endif %}
+    {{ title_suffix }}
+
+    {% block content %}
+        {{ content }}
+    {% endblock %}
+</div>

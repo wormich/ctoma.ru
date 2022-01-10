@@ -1,0 +1,130 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/bolezni') }}
+
+{# группировка меню по первой букве поля 'text' #}
+{% set items = simplify_menu('bolezni') %}
+{% set groupedItems = {} %}
+
+{% for item in items['menu_tree'] %}
+
+    {% if item['url'] != '/' %}
+        {% set letter = item['text']|trim|first|upper %}
+
+        {% if letter not in groupedItems|keys %}
+            {% set groupedItems = groupedItems|merge({(letter): []}) %}
+        {% endif %}
+
+        {% set letterArray = groupedItems[letter]|merge([item]) %}
+        {% set groupedItems = groupedItems|merge({(letter): letterArray}) %}
+    {% endif %}
+    
+{% endfor %}
+
+<div class="bolezni">
+<div class="breadcrumbContainer width width_full">
+    <div class="width width_norm">
+<div class="block-region-breadcrumb">
+<div class="block">
+   
+    <style>
+        .breadcrumb {
+
+            list-style: none;
+
+        }
+        .breadcrumb>li {
+            display: inline-block;
+        }
+        .breadcrumb>li+li:before {
+            padding: 0 5px;
+            color: #ccc;
+            content: "/\00a0";
+        }
+    </style>
+    <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+        
+
+
+            
+
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a class="breadcrumb__link" href="/" itemprop="item"><span  itemprop="name">Главная</span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                
+                    
+
+
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <span itemprop="item" content="https://ctoma.ru/bolezni">
+                <span class="breadcrumb__text" itemprop="name">Болезни</span>
+        </span>
+                <meta itemprop="position" content="2" />
+        </li>
+                        </ol>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    {#{{ drupal_view('baner', 'up') }}#}
+
+    <div class="bolezni__container ">
+        <div class="bolezni__title">
+            <h1 class="bolezni__titleText title_norm width width_norm width_paddingStandart">{{ content["#title"] }}</h1>
+        </div>
+        <div class="bolezni__center width width_norm width_paddingStandart">
+            <div class="bolezni__content">
+                {% if groupedItems|length %}
+                    <ul class="bolezni__nav">
+                        <li data-show-all class="bolezni__navItem bolezni__navItem--all active"><a href="#">Все</a></li>
+                        {% for letter in groupedItems|keys %}
+                            <li data-letter="{{ letter }}" class="bolezni__navItem"><a href="#">{{ letter }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <ul class="bolezni__group">
+                        {% for letter, group in groupedItems %}
+                            <li data-show="{{ letter }}" class="bolezni__groupItem">
+                                <div class="bolezni__groupTitle title_norm width width_norm width_paddingStandart">{{ letter }}</div>
+                                <ul class="bolezni__list">
+                                    {% for item in group|sortbyfield('text') %}
+                                        <li class="bolezni__listItem"><a href="{{ item['url'] }}">{{ item['text']|trim }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="bolezni__bottomMobile">
+                {#{{ drupal_menu('obycnye-stranicy') }}#}
+            </div>
+        </div>
+    </div>
+
+    {#{{ drupal_view('baner', 'down') }}#}
+
+</div>

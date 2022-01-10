@@ -1,0 +1,33 @@
+<?php
+
+  // INSTALLATION INSTRUCTIONS
+  // --------------------------
+  // Change the numbers in the comma-separated list below.
+  // The default example "[3, 100, ]" adds the meta tag to nodes 3 and 100.
+  // Please visit the project page for more detailed instructions.
+
+  function specify_nodes() {
+    return $noindex_nodes = [3, 100, ];
+  }
+  
+  // Save your changes and exit.
+  // Do not change anything below this line.
+  
+  /**
+  * Implements hook_page_attachments().
+  */
+
+  function noindex_page_attachments(array &$attachments) {
+	$currentnode = \Drupal::routeMatch()->getParameter('node');
+    if ($currentnode) {
+	  $currentnodeid = $currentnode->id();
+	  foreach (specify_nodes() as $node) {
+	    if ($currentnodeid == $node) {
+		  $newtag = ['#tag' => 'meta', '#attributes' => ['name' => 'robots', 'content' => 'noindex', ], ]; 
+		  $attachments['#attached']['html_head'][] = [$newtag, 'robots', ];
+		}	
+	  }
+	}
+  }
+
+?>

@@ -1,0 +1,71 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
+
+
+function make_form_alter(&$form, $form_state, $form_id) {
+  if (isset($form['#webform_id']) && $form['#webform_id'] == 'makeform') {
+
+    /**
+     * @var \Drupal\taxonomy\TermStorage $storage
+     * @var \Drupal\taxonomy\Entity\Term $term
+     */
+    $storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+    $terms = $storage->loadTree('clinics');
+
+    foreach ($terms as $term) {
+      $form['elements']['clinic']['#options'][$term->tid] = $term->name;
+    }
+
+    //Get select clinic in form
+    if (isset($form['elements']['clinic']['#default_value'])) {
+      $select_clinik = $form['elements']['clinic']['#default_value'];
+
+      //Load all services for current clinic
+      $query = \Drupal::database()
+        ->select('taxonomy_term__field_usluga_dostupna_v_klinikah', 'us');
+      $query->addField('us', 'entity_id');
+      $query->condition('us.field_usluga_dostupna_v_klinikah_target_id', $select_clinik);
+      $result = $query->execute()->fetchCol();
+
+      $terms = $storage->loadMultiple($result);
+
+      foreach ($terms as $tid => $term) {
+        $form['elements']['service']['#options'][$tid] = $term->getName();
+      }
+
+      $form['actions']['submit']['#validate'][] = 'make_form_validate';
+    }
+  }
+}
+
+function make_form_validate(&$form, FormStateInterface &$form_state) {
+  //получить выбранную клинику
+  if (isset($form['elements']['clinic']['#value'])) {
+    $select_clinik = $form['elements']['clinic']['#value'];
+    if ($select_clinik) {
+      /**
+       * @var \Drupal\taxonomy\Entity\Term $term
+       */
+      $term = Term::load($select_clinik);
+      $title = $term->get("name")->getValue();
+      $form['elements']['select_clinik_name']['#value'] = $title[0]['value'];
+      $form_state->setValue('select_clinik_name', $title[0]['value']);
+    }
+  }
+  if (isset($form['elements']['service']['#value'])) {
+    $select_service = $form['elements']['service']['#value'];
+    if ($select_service) {
+      /**
+       * @var \Drupal\taxonomy\Entity\Term $term
+       */
+      $term = Term::load($select_service);
+      $title = $term->get("name")->getValue();
+      $form['elements']['select_service_name']['#value'] = $title[0]['value'];
+      $form_state->setValue('select_service_name', $title[0]['value']);
+    }
+  }
+
+}

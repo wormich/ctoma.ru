@@ -1,0 +1,146 @@
+.akciiView {
+  @include display-flex();
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+
+  header {
+    width: 100%;
+  }
+
+  &__row {
+    @include flex-basis(48%);
+    @include box-shadow(2px 3.464px 36px 4px rgba(0, 0, 0, 0.06));
+    background: white;
+    margin-bottom: 35px;
+    @include display-flex();
+
+    @include respond-to(tablet){
+      @include flex-basis(100%);
+      max-width: 550px;
+      margin: 0 auto 35px;
+    }
+    @include respond-to(phone){
+      @include flex-basis(100%);
+      margin-bottom: 10px;
+    }
+    @include respond-to(min-phone){
+      @include flex-basis(100%);
+      margin-bottom: 10px;
+      @include flex-direction(column);
+    }
+
+    .views-field-nothing-1 {
+      img {
+        display: block;
+        border-right: 5px solid #d82043;
+        @include respond-to(min-phone){
+          border-right: none;
+          margin: 20px auto 0;
+          border-bottom: 5px solid #d82043;
+        }
+      }
+    }
+    .views-field-nothing {
+      .field-content {
+        height: 100%;
+        @include display-flex();
+        @include justify-content(space-between);
+        @include flex-direction(column);
+      }
+    }
+
+
+  }
+
+  &__title {
+    padding: 25px;
+    color: #d82043;
+    position: relative;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 20px;
+
+    a {
+      color: #d82043;
+      text-decoration: none;
+      &:hover {
+        color: #c71d3e;
+      }
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      left: 25px;
+      bottom: 15px;
+      width: 23px;
+      height: 4px;
+      background: #d82043;
+    }
+  }
+  &__srok {
+    padding: 0 25px 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 16px;
+    font-family: "ralewayregular", sans-serif;
+    font-size: 14px;
+    color: #818181;
+    .akciiView__label {
+      display: block;
+      font-weight: normal;
+      font-size: 12px;
+    }
+  }
+  &__kliniks {
+    padding: 0 25px 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 16px;
+    font-family: "ralewayregular", sans-serif;
+    font-size: 14px;
+    color: #818181;
+    .akciiView__label {
+      display: block;
+      font-weight: normal;
+      font-size: 12px;
+    }
+    a {
+      font-size: 12px;
+      color: #818181;
+
+      &:hover {
+        color: #c71d3e;
+      }
+    }
+  }
+  &__more {
+    text-align: center;
+    margin-bottom: 15px;
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 14px;
+      color: white;
+      background-color: rgb(216, 32, 67);
+      @include box-shadow(2px 3.464px 2.88px 0.12px rgba(0, 0, 0, 0.09));
+      padding: 10px 20px;
+      margin-right: 10px;
+      @include border-radius(30px);
+      text-transform: uppercase;
+      border: none;
+      @include user-select(none);
+      outline: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(193, 29, 60);
+      }
+      &:active {
+        @include box-shadow(none);
+        background-color: rgb(176, 26, 55);
+      }
+    }
+  }
+}

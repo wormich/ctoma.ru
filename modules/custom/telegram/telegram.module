@@ -1,0 +1,312 @@
+<?php
+
+/**
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form
+ * Implements hook_form_FORM_ID_alter()
+ */
+function telegram_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    /*
+ if (isset($form['#webform_id']) && $form['#webform_id'] == 'callback') {
+   $form['actions']['submit']['#submit'][] = '_telegram_callback';
+ }
+ if (isset($form['#webform_id']) && $form['#webform_id'] == 'zadat_vopros') {
+   $form['actions']['submit']['#submit'][] = '_telegram_zadat_vopros';
+ }
+ if (isset($form['#webform_id']) && $form['#webform_id'] == 'zapisatsa_k_vracu') {
+   $form['actions']['submit']['#submit'][] = '_telegram_zapisatsa_k_vracu';
+ }
+ if (isset($form['#webform_id']) && $form['#webform_id'] == 'kontrol_kacestva') {
+   $form['actions']['submit']['#submit'][] = '_telegram_kontrol_kacestva';
+ }
+ if (isset($form['#webform_id']) && $form['#webform_id'] == 'makeform') {
+   $form['actions']['submit']['#submit'][] = '_telegram_makeform';
+ }
+ if (isset($form['#webform_id']) && $form['#webform_id'] == 'zapisatsa_po_akcii') {
+   $form['actions']['submit']['#submit'][] = '_telegram_zapisatsa_po_akcii';
+ }
+ if (isset($form['#webform_id']) && $form['#webform_id'] == 'add_review') {
+   $form['actions']['submit']['#submit'][] = '_telegram_add_review';
+ }
+ if (isset($form['#webform_id']) && $form['#webform_id'] == 'rezume') {
+   $form['actions']['submit']['#submit'][] = '_telegram_rezume';
+ }
+    */
+}
+
+function _telegram_callback(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+   /*
+ # Telegram data
+ $telegram_token = 'bot494857924:AAH-ubvE-iggFXAt9tPn-T9uB1brEdN0LSw';
+ $telegram_id_chat = '-1001305591131';
+
+
+ if (!empty($telegram_token) && !empty($telegram_id_chat)) {
+
+   # Form data
+   $data = $form_state->getValues();
+   $data_result = array(
+     'title' => '<b>Обратный звонок:</b>',
+     'name' => '<b>Имя: </b>' . $data['name'],
+     'phone' => '<b>Телефон: </b><a href="tel:' . $data['phone'] . '">' . $data['phone'] . '</a>',
+     'clinic' => '<b>Выбранная клиника: </b><a href="' . \Drupal::request()
+         ->getHost() . '/taxonomy/term/' . $data['select_clinik_tid'] . '">' . $data['select_clinik_name'] . '</a>',
+   );
+   # Send message
+   $message = implode($data_result, '%0A');
+   $send_message = fopen("https://api.telegram.org/{$telegram_token}/sendMessage?chat_id={$telegram_id_chat}&parse_mode=html&text={$message}", "r");
+
+   if ($send_message) {
+     drupal_set_message('Сообщение успешно отправлено в Telegram');
+   }
+   else {
+     drupal_set_message('Сообщение не отправлено в Telegram', 'error');
+   }
+ }
+ else {
+   drupal_set_message('Сообщение не возможно отправить, отсутсвует toke или id_chat', 'error');
+ }
+   */
+}
+
+function _telegram_zadat_vopros(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $telegram_token = 'bot494857924:AAH-ubvE-iggFXAt9tPn-T9uB1brEdN0LSw';
+  $telegram_id_chat = '-1001305591131';
+
+  # Telegram data
+  if (!empty($telegram_token) && !empty($telegram_id_chat)) {
+
+    # Form data
+    $data = $form_state->getValues();
+    if(isset($data['node_id'])){
+      $data_result = array(
+        'title' => '<b>Новый вопрос:</b>',
+        'name' => '<b>Имя: </b> ' . $data['name'],
+        'phone' => '<b>Телефон: </b><a href="tel:' . $data['phone'] . '">' . $data['phone'] . '</a>',
+        'message' => '<b>Вопрос: </b>' . $data['message'],
+        'clinic' => '<b>Выбранная клиника: </b><a href="' . \Drupal::request()
+            ->getHost() . '/taxonomy/term/' . $data['select_clinik_tid'] . '">' . $data['select_clinik_name'] . '</a>',
+        'more' => 'Ответить и опубликовать можно по <a href="' . \Drupal::request()
+            ->getHost() . '/node/' . $data['node_id'] . '/edit">ссылке</a>',
+      );
+      # Send message
+      $message = implode($data_result, '%0A');
+      $send_message = fopen("https://api.telegram.org/{$telegram_token}/sendMessage?chat_id={$telegram_id_chat}&parse_mode=html&text={$message}", "r");
+
+      if ($send_message) {
+        drupal_set_message('Сообщение успешно отправлено в Telegram');
+      }
+      else {
+        drupal_set_message('Сообщение не отправлено в Telegram', 'error');
+      }
+    }
+  }
+  else {
+    drupal_set_message('Сообщение не возможно отправить, отсутсвует toke или id_chat', 'error');
+  }
+}
+
+function _telegram_zapisatsa_k_vracu(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $telegram_token = 'bot494857924:AAH-ubvE-iggFXAt9tPn-T9uB1brEdN0LSw';
+  $telegram_id_chat = '-1001305591131';
+
+  # Telegram data
+  if (!empty($telegram_token) && !empty($telegram_id_chat)) {
+
+    # Form data
+    $data = $form_state->getValues();
+    $data_result = array(
+      'title' => '<b>Запись к врачу:</b>',
+      'name' => '<b>Имя: </b> ' . $data['name'],
+      'phone' => '<b>Телефон: </b><a href="tel:' . $data['phone'] . '">' . $data['phone'] . '</a>',
+      'doctor' => '<b>Врач: </b><a href="' . \Drupal::request()->getHost() . '/node/' . $data['doctor_nid'].'">' . $data['doctor_name'] . '</a>',
+    );
+    # Send message
+    $message = implode($data_result, '%0A');
+    $send_message = fopen("https://api.telegram.org/{$telegram_token}/sendMessage?chat_id={$telegram_id_chat}&parse_mode=html&text={$message}", "r");
+
+    if ($send_message) {
+      drupal_set_message('Сообщение успешно отправлено в Telegram');
+    }
+    else {
+      drupal_set_message('Сообщение не отправлено в Telegram', 'error');
+    }
+  }
+  else {
+    drupal_set_message('Сообщение не возможно отправить, отсутсвует toke или id_chat', 'error');
+  }
+}
+
+function _telegram_kontrol_kacestva(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $telegram_token = 'bot494857924:AAH-ubvE-iggFXAt9tPn-T9uB1brEdN0LSw';
+  $telegram_id_chat = '-1001305591131';
+
+  # Telegram data
+  if (!empty($telegram_token) && !empty($telegram_id_chat)) {
+
+    # Form data
+    $data = $form_state->getValues();
+    $data_result = array(
+      'title'   => '<b>Контроль качества:</b>',
+      'name'    => '<b>Имя: </b> ' . $data['name'],
+      'phone'   => '<b>Телефон: </b><a href="tel:' . $data['phone'] . '">' . $data['phone'] . '</a>',
+      'message' => '<b>Комментарий или жалоба: </b>' . $data['message'],
+      'clinic'  => '<b>Выбранная клиника: </b><a href="' . \Drupal::request()->getHost() . '/taxonomy/term/' . $data['select_clinik_tid'] . '">' . $data['select_clinik_name'] . '</a>',
+    );
+    # Send message
+    $message = implode($data_result, '%0A');
+    $send_message = fopen("https://api.telegram.org/{$telegram_token}/sendMessage?chat_id={$telegram_id_chat}&parse_mode=html&text={$message}", "r");
+
+    if ($send_message) {
+      drupal_set_message('Сообщение успешно отправлено в Telegram');
+    }
+    else {
+      drupal_set_message('Сообщение не отправлено в Telegram', 'error');
+    }
+  }
+  else {
+    drupal_set_message('Сообщение не возможно отправить, отсутсвует toke или id_chat', 'error');
+  }
+}
+
+function _telegram_makeform(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $telegram_token = 'bot494857924:AAH-ubvE-iggFXAt9tPn-T9uB1brEdN0LSw';
+  $telegram_id_chat = '-1001305591131';
+
+  # Telegram data
+  if (!empty($telegram_token) && !empty($telegram_id_chat)) {
+
+    # Form data
+    $data = $form_state->getValues();
+    $data_result = array(
+      'title'    => '<b>Запись на прием:</b>',
+      'name'     => '<b>ФИО: </b> ' . $data['name'],
+      'phone'    => '<b>Телефон: </b><a href="tel:' . $data['phone'] . '">' . $data['phone'] . '</a>',
+      'message'  => '<b>Комментарий: </b>' . $data['message'],
+      'clinic'   => '<b>Выбранная клиника: </b><a href="' . \Drupal::request()->getHost() . '/taxonomy/term/' . $data['clinic'] . '">' . $data['select_clinik_name'] . '</a>',
+      'service'  => '<b>Выбранная услуга: </b><a href="' . \Drupal::request()->getHost() . '/taxonomy/term/' . $data['service'] . '">' . $data['select_service_name'] . '</a>',
+    );
+    # Send message
+    $message = implode($data_result, '%0A');
+    $send_message = fopen("https://api.telegram.org/{$telegram_token}/sendMessage?chat_id={$telegram_id_chat}&parse_mode=html&text={$message}", "r");
+
+    if ($send_message) {
+      drupal_set_message('Сообщение успешно отправлено в Telegram');
+    }
+    else {
+      drupal_set_message('Сообщение не отправлено в Telegram', 'error');
+    }
+  }
+  else {
+    drupal_set_message('Сообщение не возможно отправить, отсутсвует toke или id_chat', 'error');
+  }
+}
+
+function _telegram_zapisatsa_po_akcii(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $telegram_token = 'bot494857924:AAH-ubvE-iggFXAt9tPn-T9uB1brEdN0LSw';
+  $telegram_id_chat = '-1001305591131';
+
+  # Telegram data
+  if (!empty($telegram_token) && !empty($telegram_id_chat)) {
+
+    # Form data
+    $data = $form_state->getValues();
+    $data_result = array(
+      'title' => '<b>Запись по акции:</b>',
+      'name' => '<b>Имя: </b> ' . $data['name'],
+      'phone' => '<b>Телефон: </b><a href="tel:' . $data['phone'] . '">' . $data['phone'] . '</a>',
+      'doctor' => '<b>Акция: </b><a href="' . \Drupal::request()->getHost() . '/node/' . $data['action_nid'].'">' . $data['action_name'] . '</a>',
+    );
+    # Send message
+    $message = implode($data_result, '%0A');
+    $send_message = fopen("https://api.telegram.org/{$telegram_token}/sendMessage?chat_id={$telegram_id_chat}&parse_mode=html&text={$message}", "r");
+
+    if ($send_message) {
+      drupal_set_message('Сообщение успешно отправлено в Telegram');
+    }
+    else {
+      drupal_set_message('Сообщение не отправлено в Telegram', 'error');
+    }
+  }
+  else {
+    drupal_set_message('Сообщение не возможно отправить, отсутсвует toke или id_chat', 'error');
+  }
+}
+
+function _telegram_add_review(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $telegram_token = 'bot494857924:AAH-ubvE-iggFXAt9tPn-T9uB1brEdN0LSw';
+  $telegram_id_chat = '-1001305591131';
+
+  # Telegram data
+  if (!empty($telegram_token) && !empty($telegram_id_chat)) {
+
+    # Form data
+    $data = $form_state->getValues();
+    $data_result = array(
+      'title'    => '<b>Новый отзыв:</b>',
+      'name'     => '<b>ФИО: </b> ' . $data['name'],
+      'phone'    => '<b>Телефон: </b><a href="tel:' . $data['phone'] . '">' . $data['phone'] . '</a>',
+      'message'  => '<b>Сообщение: </b>' . $data['message'],
+      'clinic'   => '<b>Выбранная клиника: </b><a href="' . \Drupal::request()->getHost() . '/taxonomy/term/' . $data['clinic'] . '">' . $data['select_clinik_name'] . '</a>',
+      'service'  => '<b>Выбранный врач: </b><a href="' . \Drupal::request()->getHost() . '/node/' . $data['doctor'] . '">' . $data['select_doctor_name'] . '</a>',
+      'more'     => 'Ответить и опубликовать можно по <a href="' . \Drupal::request()->getHost() . '/node/' . $data['node_id'] . '/edit">ссылке</a>',
+    );
+    # Send message
+    if($data['name']) {
+      $message = implode($data_result, '%0A');
+      $send_message = fopen("https://api.telegram.org/{$telegram_token}/sendMessage?chat_id={$telegram_id_chat}&parse_mode=html&text={$message}", "r");
+
+      if ($send_message) {
+        drupal_set_message('Сообщение успешно отправлено в Telegram');
+      }
+      else {
+        drupal_set_message('Сообщение не отправлено в Telegram', 'error');
+      }
+    }
+  }
+  else {
+    drupal_set_message('Сообщение не возможно отправить, отсутсвует toke или id_chat', 'error');
+  }
+}
+
+function _telegram_rezume(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $telegram_token = 'bot494857924:AAH-ubvE-iggFXAt9tPn-T9uB1brEdN0LSw';
+  $telegram_id_chat = '-1001305591131';
+
+  # Telegram data
+  if (!empty($telegram_token) && !empty($telegram_id_chat)) {
+
+    # Form data
+    $data = $form_state->getValues();
+    $data_result = array(
+      'title' => '<b>Новое резюме:</b>',
+      'name' => '<b>Имя: </b> ' . $data['_ima_'],
+      'phone' => '<b>Телефон: </b><a href="tel:' . $data['_telefon_'] . '">' . $data['_telefon_'] . '</a>',
+      'more' => 'Посмотреть можно по <a href="' . \Drupal::request()
+          ->getHost() . '/admin/structure/webform/manage/rezume/results/submissions">ссылке</a>',
+    );
+    # Send message
+    $message = implode($data_result, '%0A');
+    $send_message = fopen("https://api.telegram.org/{$telegram_token}/sendMessage?chat_id={$telegram_id_chat}&parse_mode=html&text={$message}", "r");
+
+    if ($send_message) {
+      drupal_set_message('Сообщение успешно отправлено в Telegram');
+    }
+    else {
+      drupal_set_message('Сообщение не отправлено в Telegram', 'error');
+    }
+  }
+  else {
+    drupal_set_message('Сообщение не возможно отправить, отсутсвует toke или id_chat', 'error');
+  }
+}
+

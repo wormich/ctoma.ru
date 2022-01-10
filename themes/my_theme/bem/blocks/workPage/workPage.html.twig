@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/workPage') }}
+
+<div class="workPage">
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    {{ drupal_view('baner', 'up') }}
+
+    <div class="workPage__container">
+        <div class="workPage__title">
+            <h1 class="workPage__titleText title_norm width width_light width_paddingStandart">{{ content["#title"] }}</h1>
+        </div>
+        <div class="workPage__content width width_norm width_paddingStandart">
+            {{ content.main }}
+        </div>
+    </div>
+
+    {{ drupal_view('baner', 'down') }}
+
+</div>
+
+<!-- FILE NAME SUGGESTIONS:
+   * node--11660--default.html.twig
+   * node--11660.html.twig
+   * node--work--default.html.twig
+   * node--work.html.twig
+   * node--default.html.twig
+   x node.html.twig
+-->

@@ -1,0 +1,82 @@
+.blockCart {
+  &__link {
+    @include display-flex();
+    @include border-radius(3px);
+    @include background-image(linear-gradient(#00cc33, #009933));
+
+    text-decoration: none;
+    overflow: hidden;
+
+    &:hover {
+      .blockCart__count {
+        @include background-image(none);
+        @include box-shadow(none);
+      }
+      @include background-image(linear-gradient(#00cc33, #00aa39));
+    }
+    &:active {
+      @include background-image(linear-gradient(#00a72b, #009933));
+
+      .blockCart__count {
+        @include background-image(linear-gradient(#dbddda, #FFF));
+        @include box-shadow(inset 0 1px 0 #FFF, 0 2px 2px rgba(0,0,0,0.17));
+      }
+    }
+  }
+  &__text {
+    display: inline-block;
+    padding: 3px 20px 3px 40px;
+    color: white;
+    position: relative;
+    font-size: 12px;
+    @include respond-to(tablet) {
+      padding: 11px 20px 11px 40px;
+    }
+    @include respond-to(phone) {
+      padding: 11px 20px 11px 40px;
+    }
+    @include respond-to(min-phone) {
+      padding: 11px 20px 11px 40px;
+    }
+    &:before {
+      position: absolute;
+      content: "";
+      @include image-2x("/blockCart/img/cart_img.png", 20px, 20px);
+      left: 10px;
+      top: 4px;
+      @include respond-to(tablet) {
+        top: 11px;
+      }
+      @include respond-to(phone) {
+        top: 11px;
+      }
+      @include respond-to(min-phone) {
+        top: 11px;
+      }
+    }
+  }
+  &__count {
+    display: inline-block;
+    padding: 0 10px;
+    background: white;
+    font-weight: bold;
+    min-width: 24px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 27px;
+    color: #1a1a1a;
+
+    @include background-image(linear-gradient(#eef0ed, #FFF));
+    @include box-shadow(inset 0 1px 0 #FFF, 0 2px 2px rgba(0,0,0,0.17));
+
+    @include respond-to(tablet) {
+      line-height: 44px;
+    }
+    @include respond-to(phone) {
+      line-height: 44px;
+    }
+    @include respond-to(min-phone) {
+      line-height: 44px;
+    }
+  }
+}

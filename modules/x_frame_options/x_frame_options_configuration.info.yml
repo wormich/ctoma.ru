@@ -1,0 +1,10 @@
+name: X-frame-options Configuration
+description: "Add x-frame-options header"
+core_version_requirement: ^8 || ^9
+type: module
+configure: x_frame_options_configuration.settings
+
+# Information added by Drupal.org packaging script on 2021-03-15
+version: '8.x-1.2'
+project: 'x_frame_options'
+datestamp: 1615775928

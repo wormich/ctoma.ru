@@ -1,0 +1,12 @@
+<div class="praiseTable__group">
+    <div class="praiseTable__nameGroup">
+        {{ content.field_name_group }}
+    </div>
+    <div class="praiseTable__list">
+        {% for row in content.field_uslugi | field_value %}
+            <div class="praiseTable__row {% if loop.index is even %}even{% else %}odd{% endif %}">
+                {{ row }}
+            </div>
+        {% endfor %}
+    </div>
+</div>

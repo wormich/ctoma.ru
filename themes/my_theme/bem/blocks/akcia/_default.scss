@@ -1,0 +1,14 @@
+.akcia {
+  @include background(url('/themes/my_theme/bem/blocks/akcia/img/bg.jpg'));
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  &__title {
+  }
+  &__titleText {
+  }
+  &__content {
+    padding-bottom: 50px;
+    @include display-flex();
+  }
+}

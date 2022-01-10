@@ -1,0 +1,24 @@
+.services {
+  &__container {
+    @include background(url('/themes/my_theme/bem/blocks/services/img/bg.jpg'));
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  &__title {
+    padding-top: 100px;
+    padding-bottom: 20px;
+    @include respond-to(tablet){
+      padding-top: 50px;
+      padding-bottom: 15px;
+    }
+    @include respond-to(phone){
+      padding-top: 20px;
+      padding-bottom: 15px;
+    }
+    @include respond-to(min-phone){
+      padding-top: 20px;
+      padding-bottom: 15px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+
+    {% import _self as menus %}
+
+    {% if items %}
+        {% if menu_level == 0 %}
+            <ul{{ attributes.addClass('glavnoeMenu__ul') }} role="menu">
+        {% else %}
+            <ul class="glavnoeMenu__ul" role="menu">>
+        {% endif %}
+        {% for item in items %}
+            <li{{ item.attributes.addClass('glavnoeMenu__li') }} role="presentation">
+
+            {% if item.in_active_trail %}
+            <span class="glavnoeMenu__a">{{ item.title }}</span>
+            {% else %}
+            {{ link(item.title, item.url, { 'class':['glavnoeMenu__a'], 'role':['menuitem']}) }}
+            {% endif %}
+
+    
+                {% if item.below %}
+                    {{ menus.menu_links(item.below, attributes.addClass('inside'), menu_level) }}
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}

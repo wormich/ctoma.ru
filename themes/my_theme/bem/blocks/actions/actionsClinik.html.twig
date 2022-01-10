@@ -1,0 +1,40 @@
+{% raw %}
+
+<div id="actionsClinik" class="actions actions_clinik width width_full fullCommonWrap" v-cloak="" xmlns:v-bind="http://www.w3.org/1999/xhtml" v-if="show">
+    <h2 class="actions__title title_home width width_norm width_paddingStandart">
+        <span class="title__br"></span><span class="title__text">Акции</span><span class="title__br"></span>
+    </h2>
+    <div class="act__CommonBlock">
+        <div v-for="item in actions" class="act__Flex">
+                <div class="actions__img" v-html="item.img"></div>
+                <div class="actions__info">
+                    <span class="actions__infoTitle" v-html="item.title"></span>
+                    <span class="actions__srok" v-if="item.srok">
+                        <label class="act__label">Срок действия акции:</label>
+                        <span v-html="item.srok"></span>
+                    </span>
+                    <span class="actions__srokText" v-if="item.srok_text">
+                        <span v-html="item.srok_text"></span>
+                    </span>
+                    <span class="actions__short">
+                        <span v-html="item.short"></span>
+                    </span>
+                    <span class="actions__actions">
+                        <a class="actions__more" v-bind:href="item.url">Подробности</a>
+                        <!--
+                        <a href="javascript:window.Calltouch.Callback.onClickCallButton();"
+                        class="actions__zapis use-ajax"
+                        data-dialog-options='{"width":"500px","minHeight":"800px","dialogClass":"popupDialog"}'
+                        data-dialog-type="modal">Записаться</a>
+                    -->
+                    <a v-bind:href="zapis_url(item.nid)"
+                                           class="actions__zapis use-ajax"
+                                           data-dialog-options='{"width":"500px","minHeight":"800px","dialogClass":"popupDialog"}'
+                                           data-dialog-type="modal">Записаться</a>
+                    </span>
+                </div>
+        </div>
+    </div>
+</div>
+
+{% endraw %}

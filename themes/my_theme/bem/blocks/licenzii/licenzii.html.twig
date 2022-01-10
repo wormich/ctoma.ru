@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ */
+#}
+
+{{ attach_library('my_theme/licenzii') }}
+
+<div class="licenzii">
+    <div class="licenzii__title">
+        <h1 class="licenzii__titleText width width_norm width_paddingStandart">{{ content["#title"] }}</h1>
+    </div>
+
+    <div class="licenzii__mainContent white">
+        <div class="licenzii__content content_norm width width_norm width_paddingStandart">
+            {{ content.main }}
+        </div>
+    </div>
+
+</div>

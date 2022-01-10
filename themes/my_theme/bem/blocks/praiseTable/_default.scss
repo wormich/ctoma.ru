@@ -1,0 +1,63 @@
+.praiseTable {
+  &__group {
+    margin-bottom: 25px;
+  }
+  &__list {
+    background: white;
+  }
+  &__row {
+    @include display-flex();
+    &.odd {
+      background: #f2f2f2;
+    }
+    &.even {
+      background: #FFFFFF;
+    }
+  }
+  &__nameGroup {
+    background: #d82043;
+    color: white;
+    font-size: 17px;
+    padding: 8px 15px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  &__name {
+    @include flex-basis(78%);
+    padding: 8px 20px;
+    font-size: 14px;
+    color: #474747;
+    font-family: 'ralewayregular', sans-serif;
+    @include display-flex();
+
+    > div {
+      margin: auto 0;
+    }
+  }
+  &__cena {
+    @include flex-basis(22%);
+    padding: 8px 20px;
+    border-left: 2px solid #e8e8e8;
+    font-size: 14px;
+    color: #d82043;
+    font-family: 'pantonregular', sans-serif;
+    font-weight: bold;
+    @include display-flex();
+
+    > div {
+      margin: auto 0;
+    }
+  }
+  &__delimiter {
+    @include flex-basis(100%);
+    padding: 8px 20px;
+    font-size: 14px;
+    color: #474747;
+    font-family: 'ralewayregular', sans-serif;
+    @include display-flex();
+
+    > div {
+      margin: auto;
+    }
+  }
+}

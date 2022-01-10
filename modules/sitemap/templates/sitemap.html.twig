@@ -1,0 +1,87 @@
+{#
+/**
+ * @file
+ * Theme implementation to display the sitemap.
+ *
+ * Available variables:
+ * - message: A configurable introductory message.
+ * - sitemap_items: A keyed array of sitemap "boxes".
+ *   The keys correspond to the available types of sitemap content, including:
+ *   - front
+ *   - books
+ *   - individual menus
+ *   - individual vocabularies
+ *   Each items contains the following variables:
+ *   - title: The subject of the box.
+ *   - content: The content of the box.
+ *   - attributes:  Optional attributes for the box.
+ *   - options:  Options are set by sitemap.helper service.
+ * - additional:
+ *
+ * @see template_preprocess()
+ * @see template_preprocess_sitemap()
+ */
+#}
+
+{{ attach_library('my_theme/normPage') }}
+
+<div class="normPage">
+
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    {#{{ drupal_view('baner', 'up') }}#}
+
+    <div class="normPage__container ">
+        <h1 class="normPage__title title_grey width width_norm width_paddingStandart">
+            <span class="title__br"></span><span class="title__text">Карта сайта</span><span class="title__br"></span>
+        </h1>
+        <div class="normPage__center width width_norm width_paddingStandart">
+            <div class="normPage__leftSidebar">
+                {{ drupal_menu('obycnye-stranicy') }}
+
+                {% include base_path ~ directory ~ "/bem/blocks/makeImg/makeImgButton.html.twig" %}
+            </div>
+
+            <div class="normPage__content">
+              <div class="sitemap">
+  {% if message %}
+    <div class="sitemap-message">
+      {{ message }}
+    </div>
+  {% endif %}
+
+  {% if sitemap_items %}
+    {% for item in sitemap_items %}
+      {% if item.content is not empty %}
+      <div{{ item.attributes.addClass('sitemap-box') }}>
+        {% if item.options.show_titles %}
+          <h2>{{ item.title }}</h2>
+        {% endif %}
+        <div class="content">
+          {{ item.content }}
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {% if additional %}
+    <div class="sitemap-additional">
+      {{ additional }}
+    </div>
+  {% endif %}
+</div>
+
+            </div>
+
+            <div class="normPage__bottomMobile">
+                {{ drupal_menu('obycnye-stranicy') }}
+            </div>
+        </div>
+    </div>
+
+    {#{{ drupal_view('baner', 'down') }}#}
+
+
+</div>
+

@@ -1,0 +1,23 @@
+.rezumeform {
+
+  h2 {
+    margin-top: 15px;
+  }
+  .form-item {
+    @include display-flex();
+    @include justify-content(space-between);
+    margin-bottom: 5px;
+    label {
+      @include flex-basis(49%);
+      font-size: 12px;
+      margin-right: 10px;
+    }
+    .form-item {
+      @include flex-basis(49%);
+    }
+  }
+
+  #edit-osnovnye-dannye {
+    display: block;
+  }
+}

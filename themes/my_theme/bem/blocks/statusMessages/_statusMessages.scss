@@ -1,0 +1,49 @@
+.statusMessages {
+  &__message {
+    position: relative;
+    background: no-repeat 10px 17px;
+    border: 1px solid;
+    border-radius: 2px;
+    padding: 15px 45px 15px 25px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 3px 0;
+  }
+  &__close {
+    @include image-2x("/statusMessages/img/close@x2.png", 16px, 16px);
+    background-position: center;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    cursor: pointer;
+    height: 100%;
+    &:hover {
+      opacity: 0.4;
+    }
+  }
+
+  &__status {
+    color: #325e1c;
+    background-color: #f3faef;
+    border-color: #c9e1bd #c9e1bd #c9e1bd transparent;
+    box-shadow: -8px 0 0 #77b259;
+    margin-left: 8px;
+  }
+  &__warning {
+    color: #d29e00;
+    background-color: #fffcd1;
+    border-color: #c7b800 #c7b800 #c7b800 transparent;
+    box-shadow: -8px 0 0 #c7b800;
+    margin-left: 8px;
+  }
+  &__error {
+    color: #c50000;
+    background-color: #ffb1b1;
+    border-color: #fd7b7b #fd7b7b #fd7b7b transparent;
+    box-shadow: -8px 0 0 #ff3a3a;
+    margin-left: 8px;
+  }
+
+}

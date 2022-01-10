@@ -1,0 +1,35 @@
+<h1 class="otzyv__title title_grey width width_norm width_paddingStandart">
+    <span class="title__br t1"></span><span class="title__text" style="font-size:24px;">Отзыв о клинике «Стома» от {{ node.createdtime|date('d.m.Y') }}<span class="title__br"></span>
+</h1>
+<div class="otzyvy__actions width width_light width_paddingLeftRight rev__Right">
+    <a class="button_red" href="/reviews/add">Оставить отзыв</a>
+</div>
+<div class="otzyv__content width width_norm width_paddingStandart">
+    <div class="otzyvDefault width width_light">
+        <span class="otzyvDefault__podlojka"></span>
+        <div class="otzyvDefault__content">
+
+            <div class="otzyvDefault__top">
+                {{ content.field_vrac }}
+
+                <div class="otzyvDefault__info width_paddingStandart">
+                    <div class="otzyvDefault__ot">
+                        <label>ОТ:</label>
+                        <span class="otzyvDefault__otName">{{ node.label }}</span>
+                        <span class="otzyvDefault__otDate">{{ node.createdtime|date('d.m.Y') }}</span>
+                    </div>
+                    <div class="otzyvDefault__body">
+                        {{ content.body }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+

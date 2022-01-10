@@ -1,0 +1,34 @@
+.footerKlinic {
+  padding-top: 25px;
+  padding-bottom: 10px;
+  color: white;
+
+  @include respond-to(tablet){
+    padding-top: 0;
+    @include flex-basis(33%)
+  }
+  @include respond-to(phone){
+    padding-top: 0;
+    @include flex-basis(100%)
+  }
+  @include respond-to(min-phone){
+    padding-top: 0;
+    @include flex-basis(100%)
+  }
+
+  .views-field-field-phones {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    a {
+      color: white;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  .views-field-field-rezim-raboty,
+  .views-field-field-adres {
+    font-size: 11px;
+  }
+}

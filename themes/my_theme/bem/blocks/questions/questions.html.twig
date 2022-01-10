@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Template for a one column panel layout.
+ *
+ * This template provides a very simple "one column" panel display layout.
+ *
+ * Variables:
+ * - $id: An optional CSS id to use for the layout.
+ * - $content: An array of content, each item in the array is keyed to one
+ *   panel of the layout. This layout supports the following sections:
+ *   - content.middle: The only panel in the layout.
+ *   - head_title: List of text elements that make up the head_title variable.
+ */
+#}
+
+{{ attach_library('my_theme/questions') }}
+
+<div class="questions">
+    {% include base_path ~ directory ~ "/bem/blocks/breadcrumbContainer/breadcrumbContainer.html.twig" %}
+
+    {#{{ drupal_view('baner', 'up') }}#}
+
+    <div class="questions__container">
+        <h1 class="questions__title title_grey width width_norm width_paddingStandart">
+        {% set num = drupal_token('current-page:page-number') %}
+            <span class="title__br"></span><span class="title__text">{{ content["#title"] }} {% if num>0 %}- страница {{ num }}{%endif%}</span><span class="title__br"></span>
+        </h1>
+
+        <div class="questions__content width width_norm width_paddingStandart">
+          <div class="faq_link">
+            <a href="/faq" class="button_red">Ответы на часто задаваемые вопросы</a>
+          </div>
+            {{ drupal_view('questions', 'all') }}
+
+            {{ content.main }}
+        </div>
+    </div>
+
+    {#{{ drupal_view('baner', 'down') }}#}
+
+</div>

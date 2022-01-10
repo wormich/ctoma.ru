@@ -1,0 +1,42 @@
+{% set body_classes = [
+"html__body",
+logged_in ? 'user-logged-in',
+not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+node_type ? 'page-node-type-' ~ node_type|clean_class,
+db_offline ? 'db-offline',
+] %}
+<!DOCTYPE html>
+<html{{ html_attributes.addClass(["html", "html_user"]) }}>
+<head>
+    <!-- Preloader -->
+    {#<script data-pace-options='{ "ajax": false }' src="/themes/my_theme/bem/blocks/pace/pace.min.js"></script>#}
+    {#<link href="/themes/my_theme/css/paceDeclaration.css" rel="stylesheet"/>#}
+    <!-- Preloader -->
+
+    <meta name="viewport" content="user-scalable=no">
+
+    <head-placeholder token="{{ placeholder_token }}"></head-placeholder>
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token }}"></css-placeholder>
+    <js-placeholder token="{{ placeholder_token }}"></js-placeholder>
+</head>
+<body{{ attributes.addClass(body_classes) }} ontouchstart="">
+
+{{ page_top }}
+{{ page }}
+{{ page_bottom }}
+
+<noscript class="html__noscript noscript">
+    <div class="noscript__text">
+        <p>{{ 'Your browser does not support scripts!'|t }} <br> {{ 'Please enable your browser js'|t }}</p>
+        <a class="linck" target="_blank" href="https://yandex.ru/support/common/browsers-settings/browsers-java-js-settings.html">{{ 'How to enable js'|t }}</a>
+    </div>
+</noscript>
+
+<js-bottom-placeholder token="{{ placeholder_token }}"></js-bottom-placeholder>
+
+{#<!-- LiveReload -->#}
+{#<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>#}
+{#<!-- LiveReload -->#}
+</body>
+</html>

@@ -1,0 +1,23 @@
+.doctors {
+  &__container {
+    @include background(url('/themes/my_theme/bem/blocks/doctors/img/bg.jpg'));
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  &__title {
+    padding-top: 100px;
+    padding-bottom: 60px;
+    @include respond-to(tablet){
+      padding-top: 50px;
+      padding-bottom: 30px;
+    }
+    @include respond-to(phone){
+      padding-top: 20px;
+      padding-bottom: 15px;
+    }
+    @include respond-to(min-phone){
+      padding-top: 20px;
+      padding-bottom: 15px;
+    }
+  }
+}

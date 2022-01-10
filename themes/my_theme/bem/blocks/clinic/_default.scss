@@ -1,0 +1,318 @@
+.clinic {
+
+  &__topWrap {
+    @include display-flex();
+    margin-bottom: 50px;
+
+    @include respond-to(min-phone){
+      margin-bottom: 10px;
+    }
+    @include respond-to(min-phone){
+      @include flex-direction(column);
+      margin-bottom: 10px;
+    }
+  }
+
+  &__img {
+    @include respond-to(desctop_max){
+      @include flex-basis(320px);
+      min-width: 320px;
+    }
+    @include respond-to(desctop_wide){
+      @include flex-basis(320px);
+      min-width: 320px;
+    }
+    @include respond-to(desctop){
+      @include flex-basis(320px);
+      min-width: 320px;
+    }
+    @include respond-to(phone){
+      @include flex-basis(50%);
+      @include flex(auto);
+    }
+    @include respond-to(min-phone){
+      @include flex-basis(100%);
+      @include flex(auto);
+    }
+    div {
+      position: relative;
+      &:before {
+        content: '';
+        background: white;
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        width: 100%;
+        height: 100%;
+        @include box-shadow(4px 6.928px 23.04px 0.96px rgba(0, 0, 0, 0.1));
+        @include respond-to(tablet){
+          display: none;
+        }
+        @include respond-to(phone){
+          display: none;
+        }
+        @include respond-to(min-phone){
+          display: none;
+        }
+      }
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      position: relative;
+      display: block;
+      @include box-shadow(2px 3.464px 36px 4px rgba(0, 0, 0, 0.06));
+      border-bottom: 5px solid #d82043;
+    }
+  }
+
+  &__info {
+    padding: 20px 50px 0;
+    color: #434343;
+    font-size: 15px;
+    @include display-flex();
+    @include flex-direction(column);
+    @include justify-content(space-between);
+    @include flex(1 0 auto);
+
+    @include respond-to(phone){
+      padding: 10px 20px 0;
+    }
+    @include respond-to(min-phone){
+      padding: 10px 0;
+    }
+  }
+  &__zapisatsa {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #f2f2f2;
+
+    position: relative;
+
+    .ajax-progress-throbber {
+      position: absolute;
+      @include border-radius(5px);
+      z-index: 5;
+      top: 0;
+      padding: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 0;
+      background: white;
+      @include transition(all 0.3s ease);
+      @include border-radius(25px);
+      .throbber {
+        opacity: 0.2;
+        @include image-2x("/header/img/preloader.gif", 32px, 8.5px);
+        padding: 0;
+        margin: auto;
+        display: block;
+        height: 100%;
+      }
+    }
+  }
+  &__adres {
+    padding: 8px 35px;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
+    span {
+      color: #494949;
+    }
+
+    label {
+      color: rgb(216, 32, 67);
+      display: inline-block;
+    }
+
+    a {
+      color: #d82043;
+      text-decoration: underline;
+      &:hover {
+        color: #c71d3e;
+        text-decoration: none;
+      }
+    }
+
+    div {
+      display: inline-block;
+      width: 100%;
+      div {
+        display: block;
+      }
+    }
+
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 16px;
+      left: 0;
+      top: 10px;
+      height: 14px;
+      background: green;
+      background: url("/themes/my_theme/bem/blocks/searchMap/img/icons.png") no-repeat 0 -14px;
+    }
+
+    @include respond-to(phone){
+      padding: 8px 0 8px 35px;
+    }
+    @include respond-to(min-phone){
+      padding: 8px 0 8px 35px;
+    }
+  }
+  &__rezim {
+    padding: 8px 35px;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
+    label {
+      color: rgb(216, 32, 67);
+      display: inline-block;
+    }
+    span {
+      color: #494949;
+    }
+
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 16px;
+      left: 0;
+      top: 10px;
+      height: 17px;
+      background: green;
+      background: url("/themes/my_theme/bem/blocks/akciaFull/img/icons.png") no-repeat 0 -30px;
+    }
+
+    @include respond-to(phone){
+      padding: 8px 0 8px 35px;
+    }
+    @include respond-to(min-phone){
+      padding: 8px 0 8px 35px;
+    }
+  }
+  &__phone {
+    padding: 8px 35px;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
+    label {
+      color: rgb(216, 32, 67);
+      display: inline-block;
+    }
+    a,
+    span {
+      text-decoration: none;
+      color: #494949;
+    }
+
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 16px;
+      left: 0;
+      top: 10px;
+      height: 17px;
+      background: green;
+      background: url("/themes/my_theme/bem/blocks/akciaFull/img/icons.png") no-repeat 0 -48px;
+    }
+
+    @include respond-to(phone){
+      padding: 8px 0 8px 35px;
+    }
+    @include respond-to(min-phone){
+      padding: 8px 0 8px 35px;
+    }
+  }
+  &__email {
+    padding: 8px 35px;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
+
+    label {
+      color: rgb(216, 32, 67);
+      display: inline-block;
+    }
+    a,
+    span {
+      text-decoration: none;
+      color: #494949;
+    }
+
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 16px;
+      left: 0;
+      top: 10px;
+      height: 17px;
+      background: green;
+      background: url("/themes/my_theme/bem/blocks/akciaFull/img/icons.png") no-repeat 0 -64px;
+    }
+
+    @include respond-to(phone){
+      padding: 8px 0 8px 35px;
+    }
+    @include respond-to(min-phone){
+      padding: 8px 0 8px 35px;
+    }
+  }
+
+  &__bottom {
+    @include display-flex();
+  }
+  &__bottomLeft {
+    @include respond-to(desctop_max){
+      @include flex-basis(320px);
+      min-width: 320px;
+    }
+    @include respond-to(desctop_wide){
+      @include flex-basis(320px);
+      min-width: 320px;
+    }
+    @include respond-to(desctop){
+      @include flex-basis(320px);
+      min-width: 320px;
+    }
+    @include respond-to(phone){
+      display: none;
+    }
+    @include respond-to(min-phone){
+      display: none;
+    }
+  }
+  &__bottomRight {
+    padding: 20px 50px 0;
+    color: #434343;
+    font-size: 15px;
+    @include display-flex();
+    @include flex-direction(column);
+    @include justify-content(space-between);
+    @include flex(auto);
+
+    @include respond-to(tablet){
+      padding: 0;
+    }
+
+    @include respond-to(phone){
+      padding: 0;
+    }
+    @include respond-to(min-phone){
+      padding: 0;
+    }
+  }
+}

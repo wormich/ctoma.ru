@@ -1,0 +1,5 @@
+.articleDefault {
+  &__top {
+    @include display-flex();
+  }
+}

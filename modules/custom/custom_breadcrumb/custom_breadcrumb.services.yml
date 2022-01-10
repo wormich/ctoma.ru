@@ -1,0 +1,127 @@
+services:
+  custom_breadcrumb.breadcrumb.doctors:
+    class: Drupal\custom_breadcrumb\Breadcrumb\DoctorsBreadcrumbBuilder
+    tags:
+    - { name: breadcrumb_builder, priority: 2000 }
+  custom_breadcrumb.breadcrumb.doctor:
+    class: Drupal\custom_breadcrumb\Breadcrumb\DoctorPageBreadcrumbBuilder
+    tags:
+    - { name: breadcrumb_builder, priority: 2000 }
+
+  # Статьи
+  custom_breadcrumb.breadcrumb.articles:
+    class: Drupal\custom_breadcrumb\Breadcrumb\ArticlesBreadcrumbBuilder
+    tags:
+    - { name: breadcrumb_builder, priority: 2000 }
+  custom_breadcrumb.breadcrumb.article:
+    class: Drupal\custom_breadcrumb\Breadcrumb\ArticlePageBreadcrumbBuilder
+    tags:
+    - { name: breadcrumb_builder, priority: 2000 }
+
+   
+  custom_breadcrumb.breadcrumb.bolezni:
+    class: Drupal\custom_breadcrumb\Breadcrumb\BolezniBreadcrumbBuilder
+    tags:
+    - { name: breadcrumb_builder, priority: 2000 }
+
+  custom_breadcrumb.breadcrumb.bolezn:
+    class: Drupal\custom_breadcrumb\Breadcrumb\BolezniPageBreadcrumbBuilder
+    tags:
+    - { name: breadcrumb_builder, priority: 2000 }
+    
+    
+  custom_breadcrumb.breadcrumb.make_an_appointment:
+    class: Drupal\custom_breadcrumb\Breadcrumb\MakeAnAppointmentBreadcrumbBuilder
+    tags:
+    - { name: breadcrumb_builder, priority: 2000 }
+
+  custom_breadcrumb.breadcrumb.add_review:
+    class: Drupal\custom_breadcrumb\Breadcrumb\AddReviewBreadcrumbBuilder
+    tags:
+    - { name: breadcrumb_builder, priority: 2000 }
+
+  custom_breadcrumb.breadcrumb.services:
+      class: Drupal\custom_breadcrumb\Breadcrumb\ServicesBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+  custom_breadcrumb.breadcrumb.service:
+      class: Drupal\custom_breadcrumb\Breadcrumb\ServiceTaxonomyPageBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+  custom_breadcrumb.breadcrumb.kliniki:
+      class: Drupal\custom_breadcrumb\Breadcrumb\KlinikiBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+  custom_breadcrumb.breadcrumb.norm_page:
+      class: Drupal\custom_breadcrumb\Breadcrumb\NormTaxonomyPageBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+  #Акции
+  custom_breadcrumb.breadcrumb.akcia:
+      class: Drupal\custom_breadcrumb\Breadcrumb\AkciaPageBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+  custom_breadcrumb.breadcrumb.akcii:
+      class: Drupal\custom_breadcrumb\Breadcrumb\AkciiBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+  #Отзывы
+  custom_breadcrumb.breadcrumb.otzyvy:
+      class: Drupal\custom_breadcrumb\Breadcrumb\OtzyvyBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+  custom_breadcrumb.breadcrumb.otzyv:
+      class: Drupal\custom_breadcrumb\Breadcrumb\OtzyvPageBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+
+  #Новости
+  custom_breadcrumb.breadcrumb.news_all:
+      class: Drupal\custom_breadcrumb\Breadcrumb\NewsAllBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+  custom_breadcrumb.breadcrumb.news:
+      class: Drupal\custom_breadcrumb\Breadcrumb\NewsPageBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+
+  #Работы
+  custom_breadcrumb.breadcrumb.work_all:
+      class: Drupal\custom_breadcrumb\Breadcrumb\WorksBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+  custom_breadcrumb.breadcrumb.work:
+      class: Drupal\custom_breadcrumb\Breadcrumb\WorkPageBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+
+  #Вопросы ответы
+  custom_breadcrumb.breadcrumb.questions_all:
+      class: Drupal\custom_breadcrumb\Breadcrumb\QuestionsBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+  custom_breadcrumb.breadcrumb.questions:
+      class: Drupal\custom_breadcrumb\Breadcrumb\QuestionPageBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+
+  #Вакансии
+  custom_breadcrumb.breadcrumb.jobs:
+      class: Drupal\custom_breadcrumb\Breadcrumb\JobsBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+
+  custom_breadcrumb.breadcrumb.klinika:
+      class: Drupal\custom_breadcrumb\Breadcrumb\KlinikaTaxonomyPageBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+
+  #Прайсы
+  custom_breadcrumb.breadcrumb.prices:
+      class: Drupal\custom_breadcrumb\Breadcrumb\PricesBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+  custom_breadcrumb.breadcrumb.price:
+      class: Drupal\custom_breadcrumb\Breadcrumb\PriceTaxonomyPageBreadcrumbBuilder
+      tags:
+      - { name: breadcrumb_builder, priority: 2000 }

@@ -1,0 +1,35 @@
+.advantages {
+  &__list {
+    @include display-flex();
+
+    @include justify-content(center);
+    @include respond-to(desctop){
+      @include flex-wrap(wrap);
+    }
+    @include respond-to(tablet){
+      @include flex-wrap(wrap);
+    }
+    @include respond-to(phone){
+      @include flex-wrap(wrap);
+    }
+    @include respond-to(min-phone){
+      @include flex-wrap(wrap);
+    }
+  }
+  &__element {
+    @include flex(0 1 auto);
+    @include flex-basis(300px);
+    @include respond-to(desctop){
+      @include flex-basis(240px);
+    }
+    @include respond-to(tablet){
+      @include flex-basis(260px);
+    }
+    @include respond-to(phone){
+      @include flex-basis(100%);
+    }
+    @include respond-to(min-phone){
+      @include flex-basis(100%);
+    }
+  }
+}

@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+[v-cloak] {
+  display: none !important;
+}
+
+//@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic');
+@import "awesome/font-awesome";
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../bem/lib/fonts/FontAwesome/fontawesome-webfont.eot');
+  src: url('../bem/lib/fonts/FontAwesome/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../bem/lib/fonts/FontAwesome/fontawesome-webfont.woff') format('woff'),
+  url('../bem/lib/fonts/FontAwesome/fontawesome-webfont.ttf') format('truetype'),
+  url('../bem/lib/fonts/FontAwesome/fontawesome-webfont.svg#julia_scriptregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'intro_regular';
+  src: url('../bem/lib/fonts/intro/8289-webfont.eot');
+  src: url('../bem/lib/fonts/intro/8289-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../bem/lib/fonts/intro/8289-webfont.woff2') format('woff2'),
+  url('../bem/lib/fonts/intro/8289-webfont.woff') format('woff'),
+  url('../bem/lib/fonts/intro/8289-webfont.ttf') format('truetype'),
+  url('../bem/lib/fonts/intro/8289-webfont.svg#intro_regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'pantonregular';
+  src: url('../bem/lib/fonts/panton/panton-regular-webfont.eot');
+  src: url('../bem/lib/fonts/panton/panton-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../bem/lib/fonts/panton/panton-regular-webfont.woff2') format('woff2'),
+  url('../bem/lib/fonts/panton/panton-regular-webfont.woff') format('woff'),
+  url('../bem/lib/fonts/panton/panton-regular-webfont.ttf') format('truetype'),
+  url('../bem/lib/fonts/panton/panton-regular-webfont.svg#pantonregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'ralewayregular';
+  src: url('../bem/lib/fonts/raleway/raleway-regular-webfont.eot');
+  src: url('../bem/lib/fonts/raleway/raleway-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../bem/lib/fonts/raleway/raleway-regular-webfont.woff2') format('woff2'),
+  url('../bem/lib/fonts/raleway/raleway-regular-webfont.woff') format('woff'),
+  url('../bem/lib/fonts/raleway/raleway-regular-webfont.ttf') format('truetype'),
+  url('../bem/lib/fonts/raleway/raleway-regular-webfont.svg#ralewayregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
