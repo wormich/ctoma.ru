@@ -1,4 +1,4 @@
-{% raw %}
+{% verbatim  %}
     <div id="search" v-cloak="" class="search" xmlns:v-bind="http://www.w3.org/1999/xhtml"
          xmlns:v-on="http://www.w3.org/1999/xhtml">
         <input class="search__input" v-model="question" placeholder="Поиск"/>
@@ -26,7 +26,7 @@
             <a v-bind:href="item.url" class="search__rezult" v-for="item in rez_news">
                 {{ item.title }}
             </a>
-            
+
             <label v-if="rez_akcia">Акции</label>
             <a v-bind:href="item.url" class="search__rezult" v-for="item in rez_akcia">
                 {{ item.title }}
@@ -37,7 +37,7 @@
 
         </div>
     </div>
-{% endraw %}
+{% endverbatim  %}
 
 
 

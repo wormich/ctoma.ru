@@ -2,4 +2,4 @@ name: Questions
 description: Create questions after form submited
 type: module
 package: Custom
-core: '8.x'
+core_version_requirement: ^8.7.7 || ^9

@@ -1,4 +1,4 @@
-{% raw %}
+{% verbatim  %}
 <div id="doctorsFilter" class="doctorsFilter" v-cloak="" xmlns:v-on="http://www.w3.org/1999/xhtml"
      xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
@@ -40,9 +40,9 @@
 
         </div>
         <div class="doctorsFilter__baner">
-            {% endraw %}
+            {% endverbatim  %}
             {% include base_path ~ directory ~ "/bem/blocks/makeImg/makeImgButton.html.twig" %}
-            {% raw %}
+            {% verbatim  %}
         </div>
     </div>
     <div class="doctorsFilter__right" v-if="!preloader">
@@ -73,8 +73,8 @@
                                             "dialogClass":"popupDialog"
                                            }'
                            data-dialog-type="modal">Записаться</a>
-                      -->     
-                           
+                      -->
+
                                  <a v-bind:href="get_url_webform(item.nid)"
                    class="use-ajax button_red"
                    data-dialog-options='{
@@ -83,9 +83,9 @@
                                        "dialogClass":"popupDialog"
                                        }'
                    data-dialog-type="modal">Записаться</a>
-                           
-                           
-                           
+
+
+
                     </div>
                 </div>
             </div>
@@ -105,4 +105,4 @@
         </div>
     </div>
 </div>
-{% endraw %}
+{% endverbatim  %}

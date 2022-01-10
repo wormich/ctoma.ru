@@ -6,6 +6,6 @@ configure: sitemap.settings
 
 # Information added by Drupal.org packaging script on 2018-11-08
 version: '8.x-1.5'
-core: '8.x'
+core_version_requirement: ^8.7.7 || ^9
 project: 'sitemap'
 datestamp: 1541693885

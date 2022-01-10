@@ -29,7 +29,7 @@ function my_theme_theme_suggestions_taxonomy_term_alter(&$suggestions, $variable
          */
         $term = $elements['#taxonomy_term'];
         if (is_object($term)) {
-            $suggestions[] = $elements['#theme'] . '__' . $term->getVocabularyId() . '__' .
+            $suggestions[] = $elements['#theme'] . '__' . $term->bundle() . '__' .
                 $elements['#view_mode'];
             $suggestions[] = $elements['#theme'] . '__' . $term->id() . '__' . $elements['#view_mode'];
         }
@@ -1136,11 +1136,11 @@ function my_theme_preprocess_node(&$variables)
         $variables['contenth2'] = $content;
         $variables["content"]["body"][0]["#text"] = $allContent;
     }
-}   
+}
 
 function my_webform_tracker_webform_submission_presave($node, &$submission) {
   echo '<pre>';
-  
+
   print_r($renderable['#submission']->data);
   echo '</pre>';
   exit;
