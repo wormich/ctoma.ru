@@ -29,3 +29,4 @@ node_modules
 /images
 *.json
 /testt
+/vendor/
