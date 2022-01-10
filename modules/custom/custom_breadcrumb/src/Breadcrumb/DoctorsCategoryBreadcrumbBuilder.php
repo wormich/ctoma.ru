@@ -22,7 +22,7 @@ class DoctorsCategoryBreadcrumbBuilder implements BreadcrumbBuilderInterface {
        */
       $term = $parameters['taxonomy_term'];
 
-      if ($term->getVocabularyId() == "doctors") {
+      if ($term->bundle() == "doctors") {
         return TRUE;
       }
     }

@@ -22,7 +22,7 @@ class KlinikaTaxonomyPageBreadcrumbBuilder implements BreadcrumbBuilderInterface
        */
       $term = $parameters['taxonomy_term'];
 
-      if ($term->getVocabularyId() == "clinics") {
+      if ($term->bundle() == "clinics") {
         return TRUE;
       }
     }

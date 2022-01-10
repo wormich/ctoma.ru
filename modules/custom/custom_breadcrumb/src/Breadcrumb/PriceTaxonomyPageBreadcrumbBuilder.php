@@ -22,7 +22,7 @@ class PriceTaxonomyPageBreadcrumbBuilder implements BreadcrumbBuilderInterface {
        */
       $term = $parameters['taxonomy_term'];
 
-      if ($term->getVocabularyId() == "prices") {
+      if ($term->bundle() == "prices") {
         return TRUE;
       }
     }

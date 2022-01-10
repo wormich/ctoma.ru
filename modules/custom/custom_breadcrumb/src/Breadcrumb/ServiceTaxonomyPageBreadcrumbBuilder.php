@@ -22,7 +22,7 @@ class ServiceTaxonomyPageBreadcrumbBuilder implements BreadcrumbBuilderInterface
        */
       $term = $parameters['taxonomy_term'];
 
-      if ($term->getVocabularyId() == "uslugi") {
+      if ($term->bundle() == "uslugi") {
         return TRUE;
       }
     }

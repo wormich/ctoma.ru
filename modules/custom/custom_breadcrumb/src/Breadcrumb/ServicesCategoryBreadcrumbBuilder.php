@@ -22,7 +22,7 @@ class ServicesCategoryBreadcrumbBuilder implements BreadcrumbBuilderInterface {
        */
       $term = $parameters['taxonomy_term'];
 
-      if ($term->getVocabularyId() == "category_serv") {
+      if ($term->bundle() == "category_serv") {
         return TRUE;
       }
     }

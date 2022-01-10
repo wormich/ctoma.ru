@@ -22,7 +22,7 @@ class SharesCategoryBreadcrumbBuilder implements BreadcrumbBuilderInterface {
        */
       $term = $parameters['taxonomy_term'];
 
-      if ($term->getVocabularyId() == "category_shares") {
+      if ($term->bundle() == "category_shares") {
         return TRUE;
       }
     }

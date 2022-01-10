@@ -22,7 +22,7 @@ class NormTaxonomyPageBreadcrumbBuilder implements BreadcrumbBuilderInterface {
        */
       $term = $parameters['taxonomy_term'];
 
-      if ($term->getVocabularyId() == "norm_page") {
+      if ($term->bundle() == "norm_page") {
         return TRUE;
       }
     }
