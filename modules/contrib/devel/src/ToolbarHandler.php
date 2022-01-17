@@ -7,6 +7,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Menu\MenuLinkTreeInterface;
 use Drupal\Core\Menu\MenuTreeParameters;
+use Drupal\Core\Security\TrustedCallbackInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
@@ -15,7 +16,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Toolbar integration handler.
  */
-class ToolbarHandler implements ContainerInjectionInterface {
+class ToolbarHandler implements ContainerInjectionInterface, TrustedCallbackInterface {
 
   use StringTranslationTrait;
 
@@ -177,5 +178,7 @@ class ToolbarHandler implements ContainerInjectionInterface {
 
     return $tree;
   }
-
+  public static function trustedCallbacks() {
+    return ['lazyBuilder'];
+  }
 }
