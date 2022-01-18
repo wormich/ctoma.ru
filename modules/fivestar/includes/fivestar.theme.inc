@@ -275,7 +275,7 @@ function theme_fivestar_summary($variables) {
       $average_rating_microdata = ($microdata['average_rating']['#attributes']);
     }
     $output .= '<span class="average-rating">';
-    $output .= t("Рейтинг: <span {$average_rating_microdata}>@stars</span>", [
+    $output .= t("Average: <span {$average_rating_microdata}>@stars</span>", [
       '@stars' => $average_stars,
     ]);
     $output .= '</span>';
@@ -295,11 +295,11 @@ function theme_fivestar_summary($variables) {
       // We don't directly substitute $votes (i.e. use '@count') in
       // formatPlural() because it has a span around it which is not
       // translatable.
-      $votes_str = \Drupal::translation()->formatPlural($votes, '<span ' . $rating_count_microdata . '>@cnt</span>', '@cnt', [
+      $votes_str = \Drupal::translation()->formatPlural($votes, '<span ' . $rating_count_microdata . '>@cnt</span> vote', '@cnt votes', [
         '@cnt' => intval($votes),
       ]);
       if (isset($user_rating) || isset($average_rating)) {
-        $output .= ' <span class="total-votes">(Голосов - ' . $votes_str . ')</span>';
+        $output .= ' <span class="total-votes">(' . $votes_str . ')</span>';
       }
       else {
         $output .= ' <span class="total-votes">' . $votes_str . '</span>';
