@@ -71,7 +71,7 @@ class DrupalMemcachedUtils {
    *   An array with additional information about the event - uid, link, etc.
    */
   public static function log($level, $message, array $context = []) {
-    \register_shutdown_function(array('Drupal\memcache_storage\DrupalMemcachedUtils', 'logShutdown'), $level, $message, $context);
+    \register_shutdown_function(['Drupal\memcache_storage\DrupalMemcachedUtils', 'logShutdown'], $level, $message, $context);
   }
 
   /**

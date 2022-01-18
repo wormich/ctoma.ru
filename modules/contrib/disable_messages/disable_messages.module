@@ -108,7 +108,7 @@ function disable_messages_apply_filters($messages) {
     $filter_paths = explode("\n", \Drupal::config('disable_messages.settings')->get('disable_messages_page_filter_paths'));
     $current_url = Url::fromRoute('<current>');
     $internal_path = disable_messages_remove_white_space($current_url->getInternalPath());
-    $path = \Drupal::service('path_alias.manager')->getPathByAlias(($internal_path));
+    $path = \Drupal::service('path.alias_manager')->getPathByAlias(($internal_path));
     $page_match = disable_messages_path_match($filter_paths, $path);
     if ($path != $internal_path) {
       $page_match = $page_match ||  disable_messages_path_match($filter_paths, $internal_path);
@@ -133,25 +133,18 @@ function disable_messages_apply_filters($messages) {
     foreach ($messages as $type => $arr_messages) {
       // Check if the user has been denied access
       // to the specific type of messages.
-      if (\Drupal::currentUser()->hasPermission('view ' . $type . ' messages')) {
-        foreach ($arr_messages as $key => $message) {
-          foreach ($regexps as $regex) {
-            if (preg_match($regex, $message)) {
-              // Keep track of the regular expression that matched the string.
-              $cache[$type]['regex'][$key] = $regex;
-              unset($messages[$type][$key]);
-              break;
-            }
+      foreach ($arr_messages as $key => $message) {
+        foreach ($regexps as $regex) {
+          if (preg_match($regex, $message)) {
+            // Keep track of the regular expression that matched the string.
+            $cache[$type]['regex'][$key] = $regex;
+            unset($messages[$type][$key]);
+            break;
           }
         }
-        if (count($messages[$type]) == 0) {
-          $cache[$type]['empty'] = TRUE;
-          unset($messages[$type]);
-        }
       }
-      else {
-        // Keep track of the fact that it was a permission issue.
-        $cache[$type]['permission'] = FALSE;
+      if (count($messages[$type]) == 0) {
+        $cache[$type]['empty'] = TRUE;
         unset($messages[$type]);
       }
     }
@@ -176,7 +169,7 @@ function disable_messages_path_match(array $filter_paths, $path) {
   foreach ($filter_paths as $filter_path) {
     $filter_path = disable_messages_remove_white_space($filter_path);
     if (substr($filter_path, -1) == '*') {
-      if (fnmatch($filter_path, $path)) {
+      if (preg_match($filter_path, $path)) {
         $page_match = TRUE;
       }
     }

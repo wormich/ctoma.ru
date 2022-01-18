@@ -2,10 +2,12 @@
 
 namespace Drupal\memcache_storage;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Cache\CacheTagsChecksumInterface;
 use Drupal\Core\Site\Settings;
+use Drupal\Component\Assertion\Inspector;
 
 class MemcachedBackend implements CacheBackendInterface {
 
@@ -39,6 +41,13 @@ class MemcachedBackend implements CacheBackendInterface {
   protected $checksumProvider;
 
   /**
+   * The time service.
+   *
+   * @var \Drupal\Component\Datetime\TimeInterface
+   */
+  protected $time;
+
+  /**
    * Contructs MemcachedBackend object.
    *
    * @param $bin
@@ -53,19 +62,23 @@ class MemcachedBackend implements CacheBackendInterface {
    *
    * @param \Drupal\Core\Cache\CacheTagsChecksumInterface $checksum_provider
    *   An object that handles invalidation by tags.
+   *
+   * @param \Drupal\Component\Datetime\TimeInterface $time
+   *   The time service.
    */
-  public function __construct($bin, DrupalMemcachedInterface $memcached, Settings $settings, CacheTagsChecksumInterface $checksum_provider) {
+  public function __construct($bin, DrupalMemcachedInterface $memcached, Settings $settings, CacheTagsChecksumInterface $checksum_provider, TimeInterface $time) {
     $this->bin = $bin;
     $this->memcached = $memcached;
     $this->settings = $settings;
     $this->checksumProvider = $checksum_provider;
+    $this->time = $time;
   }
 
   /**
    * {@inheritdoc}
    */
   public function get($cid, $allow_invalid = FALSE) {
-    $cids = array($cid);
+    $cids = [$cid];
     $cache = $this->getMultiple($cids, $allow_invalid);
     return reset($cache);
   }
@@ -102,7 +115,7 @@ class MemcachedBackend implements CacheBackendInterface {
     }
 
     // Check expire time.
-    $cache->valid = $cache->expire == Cache::PERMANENT || $cache->expire >= REQUEST_TIME;
+    $cache->valid = $cache->expire == Cache::PERMANENT || $cache->expire >= $this->time->getRequestTime();
 
     // Make sure that cache tags were not expired.
     if (!$this->checksumProvider->isValid($cache->checksum, $cache->tags)) {
@@ -126,16 +139,16 @@ class MemcachedBackend implements CacheBackendInterface {
    */
   public function setMultiple(array $items) {
 
-    $values = array();
+    $values = [];
     foreach ($items as $cid => $item) {
 
       // All items should have expiration data and initialized tags value.
-      $item += array(
+      $item += [
         'expire' => CacheBackendInterface::CACHE_PERMANENT,
-        'tags' => array(),
-      );
+        'tags' => [],
+      ];
 
-      assert('\Drupal\Component\Assertion\Inspector::assertAllStrings($item[\'tags\'])', 'Cache Tags must be strings.');
+      assert(Inspector::assertAllStrings($item['tags']), 'Cache Tags must be strings.');
 
       // Organize tags.
       $item['tags'] = array_unique($item['tags']);
@@ -166,7 +179,7 @@ class MemcachedBackend implements CacheBackendInterface {
    * {@inheritdoc}
    */
   public function delete($cid) {
-    $this->deleteMultiple(array($cid));
+    $this->deleteMultiple([$cid]);
   }
 
   /**
@@ -187,7 +200,7 @@ class MemcachedBackend implements CacheBackendInterface {
    * {@inheritdoc}
    */
   public function invalidate($cid) {
-    $this->invalidateMultiple(array($cid));
+    $this->invalidateMultiple([$cid]);
   }
 
   /**

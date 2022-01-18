@@ -11,6 +11,7 @@ use Drupal\node\Entity\NodeType;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\EntityFormBuilderInterface;
+use Drupal\Core\Entity\EntityDisplayRepositoryInterface;
 
 /**
  * Provides a block for node forms.
@@ -18,7 +19,6 @@ use Drupal\Core\Entity\EntityFormBuilderInterface;
  * @Block(
  *   id = "formblock_node",
  *   admin_label = @Translation("Content form"),
- *   provider = "node",
  *   category = @Translation("Forms")
  * )
  *
@@ -37,9 +37,16 @@ class NodeFormBlock extends BlockBase implements ContainerFactoryPluginInterface
   /**
    * The entity form builder.
    *
-   * @var \Drupal\Core\Entity\EntityFormBuilderInterface.
+   * @var \Drupal\Core\Entity\EntityFormBuilderInterface
    */
   protected $entityFormBuilder;
+
+  /**
+   * The entity display repository.
+   *
+   * @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface
+   */
+  protected $entityDisplayRepository;
 
   /**
    * Constructs a new NodeFormBlock plugin.
@@ -54,13 +61,16 @@ class NodeFormBlock extends BlockBase implements ContainerFactoryPluginInterface
    *   The entity manager.
    * @param \Drupal\Core\Entity\EntityFormBuilderInterface $entityFormBuilder
    *   The entity form builder.
+   * @param \Drupal\Core\Entity\EntityDisplayRepositoryInterface $entity_display_repository
+   *   The Entity Display Repository.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entityTypeManager, EntityFormBuilderInterface $entityFormBuilder) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entityTypeManager, EntityFormBuilderInterface $entityFormBuilder, EntityDisplayRepositoryInterface $entity_display_repository) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->setConfiguration($configuration);
 
     $this->entityTypeManager = $entityTypeManager;
     $this->entityFormBuilder = $entityFormBuilder;
+    $this->entityDisplayRepository = $entity_display_repository;
   }
 
   /**
@@ -72,7 +82,8 @@ class NodeFormBlock extends BlockBase implements ContainerFactoryPluginInterface
       $plugin_id,
       $plugin_definition,
       $container->get('entity_type.manager'),
-      $container->get('entity.form_builder')
+      $container->get('entity.form_builder'),
+      $container->get('entity_display.repository')
     );
   }
 
@@ -82,6 +93,7 @@ class NodeFormBlock extends BlockBase implements ContainerFactoryPluginInterface
   public function defaultConfiguration() {
     return [
       'type' => NULL,
+      'form_mode' => 'default',
       'show_help' => FALSE,
     ];
   }
@@ -98,6 +110,14 @@ class NodeFormBlock extends BlockBase implements ContainerFactoryPluginInterface
       '#options' => $this->getNodeTypes(),
       '#default_value' => $this->configuration['type'],
     ];
+    $form['formblock_node_form_mode'] = [
+      '#title' => $this->t('Form mode'),
+      '#description' => $this->t('Select the form view mode that will be shown in the block.'),
+      '#type' => 'select',
+      '#required' => TRUE,
+      '#options' => $this->getFormModes(),
+      '#default_value' => $this->configuration['form_mode'],
+    ];
     $form['formblock_show_help'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Show submission guidelines'),
@@ -108,6 +128,8 @@ class NodeFormBlock extends BlockBase implements ContainerFactoryPluginInterface
     return $form;
   }
 
+  
+  
   /**
    * Get an array of node types.
    *
@@ -124,10 +146,29 @@ class NodeFormBlock extends BlockBase implements ContainerFactoryPluginInterface
   }
 
   /**
+   * Get an array of node form modes.
+   *
+   * @return array
+   *   An array of form modes keyed by machine name.
+   */
+  protected function getFormModes() {
+    $options = [
+      'default' => $this->t('Default'),
+    ];
+  
+    foreach ($this->entityDisplayRepository->getFormModes('node') as $index => $mode) {
+      $options[$index] = $mode['label'];
+    }
+
+    return $options;
+  }
+  
+  /**
    * Overrides \Drupal\block\BlockBase::blockSubmit().
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
     $this->configuration['type'] = $form_state->getValue('formblock_node_type');
+    $this->configuration['form_mode'] = $form_state->getValue('formblock_node_form_mode');
     $this->configuration['show_help'] = $form_state->getValue('formblock_show_help');
   }
 
@@ -147,7 +188,7 @@ class NodeFormBlock extends BlockBase implements ContainerFactoryPluginInterface
       'type' => $node_type->id(),
     ]);
 
-    $build['form'] = $this->entityFormBuilder->getForm($node);
+    $build['form'] = $this->entityFormBuilder->getForm($node, $this->configuration['form_mode']);
 
     return $build;
   }

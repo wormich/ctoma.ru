@@ -2,6 +2,7 @@
 
 namespace Drupal\memcache_storage;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\Cache\CacheTagsChecksumInterface;
 
@@ -23,16 +24,26 @@ class MemcachedBackendFactory {
   protected $checksumProvider;
 
   /**
+   * The time service.
+   *
+   * @var \Drupal\Component\Datetime\TimeInterface
+   */
+  protected $time;
+
+  /**
    * Constructs the MemcachedBackendFactory object.
    *
    * @param \Drupal\Core\Site\Settings $settings
    * @param \Drupal\memcache_storage\DrupalMemcachedFactory $memcached_factory
    * @param \Drupal\Core\Cache\CacheTagsChecksumInterface $checksum_provider
+   * @param \Drupal\Component\Datetime\TimeInterface $time
+   *   The time service.
    */
-  function __construct(DrupalMemcachedFactory $memcached_factory, Settings $settings, CacheTagsChecksumInterface $checksum_provider) {
+  function __construct(DrupalMemcachedFactory $memcached_factory, Settings $settings, CacheTagsChecksumInterface $checksum_provider, TimeInterface $time) {
     $this->settings = $settings;
     $this->memcachedFactory = $memcached_factory;
     $this->checksumProvider = $checksum_provider;
+    $this->time = $time;
   }
 
   /**
@@ -54,7 +65,7 @@ class MemcachedBackendFactory {
 
     // Initialize a new object for a class that handles Drupal-specific part
     // of memcached cache backend.
-    return new MemcachedBackend($bin_name, $memcached, $this->settings, $this->checksumProvider);
+    return new MemcachedBackend($bin_name, $memcached, $this->settings, $this->checksumProvider, $this->time);
   }
 
 }

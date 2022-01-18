@@ -2,7 +2,7 @@ services:
 
   cache.backend.memcache_storage:
     class: Drupal\memcache_storage\MemcachedBackendFactory
-    arguments: ['@memcache_storage.factory', '@settings', '@cache_tags.invalidator.checksum']
+    arguments: ['@memcache_storage.factory', '@settings', '@cache_tags.invalidator.checksum', '@datetime.time']
 
   memcache_storage.factory:
     class: Drupal\memcache_storage\DrupalMemcachedFactory

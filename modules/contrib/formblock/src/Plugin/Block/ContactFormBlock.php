@@ -51,7 +51,7 @@ class ContactFormBlock extends BlockBase implements ContainerFactoryPluginInterf
   protected $entityFormBuilder;
 
   /**
-   * The entity form builder.
+   * The config factory service.
    *
    * @var \Drupal\Core\Config\ConfigFactoryInterface.
    */

@@ -62,7 +62,7 @@ class DisableMessagesSettingsForm extends ConfigFormBase {
     $form['disable_messages_ignore_patterns'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Messages to be disabled'),
-      '#description' => $this->t('Enter messages that should not be shown to end users. Regular expressions are supported. You do not have to include the opening and closing forward slashes for the regular expression. The system will automatically add /^ and $/ at the beginning and end of the pattern to ensure that the match is always a full match instead of a partial match. This will help prevent unexpected filtering of messages. So if you want to filter out a specific message ensure that you add the full message including any punctuation and additional HTML if any. Add one per line. See @PCRE documentation for details on regular expressions.', ['@PCRE' => $this->l($this->t('PCRE'), Url::fromUri('http://us3.php.net/manual/en/book.pcre.php'))]),
+      '#description' => $this->t('Enter messages that should not be shown to end users. Regular expressions are supported. You do not have to include the opening and closing forward slashes for the regular expression. The system will automatically add /^ and $/ at the beginning and end of the pattern to ensure that the match is always a full match instead of a partial match. This will help prevent unexpected filtering of messages. So if you want to filter out a specific message ensure that you add the full message including any punctuation and additional HTML if any. Add one per line. See <a href="@PCRE" target="_blank"> PCRE </a> documentation for details on regular expressions.', ['@PCRE' => 'https://us3.php.net/manual/en/book.pcre.php']),
       '#default_value' => $this->config('disable_messages.settings')->get('disable_messages_ignore_patterns'),
     ];
     $form['disable_messages_ignore_case'] = [
@@ -80,7 +80,7 @@ class DisableMessagesSettingsForm extends ConfigFormBase {
     $form['disable_messages_filter_options']['role_information'] = [
       '#type' => 'item',
       '#title' => $this->t('Filtering by role'),
-      '#markup' => $this->t('By default, permission to view all message types are given for all roles. You can change this in @link to limit the roles which can view a given message type.', ['@link' => $this->l($this->t('administer permissions'), Url::fromRoute('user.admin_permissions'))]),
+      '#markup' => $this->t('By default, permission to view all message types are given for all roles. You can change this in <a href="@link" target="_blank">administer permissions</a> to limit the roles which can view a given message type.', ['@link' => Url::fromRoute('user.admin_permissions')->toString()]),
     ];
     $options = [
       $this->t('Apply filters on all pages.'),

@@ -69,6 +69,13 @@ class ToolbarHandler implements ContainerInjectionInterface, TrustedCallbackInte
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public static function trustedCallbacks() {
+    return ['lazyBuilder'];
+  }
+
+  /**
    * Hook bridge.
    *
    * @return array
@@ -178,7 +185,5 @@ class ToolbarHandler implements ContainerInjectionInterface, TrustedCallbackInte
 
     return $tree;
   }
-  public static function trustedCallbacks() {
-    return ['lazyBuilder'];
-  }
+
 }

@@ -1,14 +1,9 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\memcache_storage\Tests\MemcacheStorageBackendUnitTest.
- */
-
 namespace Drupal\memcache_storage\Tests;
 
 use Drupal\memcache_storage\MemcachedBackendFactory;
-use Drupal\system\Tests\Cache\GenericCacheBackendUnitTestBase;
+use Drupal\KernelTests\Core\Cache\GenericCacheBackendUnitTestBase;
 
 /**
  * Tests the MemcacheBackend.
@@ -34,7 +29,8 @@ class MemcacheStorageBackendUnitTest extends GenericCacheBackendUnitTestBase {
     $settings = $this->container->get('settings');
     $factory = $this->container->get('memcache_storage.factory');
     $checksum_provider = $this->container->get('cache_tags.invalidator.checksum');
-    $factory = new MemcachedBackendFactory($factory, $settings, $checksum_provider);
+    $time = $this->container->get('datetime.time');
+    $factory = new MemcachedBackendFactory($factory, $settings, $checksum_provider, $time);
     return $factory->get($bin);
   }
 
