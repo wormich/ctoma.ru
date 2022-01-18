@@ -10,16 +10,16 @@
  */
 function my_theme_theme_suggestions_block_alter(array &$suggestions, array $variables)
 {
-  // Block suggestions for custom block bundles.
-  if (isset($variables['elements']['content']['#block_content'])) {
-    array_splice(
-      $suggestions,
-      1,
-      0,
-      'block__' . $variables['elements']['content']['#block_content']->
-      bundle()
-    );
-  }
+    // Block suggestions for custom block bundles.
+    if (isset($variables['elements']['content']['#block_content'])) {
+        array_splice(
+          $suggestions,
+          1,
+          0,
+          'block__' . $variables['elements']['content']['#block_content']->
+          bundle()
+        );
+    }
 }
 
 /**
@@ -29,1076 +29,1073 @@ function my_theme_theme_suggestions_block_alter(array &$suggestions, array $vari
  */
 function my_theme_theme_suggestions_taxonomy_term_alter(&$suggestions, $variables)
 {
-  $elements = $variables['elements'];
-  if (isset($elements['#taxonomy_term']) && isset($elements['#theme']) && isset($elements['#view_mode'])) {
-    /**
-     * @var \Drupal\taxonomy\Entity\Term $term
-     */
-    $term = $elements['#taxonomy_term'];
-    if (is_object($term)) {
-      $suggestions[] = $elements['#theme'] . '__' . $term->bundle() . '__' .
-        $elements['#view_mode'];
-      $suggestions[] = $elements['#theme'] . '__' . $term->id() . '__' . $elements['#view_mode'];
+    $elements = $variables['elements'];
+    if (isset($elements['#taxonomy_term']) && isset($elements['#theme']) && isset($elements['#view_mode'])) {
+        /**
+         * @var \Drupal\taxonomy\Entity\Term $term
+         */
+        $term = $elements['#taxonomy_term'];
+        if (is_object($term)) {
+            $suggestions[] = $elements['#theme'] . '__' . $term->bundle() . '__' .
+              $elements['#view_mode'];
+            $suggestions[] = $elements['#theme'] . '__' . $term->id() . '__' . $elements['#view_mode'];
+        }
     }
-  }
 }
 
 function sc_from_new($html = '', $title = '')
 {
-  if ($html == '') {
-    return $html;
-  } else {
-    $my_webform_machinename = 'makeform';
-    $my_form = \Drupal\webform\Entity\Webform::load($my_webform_machinename);
-    $output = \Drupal::entityManager()->getViewBuilder('webform')->view($my_form);
-    $x = render($output);
-    $add = '';
-    if (trim($title) != '') {
-      $add = '<h2>' . $title . '</h2>';
+    if ($html != '') {
+        $my_webform_machinename = 'makeform';
+        $my_form = \Drupal\webform\Entity\Webform::load($my_webform_machinename);
+        $output = Drupal::entityTypeManager()->getViewBuilder('webform')->view($my_form);
+        $x = render($output);
+        $add = '';
+        if (trim($title) != '') {
+            $add = '<h2>' . $title . '</h2>';
+        }
+        $ht_add = '<div class="in_usl_form">' . $add . $x . '</div>';
+
+
+        $html = str_replace('[[FORM]]', $ht_add, $html);
     }
-    $ht_add = '<div class="in_usl_form">' . $add . $x . '</div>';
-
-
-    $html = str_replace('[[FORM]]', $ht_add, $html);
     return $html;
-  }
 }
 
 
 function my_theme_preprocess_html(&$variables)
 {
-  if (stristr($_SERVER['REQUEST_URI'], '/reviews/show/otzyvy_o_vrachah')) {
-    $ol = $_SERVER['REQUEST_URI'];
-    $ul = strtolower($_SERVER['REQUEST_URI']);
-    if ($ul != $ol) {
-      header("HTTP/1.1 301 Moved Permanently");
-      header("Location: https://ctoma.ru" . $ul);
-      exit;
-    }
-  }
-
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/stomatology/diagnostika/panoramnyj-snimok-zubov'
-  )) {
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, '');
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/stomatology/ortodontija')) {
-    $title = "Записаться на консультацию ортодонта";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/stomatology/protezirovanie/implantaciya-verhnej-chelyusti'
-  )) {
-    $title = "Запись на установку имплантов на верхнюю челюсть";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/stomatology/ortodontija/keramicheskaya-breket-sistema'
-  )) {
-    $title = "Запись на установку керамических брекетов";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/stomatology/protezirovanie/all-on-6')) {
-    $title = "Записаться на имплантацию";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/stomatology/protezirovanie/implanty-nobel'
-  )) {
-    $title = "Записаться на имплантацию";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/hirurgiya/sinus-lifting')) {
-    $title = "Запись на процедуру синус-лифтинга";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/stomatology/ortodontija/ustanovka-breket-sistem'
-  )) {
-    $title = "Записаться на установку";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/stomatology/hirurgiya/gingivoplastika')) {
-    $title = "Записаться на наращивание десны";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/stomatology/protezirovanie/viniry')) {
-    $title = "Записаться на установку";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/stomatology/hirurgiya/kostnaya-plastika')) {
-    $title = "Записаться на НАРАЩИВАНИЕ КОСТНОЙ ТКАНИ";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/stomatology/terapiya/lechenie-zubov-pod-mikroskopom'
-  )) {
-    $title = $variables['page']['content']['system_main']['#title']->__toString();
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/stomatology/protezirovanie/mini-implanty')) {
-    $title = "ЗАПИСЬ НА УСТАНОВКУ МИНИ-ИМПЛАНТОВ";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/ortodontija/ustanovka-retejnerov')) {
-    $title = "ЗАПИСЬ НА УСТАНОВКУ РЕТЕЙНЕРОВ";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/stomatology/diagnostika/3d-tomografiya')) {
-    $title = "Запись на прием";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/stomatology/diagnostika/rentgen-zubov')) {
-    $title = "Запись на прицельный снимок зуба";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/stomatology/ortodontija/keramicheskaya-breket-sistema'
-  )) {
-    $title = "Записаться на прием";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/stomatology/ortodontija/sapfirovaya-breket-sistema'
-  )) {
-    $title = "Запись на установку брекетов";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/stomatology/profilaktika/professionalnaa-gigiena'
-  )) {
-    $title = "Записаться на гигиену полости рта";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/stomatology/kids/lechenie/lechenie-kariesa'
-  )) {
-    $title = "Кариес у детей? Запишитесь на лечение";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/stomatology/kids/serebrenie-zubov')) {
-    $title = "Записать ребенка на серебрение зубов";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/stomatology/terapiya/lechenie-periodontita'
-  )) {
-    $title = "Записаться на лечение";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/stomatology/kids')) {
-    $title = "Запись к детскому стоматологу";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/stomatology/protezirovanie/syomnoe-protezirovanie'
-  )) {
-    $title = "Записаться на установку съемных протезов";
-    $markup = $variables['page']['content']['system_main']['#markup']->__toString();
-    $markup = sc_from_new($markup, $title);
-    $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
-    create($markup);
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], 'sitemap')) {
-    $variables['page']['#attached']['html_head'][1][0]['#attributes']['content'] =
-      'Карта сайта';
-  }
-
-  if (\Drupal::request()->query->get('page')) {
-    $variables["head_title_array"]["pagination"] = \Drupal::request()->query->get('page') +
-      1;
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], 'form') && stristr(
-      $_SERVER['REQUEST_URI'],
-      'doctor_nid'
-    )) {
-    $noindex = [
-      '#tag' => 'meta',
-      '#attributes' => [
-        'name' => 'googlebot',
-        'content' =>
-          'noindex',
-      ],
-    ];
-    $variables['page']['#attached']['html_head'][] = [$noindex, 'noindex'];
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/form/zapisatsa-po-akcii?action_nid')) {
-    $noindexfollow = [
-      '#tag' => 'meta',
-      '#attributes' => [
-        'name' => 'robots',
-        'content' => 'noindex, follow',
-      ],
-    ];
-    $variables['page']['#attached']['html_head'][] = [$noindexfollow, 'robots'];
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '?field_mesta_raboty_target_i')) {
-    $noindexfollow = [
-      '#tag' => 'meta',
-      '#attributes' => [
-        'name' => 'robots',
-        'content' => 'noindex',
-      ],
-    ];
-    $variables['page']['#attached']['html_head'][] = [$noindexfollow, 'robots'];
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/form/') || stristr(
-      $_SERVER['REQUEST_URI'],
-      '/otzyvy/'
-    )) {
-    $noindexfollow = [
-      '#tag' => 'meta',
-      '#attributes' => [
-        'name' => 'robots',
-        'content' => 'noindex, follow'
-      ],
-    ];
-    $variables['page']['#attached']['html_head'][] = [$noindexfollow, 'robots'];
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/form/zapisatsa-k-vracu?doctor_nid')) {
-    $noindexfollow = [
-      '#tag' => 'meta',
-      '#attributes' => [
-        'name' => 'robots',
-        'content' => 'noindex, follow'
-      ],
-    ];
-    $variables['page']['#attached']['html_head'][] = [$noindexfollow, 'robots'];
-  }
-
-  if ($_SERVER['REQUEST_URI'] == '/articles?page=0') {
-    $canUrl = 'https://ctoma.ru/articles';
-    $xuacompatible = [
-      '#tag' => 'link',
-      '#attributes' => [
-        'rel' => 'canonical',
-        'href' => $canUrl,
-      ],
-    ];
-    $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], 'articles')) {
-    if (\Drupal::request()->query->get('page')) {
-      $page = (string )\Drupal::request()->query->get('page');
-      $canUrl = 'https://ctoma.ru/articles';
-      $xuacompatible = [
-        '#tag' => 'link',
-        '#attributes' => [
-          'rel' => 'canonical',
-          'href' => $canUrl,
-        ],
-      ];
-      $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
-    }
-  }
-
-  if ($_SERVER['REQUEST_URI'] == '/reviews?%2Freviews=&page=0') {
-    $canUrl = 'https://ctoma.ru/reviews';
-    $xuacompatible = [
-      '#tag' => 'link',
-      '#attributes' => [
-        'rel' => 'canonical',
-        'href' => $canUrl,
-      ],
-    ];
-    $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], 'portfolio')) {
-    if ($_SERVER['REQUEST_URI'] == '/portfolio?page=0') {
-      $canUrl = 'https://ctoma.ru/portfolio';
-      $xuacompatible = [
-        '#tag' => 'link',
-        '#attributes' => [
-          'rel' => 'canonical',
-          'href' => $canUrl,
-        ],
-      ];
-      $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
-    }
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], 'reviews')) {
-    $add = '';
-    if (\Drupal::request()->query->get('page')) {
-      $page = (string )\Drupal::request()->query->get('page');
-      $add = '?page=' . $page;
-    }
-    if (\Drupal::request()->query->get('page_12')) {
-      header("HTTP/1.1 301 Moved Permanently");
-      header("Location: https://ctoma.ru/reviews" . $add);
-      exit;
-    }
-    if (\Drupal::request()->query->get('page_11')) {
-      header("HTTP/1.1 301 Moved Permanently");
-      header("Location: https://ctoma.ru/reviews" . $add);
-      exit;
-    }
-    if (\Drupal::request()->query->get('page')) {
-      $page = (string )\Drupal::request()->query->get('page');
-      $canUrl = 'https://ctoma.ru/reviews?page=';
-      $xuacompatible = [
-        '#tag' => 'link',
-        '#attributes' => [
-          'rel' => 'canonical',
-          'href' => $canUrl . $page,
-        ],
-      ];
-      $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
-    }
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], 'questions')) {
-    if (\Drupal::request()->query->get('page_12')) {
-      header("HTTP/1.1 301 Moved Permanently");
-      header("Location: https://ctoma.ru/questions");
-      exit;
-    }
-    if (\Drupal::request()->query->get('page_11')) {
-      header("HTTP/1.1 301 Moved Permanently");
-      header("Location: https://ctoma.ru/questions");
-      exit;
-    }
-    if (\Drupal::request()->query->get('page')) {
-      $page = (string )\Drupal::request()->query->get('page');
-      $canUrl = 'https://ctoma.ru/questions?page=';
-      $xuacompatible = [
-        '#tag' => 'link',
-        '#attributes' => [
-          'rel' => 'canonical',
-          'href' => $canUrl . $page,
-        ],
-      ];
-      $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
-    }
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/reviews/add?doctor_nid')) {
-    $canUrl2 = 'https://ctoma.ru/reviews/add';
-    $xuacompatible2 = [
-      '#tag' => 'link',
-      '#attributes' => [
-        'rel' => 'canonical',
-        'href' => $canUrl2,
-      ],
-    ];
-    $variables['page']['#attached']['html_head'][] = [$xuacompatible2, 'canonical'];
-  }
-
-  if ($_SERVER['REQUEST_URI'] == '/akcii?page=0') {
-    $canAc = 'https://ctoma.ru/akcii';
-    $akciiCan = [
-      '#tag' => 'link',
-      '#attributes' => [
-        'rel' => 'canonical',
-        'href' =>
-          $canAc,
-      ],
-    ];
-    $variables['page']['#attached']['html_head'][] = [$akciiCan, 'canonical'];
-  }
-
-  if ($_SERVER['REQUEST_URI'] == '/news?page=0') {
-    $canAc = 'https://ctoma.ru/news';
-    $akciiCan = [
-      '#tag' => 'link',
-      '#attributes' => [
-        'rel' => 'canonical',
-        'href' =>
-          $canAc,
-      ],
-    ];
-    $variables['page']['#attached']['html_head'][] = [$akciiCan, 'canonical'];
-  }
-
-  if ($_SERVER['REQUEST_URI'] == '/questions?page=0') {
-    $canAc = 'https://ctoma.ru/questions';
-    $akciiCan = [
-      '#tag' => 'link',
-      '#attributes' => [
-        'rel' => 'canonical',
-        'href' =>
-          $canAc,
-      ],
-    ];
-    $variables['page']['#attached']['html_head'][] = [$akciiCan, 'canonical'];
-  }
-
-  if ($_SERVER['REQUEST_URI'] == '/reviews?page=0') {
-    $canAc = 'https://ctoma.ru/reviews';
-    $akciiCan = [
-      '#tag' => 'link',
-      '#attributes' => [
-        'rel' => 'canonical',
-        'href' =>
-          $canAc,
-      ],
-    ];
-    $variables['page']['#attached']['html_head'][] = [$akciiCan, 'canonical'];
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], 'bolezni')) {
-    $url = $_SERVER['REQUEST_URI'];
-    $path = parse_url($url, PHP_URL_PATH);
-    $result = explode("/", trim($path, "/"));
-    $cnt = count($result);
-    if ($cnt > 1) {
-      foreach ($variables['page']['#attached']['html_head'] as $key => $attr) {
-        if (isset($attr[0]["#attributes"])) {
-          $attr = $attr[0]["#attributes"];
-          //Достаем мета теги
-          $node = \Drupal::request()->attributes->get('node');
-          $meta_title = false;
-          if (isset($node)) {
-            $met = $node->get('field_meta_tags')->getValue();
-            $met_ar = unserialize($met[0]['value']);
-            if (isset($met_ar['title'])) {
-              $meta_title = $met_ar['title'];
-            }
-          }
-          //Достаем мета теги
-          if (isset($attr['name'])) {
-            if ($meta_title) {
-              $og_title = array(
-                '#tag' => 'meta',
-                '#attributes' => array('property' => 'og:title', 'content' => $meta_title),
-              );
-              $variables['page']['#attached']['html_head'][] = [$og_title, 'og_title'];
-            }
-            if ($attr['name'] == 'description') {
-              $og_description = array(
-                '#tag' => 'meta',
-                '#attributes' => array('property' => 'og:description', 'content' => $attr['content']),
-              );
-              $variables['page']['#attached']['html_head'][] = [
-                $og_description,
-                'og_description'
-              ];
-            }
-          }
-          $og_type = array(
-            '#tag' => 'meta',
-            '#attributes' => array('property' => 'og:type', 'content' => 'article'),
-          );
-          $variables['page']['#attached']['html_head'][] = [$og_type, 'og_type'];
-          $og_url = array(
-            '#tag' => 'meta',
-            '#attributes' => array(
-              'property' => 'og:url',
-              'content' => 'https://ctoma.ru' .
-                $_SERVER['REQUEST_URI']
-            ),
-          );
-          $variables['page']['#attached']['html_head'][] = [$og_url, 'og_url'];
-          /* проверка на наличие изображения в контенте начало */
-          $requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-          $path = \Drupal::service('path_alias.manager')->getPathByAlias($requestUri);
-          if (preg_match('/node\/(\d+)/', $path, $matches)) {
-            $str = \Drupal::entityTypeManager()->getStorage('node')->load((int)$matches[1]);
-            if ($str->body->value) {
-              $body = $str->body->value;
-              preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $body, $regexImg);
-              $firstImgScr = array_pop($regexImg);
-              if (!empty($firstImgScr)) {
-                $og_image = array(
-                  '#tag' => 'meta',
-                  '#attributes' => array(
-                    'property' => 'og:image',
-                    'content' => 'https://ctoma.ru' .
-                      $firstImgScr
-                  ),
-                );
-                $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
-              } else {
-                $og_image = array(
-                  '#tag' => 'meta',
-                  '#attributes' => array(
-                    'property' => 'og:image',
-                    'content' =>
-                      'https://ctoma.ru/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg'
-                  ),
-                );
-                $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
-              }
-            }
-          }
-          /* проверка на наличие изображения в контенте конец */
+    if (stristr($_SERVER['REQUEST_URI'], '/reviews/show/otzyvy_o_vrachah')) {
+        $ol = $_SERVER['REQUEST_URI'];
+        $ul = strtolower($_SERVER['REQUEST_URI']);
+        if ($ul != $ol) {
+            header('HTTP/1.1 301 Moved Permanently');
+            header('Location: https://ctoma.ru' . $ul);
+            exit;
         }
-      }
     }
-  }
 
-  if (stristr($_SERVER['REQUEST_URI'], 'stati')) {
-    foreach ($variables['page']['#attached']['html_head'] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        //Достаем мета теги
-        $nid = \Drupal::request()->attributes->get('node');
-        $meta_title = false;
-        $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
-        if (isset($node)) {
-          $met = $node->get('field_meta_tags')->getValue();
-          $met_ar = unserialize($met[0]['value']);
-          if (isset($met_ar['title'])) {
-            $meta_title = $met_ar['title'];
-          }
-        }
-        //Достаем мета теги
+    if (stristr(
+      $_SERVER['REQUEST_URI'],
+      '/stomatology/diagnostika/panoramnyj-snimok-zubov'
+    )) {
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
 
-        if (isset($attr['name'])) {
-          if ($meta_title) {
-            $og_title = array(
-              '#tag' => 'meta',
-              '#attributes' => array('property' => 'og:title', 'content' => $meta_title),
-            );
-            $variables['page']['#attached']['html_head'][] = [$og_title, 'og_title'];
-          }
-          if ($attr['name'] == 'description') {
-            $og_description = array(
-              '#tag' => 'meta',
-              '#attributes' => array('property' => 'og:description', 'content' => $attr['content']),
-            );
-            $variables['page']['#attached']['html_head'][] = [
-              $og_description,
-              'og_description'
+    if (stristr($_SERVER['REQUEST_URI'], '/stomatology/ortodontija')) {
+        $title = 'Записаться на консультацию ортодонта';
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr(
+      $_SERVER['REQUEST_URI'],
+      '/stomatology/protezirovanie/implantaciya-verhnej-chelyusti'
+    )) {
+        $title = 'Запись на установку имплантов на верхнюю челюсть';
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr(
+      $_SERVER['REQUEST_URI'],
+      '/stomatology/ortodontija/keramicheskaya-breket-sistema'
+    )) {
+        $title = 'Запись на установку керамических брекетов';
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/stomatology/protezirovanie/all-on-6')) {
+        $title = 'Записаться на имплантацию';
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr(
+      $_SERVER['REQUEST_URI'],
+      '/stomatology/protezirovanie/implanty-nobel'
+    )) {
+        $title = 'Записаться на имплантацию';
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/hirurgiya/sinus-lifting')) {
+        $title = 'Запись на процедуру синус-лифтинга';
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr(
+      $_SERVER['REQUEST_URI'],
+      '/stomatology/ortodontija/ustanovka-breket-sistem'
+    )) {
+        $title = 'Записаться на установку';
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/stomatology/hirurgiya/gingivoplastika')) {
+        $title = 'Записаться на наращивание десны';
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/stomatology/protezirovanie/viniry')) {
+        $title = 'Записаться на установку';
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/stomatology/hirurgiya/kostnaya-plastika')) {
+        $title = 'Записаться на НАРАЩИВАНИЕ КОСТНОЙ ТКАНИ';
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr(
+      $_SERVER['REQUEST_URI'],
+      '/stomatology/terapiya/lechenie-zubov-pod-mikroskopom'
+    )) {
+        $title = $variables['page']['content']['system_main']['#title']->__toString();
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/stomatology/protezirovanie/mini-implanty')) {
+        $title = 'ЗАПИСЬ НА УСТАНОВКУ МИНИ-ИМПЛАНТОВ';
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/ortodontija/ustanovka-retejnerov')) {
+        $title = 'ЗАПИСЬ НА УСТАНОВКУ РЕТЕЙНЕРОВ';
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/stomatology/diagnostika/3d-tomografiya')) {
+        $title = "Запись на прием";
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/stomatology/diagnostika/rentgen-zubov')) {
+        $title = "Запись на прицельный снимок зуба";
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr(
+      $_SERVER['REQUEST_URI'],
+      '/stomatology/ortodontija/keramicheskaya-breket-sistema'
+    )) {
+        $title = "Записаться на прием";
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr(
+      $_SERVER['REQUEST_URI'],
+      '/stomatology/ortodontija/sapfirovaya-breket-sistema'
+    )) {
+        $title = "Запись на установку брекетов";
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr(
+      $_SERVER['REQUEST_URI'],
+      '/stomatology/profilaktika/professionalnaa-gigiena'
+    )) {
+        $title = "Записаться на гигиену полости рта";
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr(
+      $_SERVER['REQUEST_URI'],
+      '/stomatology/kids/lechenie/lechenie-kariesa'
+    )) {
+        $title = "Кариес у детей? Запишитесь на лечение";
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/stomatology/kids/serebrenie-zubov')) {
+        $title = "Записать ребенка на серебрение зубов";
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr(
+      $_SERVER['REQUEST_URI'],
+      '/stomatology/terapiya/lechenie-periodontita'
+    )) {
+        $title = "Записаться на лечение";
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/stomatology/kids')) {
+        $title = "Запись к детскому стоматологу";
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr(
+      $_SERVER['REQUEST_URI'],
+      '/stomatology/protezirovanie/syomnoe-protezirovanie'
+    )) {
+        $title = "Записаться на установку съемных протезов";
+        $markup = $variables['page']['content']['system_main']['#markup']->__toString();
+        $markup = sc_from_new($markup, $title);
+        $variables['page']['content']['system_main']['#markup'] = Drupal\Core\Render\Markup::
+        create($markup);
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], 'sitemap')) {
+        $variables['page']['#attached']['html_head'][1][0]['#attributes']['content'] =
+          'Карта сайта';
+    }
+
+    if (Drupal::request()->query->get('page')) {
+        $variables["head_title_array"]["pagination"] = Drupal::request()->query->get('page') +
+          1;
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], 'form') && stristr(
+        $_SERVER['REQUEST_URI'],
+        'doctor_nid'
+      )) {
+        $noindex = [
+          '#tag' => 'meta',
+          '#attributes' => [
+            'name' => 'googlebot',
+            'content' =>
+              'noindex',
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$noindex, 'noindex'];
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/form/zapisatsa-po-akcii?action_nid')) {
+        $noindexfollow = [
+          '#tag' => 'meta',
+          '#attributes' => [
+            'name' => 'robots',
+            'content' => 'noindex, follow',
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$noindexfollow, 'robots'];
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '?field_mesta_raboty_target_i')) {
+        $noindexfollow = [
+          '#tag' => 'meta',
+          '#attributes' => [
+            'name' => 'robots',
+            'content' => 'noindex',
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$noindexfollow, 'robots'];
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/form/') || stristr(
+        $_SERVER['REQUEST_URI'],
+        '/otzyvy/'
+      )) {
+        $noindexfollow = [
+          '#tag' => 'meta',
+          '#attributes' => [
+            'name' => 'robots',
+            'content' => 'noindex, follow'
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$noindexfollow, 'robots'];
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/form/zapisatsa-k-vracu?doctor_nid')) {
+        $noindexfollow = [
+          '#tag' => 'meta',
+          '#attributes' => [
+            'name' => 'robots',
+            'content' => 'noindex, follow'
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$noindexfollow, 'robots'];
+    }
+
+    if ($_SERVER['REQUEST_URI'] == '/articles?page=0') {
+        $canUrl = 'https://ctoma.ru/articles';
+        $xuacompatible = [
+          '#tag' => 'link',
+          '#attributes' => [
+            'rel' => 'canonical',
+            'href' => $canUrl,
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], 'articles')) {
+        if (Drupal::request()->query->get('page')) {
+            $canUrl = 'https://ctoma.ru/articles';
+            $xuacompatible = [
+              '#tag' => 'link',
+              '#attributes' => [
+                'rel' => 'canonical',
+                'href' => $canUrl,
+              ],
             ];
-          }
+            $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
         }
-        $og_type = array(
-          '#tag' => 'meta',
-          '#attributes' => array('property' => 'og:type', 'content' => 'article'),
-        );
-        $variables['page']['#attached']['html_head'][] = [$og_type, 'og_type'];
-        $og_url = array(
-          '#tag' => 'meta',
-          '#attributes' => array(
-            'property' => 'og:url',
-            'content' => 'https://ctoma.ru' .
-              $_SERVER['REQUEST_URI']
-          ),
-        );
-        $variables['page']['#attached']['html_head'][] = [$og_url, 'og_url'];
-        /* проверка на наличие изображения в контенте начало */
-        $requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-        $path = \Drupal::service('path_alias.manager')->getPathByAlias($requestUri);
-        if (preg_match('/node\/(\d+)/', $path, $matches)) {
-          $str = \Drupal::entityTypeManager()->getStorage('node')->load((int)$matches[1]);
-          if ($str->body->value) {
-            $body = $str->body->value;
-            preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $body, $regexImg);
-            $firstImgScr = array_pop($regexImg);
-            if (!empty($firstImgScr)) {
-              $og_image = array(
-                '#tag' => 'meta',
-                '#attributes' => array(
-                  'property' => 'og:image',
-                  'content' => 'https://ctoma.ru' .
-                    $firstImgScr
-                ),
-              );
-              $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
-            } else {
-              $og_image = array(
-                '#tag' => 'meta',
-                '#attributes' => array(
-                  'property' => 'og:image',
-                  'content' =>
-                    'https://ctoma.ru/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg'
-                ),
-              );
-              $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
-            }
-          }
-        }
-        /* проверка на наличие изображения в контенте конец */
-      }
     }
-  }
 
-  /*Убираем каноникл если он дублирует текущий УРЛ 26.02.2020*/
-  foreach ($variables['page']['#attached']['html_head'] as $key => $hw) {
-    if (isset($hw[0]['#attributes']['rel']) && $hw[0]['#attributes']['rel'] ==
-      'canonical') {
-      $purl = parse_url($hw[0]['#attributes']['href']);
-      $p = strtolower($purl['path']);
-      if ($p == $_SERVER['REQUEST_URI']) {
-        unset($variables['page']['#attached']['html_head'][$key]);
-      }
+    if ($_SERVER['REQUEST_URI'] == '/reviews?%2Freviews=&page=0') {
+        $canUrl = 'https://ctoma.ru/reviews';
+        $xuacompatible = [
+          '#tag' => 'link',
+          '#attributes' => [
+            'rel' => 'canonical',
+            'href' => $canUrl,
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
     }
-  }
-  /*Убираем каноникл если он дублирует текущий УРЛ 26.02.2020*/
+
+    if (stristr($_SERVER['REQUEST_URI'], 'portfolio')) {
+        if ($_SERVER['REQUEST_URI'] == '/portfolio?page=0') {
+            $canUrl = 'https://ctoma.ru/portfolio';
+            $xuacompatible = [
+              '#tag' => 'link',
+              '#attributes' => [
+                'rel' => 'canonical',
+                'href' => $canUrl,
+              ],
+            ];
+            $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], 'reviews')) {
+        $add = '';
+        if (Drupal::request()->query->get('page')) {
+            $page = (string )Drupal::request()->query->get('page');
+            $add = '?page=' . $page;
+        }
+        if (Drupal::request()->query->get('page_12')) {
+            header("HTTP/1.1 301 Moved Permanently");
+            header("Location: https://ctoma.ru/reviews" . $add);
+            exit;
+        }
+        if (Drupal::request()->query->get('page_11')) {
+            header("HTTP/1.1 301 Moved Permanently");
+            header("Location: https://ctoma.ru/reviews" . $add);
+            exit;
+        }
+        if (Drupal::request()->query->get('page')) {
+            $page = (string )Drupal::request()->query->get('page');
+            $canUrl = 'https://ctoma.ru/reviews?page=';
+            $xuacompatible = [
+              '#tag' => 'link',
+              '#attributes' => [
+                'rel' => 'canonical',
+                'href' => $canUrl . $page,
+              ],
+            ];
+            $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], 'questions')) {
+        if (Drupal::request()->query->get('page_12')) {
+            header("HTTP/1.1 301 Moved Permanently");
+            header("Location: https://ctoma.ru/questions");
+            exit;
+        }
+        if (Drupal::request()->query->get('page_11')) {
+            header("HTTP/1.1 301 Moved Permanently");
+            header("Location: https://ctoma.ru/questions");
+            exit;
+        }
+        if (Drupal::request()->query->get('page')) {
+            $page = (string )Drupal::request()->query->get('page');
+            $canUrl = 'https://ctoma.ru/questions?page=';
+            $xuacompatible = [
+              '#tag' => 'link',
+              '#attributes' => [
+                'rel' => 'canonical',
+                'href' => $canUrl . $page,
+              ],
+            ];
+            $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/reviews/add?doctor_nid')) {
+        $canUrl2 = 'https://ctoma.ru/reviews/add';
+        $xuacompatible2 = [
+          '#tag' => 'link',
+          '#attributes' => [
+            'rel' => 'canonical',
+            'href' => $canUrl2,
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$xuacompatible2, 'canonical'];
+    }
+
+    if ($_SERVER['REQUEST_URI'] == '/akcii?page=0') {
+        $canAc = 'https://ctoma.ru/akcii';
+        $akciiCan = [
+          '#tag' => 'link',
+          '#attributes' => [
+            'rel' => 'canonical',
+            'href' =>
+              $canAc,
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$akciiCan, 'canonical'];
+    }
+
+    if ($_SERVER['REQUEST_URI'] == '/news?page=0') {
+        $canAc = 'https://ctoma.ru/news';
+        $akciiCan = [
+          '#tag' => 'link',
+          '#attributes' => [
+            'rel' => 'canonical',
+            'href' =>
+              $canAc,
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$akciiCan, 'canonical'];
+    }
+
+    if ($_SERVER['REQUEST_URI'] == '/questions?page=0') {
+        $canAc = 'https://ctoma.ru/questions';
+        $akciiCan = [
+          '#tag' => 'link',
+          '#attributes' => [
+            'rel' => 'canonical',
+            'href' =>
+              $canAc,
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$akciiCan, 'canonical'];
+    }
+
+    if ($_SERVER['REQUEST_URI'] == '/reviews?page=0') {
+        $canAc = 'https://ctoma.ru/reviews';
+        $akciiCan = [
+          '#tag' => 'link',
+          '#attributes' => [
+            'rel' => 'canonical',
+            'href' =>
+              $canAc,
+          ],
+        ];
+        $variables['page']['#attached']['html_head'][] = [$akciiCan, 'canonical'];
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], 'bolezni')) {
+        $url = $_SERVER['REQUEST_URI'];
+        $path = parse_url($url, PHP_URL_PATH);
+        $result = explode("/", trim($path, "/"));
+        $cnt = count($result);
+        if ($cnt > 1) {
+            foreach ($variables['page']['#attached']['html_head'] as $key => $attr) {
+                if (isset($attr[0]["#attributes"])) {
+                    $attr = $attr[0]["#attributes"];
+                    //Достаем мета теги
+                    $node = Drupal::request()->attributes->get('node');
+                    $meta_title = false;
+                    if (isset($node)) {
+                        $met = $node->get('field_meta_tags')->getValue();
+                        $met_ar = unserialize($met[0]['value']);
+                        if (isset($met_ar['title'])) {
+                            $meta_title = $met_ar['title'];
+                        }
+                    }
+                    //Достаем мета теги
+                    if (isset($attr['name'])) {
+                        if ($meta_title) {
+                            $og_title = [
+                              '#tag' => 'meta',
+                              '#attributes' => ['property' => 'og:title', 'content' => $meta_title],
+                            ];
+                            $variables['page']['#attached']['html_head'][] = [$og_title, 'og_title'];
+                        }
+                        if ($attr['name'] == 'description') {
+                            $og_description = [
+                              '#tag' => 'meta',
+                              '#attributes' => ['property' => 'og:description', 'content' => $attr['content']],
+                            ];
+                            $variables['page']['#attached']['html_head'][] = [
+                              $og_description,
+                              'og_description'
+                            ];
+                        }
+                    }
+                    $og_type = [
+                      '#tag' => 'meta',
+                      '#attributes' => ['property' => 'og:type', 'content' => 'article'],
+                    ];
+                    $variables['page']['#attached']['html_head'][] = [$og_type, 'og_type'];
+                    $og_url = [
+                      '#tag' => 'meta',
+                      '#attributes' => [
+                        'property' => 'og:url',
+                        'content' => 'https://ctoma.ru' .
+                          $_SERVER['REQUEST_URI']
+                      ],
+                    ];
+                    $variables['page']['#attached']['html_head'][] = [$og_url, 'og_url'];
+                    /* проверка на наличие изображения в контенте начало */
+                    $requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+                    $path = Drupal::service('path_alias.manager')->getPathByAlias($requestUri);
+                    if (preg_match('/node\/(\d+)/', $path, $matches)) {
+                        $str = Drupal::entityTypeManager()->getStorage('node')->load((int)$matches[1]);
+                        if ($str->body->value) {
+                            $body = $str->body->value;
+                            preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $body, $regexImg);
+                            $firstImgScr = array_pop($regexImg);
+                            if (!empty($firstImgScr)) {
+                                $og_image = array(
+                                  '#tag' => 'meta',
+                                  '#attributes' => array(
+                                    'property' => 'og:image',
+                                    'content' => 'https://ctoma.ru' .
+                                      $firstImgScr
+                                  ),
+                                );
+                                $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
+                            } else {
+                                $og_image = array(
+                                  '#tag' => 'meta',
+                                  '#attributes' => array(
+                                    'property' => 'og:image',
+                                    'content' =>
+                                      'https://ctoma.ru/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg'
+                                  ),
+                                );
+                                $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
+                            }
+                        }
+                    }
+                    /* проверка на наличие изображения в контенте конец */
+                }
+            }
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], 'stati')) {
+        foreach ($variables['page']['#attached']['html_head'] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                //Достаем мета теги
+                $nid = Drupal::request()->attributes->get('node');
+                $meta_title = false;
+                $node = Drupal::entityTypeManager()->getStorage('node')->load($nid);
+                if (isset($node)) {
+                    $met = $node->get('field_meta_tags')->getValue();
+                    $met_ar = unserialize($met[0]['value']);
+                    if (isset($met_ar['title'])) {
+                        $meta_title = $met_ar['title'];
+                    }
+                }
+                //Достаем мета теги
+
+                if (isset($attr['name'])) {
+                    if ($meta_title) {
+                        $og_title = array(
+                          '#tag' => 'meta',
+                          '#attributes' => array('property' => 'og:title', 'content' => $meta_title),
+                        );
+                        $variables['page']['#attached']['html_head'][] = [$og_title, 'og_title'];
+                    }
+                    if ($attr['name'] == 'description') {
+                        $og_description = array(
+                          '#tag' => 'meta',
+                          '#attributes' => array('property' => 'og:description', 'content' => $attr['content']),
+                        );
+                        $variables['page']['#attached']['html_head'][] = [
+                          $og_description,
+                          'og_description'
+                        ];
+                    }
+                }
+                $og_type = array(
+                  '#tag' => 'meta',
+                  '#attributes' => array('property' => 'og:type', 'content' => 'article'),
+                );
+                $variables['page']['#attached']['html_head'][] = [$og_type, 'og_type'];
+                $og_url = array(
+                  '#tag' => 'meta',
+                  '#attributes' => array(
+                    'property' => 'og:url',
+                    'content' => 'https://ctoma.ru' .
+                      $_SERVER['REQUEST_URI']
+                  ),
+                );
+                $variables['page']['#attached']['html_head'][] = [$og_url, 'og_url'];
+                /* проверка на наличие изображения в контенте начало */
+                $requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+                $path = Drupal::service('path_alias.manager')->getPathByAlias($requestUri);
+                if (preg_match('/node\/(\d+)/', $path, $matches)) {
+                    $str = Drupal::entityTypeManager()->getStorage('node')->load((int)$matches[1]);
+                    if ($str->body->value) {
+                        $body = $str->body->value;
+                        preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $body, $regexImg);
+                        $firstImgScr = array_pop($regexImg);
+                        if (!empty($firstImgScr)) {
+                            $og_image = array(
+                              '#tag' => 'meta',
+                              '#attributes' => array(
+                                'property' => 'og:image',
+                                'content' => 'https://ctoma.ru' .
+                                  $firstImgScr
+                              ),
+                            );
+                            $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
+                        } else {
+                            $og_image = array(
+                              '#tag' => 'meta',
+                              '#attributes' => array(
+                                'property' => 'og:image',
+                                'content' =>
+                                  'https://ctoma.ru/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg'
+                              ),
+                            );
+                            $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
+                        }
+                    }
+                }
+                /* проверка на наличие изображения в контенте конец */
+            }
+        }
+    }
+
+    /*Убираем каноникл если он дублирует текущий УРЛ 26.02.2020*/
+    foreach ($variables['page']['#attached']['html_head'] as $key => $hw) {
+        if (isset($hw[0]['#attributes']['rel']) && $hw[0]['#attributes']['rel'] ==
+          'canonical') {
+            $purl = parse_url($hw[0]['#attributes']['href']);
+            $p = strtolower($purl['path']);
+            if ($p == $_SERVER['REQUEST_URI']) {
+                unset($variables['page']['#attached']['html_head'][$key]);
+            }
+        }
+    }
+    /*Убираем каноникл если он дублирует текущий УРЛ 26.02.2020*/
 }
 
 function my_theme_page_attachments_alter(array &$variables)
 {
-  foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-    if (isset($attr[0]["#attributes"])) {
-      $attr = $attr[0]["#attributes"];
-      if (isset($attr['name'])) {
-        if ($attr['name'] == 'keywords') {
-          //Вот эта гадость удаляет все мета кейвордс нафиг
-          unset($variables["#attached"]["html_head"][$key]);
-        }
-      }
-    }
-  }
-
-  $unset_html_head_link = [
-    'devel-load',
-    'devel-render',
-    'devel-definition',
-    'token-devel',
-  ];
-  foreach ($variables['#attached']['html_head_link'] as $key => $attr) {
-    if (isset($attr[0]['rel']) && in_array($attr[0]['rel'], $unset_html_head_link)) {
-      unset($variables['#attached']['html_head_link'][$key]);
-    }
-  }
-
-  foreach ($variables['#attached']['html_head'] as $key => $attr) {
-    if ($attr[1] == 'system_meta_generator') {
-      unset($variables['#attached']['html_head'][$key]);
-    }
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], 'qwerty')) {
-    header("HTTP/1.1 301 Moved Permanently");
-    header("Location: /");
-    exit();
-  }
-
-  if (\Drupal::request()->query->get('page')) {
     foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $page = (string )\Drupal::request()->query->get('page') + 1;
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] = $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] .
-              ' - страница ' . $page;
-          }
-        }
-      }
-    }
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/reviews/add')) {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Оставить отзыв о враче или услуге сети стоматологических клиник СТОМА.';
-          }
-        }
-      }
-    }
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/make-an-appointment')) {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Запись на прием к стоматологу в одну из 15 клиник в Санкт-Петербурге. Полный спектр стоматологических услуг: детская стоматология и для взрослых.';
-          }
-        }
-      }
-    }
-  }
-
-  if ($_SERVER['REQUEST_URI'] == '/reviews') {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Отзывы пациентов о стоматологических клиниках «СТОМА»';
-          }
-        }
-      }
-    }
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/portfolio')) {
-    if (!(\Drupal::request()->query->get('page'))) {
-      $page = 1;
-    } else {
-      $page = (string )\Drupal::request()->query->get('page') + 1;
-    }
-    $add = '';
-    if ($page > 1) {
-      $add = ' - страница ' . $page . '.';
-      foreach ($variables["#attached"]["html_head"] as $key => $attr) {
         if (isset($attr[0]["#attributes"])) {
-          $attr = $attr[0]["#attributes"];
-          if (isset($attr['name'])) {
-            if ($attr['name'] == 'description') {
-              $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-                'В данном разделе представлены результаты работы наших специалистов.' . $add;
+            $attr = $attr[0]["#attributes"];
+            if (isset($attr['name'])) {
+                if ($attr['name'] == 'keywords') {
+                    //Вот эта гадость удаляет все мета кейвордс нафиг
+                    unset($variables["#attached"]["html_head"][$key]);
+                }
             }
-          }
         }
-      }
     }
-  }
 
-  if (stristr($_SERVER['REQUEST_URI'], '/jobs')) {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Перечень открытых вакансий в клиниках «СТОМА»';
-          }
+    $unset_html_head_link = [
+      'devel-load',
+      'devel-render',
+      'devel-definition',
+      'token-devel',
+    ];
+    foreach ($variables['#attached']['html_head_link'] as $key => $attr) {
+        if (isset($attr[0]['rel']) && in_array($attr[0]['rel'], $unset_html_head_link)) {
+            unset($variables['#attached']['html_head_link'][$key]);
         }
-      }
     }
-  }
 
-  if (stristr($_SERVER['REQUEST_URI'], '/articles')) {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Полезные статьи и материалы о стоматологии от специалистов клиники «СТОМА»';
-          }
+    foreach ($variables['#attached']['html_head'] as $key => $attr) {
+        if ($attr[1] == 'system_meta_generator') {
+            unset($variables['#attached']['html_head'][$key]);
         }
-      }
     }
-  }
 
-  if (stristr($_SERVER['REQUEST_URI'], '/questions') && !stristr(
+    if (stristr($_SERVER['REQUEST_URI'], 'qwerty')) {
+        header("HTTP/1.1 301 Moved Permanently");
+        header("Location: /");
+        exit();
+    }
+
+    if (Drupal::request()->query->get('page')) {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $page = (string)(Drupal::request()->query->get('page') + 1);
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] = $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] .
+                          ' - страница ' . $page;
+                    }
+                }
+            }
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/reviews/add')) {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Оставить отзыв о враче или услуге сети стоматологических клиник СТОМА.';
+                    }
+                }
+            }
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/make-an-appointment')) {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Запись на прием к стоматологу в одну из 15 клиник в Санкт-Петербурге. Полный спектр стоматологических услуг: детская стоматология и для взрослых.';
+                    }
+                }
+            }
+        }
+    }
+
+    if ($_SERVER['REQUEST_URI'] == '/reviews') {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Отзывы пациентов о стоматологических клиниках «СТОМА»';
+                    }
+                }
+            }
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/portfolio')) {
+        if (!(Drupal::request()->query->get('page'))) {
+            $page = 1;
+        } else {
+            $page = (string)(Drupal::request()->query->get('page') + 1);
+        }
+        $add = '';
+        if ($page > 1) {
+            $add = ' - страница ' . $page . '.';
+            foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+                if (isset($attr[0]["#attributes"])) {
+                    $attr = $attr[0]["#attributes"];
+                    if (isset($attr['name'])) {
+                        if ($attr['name'] == 'description') {
+                            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                              'В данном разделе представлены результаты работы наших специалистов.' . $add;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/jobs')) {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Перечень открытых вакансий в клиниках «СТОМА»';
+                    }
+                }
+            }
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/articles')) {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Полезные статьи и материалы о стоматологии от специалистов клиники «СТОМА»';
+                    }
+                }
+            }
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/questions') && !stristr(
+        $_SERVER['REQUEST_URI'],
+        '/questions/'
+      )) {
+        if (!(Drupal::request()->query->get('page'))) {
+            $page = 1;
+        } else {
+            $page = (string)(Drupal::request()->query->get('page') + 1);
+        }
+        $add = '';
+        if ($page > 1) {
+            $add = ' Страница ' . $page . '.';
+        }
+        $request = Drupal::request();
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Раздел вопрос-ответ. Отвечаем на Ваши вопросы.' . $add;
+                    }
+                }
+            }
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/news') && !stristr(
+        $_SERVER['REQUEST_URI'],
+        '/news/post/'
+      )) {
+        if (!(Drupal::request()->query->get('page'))) {
+            $page = 1;
+        } else {
+            $page = (string)(Drupal::request()->query->get('page') + 1);
+        }
+        $add = '';
+        if ($page > 1) {
+            $add = ' - Страница ' . $page . '.';
+        }
+
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Новости стоматологических клиник «СТОМА». Узнать о жизни клиник.' . $add;;
+                    }
+                }
+            }
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/news/post/')) {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $current_desc = $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"];
+                        $cda = explode('|', $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"]);
+                        $cda[1] = ' Новости стоматологических клиник «СТОМА». Узнать о жизни клиник.';
+                        $newdesc = implode('|', $cda);
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] = $newdesc;
+                    }
+                }
+            }
+        }
+    }
+
+    if (stristr($_SERVER['REQUEST_URI'], '/akcii')) {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Действующие акции стоматологических клиник «СТОМА». Узнать о скидках и акциях. ✔Запись на прием';
+                    }
+                }
+            }
+        }
+    }
+
+    if (stristr(
       $_SERVER['REQUEST_URI'],
-      '/questions/'
+      '/news/post/novosti_sajta/pozdravlyaem_s_dnem_meditcinskogo_rabotnika'
     )) {
-    if (!(\Drupal::request()->query->get('page'))) {
-      $page = 1;
-    } else {
-      $page = (string )\Drupal::request()->query->get('page') + 1;
-    }
-    $add = '';
-    if ($page > 1) {
-      $add = ' Страница ' . $page . '.';
-    }
-    $request = \Drupal::request();
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Раздел вопрос-ответ. Отвечаем на Ваши вопросы.' . $add;
-          }
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Коллектив «СТОМА» от всей души поздравляет с днем медицинского работники';
+                    }
+                }
+            }
         }
-      }
-    }
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/news') && !stristr(
-      $_SERVER['REQUEST_URI'],
-      '/news/post/'
-    )) {
-    if (!(\Drupal::request()->query->get('page'))) {
-      $page = 1;
-    } else {
-      $page = (string )\Drupal::request()->query->get('page') + 1;
-    }
-    $add = '';
-    if ($page > 1) {
-      $add = ' - Страница ' . $page . '.';
     }
 
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Новости стоматологических клиник «СТОМА». Узнать о жизни клиник.' . $add;;
-          }
+    if (stristr($_SERVER['REQUEST_URI'], '/clinics/klinika-na-bogatyrskom')) {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Стоматологическая клиника «СТОМА» на Богатырском: адрес, фото, телефон и схема проезда. Режим работы и акции клиники. Звоните!';
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  if (stristr($_SERVER['REQUEST_URI'], '/news/post/')) {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $current_desc = $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"];
-            $cda = explode('|', $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"]);
-            $cda[1] = ' Новости стоматологических клиник «СТОМА». Узнать о жизни клиник.';
-            $newdesc = implode('|', $cda);
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] = $newdesc;
-          }
+    if (stristr($_SERVER['REQUEST_URI'], '/agreement')) {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Политика конфиденциальности и обработки персональных данных';
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  if (stristr($_SERVER['REQUEST_URI'], '/akcii')) {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Действующие акции стоматологических клиник «СТОМА». Узнать о скидках и акциях. ✔Запись на прием';
-          }
+    if ($_SERVER['REQUEST_URI'] == '/clinics') {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Стоматологические клиники «Стома» в Санкт-Петербурге – перечень клиник с адресами, телефонами и графиками работы.';
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  if (stristr(
-    $_SERVER['REQUEST_URI'],
-    '/news/post/novosti_sajta/pozdravlyaem_s_dnem_meditcinskogo_rabotnika'
-  )) {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Коллектив «СТОМА» от всей души поздравляет с днем медицинского работники';
-          }
+    if (stristr($_SERVER['REQUEST_URI'], '/sitemap')) {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Карта сайта';
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  if (stristr($_SERVER['REQUEST_URI'], '/clinics/klinika-na-bogatyrskom')) {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Стоматологическая клиника «СТОМА» на Богатырском: адрес, фото, телефон и схема проезда. Режим работы и акции клиники. Звоните!';
-          }
+    if (stristr($_SERVER['REQUEST_URI'], '/faq')) {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Ответы на часто задаваемые вопросы в стоматологических клиниках «Стома»';
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  if (stristr($_SERVER['REQUEST_URI'], '/agreement')) {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Политика конфиденциальности и обработки персональных данных';
-          }
+    if ($_SERVER['REQUEST_URI'] == '/portfolio') {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'В данном разделе представлены результаты работы наших специалистов.';
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  if ($_SERVER['REQUEST_URI'] == '/clinics') {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Стоматологические клиники «Стома» в Санкт-Петербурге – перечень клиник с адресами, телефонами и графиками работы.';
-          }
+    if ($_SERVER['REQUEST_URI'] == '/personal') {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Врачи-стоматологи клиник «СТОМА» - места работы и онлайн запись на прием.';
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  if (stristr($_SERVER['REQUEST_URI'], '/sitemap')) {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Карта сайта';
-          }
+    if ($_SERVER['REQUEST_URI'] == '/bolezni') {
+        foreach ($variables["#attached"]["html_head"] as $key => $attr) {
+            if (isset($attr[0]["#attributes"])) {
+                $attr = $attr[0]["#attributes"];
+                if (isset($attr['name'])) {
+                    if ($attr['name'] == 'description') {
+                        $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
+                          'Справочник стоматологических болезней, все о заболеваниях зубов, их симптомах, лечении и профилактике.';
+                    }
+                }
+            }
         }
-      }
     }
-  }
-
-  if (stristr($_SERVER['REQUEST_URI'], '/faq')) {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Ответы на часто задаваемые вопросы в стоматологических клиниках «Стома»';
-          }
-        }
-      }
-    }
-  }
-
-  if ($_SERVER['REQUEST_URI'] == '/portfolio') {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'В данном разделе представлены результаты работы наших специалистов.';
-          }
-        }
-      }
-    }
-  }
-
-  if ($_SERVER['REQUEST_URI'] == '/personal') {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Врачи-стоматологи клиник «СТОМА» - места работы и онлайн запись на прием.';
-          }
-        }
-      }
-    }
-  }
-
-  if ($_SERVER['REQUEST_URI'] == '/bolezni') {
-    foreach ($variables["#attached"]["html_head"] as $key => $attr) {
-      if (isset($attr[0]["#attributes"])) {
-        $attr = $attr[0]["#attributes"];
-        if (isset($attr['name'])) {
-          if ($attr['name'] == 'description') {
-            $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-              'Справочник стоматологических болезней, все о заболеваниях зубов, их симптомах, лечении и профилактике.';
-          }
-        }
-      }
-    }
-  }
 }
 
 /**
@@ -1108,53 +1105,49 @@ function my_theme_imagemagick_arguments_alter(
   \Drupal\imagemagick\ImagemagickExecArguments $arguments,
   $command
 ) {
-  # https://developers.google.com/speed/docs/insights/OptimizeImages
-  $arguments->addArgument('-sampling-factor 4:2:0');
-  # Progression JPEG and interlaced PNG's support.
-  $arguments->addArgument('-interlace Plane');
-  # Clean image for all unused data. EXIF etcetera.
-  $arguments->addArgument('-strip');
+    # https://developers.google.com/speed/docs/insights/OptimizeImages
+    $arguments->addArgument('-sampling-factor 4:2:0');
+    # Progression JPEG and interlaced PNG's support.
+    $arguments->addArgument('-interlace Plane');
+    # Clean image for all unused data. EXIF etcetera.
+    $arguments->addArgument('-strip');
 }
 
 function my_theme_form_alter(&$form, &$form_state, $form_id)
 {
-  if ($form_id == 'webform_submission_makeform_page_variant_make_appointment-panels_variant-0_add_form') {
-    //  $form['submitted']['skrytoe_pole']['#attributes']['value'] = 'http://' .$_SERVER['HTTP_HOST'] .$_SERVER['REQUEST_URI'];
-    //$form['submitted']['skrytoe_pole']['#attributes']['type'] = 'hidden';
-  }
-  $form['elements']['clinic']['#default_value'] = (string )\Drupal::request()->
-  query->get('title');
+    $form['elements']['clinic']['#default_value'] = (string)Drupal::request()->
+    query->get('title');
 }
 
 function my_theme_preprocess_node(&$variables)
 {
-  if (isset($variables["content"]["body"]) && isset($variables["content"]["body"][0])) {
-    $allContent = $variables["content"]["body"][0]["#text"];
-    preg_match_all('~<h(2)>(.*?)</h(2)>~', $allContent, $matches);
-    $cnt_a = 0;
-    $cnt_h2 = 0;
-    $content = '';
-    if (preg_match('~<h(2)>(.*?)</h(2)>~', $allContent)) {
-      $content .= "<div class='ContentH2'>Содержание</div>";
+    if (isset($variables['content']['body']) && isset($variables['content']['body'][0])) {
+        $allContent = $variables['content']['body'][0]['#text'];
+        preg_match_all('~<h(2)>(.*?)</h(2)>~', $allContent, $matches);
+        $cnt_a = 0;
+        $cnt_h2 = 0;
+        $content = '';
+        if (preg_match('~<h(2)>(.*?)</h(2)>~', $allContent)) {
+            $content .= "<div class='ContentH2'>Содержание</div>";
+        }
+        $content .= '<ul>';
+        for ($i = 0; $i < count($matches[0]); $i++) {
+            $content .= '<li><a href="#a' . $cnt_a++ . '">' . $matches[2][$i] . '</a></li>' .
+              "\n";
+            $allContent = str_replace(
+              $matches[0][$i],
+              '<h' . $matches[1][$i] . ' id="a' . $cnt_h2++ .
+              '">' . $matches[2][$i] . '</h' . $matches[1][$i] . '>',
+              $allContent
+            );
+        }
+        $allContent = str_replace(
+          '<h2 id="a1">',
+          '<div class="redButArt"><a href="/form/zadat-vopros" class="use-ajax button_red" data-dialog-options=\'{"width":"500px","minHeight":"500px","dialogClass":"popupDialog"}\' data-dialog-type="modal">Задать вопрос</a></div><h2 id="a1">',
+          $allContent
+        );
+        $content .= '</ul>';
+        $variables['contenth2'] = $content;
+        $variables['content']['body'][0]['#text'] = $allContent;
     }
-    $content .= "<ul>";
-    for ($i = 0; $i < count($matches[0]); $i++) {
-      $content .= '<li><a href="#a' . $cnt_a++ . '">' . $matches[2][$i] . '</a></li>' .
-        "\n";
-      $allContent = str_replace(
-        $matches[0][$i],
-        '<h' . $matches[1][$i] . ' id="a' . $cnt_h2++ .
-        '">' . $matches[2][$i] . '</h' . $matches[1][$i] . '>',
-        $allContent
-      );
-    }
-    $allContent = str_replace(
-      '<h2 id="a1">',
-      '<div class="redButArt"><a href="/form/zadat-vopros" class="use-ajax button_red" data-dialog-options=\'{"width":"500px","minHeight":"500px","dialogClass":"popupDialog"}\' data-dialog-type="modal">Задать вопрос</a></div><h2 id="a1">',
-      $allContent
-    );
-    $content .= "</ul>";
-    $variables['contenth2'] = $content;
-    $variables["content"]["body"][0]["#text"] = $allContent;
-  }
 }
