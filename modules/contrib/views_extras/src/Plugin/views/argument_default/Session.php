@@ -86,9 +86,9 @@ class Session extends ArgumentDefaultPluginBase implements CacheableDependencyIn
    */
   protected function defineOptions() {
     $options = parent::defineOptions();
-    $options['session_key'] = array('default' => '');
-    $options['fallback_value'] = array('default' => FALSE);
-    $options['cache_time'] = array('default' => -1);
+    $options['session_key'] = ['default' => ''];
+    $options['fallback_value'] = ['default' => FALSE];
+    $options['cache_time'] = ['default' => -1];
     return $options;
   }
 
@@ -97,31 +97,31 @@ class Session extends ArgumentDefaultPluginBase implements CacheableDependencyIn
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
-    $form['session_key'] = array(
+    $form['session_key'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Session variable key'),
       '#default_value' => $this->options['session_key'],
       '#description' => $this->t('Keys of SESSION variable seperated by ::, e.g. for $_SESSION["key1"]["key2"], the key would be "key1::key2".'),
-    );
-    $form['fallback_value'] = array(
+    ];
+    $form['fallback_value'] = [
       '#type' => 'textfield',
       '#title' => $this->t('If session variable is not set, what should be the fallback value.'),
       '#default_value' => $this->options['fallback_value'],
       '#description' => $this->t('You may use user tokens.'),
-    );
+    ];
     if ($this->moduleHandler->moduleExists("token")) {
-      $form['token_help'] = array(
+      $form['token_help'] = [
         '#type' => 'markup',
-        '#token_types' => array('user'),
+        '#token_types' => ['user'],
         '#theme' => 'token_tree_link',
-      );
+      ];
     }
-    $form['cache_time'] = array(
+    $form['cache_time'] = [
       '#type' => 'number',
       '#title' => $this->t('Cache Maximum Age.'),
       '#default_value' => $this->options['cache_time'],
       '#description' => $this->t('If session variable changes in between session set it to 0.'),
-    );
+    ];
   }
 
   /**
@@ -134,9 +134,12 @@ class Session extends ArgumentDefaultPluginBase implements CacheableDependencyIn
         return $value;
       }
     }
-    elseif (!empty($value = $this->options['fallback_value'])) {
+
+    if (!empty($value = $this->options['fallback_value'])) {
       return $this->token->replace($value, ['user' => $this->current_user]);
     }
+
+    return $value;
   }
 
   /**

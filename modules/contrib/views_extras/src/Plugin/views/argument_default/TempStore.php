@@ -2,7 +2,6 @@
 
 namespace Drupal\views_extras\Plugin\views\argument_default;
 
-use Drupal\Core\Cache\Cache;
 use Drupal\Core\Cache\CacheableDependencyInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -10,6 +9,7 @@ use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Utility\Token;
 use Drupal\views\Plugin\views\argument_default\ArgumentDefaultPluginBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\TempStore\PrivateTempStoreFactory;
 
 /**
  * Default argument plugin to use the raw value from the URL.
@@ -17,18 +17,18 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @ingroup views_argument_default_plugins
  *
  * @ViewsArgumentDefault(
- *   id = "cookie",
- *   title = @Translation("Cookie variable from cookie")
+ *   id = "tempstore",
+ *   title = @Translation("TempStore varibale")
  * )
  */
-class Cookie extends ArgumentDefaultPluginBase implements CacheableDependencyInterface {
+class TempStore extends ArgumentDefaultPluginBase implements CacheableDependencyInterface {
 
   /**
-   * The current path.
+   * The current user.
    *
    * @var \Drupal\Core\Session\AccountProxyInterface
    */
-  protected $current_user;
+  protected $currentUser;
 
   /**
    * Module Handler.
@@ -45,6 +45,13 @@ class Cookie extends ArgumentDefaultPluginBase implements CacheableDependencyInt
   protected $token;
 
   /**
+   * Token Handler.
+   *
+   * @var \Drupal\Core\TempStore\PrivateTempStoreFactory
+   */
+  protected $tempStoreFactory;
+
+  /**
    * Constructs a Raw object.
    *
    * @param array $configuration
@@ -57,15 +64,17 @@ class Cookie extends ArgumentDefaultPluginBase implements CacheableDependencyInt
    *   The current user.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler
    *   The module handler.
-   * @param \Drupal\Core\Utility\Token
+   * @param \Drupal\Core\Utility\Token $token
    *   The token service.
+   * @param \Drupal\Core\TempStore\PrivateTempStoreFactory $temp_store_factory
+   *   The tempStore Service.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, AccountProxyInterface $current_user, ModuleHandlerInterface $moduleHandler, Token $token) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, AccountProxyInterface $currentUser, ModuleHandlerInterface $moduleHandler, Token $token, PrivateTempStoreFactory $temp_store_factory) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-
-    $this->current_user = $current_user;
+    $this->currentUser = $currentUser;
     $this->moduleHandler = $moduleHandler;
     $this->token = $token;
+    $this->tempStoreFactory = $temp_store_factory;
   }
 
   /**
@@ -78,7 +87,8 @@ class Cookie extends ArgumentDefaultPluginBase implements CacheableDependencyInt
       $plugin_definition,
       $container->get('current_user'),
       $container->get('module_handler'),
-      $container->get('token')
+      $container->get('token'),
+      $container->get('tempstore.private')
     );
   }
 
@@ -87,9 +97,10 @@ class Cookie extends ArgumentDefaultPluginBase implements CacheableDependencyInt
    */
   protected function defineOptions() {
     $options = parent::defineOptions();
-    $options['cookie_key'] = ['default' => ''];
+    $options['tempStore_unique_name'] = ['default' => ''];
+    $options['tempStore_key'] = ['default' => ''];
     $options['fallback_value'] = ['default' => FALSE];
-
+    $options['cache_time'] = ['default' => -1];
     return $options;
   }
 
@@ -98,15 +109,21 @@ class Cookie extends ArgumentDefaultPluginBase implements CacheableDependencyInt
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
-    $form['cookie_key'] = [
+    $form['tempStore_unique_name'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Cookie variable key'),
-      '#default_value' => $this->options['cookie_key'],
-      '#description' => $this->t('Key of Cookie variable, e.g. for $_COOKIE["key"], the key would be "key".'),
+      '#title' => $this->t('Unique Name'),
+      '#default_value' => $this->options['tempStore_unique_name'],
+      '#description' => $this->t('Unique namespace, used while setting the tempStore'),
+    ];
+    $form['tempStore_key'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('TempStore key'),
+      '#default_value' => $this->options['tempStore_key'],
+      '#description' => $this->t('Keys of tempStore variable'),
     ];
     $form['fallback_value'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('If cookie variable is not set, what should be the fallback value.'),
+      '#title' => $this->t('If tempStore is not set, what should be the fallback value.'),
       '#default_value' => $this->options['fallback_value'],
       '#description' => $this->t('You may use user tokens.'),
     ];
@@ -117,37 +134,38 @@ class Cookie extends ArgumentDefaultPluginBase implements CacheableDependencyInt
         '#theme' => 'token_tree_link',
       ];
     }
+    $form['cache_time'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Cache Maximum Age.'),
+      '#default_value' => $this->options['cache_time'],
+      '#description' => $this->t('If tempStore value changes set it to 0.'),
+    ];
   }
 
   /**
    * {@inheritdoc}
    */
   public function getArgument() {
-    if (!empty($key = $this->options['cookie_key']) && !empty($_COOKIE['Drupal_visitor_' . $key])) {
-      return $_COOKIE['Drupal_visitor_' . $key];
+    if (!empty($key = $this->options['tempStore_key'])) {
+      return $this->tempStoreFactory->get($this->options['tempStore_unique_name'])->get($this->options['tempStore_key']);
     }
-
-    if (!empty($value = $this->options['fallback_value'])) {
-      return $this->token->replace($value, ['user' => $this->current_user]);
+    elseif (!empty($value = $this->options['fallback_value'])) {
+      return $this->token->replace($value, ['user' => $this->currentUser]);
     }
-
-    return $value;
   }
 
   /**
    * {@inheritdoc}
    */
   public function getCacheMaxAge() {
-    return Cache::PERMANENT;
+    return (int) $this->options['cache_time'];
   }
 
   /**
    * {@inheritdoc}
    */
   public function getCacheContexts() {
-    $cookie = $this->options['cookie_key'];
-    $cookie = 'Drupal_visitor_' . $cookie;
-    return ['cookies:' . $cookie];
+    return ['session'];
   }
 
 }

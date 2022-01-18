@@ -53,8 +53,10 @@ CONFIGURATION
 
 
 * Cookie variable from cookie
-    * Cookie variable key: Key of COOKIE variable, e.g. for $_COOKIE["key"],
+    * Cookie variable key: Key of COOKIE variable, e.g. for $_COOKIE["Drupal_visitor_key"],
     the key would be "key".
+    Why we are appending prefix "Drupal_visitor"?
+    Reference: https://api.drupal.org/api/drupal/core%21modules%21user%21user.module/function/user_cookie_save/8.5.x
 
     * Fallback value: If cookie variable is not set, what should be the fallback
     value. User tokens are supported.
