@@ -1,11 +1,7 @@
 <?php
 
-/**
- * @file
- * Contains the \Drupal\display_fields\MetatagToken class.
- */
-
 namespace Drupal\views_argument_token;
+
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Utility\Token;
 
@@ -29,7 +25,7 @@ class BrowseTokens {
   protected $coreToken;
 
   /**
-   * Constructs a new MetatagToken object.
+   * Constructs a new BrowseTokens object.
    *
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   Module handler service.
@@ -44,12 +40,11 @@ class BrowseTokens {
   /**
    * Gatekeeper function to direct to either the core or contributed Token.
    *
-   * @param $string
-   * @param $data
-   * @param array $settings
-   * @return mixed|string $string
+   * {@inheritdoc}
+   *
+   * @todo: update with latest info from token modules.
    */
-  public function tokenReplace($string, $data, $settings = array()){
+  public function tokenReplace($string, $data, $settings = []) {
     if ($this->moduleHandler->moduleExists('token')) {
       return $this->contribReplace($string, $data, $settings);
     }
@@ -66,14 +61,14 @@ class BrowseTokens {
    *   only the help text.
    */
   public function tokenBrowser() {
-    $form = array();
+    $form = [];
 
-    $form['intro_text'] = array(
-      '#markup' => '<p>' . t('Configure the Token arguement. Use tokens to avoid redundant data. For example, a \'keyword\' value of "example" will be shown on all content using this configuration, whereas using the [node:title] automatically inserts the "keywords" values from the current entity (node, term, etc).') . '</p>',
-    );
+    $form['intro_text'] = [
+      '#markup' => '<p>' . t('Configure the Token argument. Use tokens to avoid redundant data. For example, a \'keyword\' value of "example" will be shown on all content using this configuration, whereas using the [node:title] automatically inserts the "keywords" values from the current entity (node, term, etc).') . '</p>',
+    ];
 
     if ($this->moduleHandler->moduleExists('token')) {
-      $form['tokens'] = array(
+      $form['tokens'] = [
         '#theme' => 'token_tree_link',
         '#token_types' => 'all',
         '#global_types' => TRUE,
@@ -81,9 +76,8 @@ class BrowseTokens {
         '#show_restricted' => FALSE,
         '#recursion_limit' => 3,
         '#text' => t('Browse available tokens'),
-      );
+      ];
     }
-
 
     return $form;
   }
@@ -91,22 +85,19 @@ class BrowseTokens {
   /**
    * Replace tokens with their values using the core token service.
    *
-   * @param $string
-   * @param $data
-   * @param array $settings
-   * @return mixed|string
+   * {@inheritdoc}
+   *
+   * @todo: update with latest info from token modules.
    */
-  private function coreReplace($string, $data, $settings = array()) {
-    // @TODO: Remove this temp code.
-    // This is just here as a way to see all available tokens in debugger.
-    $tokens = $this->coreToken->getInfo();
+  private function coreReplace($string, $data, $settings = []) {
 
-    $options = array('clear' => TRUE);
+    $options = ['clear' => TRUE];
 
     // Replace tokens with core Token service.
     $replaced = $this->coreToken->replace($string, $data, $options);
 
-    // Ensure that there are no double-slash sequences due to empty token values.
+    // Ensure that there are no double-slash sequences due to empty token
+    // values.
     $replaced = preg_replace('/(?<!:)\/+\//', '/', $replaced);
 
     return $replaced;
@@ -115,12 +106,11 @@ class BrowseTokens {
   /**
    * Replace tokens with their values using the contributed token module.
    *
-   * @param $string
-   * @param $data
-   * @param array $settings
-   * @return mixed|string
+   * {@inheritdoc}
+   *
+   * @todo: update with latest info from token modules.
    */
-  private function contribReplace($string, $data, $settings = array()) {
+  private function contribReplace($string, $data, $settings = []) {
     // @TODO: Add contrib Token integration when it is ready.
     // For now, just redirect to the core replacement to avoid breaking sites
     // where Token is installed.
