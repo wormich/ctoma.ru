@@ -608,26 +608,25 @@ function my_theme_preprocess_html(&$variables)
                             preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $body, $regexImg);
                             $firstImgScr = array_pop($regexImg);
                             if (!empty($firstImgScr)) {
-                                $og_image = array(
+                                $og_image = [
                                   '#tag' => 'meta',
-                                  '#attributes' => array(
+                                  '#attributes' => [
                                     'property' => 'og:image',
                                     'content' => 'https://ctoma.ru' .
                                       $firstImgScr
-                                  ),
-                                );
-                                $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
+                                  ],
+                                ];
                             } else {
-                                $og_image = array(
+                                $og_image = [
                                   '#tag' => 'meta',
-                                  '#attributes' => array(
+                                  '#attributes' => [
                                     'property' => 'og:image',
                                     'content' =>
                                       'https://ctoma.ru/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg'
-                                  ),
-                                );
-                                $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
+                                  ],
+                                ];
                             }
+                            $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
                         }
                     }
                     /* проверка на наличие изображения в контенте конец */
@@ -655,36 +654,36 @@ function my_theme_preprocess_html(&$variables)
 
                 if (isset($attr['name'])) {
                     if ($meta_title) {
-                        $og_title = array(
+                        $og_title = [
                           '#tag' => 'meta',
-                          '#attributes' => array('property' => 'og:title', 'content' => $meta_title),
-                        );
+                          '#attributes' => ['property' => 'og:title', 'content' => $meta_title],
+                        ];
                         $variables['page']['#attached']['html_head'][] = [$og_title, 'og_title'];
                     }
                     if ($attr['name'] == 'description') {
-                        $og_description = array(
+                        $og_description = [
                           '#tag' => 'meta',
-                          '#attributes' => array('property' => 'og:description', 'content' => $attr['content']),
-                        );
+                          '#attributes' => ['property' => 'og:description', 'content' => $attr['content']],
+                        ];
                         $variables['page']['#attached']['html_head'][] = [
                           $og_description,
                           'og_description'
                         ];
                     }
                 }
-                $og_type = array(
+                $og_type = [
                   '#tag' => 'meta',
-                  '#attributes' => array('property' => 'og:type', 'content' => 'article'),
-                );
+                  '#attributes' => ['property' => 'og:type', 'content' => 'article'],
+                ];
                 $variables['page']['#attached']['html_head'][] = [$og_type, 'og_type'];
-                $og_url = array(
+                $og_url = [
                   '#tag' => 'meta',
-                  '#attributes' => array(
+                  '#attributes' => [
                     'property' => 'og:url',
                     'content' => 'https://ctoma.ru' .
                       $_SERVER['REQUEST_URI']
-                  ),
-                );
+                  ],
+                ];
                 $variables['page']['#attached']['html_head'][] = [$og_url, 'og_url'];
                 /* проверка на наличие изображения в контенте начало */
                 $requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
@@ -696,24 +695,24 @@ function my_theme_preprocess_html(&$variables)
                         preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $body, $regexImg);
                         $firstImgScr = array_pop($regexImg);
                         if (!empty($firstImgScr)) {
-                            $og_image = array(
+                            $og_image = [
                               '#tag' => 'meta',
-                              '#attributes' => array(
+                              '#attributes' => [
                                 'property' => 'og:image',
                                 'content' => 'https://ctoma.ru' .
                                   $firstImgScr
-                              ),
-                            );
+                              ],
+                            ];
                             $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
                         } else {
-                            $og_image = array(
+                            $og_image = [
                               '#tag' => 'meta',
-                              '#attributes' => array(
+                              '#attributes' => [
                                 'property' => 'og:image',
                                 'content' =>
                                   'https://ctoma.ru/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg'
-                              ),
-                            );
+                              ],
+                            ];
                             $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
                         }
                     }
@@ -930,7 +929,7 @@ function my_theme_page_attachments_alter(array &$variables)
                 if (isset($attr['name'])) {
                     if ($attr['name'] == 'description') {
                         $variables["#attached"]["html_head"][$key][0]["#attributes"]["content"] =
-                          'Новости стоматологических клиник «СТОМА». Узнать о жизни клиник.' . $add;;
+                          'Новости стоматологических клиник «СТОМА». Узнать о жизни клиник.' . $add;
                     }
                 }
             }
