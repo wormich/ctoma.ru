@@ -428,12 +428,14 @@
 
 
     function sayHi() {
+        if(window.location.hash.replace('#', '')) {
             var elem = jQuery('#' + window.location.hash.replace('#', ''));
-    if(elem) {
-   jQuery('html, body').animate({
-              scrollTop:  elem.offset().top
-            }, 600);
-    }
+            if(elem) {
+                jQuery('html, body').animate({
+                    scrollTop:  elem.offset().top
+                }, 600);
+            }
+        }
 }
 
 

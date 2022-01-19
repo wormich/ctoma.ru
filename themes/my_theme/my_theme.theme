@@ -307,11 +307,6 @@ function my_theme_preprocess_html(&$variables)
           'Карта сайта';
     }
 
-    if (Drupal::request()->query->get('page')) {
-        $variables["head_title_array"]["pagination"] = Drupal::request()->query->get('page') +
-          1;
-    }
-
     if (stristr($_SERVER['REQUEST_URI'], 'form') && stristr(
         $_SERVER['REQUEST_URI'],
         'doctor_nid'
@@ -325,17 +320,6 @@ function my_theme_preprocess_html(&$variables)
           ],
         ];
         $variables['page']['#attached']['html_head'][] = [$noindex, 'noindex'];
-    }
-
-    if (stristr($_SERVER['REQUEST_URI'], '/form/zapisatsa-po-akcii?action_nid')) {
-        $noindexfollow = [
-          '#tag' => 'meta',
-          '#attributes' => [
-            'name' => 'robots',
-            'content' => 'noindex, follow',
-          ],
-        ];
-        $variables['page']['#attached']['html_head'][] = [$noindexfollow, 'robots'];
     }
 
     if (stristr($_SERVER['REQUEST_URI'], '?field_mesta_raboty_target_i')) {
@@ -363,73 +347,10 @@ function my_theme_preprocess_html(&$variables)
         $variables['page']['#attached']['html_head'][] = [$noindexfollow, 'robots'];
     }
 
-    if (stristr($_SERVER['REQUEST_URI'], '/form/zapisatsa-k-vracu?doctor_nid')) {
-        $noindexfollow = [
-          '#tag' => 'meta',
-          '#attributes' => [
-            'name' => 'robots',
-            'content' => 'noindex, follow'
-          ],
-        ];
-        $variables['page']['#attached']['html_head'][] = [$noindexfollow, 'robots'];
-    }
-
-    if ($_SERVER['REQUEST_URI'] == '/articles?page=0') {
-        $canUrl = 'https://ctoma.ru/articles';
-        $xuacompatible = [
-          '#tag' => 'link',
-          '#attributes' => [
-            'rel' => 'canonical',
-            'href' => $canUrl,
-          ],
-        ];
-        $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
-    }
-
-    if (stristr($_SERVER['REQUEST_URI'], 'articles')) {
-        if (Drupal::request()->query->get('page')) {
-            $canUrl = 'https://ctoma.ru/articles';
-            $xuacompatible = [
-              '#tag' => 'link',
-              '#attributes' => [
-                'rel' => 'canonical',
-                'href' => $canUrl,
-              ],
-            ];
-            $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
-        }
-    }
-
-    if ($_SERVER['REQUEST_URI'] == '/reviews?%2Freviews=&page=0') {
-        $canUrl = 'https://ctoma.ru/reviews';
-        $xuacompatible = [
-          '#tag' => 'link',
-          '#attributes' => [
-            'rel' => 'canonical',
-            'href' => $canUrl,
-          ],
-        ];
-        $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
-    }
-
-    if (stristr($_SERVER['REQUEST_URI'], 'portfolio')) {
-        if ($_SERVER['REQUEST_URI'] == '/portfolio?page=0') {
-            $canUrl = 'https://ctoma.ru/portfolio';
-            $xuacompatible = [
-              '#tag' => 'link',
-              '#attributes' => [
-                'rel' => 'canonical',
-                'href' => $canUrl,
-              ],
-            ];
-            $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
-        }
-    }
-
     if (stristr($_SERVER['REQUEST_URI'], 'reviews')) {
         $add = '';
         if (Drupal::request()->query->get('page')) {
-            $page = (string )Drupal::request()->query->get('page');
+            $page = (string)Drupal::request()->query->get('page');
             $add = '?page=' . $page;
         }
         if (Drupal::request()->query->get('page_12')) {
@@ -441,18 +362,6 @@ function my_theme_preprocess_html(&$variables)
             header("HTTP/1.1 301 Moved Permanently");
             header("Location: https://ctoma.ru/reviews" . $add);
             exit;
-        }
-        if (Drupal::request()->query->get('page')) {
-            $page = (string )Drupal::request()->query->get('page');
-            $canUrl = 'https://ctoma.ru/reviews?page=';
-            $xuacompatible = [
-              '#tag' => 'link',
-              '#attributes' => [
-                'rel' => 'canonical',
-                'href' => $canUrl . $page,
-              ],
-            ];
-            $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
         }
     }
 
@@ -466,18 +375,6 @@ function my_theme_preprocess_html(&$variables)
             header("HTTP/1.1 301 Moved Permanently");
             header("Location: https://ctoma.ru/questions");
             exit;
-        }
-        if (Drupal::request()->query->get('page')) {
-            $page = (string )Drupal::request()->query->get('page');
-            $canUrl = 'https://ctoma.ru/questions?page=';
-            $xuacompatible = [
-              '#tag' => 'link',
-              '#attributes' => [
-                'rel' => 'canonical',
-                'href' => $canUrl . $page,
-              ],
-            ];
-            $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'canonical'];
         }
     }
 
@@ -493,47 +390,16 @@ function my_theme_preprocess_html(&$variables)
         $variables['page']['#attached']['html_head'][] = [$xuacompatible2, 'canonical'];
     }
 
-    if ($_SERVER['REQUEST_URI'] == '/akcii?page=0') {
-        $canAc = 'https://ctoma.ru/akcii';
-        $akciiCan = [
-          '#tag' => 'link',
-          '#attributes' => [
-            'rel' => 'canonical',
-            'href' =>
-              $canAc,
-          ],
-        ];
-        $variables['page']['#attached']['html_head'][] = [$akciiCan, 'canonical'];
-    }
-
-    if ($_SERVER['REQUEST_URI'] == '/news?page=0') {
-        $canAc = 'https://ctoma.ru/news';
-        $akciiCan = [
-          '#tag' => 'link',
-          '#attributes' => [
-            'rel' => 'canonical',
-            'href' =>
-              $canAc,
-          ],
-        ];
-        $variables['page']['#attached']['html_head'][] = [$akciiCan, 'canonical'];
-    }
-
-    if ($_SERVER['REQUEST_URI'] == '/questions?page=0') {
-        $canAc = 'https://ctoma.ru/questions';
-        $akciiCan = [
-          '#tag' => 'link',
-          '#attributes' => [
-            'rel' => 'canonical',
-            'href' =>
-              $canAc,
-          ],
-        ];
-        $variables['page']['#attached']['html_head'][] = [$akciiCan, 'canonical'];
-    }
-
-    if ($_SERVER['REQUEST_URI'] == '/reviews?page=0') {
-        $canAc = 'https://ctoma.ru/reviews';
+    $url = parse_url($_SERVER["REQUEST_URI"]);
+    if (Drupal::request()->query->get('page')) {
+        $variables["head_title_array"]["pagination"] = Drupal::request()->query->get('page') +
+          1;
+        if (stristr($url['query'], 'page=0')) {
+            $canAc = 'https://' . $_SERVER['HTTP_HOST'] . $url['path'];
+        } else {
+            $page = (string)Drupal::request()->query->get('page');
+            $canAc = 'https://' . $_SERVER['HTTP_HOST'] . $url['path'] . '?page=' . $page;
+        }
         $akciiCan = [
           '#tag' => 'link',
           '#attributes' => [
@@ -546,180 +412,7 @@ function my_theme_preprocess_html(&$variables)
     }
 
     if (stristr($_SERVER['REQUEST_URI'], 'bolezni')) {
-        $url = $_SERVER['REQUEST_URI'];
-        $path = parse_url($url, PHP_URL_PATH);
-        $result = explode("/", trim($path, "/"));
-        $cnt = count($result);
-        if ($cnt > 1) {
-            foreach ($variables['page']['#attached']['html_head'] as $key => $attr) {
-                if (isset($attr[0]["#attributes"])) {
-                    $attr = $attr[0]["#attributes"];
-                    //Достаем мета теги
-                    $node = Drupal::request()->attributes->get('node');
-                    $meta_title = false;
-                    if (isset($node)) {
-                        $met = $node->get('field_meta_tags')->getValue();
-                        $met_ar = unserialize($met[0]['value']);
-                        if (isset($met_ar['title'])) {
-                            $meta_title = $met_ar['title'];
-                        }
-                    }
-                    //Достаем мета теги
-                    if (isset($attr['name'])) {
-                        if ($meta_title) {
-                            $og_title = [
-                              '#tag' => 'meta',
-                              '#attributes' => ['property' => 'og:title', 'content' => $meta_title],
-                            ];
-                            $variables['page']['#attached']['html_head'][] = [$og_title, 'og_title'];
-                        }
-                        if ($attr['name'] == 'description') {
-                            $og_description = [
-                              '#tag' => 'meta',
-                              '#attributes' => ['property' => 'og:description', 'content' => $attr['content']],
-                            ];
-                            $variables['page']['#attached']['html_head'][] = [
-                              $og_description,
-                              'og_description'
-                            ];
-                        }
-                    }
-                    $og_type = [
-                      '#tag' => 'meta',
-                      '#attributes' => ['property' => 'og:type', 'content' => 'article'],
-                    ];
-                    $variables['page']['#attached']['html_head'][] = [$og_type, 'og_type'];
-                    $og_url = [
-                      '#tag' => 'meta',
-                      '#attributes' => [
-                        'property' => 'og:url',
-                        'content' => 'https://ctoma.ru' .
-                          $_SERVER['REQUEST_URI']
-                      ],
-                    ];
-                    $variables['page']['#attached']['html_head'][] = [$og_url, 'og_url'];
-                    /* проверка на наличие изображения в контенте начало */
-                    $requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-                    $path = Drupal::service('path_alias.manager')->getPathByAlias($requestUri);
-                    if (preg_match('/node\/(\d+)/', $path, $matches)) {
-                        $str = Drupal::entityTypeManager()->getStorage('node')->load((int)$matches[1]);
-                        if ($str->body->value) {
-                            $body = $str->body->value;
-                            preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $body, $regexImg);
-                            $firstImgScr = array_pop($regexImg);
-                            if (!empty($firstImgScr)) {
-                                $og_image = [
-                                  '#tag' => 'meta',
-                                  '#attributes' => [
-                                    'property' => 'og:image',
-                                    'content' => 'https://ctoma.ru' .
-                                      $firstImgScr
-                                  ],
-                                ];
-                            } else {
-                                $og_image = [
-                                  '#tag' => 'meta',
-                                  '#attributes' => [
-                                    'property' => 'og:image',
-                                    'content' =>
-                                      'https://ctoma.ru/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg'
-                                  ],
-                                ];
-                            }
-                            $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
-                        }
-                    }
-                    /* проверка на наличие изображения в контенте конец */
-                }
-            }
-        }
-    }
-
-    if (stristr($_SERVER['REQUEST_URI'], 'stati')) {
-        foreach ($variables['page']['#attached']['html_head'] as $key => $attr) {
-            if (isset($attr[0]["#attributes"])) {
-                $attr = $attr[0]["#attributes"];
-                //Достаем мета теги
-                $nid = Drupal::request()->attributes->get('node');
-                $meta_title = false;
-                $node = Drupal::entityTypeManager()->getStorage('node')->load($nid);
-                if (isset($node)) {
-                    $met = $node->get('field_meta_tags')->getValue();
-                    $met_ar = unserialize($met[0]['value']);
-                    if (isset($met_ar['title'])) {
-                        $meta_title = $met_ar['title'];
-                    }
-                }
-                //Достаем мета теги
-
-                if (isset($attr['name'])) {
-                    if ($meta_title) {
-                        $og_title = [
-                          '#tag' => 'meta',
-                          '#attributes' => ['property' => 'og:title', 'content' => $meta_title],
-                        ];
-                        $variables['page']['#attached']['html_head'][] = [$og_title, 'og_title'];
-                    }
-                    if ($attr['name'] == 'description') {
-                        $og_description = [
-                          '#tag' => 'meta',
-                          '#attributes' => ['property' => 'og:description', 'content' => $attr['content']],
-                        ];
-                        $variables['page']['#attached']['html_head'][] = [
-                          $og_description,
-                          'og_description'
-                        ];
-                    }
-                }
-                $og_type = [
-                  '#tag' => 'meta',
-                  '#attributes' => ['property' => 'og:type', 'content' => 'article'],
-                ];
-                $variables['page']['#attached']['html_head'][] = [$og_type, 'og_type'];
-                $og_url = [
-                  '#tag' => 'meta',
-                  '#attributes' => [
-                    'property' => 'og:url',
-                    'content' => 'https://ctoma.ru' .
-                      $_SERVER['REQUEST_URI']
-                  ],
-                ];
-                $variables['page']['#attached']['html_head'][] = [$og_url, 'og_url'];
-                /* проверка на наличие изображения в контенте начало */
-                $requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-                $path = Drupal::service('path_alias.manager')->getPathByAlias($requestUri);
-                if (preg_match('/node\/(\d+)/', $path, $matches)) {
-                    $str = Drupal::entityTypeManager()->getStorage('node')->load((int)$matches[1]);
-                    if ($str->body->value) {
-                        $body = $str->body->value;
-                        preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $body, $regexImg);
-                        $firstImgScr = array_pop($regexImg);
-                        if (!empty($firstImgScr)) {
-                            $og_image = [
-                              '#tag' => 'meta',
-                              '#attributes' => [
-                                'property' => 'og:image',
-                                'content' => 'https://ctoma.ru' .
-                                  $firstImgScr
-                              ],
-                            ];
-                            $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
-                        } else {
-                            $og_image = [
-                              '#tag' => 'meta',
-                              '#attributes' => [
-                                'property' => 'og:image',
-                                'content' =>
-                                  'https://ctoma.ru/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg'
-                              ],
-                            ];
-                            $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
-                        }
-                    }
-                }
-                /* проверка на наличие изображения в контенте конец */
-            }
-        }
+        replaceMeta($variables);
     }
 
     /*Убираем каноникл если он дублирует текущий УРЛ 26.02.2020*/
@@ -1148,5 +841,90 @@ function my_theme_preprocess_node(&$variables)
         $content .= '</ul>';
         $variables['contenth2'] = $content;
         $variables['content']['body'][0]['#text'] = $allContent;
+    }
+}
+
+function replaceMeta(&$variables)
+{
+    foreach ($variables['page']['#attached']['html_head'] as $key => $attr) {
+        if (isset($attr[0]["#attributes"])) {
+            $attr = $attr[0]["#attributes"];
+            //Достаем мета теги
+            $node = Drupal::request()->attributes->get('node');
+            $meta_title = false;
+            if (isset($node)) {
+                $met = $node->get('field_meta_tags')->getValue();
+                $met_ar = unserialize($met[0]['value']);
+                if (isset($met_ar['title'])) {
+                    $meta_title = $met_ar['title'];
+                }
+            }
+            //Достаем мета теги
+            if (isset($attr['name'])) {
+                if ($meta_title) {
+                    $og_title = [
+                      '#tag' => 'meta',
+                      '#attributes' => ['property' => 'og:title', 'content' => $meta_title],
+                    ];
+                    $variables['page']['#attached']['html_head'][] = [$og_title, 'og_title'];
+                }
+                if ($attr['name'] == 'description') {
+                    $og_description = [
+                      '#tag' => 'meta',
+                      '#attributes' => ['property' => 'og:description', 'content' => $attr['content']],
+                    ];
+                    $variables['page']['#attached']['html_head'][] = [
+                      $og_description,
+                      'og_description'
+                    ];
+                }
+            }
+            $og_type = [
+              '#tag' => 'meta',
+              '#attributes' => ['property' => 'og:type', 'content' => 'article'],
+            ];
+            $variables['page']['#attached']['html_head'][] = [$og_type, 'og_type'];
+            $og_url = [
+              '#tag' => 'meta',
+              '#attributes' => [
+                'property' => 'og:url',
+                'content' => 'https://ctoma.ru' .
+                  $_SERVER['REQUEST_URI']
+              ],
+            ];
+            $variables['page']['#attached']['html_head'][] = [$og_url, 'og_url'];
+            /* проверка на наличие изображения в контенте начало */
+            $requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+            $path = Drupal::service('path_alias.manager')->getPathByAlias($requestUri);
+            if (preg_match('/node\/(\d+)/', $path, $matches)) {
+                $str = Drupal::entityTypeManager()->getStorage('node')->load((int)$matches[1]);
+                if ($str->body->value) {
+                    $body = $str->body->value;
+                    preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $body, $regexImg);
+                    $firstImgScr = array_pop($regexImg);
+                    if (!empty($firstImgScr)) {
+                        $og_image = [
+                          '#tag' => 'meta',
+                          '#attributes' => [
+                            'property' => 'og:image',
+                            'content' => 'https://ctoma.ru' .
+                              $firstImgScr
+                          ],
+                        ];
+                    } else {
+                        $og_image = [
+                          '#tag' => 'meta',
+                          '#attributes' => [
+                            'property' => 'og:image',
+                            'content' =>
+                              'https://ctoma.ru/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg'
+                          ],
+                        ];
+                    }
+                    $variables['page']['#attached']['html_head'][] = [$og_image, 'og_image'];
+                }
+            }
+            /* проверка на наличие изображения в контенте конец */
+        }
     }
 }
