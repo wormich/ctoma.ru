@@ -74,7 +74,13 @@
         </div>
 <div class="articleDefault__img width_paddingStandart" itemprop="image" itemscope itemtype="https://schema.org/ImageObject" style="display:none">
         {{ content.field_izobrazenie_statei }}
-        <meta itemprop="image" content="{% if file_url(content.field_izobrazenie_statei['#items'].entity.uri.value)|length > 5 %}{{ file_url(content.field_izobrazenie_statei['#items'].entity.uri.value) }}{% else %}/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg{% endif %}">
+        <meta itemprop="image" content="{% if content.field_izobrazenie_statei['#items'] %}
+{% if file_url(content.field_izobrazenie_statei['#items'].entity.uri.value)|length > 5 %}
+{{ file_url(content.field_izobrazenie_statei['#items'].entity.uri.value) }}
+{% endif %}
+{% else %}
+/themes/my_theme/bem/blocks/makeImg/img/zapis_img.jpg
+{% endif %}">
       </div>
         <div class="articlesPage__content articleDefault__body width_paddingStandart" itemprop="articleBody">
             {{ contenth2|raw }}

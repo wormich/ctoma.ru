@@ -162,7 +162,7 @@ function template_preprocess_sitemap(array &$variables) {
         break;
 
       case 'vocabularies':
-        $vocabulary = \Drupal::entityManager()->getStorage('taxonomy_vocabulary')->load($id);
+        $vocabulary = \Drupal::entityTypeManager()->getStorage('taxonomy_vocabulary')->load($id);
         $vocabularies = $config->get('show_vocabularies');
 
         if ($vocabulary && !empty($vocabularies[$vocabulary->id()])) {

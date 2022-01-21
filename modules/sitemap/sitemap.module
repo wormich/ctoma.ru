@@ -264,7 +264,7 @@ function _sitemap_menus($mid)
  */
 function sitemap_taxonomy_term_count_nodes($tid)
 {
-    $query = db_select('taxonomy_index', 'ti');
+    $query = \Drupal::database()->select('taxonomy_index', 'ti');
     $query->addExpression('COUNT(ti.nid)');
     $count = $query->condition('ti.tid', $tid)->execute()->fetchCol();
     return $count[0];
