@@ -2780,3 +2780,43 @@ blockquote {
     padding: 8px 15px 5px !important;
   }
 }
+#flavor-nav fieldset {
+  border: none;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-block-start: 0;
+  padding-block-end: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  min-inline-size: unset;
+  display: inline-block;
+  overflow: hidden;
+}
+#edit-field-specialization-target-id-wrapper {
+  flex-basis: 33%;
+}
+#edit-field-mesta-raboty-target-id-wrapper {
+  flex-basis: 62%;
+}
+#flavor-nav legend {
+  width: 100%;
+}
+#flavor-nav legend span {
+  margin-bottom: 14px;
+  background: #d82043;
+  color: white;
+  font-weight: bold;
+  height: 50px;
+  padding-left: 20px;
+  display: block;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding-top: 17px;
+  font-family: "ralewayregular", sans-serif;
+  text-transform: uppercase;
+}
+#edit-field-specialization-target-id-wrapper legend span {
+  padding-top: 7px !important;
+}
