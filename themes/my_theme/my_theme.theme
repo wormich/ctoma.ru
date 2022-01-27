@@ -416,16 +416,16 @@ function my_theme_preprocess_html(&$variables)
     }
 
     /*Убираем каноникл если он дублирует текущий УРЛ 26.02.2020*/
-    foreach ($variables['page']['#attached']['html_head'] as $key => $hw) {
-        if (isset($hw[0]['#attributes']['rel']) && $hw[0]['#attributes']['rel'] ==
-          'canonical') {
-            $purl = parse_url($hw[0]['#attributes']['href']);
-            $p = strtolower($purl['path']);
-            if ($p == $_SERVER['REQUEST_URI']) {
-                unset($variables['page']['#attached']['html_head'][$key]);
-            }
-        }
-    }
+//    foreach ($variables['page']['#attached']['html_head'] as $key => $hw) {
+//        if (isset($hw[0]['#attributes']['rel']) && $hw[0]['#attributes']['rel'] ==
+//          'canonical') {
+//            $purl = parse_url($hw[0]['#attributes']['href']);
+//            $p = strtolower($purl['path']);
+//            if ($p == $_SERVER['REQUEST_URI']) {
+//                unset($variables['page']['#attached']['html_head'][$key]);
+//            }
+//        }
+//    }
     /*Убираем каноникл если он дублирует текущий УРЛ 26.02.2020*/
 }
 
@@ -465,6 +465,12 @@ function my_theme_page_attachments_alter(array &$variables)
         header("HTTP/1.1 301 Moved Permanently");
         header("Location: /");
         exit();
+    }
+
+    if (substr($_SERVER['REQUEST_URI'], -1, 1) == '/' && $_SERVER['REQUEST_URI'] != '/') {
+      header("HTTP/1.1 301 Moved Permanently");
+      header("Location: " . substr($_SERVER['REQUEST_URI'], 0, strlen($_SERVER['REQUEST_URI'])-1));
+      exit();
     }
 
     if (Drupal::request()->query->get('page')) {
