@@ -21,62 +21,62 @@
  *   - class: HTML classes.
  */
 #}
-{% if message_list %}
-  <div class="statusMessages width width_norm width_paddingLeftRight">
-    {% for type, messages in message_list %}
+{#{% if message_list %}#}
+{#  <div class="statusMessages width width_norm width_paddingLeftRight">#}
+{#    {% for type, messages in message_list %}#}
 
-      {% if type == 'error' %}
-        <div class="statusMessages__message statusMessages__error" role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
+{#      {% if type == 'error' %}#}
+{#        <div class="statusMessages__message statusMessages__error" role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>#}
 
-          {% if messages|length > 1 %}
-            <ul>
-              {% for message in messages %}
-                <li>{{ message }}</li>
-              {% endfor %}
-            </ul>
-          {% else %}
-            {{ messages|first }}
-          {% endif %}
+{#          {% if messages|length > 1 %}#}
+{#            <ul>#}
+{#              {% for message in messages %}#}
+{#                <li>{{ message }}</li>#}
+{#              {% endfor %}#}
+{#            </ul>#}
+{#          {% else %}#}
+{#            {{ messages|first }}#}
+{#          {% endif %}#}
 
-          <span class="statusMessages__close"></span>
-        </div>
-      {% endif %}
+{#          <span class="statusMessages__close"></span>#}
+{#        </div>#}
+{#      {% endif %}#}
 
-      {% if type == 'warning' %}
-        <div class="statusMessages__message statusMessages__warning" role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
+{#      {% if type == 'warning' %}#}
+{#        <div class="statusMessages__message statusMessages__warning" role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>#}
 
-          {% if messages|length > 1 %}
-            <ul>
-              {% for message in messages %}
-                <li>{{ message }}</li>
-              {% endfor %}
-            </ul>
-          {% else %}
-            {{ messages|first }}
-          {% endif %}
+{#          {% if messages|length > 1 %}#}
+{#            <ul>#}
+{#              {% for message in messages %}#}
+{#                <li>{{ message }}</li>#}
+{#              {% endfor %}#}
+{#            </ul>#}
+{#          {% else %}#}
+{#            {{ messages|first }}#}
+{#          {% endif %}#}
 
-          <span class="statusMessages__close"></span>
-        </div>
-      {% endif %}
+{#          <span class="statusMessages__close"></span>#}
+{#        </div>#}
+{#      {% endif %}#}
 
-      {% if type == 'status' %}
-        <div class="statusMessages__message statusMessages__status" role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
+{#      {% if type == 'status' %}#}
+{#        <div class="statusMessages__message statusMessages__status" role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>#}
 
-          {% if messages|length > 1 %}
-            <ul>
-              {% for message in messages %}
-                <li>{{ message }}</li>
-              {% endfor %}
-            </ul>
-          {% else %}
-            {{ messages|first }}
-          {% endif %}
+{#          {% if messages|length > 1 %}#}
+{#            <ul>#}
+{#              {% for message in messages %}#}
+{#                <li>{{ message }}</li>#}
+{#              {% endfor %}#}
+{#            </ul>#}
+{#          {% else %}#}
+{#            {{ messages|first }}#}
+{#          {% endif %}#}
 
-          <span class="statusMessages__close"></span>
-        </div>
-      {% endif %}
+{#          <span class="statusMessages__close"></span>#}
+{#        </div>#}
+{#      {% endif %}#}
 
-    {% endfor %}
-  </div>
-{% endif %}
+{#    {% endfor %}#}
+{#  </div>#}
+{#{% endif %}#}
 
